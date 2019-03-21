@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.QuestionnaireDao">
+
+    <insert id="InsertPain" parameterType="java.util.Map">
+        insert into mcgillpainquestionnaire(uuid , fraction , updata_time , week)
+        VALUES (#{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER})
+    </insert>
+
+    <insert id="InsertMood" parameterType="java.util.Map">
+insert into moodselfassesment(uuid , fraction , updata_time , week)
+        VALUES (#{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER})
+    </insert>
+
+    <insert id="InsertSleep" parameterType="java.util.Map">
+insert into sleepselfassesment(uuid , fraction , updata_time , week)
+        VALUES (#{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER})
+    </insert>
+
+
+    <select id="SelectMood" parameterType="Questionnaire" resultMap="SelectMoodResultMap">
+        select
+          fraction , updata_time
+        from moodselfassesment
+        where
+          uuid = #{uuid , jdbcType=VARCHAR} and updata_time = #{time , jdbcType=BIGINT}
+    </select>
+
+    <resultMap id="SelectMoodResultMap" type="Questionnaire">
+        <result property="fraction" column="fraction"/>
+        <result property="updata_time" column="updata_time"/>
+    </resultMap>
+
+    <update id="UpdateMood" parameterType="map">
+        update  moodselfassesment
+        set fraction = #{data , jdbcType=VARCHAR}
+        where uuid = #{uuid ,jdbcType = VARCHAR} and updata_time = #{time , jdbcType=BIGINT}
+    </update>
+
+    <select id="SelectMoodForChart" parameterType="String" resultMap="SelectMoodResultMap">
+        select
+          fraction , updata_time
+        from moodselfassesment
+        where uuid = #{uuid}
+        order by updata_time desc
+        limit 0 , 7
+    </select>
+
+    <select id="SelectPain" parameterType="map" resultMap="SelectPainResultMap">
+        select
+          fraction , updata_time
+        from mcgillpainquestionnaire
+        where
+          uuid = #{uuid , jdbcType=VARCHAR} and updata_time = #{time , jdbcType=BIGINT}
+    </select>
+
+    <resultMap id="SelectPainResultMap" type="Questionnaire">
+        <result property="fraction" column="fraction"/>
+        <result property="updata_time" column="updata_time"/>
+    </resultMap>
+
+    <update id="UpdatePain" parameterType="map">
+        update  mcgillpainquestionnaire
+        set fraction = #{data , jdbcType=VARCHAR}
+        where uuid = #{uuid ,jdbcType = VARCHAR} and updata_time = #{time , jdbcType=BIGINT}
+    </update>
+
+    <select id="SelectPainForChart" parameterType="String" resultMap="SelectPainResultMap">
+        select
+          fraction , updata_time
+        from mcgillpainquestionnaire
+        where uuid = #{uuid}
+        order by updata_time desc
+        limit 0 , 7
+    </select>
+
+    <select id="SelectSleep" parameterType="Questionnaire" resultMap="SelectSleepResultMap">
+        select
+         fraction , updata_time
+        from sleepselfassesment
+        where
+          uuid = #{uuid , jdbcType=VARCHAR} and updata_time = #{time , jdbcType=BIGINT}
+    </select>
+
+    <resultMap id="SelectSleepResultMap" type="Questionnaire">
+        <result property="fraction" column="fraction"/>
+        <result property="updata_time" column="updata_time"/>
+    </resultMap>
+
+    <update id="UpdateSleep" parameterType="map">
+        update  sleepselfassesment
+        set fraction = #{data , jdbcType=VARCHAR}
+        where uuid = #{uuid ,jdbcType = VARCHAR} and updata_time = #{time , jdbcType=BIGINT}
+    </update>
+
+    <select id="SelectSleepForChart" parameterType="String" resultMap="SelectSleepResultMap">
+        select
+          fraction , updata_time
+        from sleepselfassesment
+        where uuid = #{uuid}
+        order by updata_time desc
+        limit 0 , 7
+    </select>
+
+
+</mapper>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.IUserDao">
+    <select id="getUser" resultMap="getUSerResultMap">
+        select  *
+        from  user_table
+    </select>
+    <resultMap id="getUSerResultMap" type="User">
+        <result property="uuid" column="uuid"/>
+        <result property="mail" column="mail"/>
+        <result property="phone" column="phone"/>
+    </resultMap>
+
+    <!--根据微信openid 检查是否存在用户 start-->
+    <select id="get_userid" resultType="String" parameterType="String">
+        select uuid
+        from user_table
+        where wx_openid = #{wx_openid}
+    </select>
+    <!--根据微信openid 检查是否存在用户 end-->
+
+    <insert id="wx_createUser" parameterType="String">
+        insert into
+          user_table(uuid, wx_openid)
+        values(#{uuid},#{wx_openid})
+    </insert>
+
+    <!--app用户注册进行用户创建-->
+    <insert id="app_createUser">
+        insert into
+          user_table(uuid , phone , mail , password)
+        values(#{userInfo.uuid} , #{userInfo.phone} , #{userInfo.mail} , #{userInfo.pwd})
+    </insert>
+
+    <!--app用户进行登陆操作-->
+    <select id="app_LoginUser" parameterType="String" resultMap="selectAppLoginResultMap">
+        select
+        i.uuid,
+        i.nickName,
+        i.avatarUrls,
+        c.type_descs as gender,
+        i.city
+        from user_info i
+        left join (
+        select
+        type_id , type_descs
+        from
+        basedict
+        where type_code = 1
+        ) c on i.gender = c.type_id,
+        (select
+          uuid
+          from user_table
+            where
+              <if test="userInfo.phone != null">
+                  phone = #{userInfo.phone}
+                  <if test="userInfo.pwd != null ">
+                      and password = #{userInfo.pwd}
+                  </if>
+              </if>
+              <if test="userInfo.mail != null">
+                  mail = #{userInfo.mail}
+                  <if test="userInfo.pwd != null">
+                      and password = #{userInfo.pwd}
+                  </if>
+              </if>
+          ) b
+        where
+          i.uuid = b.uuid
+    </select>
+
+    <resultMap id="selectAppLoginResultMap" type="com.Bean.User">
+        <id column="uuid" property="uuid"/>
+        <result column="nickName" property="NickName"/>
+        <result column="avatarUrls" property="avatarUrls"/>
+        <result column="gender" property="gender"/>
+    </resultMap>
+
+    <!--userInfo表插初始化用户信息-->
+    <insert id="Init_UserInfo">
+        insert into
+          user_info(uuid ,nickName ,avatarUrls ,gender)
+        values (#{user.uuid} ,#{user.nickName} ,#{user.avatarUrls} ,#{user.gender})
+    </insert>
+
+    <!--user表进行密码强制修改-->
+    <update id="app_UserPwdLose">
+        update user_table
+        set
+          password = #{userLink.pwd}
+        <where>
+            <if test="userLink.phone != null">
+                phone = #{userLink.phone}
+            </if>
+            <if test="userLink.mail != null">
+                mail = #{userLink.mail}
+            </if>
+        </where>
+    </update>
+
+    <!--用户进行软密码修改-->
+    <update id="app_UserUpdatePwd">
+        update user_table
+        set
+         password = #{userInfo.pwd}
+        where
+         uuid = #{userInfo.uuid}
+    </update>
+
+    <select id="getPwd" parameterType="String" resultType="String">
+        select
+          password
+        from
+          user_table
+        where uuid = #{uuid}
+    </select>
+
+    <!--用户地址模块-->
+    <!--新增地址-->
+    <insert id="InsertAddress">
+        insert into user_address(uuid, name, phone, country, address, postalcode)
+        values (
+        #{address.uuid},
+        #{address.recipient},
+        #{address.phone},
+        #{address.country},
+        #{address.address},
+        #{address.postal}
+        )
+    </insert>
+
+    <!--更新地址-->
+    <update id="UpdateAddress" parameterType="com.Bean.Address">
+        update user_address
+        <set>
+        <if test="name != null">
+            name = #{recipient},
+        </if>
+        <if test="phone != null">
+            phone = #{phone},
+        </if>
+        <if test="country != null">
+            country = #{country},
+        </if>
+        <if test="address != null">
+            address = #{address},
+        </if>
+        <if test="postal != null">
+            postalcode = #{postal},
+        </if>
+        </set>
+        where
+         address_id = #{address_id} and uuid = #{uuid}
+    </update>
+
+    <!--删除地址-->
+    <delete id="deleteAddress">
+
+    </delete>
+
+    <!--根据用户填写的个人信息创建-->
+    <insert id="InsertNewAddress" parameterType="jsonOrderBean" useGeneratedKeys = "true"   keyProperty = "id">
+        insert into user_address(uuid, name, phone, country, address, postalcode)
+        values (#{data.uuid, jdbcType=VARCHAR} , #{data.address.recipient,jdbcType=VARCHAR} , #{data.address.phone , jdbcType=VARCHAR} , #{data.address.country , jdbcType=VARCHAR} , #{data.address.address,jdbcType=VARCHAR} , #{data.address.postalcode,jdbcType=VARCHAR})
+    </insert>
+
+    <!--查询最新的主键（暂时解决无法返回插入并返回主键的问题 -->
+    <select id="getKey" parameterType="String" resultType="int">
+        SELECT address_id  from user_address
+        where uuid = #{uuid}
+        order by address_id desc
+        limit 0,1
+    </select>
+
+    <!--查询用户填写的号码是否已经注册-->
+    <select id="CheckTel" resultType="Integer" parameterType="String">
+        select
+          *
+        from user_table
+        where phone = #{phone}
+    </select>
+</mapper>

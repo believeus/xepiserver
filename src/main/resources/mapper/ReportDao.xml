@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.ReportDao">
+    <select id="GetLifeData" resultMap="GetLifeDataResultMap" parameterType="String">
+        select * from life_style
+        where uuid = #{uuid}
+        order by update_time
+    </select>
+
+    <resultMap id="GetLifeDataResultMap" type="life">
+        <result column="update_time" property="update_time"/>
+        <result column="week" property="week"/>
+        <result column="mediatation" property="mediatation"/>
+        <result column="height" property="height"/>
+        <result column="sex_life_frequency" property="sex_life_frequency"/>
+        <result column="weight" property="weight"/>
+        <result column="sex_life_score" property="sex_life_score"/>
+        <result column="bmi" property="bmi"/>
+        <result column="systolic_BP" property="systolic_BP"/>
+        <result column="vitamin_A" property="vitamin_A"/>
+        <result column="alcohol" property="alcohol"/>
+        <result column="smoking" property="smoking"/>
+        <result column="sport" property="sport"/>
+        <result column="cholesterol" property="cholesterol"/>
+        <result column="heart_rate" property="heart_rate"/>
+        <result column="sleep" property="sleep"/>
+        <result column="diastolic_BP" property="diastolic_BP"/>
+        <result column="vitamin_C" property="vitamin_C"/>
+        <result column="vitamin_D" property="vitamin_D"/>
+        <result column="food_Breakfast" property="food_Breakfast"/>
+        <result column="food_Breakfast_snacks" property="food_Breakfast_snacks"/>
+        <result column="food_Lunch" property="food_Lunch"/>
+        <result column="food_Lunch_snacks" property="food_Lunch_snacks"/>
+        <result column="food_Dinner" property="food_Dinner"/>
+        <result column="food_Dinner_snacks" property="food_Dinner_snacks"/>
+    </resultMap>
+</mapper>
