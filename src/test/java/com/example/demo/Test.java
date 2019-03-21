@@ -228,7 +228,7 @@ public class Test {
 
     @org.junit.Test
     public void TestMap(){
-        Map<String , Object> map = new HashMap<>();
+        Map<String , Object> map = new HashMap<String , Object>();
         map.put("toto" , "123123");
 
         System.out.println(map.get("toto").toString());

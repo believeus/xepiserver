@@ -1,24 +1,36 @@
 package com.Controller;
 
-import com.Bean.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Bean.Address;
+import com.Bean.JsonOrderBean;
+import com.Bean.User;
+import com.Bean.UserInfo;
+import com.Bean.Wares;
 import com.Serivce.CartService;
 import com.Serivce.OrderService;
 import com.Serivce.WaresService;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.math.BigDecimal;
-import java.util.*;
 
 /**
  * @ CreateDate : Create in 11:29 2019/3/8
@@ -49,7 +61,7 @@ public class TransactionController {
     //用于接受购物车第一次的商品传递
     @RequestMapping(value = "/PostCar")
     public Map PostCar(@RequestBody JSONObject jsonObject, HttpServletResponse response){
-        List<Wares> list = new ArrayList<>();
+        List<Wares> list = new ArrayList<Wares>();
         System.out.println("wares:");
 
         //获得存放在wares中的商品编号和数量
@@ -99,7 +111,7 @@ public class TransactionController {
         //获取session中的user的对象
         UserInfo userInfo = (UserInfo)request.getSession().getAttribute("user");
 
-        Map<String , Object> map = new HashMap<>();
+        Map<String , Object> map = new HashMap<String , Object>();
         Wares wares = new Wares();
         wares.setUuid(userInfo.getUuid());
         wares.setWares_id(Integer.parseInt(jsonObject.getString("wares_id")));
@@ -127,7 +139,7 @@ public class TransactionController {
         //获取session中的user的对象
         UserInfo userInfo = (UserInfo)request.getSession().getAttribute("user");
 
-        Map<String , Object> map = new HashMap<>();
+        Map<String , Object> map = new HashMap<String , Object>();
         Wares wares = new Wares();
         wares.setUuid(userInfo.getUuid());
         wares.setWares_id(Integer.parseInt(jsonObject.getString("wares_id")));
@@ -166,8 +178,8 @@ public class TransactionController {
         * */
 
         System.out.println(jsonObject.toJSONString());
-        List<Wares> list = new ArrayList<>();
-        Map<String , Object> map = new HashMap<>();
+        List<Wares> list = new ArrayList<Wares>();
+        Map<String , Object> map = new HashMap<String , Object>();
 
         //用于存储前台传递的数值的对象
         JsonOrderBean data = new JsonOrderBean();

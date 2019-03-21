@@ -2,13 +2,6 @@ server:
   port: 8080
 
 spring:
-    mvc:
-      view: # 页面默认前缀目录
-        prefix: /WEB-INF/jsp/
-        suffix: .jsp
-      static-path-pattern: /**
-    #resources:
-      #static-locations: classpath:/static,classpath:/templates
     datasource:
         name: mybatis_test
         #使用druid连接池
@@ -21,7 +14,7 @@ spring:
           #配置基本属性
           url: jdbc:mysql://localhost:3306/epi?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
           username: root
-          password: 123456
+          password: 
           #配置初始化大小/最小/最大
           initial-size: 1
           min-idle: 1

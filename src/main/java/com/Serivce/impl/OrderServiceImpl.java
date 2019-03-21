@@ -44,8 +44,8 @@ public class OrderServiceImpl implements OrderService {
 
 
     public Map<String , Object> OrderCreate(JsonOrderBean data) {
-        Map<String , Object> map = new HashMap<>();
-        Map<String , Object> dataMap = new HashMap<>();
+        Map<String , Object> map = new HashMap<String , Object>();
+        Map<String , Object> dataMap = new HashMap<String , Object>();
 
         System.out.println("----------------------");
         System.out.println(data.toString());

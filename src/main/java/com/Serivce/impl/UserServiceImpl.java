@@ -32,7 +32,7 @@ public class UserServiceImpl implements IUserSerivce {
 
     @Override
     public List<User> getUser() {
-        List<User> list = new ArrayList<>();
+        List<User> list = new ArrayList<User>();
         list.add(userDao.getUser());
         return list;
     }
@@ -71,7 +71,7 @@ public class UserServiceImpl implements IUserSerivce {
 
     @Override
     public Map app_CreateUser(UserInfo userCreat) {
-        Map<String , Object> map = new HashMap<>();
+        Map<String , Object> map = new HashMap<String , Object>();
         //系统自动生成唯一id
         String uuid = UserCreate.getUuid();
 

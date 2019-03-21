@@ -43,7 +43,7 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
         HttpSession session = request.getSession();
         session.removeAttribute("cursor");
 
-        Map<String , Object> map = new HashMap<>();
+        Map<String , Object> map = new HashMap<String , Object>();
 
         //获取现在的系统时间
         long nowTime = System.currentTimeMillis();
@@ -239,12 +239,12 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
     @Override
     public Map getData(Questionnaire questionnaire) {
         String type = questionnaire.getType();
-        Map<String , Object> map = new HashMap<>();
+        Map<String , Object> map = new HashMap<String , Object>();
         //flag 为每个问卷中题目的总数量
         Integer flag = 0;
 
         //获取仅7天的数据
-        List<Questionnaire> list = new LinkedList<>();
+        List<Questionnaire> list = new LinkedList<Questionnaire>();
 
         //根据输入的问卷的类型进行选择
         if (type.equals("Mood")) {
@@ -312,7 +312,7 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
     }
 
     public Map getReport(String uuid) {
-        List<Life> life = new LinkedList<>();
+        List<Life> life = new LinkedList<Life>();
 
         //获取session 中的 cursor标识符
         HttpSession session = request.getSession();

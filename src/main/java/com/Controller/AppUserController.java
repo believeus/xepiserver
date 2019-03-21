@@ -231,7 +231,7 @@ public class AppUserController {
         * "code" : //用户输入的验证码,
         * "pwd" : //用户输入的密码
         * */
-        Map<String , Object> map = new HashMap<>();
+        Map<String , Object> map = new HashMap<String , Object>();
 
         //获取session中存放的用户填写的账户信息
         HttpSession session = request.getSession();
@@ -263,7 +263,7 @@ public class AppUserController {
         session.removeAttribute("userLink");
         session.removeAttribute("userInfo");
 
-        Map<String , Object> map = new HashMap<>();
+        Map<String , Object> map = new HashMap<String , Object>();
 
         map.put("data" , "success");
         return map;
@@ -280,7 +280,7 @@ public class AppUserController {
          *  "newPwd" : //前端传递的新密码 -> 密码
          *  "code" : //前端传递的验证码 ->验证码}
          * */
-        Map<String ,Object> map = new HashMap<>();
+        Map<String ,Object> map = new HashMap<String , Object>();
 
         //获取用户输入的新密码
         String newPwd = jsonObject.getString("newPwd");

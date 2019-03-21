@@ -41,7 +41,7 @@ public class CartSerivceImpl implements CartService {
         //List<Wares> list = waresDao.selectCartWares(user.getUuid());
 
         List<Wares> list = waresDao.selectCartWares(uuid);
-        Map<String , Object> map = new HashMap<>();
+        Map<String , Object> map = new HashMap<String , Object>();
         map.put("CartList" , list);
         return map;
     }
