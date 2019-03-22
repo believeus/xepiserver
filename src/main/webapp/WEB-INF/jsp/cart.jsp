@@ -13,10 +13,10 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>购物车</title>
 
-    <script type="text/javascript" src="static/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 
-    <link type="text/css" rel="stylesheet" href="static/css/base.css" />
-    <link type="text/css" rel="stylesheet" href="static/css/module.css" />
+    <link type="text/css" rel="stylesheet" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" href="css/module.css" />
 
 </head>
 
@@ -41,7 +41,7 @@
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="1001">
                         <div class="shop-info-img" style="text-align: center;">
 
-                            <img src="static/images/DNA.png"
+                            <img src="img/Goods/DNA.png"
                                  style="width: 90%;height:auto;transform: translateY(10px);" />
                         </div>
                         <div class="shop-info-text">
@@ -50,9 +50,9 @@
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">150</b></div>
                                 <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus" style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                     <span class="num" name="count" id="count_1001">1</span>
-                                    <a href="javascript:;" class="minus" style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                 </div>
                             </div>
                         </div>
@@ -63,16 +63,16 @@
                     <div class="shop-info">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="2001">
                         <div class="shop-info-img" style="text-align: center;">
-                            <img src="static/images/SAM-e.png" style="width: 100%;height:auto;" /></div>
+                            <img src="img/Goods/SAM-e.png" style="width: 100%;height:auto;" /></div>
                         <div class="shop-info-text">
                             <h4>SAM-e</h4>
                             <div class="shop-brief"><span>S-adenosine Supplement</span></div>
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">35</b></div>
                                 <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus" style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                     <span class="num" name="count" id="count_2001">1</span>
-                                    <a href="javascript:;" class="minus" style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                     <div class="shop-info">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3001">
                         <div class="shop-info-img" style="text-align: center;">
-                            <img src="static/images/VitaminA.png" style="width: 60%;height:auto;" /></div>
+                            <img src="img/Goods/VitaminA.png" style="width: 60%;height:auto;" /></div>
                         <div class="shop-info-text">
                             <h4>VitaminA</h4>
                             <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum
@@ -93,9 +93,9 @@
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">30</b></div>
                                 <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus" style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                     <span class="num" name="count" id="count_3001">1</span>
-                                    <a href="javascript:;" class="minus" style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3002">
                         <div class="shop-info-img" style="text-align: center;">
 
-                            <img src="static/images/VitaminC.png" style="width: 60%;height:auto;" /></div>
+                            <img src="img/Goods/VitaminC.png" style="width: 60%;height:auto;" /></div>
                         <div class="shop-info-text">
                             <h4>VitaminC</h4>
                             <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum
@@ -116,9 +116,9 @@
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">30</b></div>
                                 <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus" style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                     <span class="num" name="count" id="count_3002">1</span>
-                                    <a href="javascript:;" class="minus" style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                     <div class="shop-info">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3003">
                         <div class="shop-info-img" style="text-align: center;">
-                            <img src="static/images/VitaminD.png" style="width: 60%;height:auto;" /></div>
+                            <img src="img/Goods/VitaminD.png" style="width: 60%;height:auto;" /></div>
                         <div class="shop-info-text">
                             <h4>VitaminD</h4>
                             <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum
@@ -138,9 +138,9 @@
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">30</b></div>
                                 <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus" style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                     <span class="num" name="count" id="count_3003">1</span>
-                                    <a href="javascript:;" class="minus" style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                 </div>
 
                             </div>
@@ -315,19 +315,14 @@
             console.log(s1)
 
             $.ajax({
-                url: "transaction/PostCar.jhtml",
+                url: "transaction/PostCar",
                 type: "post",
                 contentType: 'application/json; charset=UTF-8',
                 data: s1,
                 async: true,
                 success: function (str) {
                     console.log(str)
-                    if (str.msg == "用户未登录！") {
-                        window.location.href = 'login.jhtml';
-                    }else {
-                    console.log(str)
                     window.location.href = 'cart/check.jhtml';
-                    }
                 },
                 error: function () {
                     alert("发送未知错误！ 无法发送验证码！")

@@ -30,12 +30,12 @@
 
     <title>登录页面</title>
 
-    <link rel="stylesheet" type="text/css" href="static/css/login.css">
-    <link rel="stylesheet" type="text/css" href="static/css/login2.css">
-    <script src="static/js/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/login2.css">
+    <script src="js/jquery-2.1.1.min.js"></script>
 
 </head>
-<body style="background-image:url('static/images/bg.png');height: auto;width:100%;margin: 0;padding: 0">
+<body style="background-image:url('img/bg.png');height: auto;width:100%;margin: 0;padding: 0">
 <div style="width:100%;height:100%;">
     <div id="zhuce" onclick="ToReg()">Register</div>
     <div id="login"></div>

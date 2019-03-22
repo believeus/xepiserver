@@ -30,14 +30,14 @@
 
     <title>登录页面</title>
 
-    <link rel="stylesheet" type="text/css" href="static/css/login.css">
-    <link rel="stylesheet" type="text/css" href="static/css/login2.css">
-    <script src="static/js/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/login2.css">
+    <script src="js/jquery-2.1.1.min.js"></script>
 
 </head>
-<body style="background-image:url('static/images/bg.png');height: auto;width:100%;margin: 0;padding: 0">
+<body style="background-image:url('img/bg.png');height: auto;width:100%;margin: 0;padding: 0">
 <div style="width:100%;height:100%;">
-    <div id="zhuce" onclick="ToReg()">Register</div>
+    <div id="zhuce" onclick="ToLogin()">Login</div>
     <div id="login"></div>
     <div class="login_bg">
         <div id="logo">
@@ -48,43 +48,27 @@
             text-align: left;">
             <div id="CodeSignIn" style="display:block">
                 <div class="userName">
-                    <input type="text" name="AreaCode" id="AreaCode" style="width: 21%" value=" 86" >
-                    <input type="text" name="username1" id="username1" placeholder="Telephone" pattern="[0-9]{8,13}"  style="width: 48%" oninvalid="setCustomValidity('Please enter the correct mobile phone number!');"
+                    <input type="text" name="AreaCode" id="AreaCode" style="width: 21%" value=" 86">
+                    <input type="text" name="username1" id="username1" placeholder="Telephone"
+                           pattern="[0-9]{8,13}" style="width: 48%"
+                           oninvalid="setCustomValidity('Please enter the correct mobile phone number!');"
                            oninput="setCustomValidity('');">
                     <button
-                            style="width:23%;height:100%;border-radius: 5px;border:none;background-color: #6d83f8;color: #ffffff" onclick="time(this)">SMS</button>
+                            style="width:23%;height:100%;border-radius: 5px;border:none;background-color: #6d83f8;color: #ffffff"
+                            onclick="time(this)">SMS</button>
                 </div>
                 <div class="passWord">
                     <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
-                    <input type="text" name="SMSCode" id="SMSCode" placeholder="Verification Code" >
+                    <input type="text" name="SMSCode" id="SMSCode" placeholder="Verification Code">
                 </div>
-                <div class="choose_box">
-                    <div>
-                        <lable style="color:#808080"  onclick="Pwd()">Sign in 2</lable>
-                    </div>
-                    <a href="#" style="text-decoration:none;color: #808080">Forget it</a>
+                <div class="passWord">
+                    <lable style="color:#808080">Pwd:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
+                    <input type="text" name="Password" id="Password" placeholder="Password">
                 </div>
-                <button class="login_btn" onclick="login_1()">Login</button>
+                <button class="login_btn" onclick="Register()">Register</button>
             </div>
 
-            <div id="PWDSignIn" style="display:none">
-                <div class="userName">
-                    <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
-                    <input type="text" name="username2" id="username2" placeholder="Nickname" pattern="[0-9]{8,13}"  style="width: 60%" oninvalid="setCustomValidity('Please enter the correct mobile phone number!');"
-                           oninput="setCustomValidity('');">
-                </div>
-                <div class="passWord">
-                    <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
-                    <input type="password" name="password" id="password" placeholder="Password" style="width:60%">
-                </div>
-                <div class="choose_box">
-                    <div>
-                        <lable style="color:#808080" onclick="SMS()">Sign in 1</lable>
-                    </div>
-                    <a href="#" style="text-decoration:none;color: #808080">Forget it</a>
-                </div>
-                <button class="login_btn" onclick="login_2()">Login</button>
-            </div>
+            </form>
             <div class="other_login">
                 <span>By clicking the button below, I agree to the User Agreement and Privacy Policy.</span>
             </div>
@@ -118,19 +102,21 @@
             var phone = $("#username1").val()
             var AreaCode = $("#AreaCode").val()
 
-            var data = "{\"type\" : \"Phone\" , \"purpose\" : \"login\" , \"username\" : \"" + phone +
+            var data = "{\"type\" : \"Phone\" , \"purpose\" : \"register\" , \"username\" : \"" + phone +
                 "\" , \"AreaCode\" : \"" + AreaCode + "\"}"
             $.ajax({
                 url: "App/getCode",
                 type: "post",
                 contentType: 'application/json; charset=UTF-8',
                 data: data,
-                success: function(data) {
-                    if (data != null) {
+                success: function (data) {
+                    if (data != "error"){
                         code = data
-                    }
+                    }else{
+                        alert("The mobile phone number has been used.")
+                }
                 },
-                error: function() {
+                error: function () {
                     alert("发送未知错误！ 无法发送验证码！")
                 }
             });
@@ -144,7 +130,7 @@
             obj.setAttribute("disabled", true);
             obj.innerHTML = wait + "s";
             wait--;
-            setTimeout(function() {
+            setTimeout(function () {
                     time(obj)
                 },
                 1000)
@@ -154,50 +140,26 @@
 
 
 <script>
-    function login_1() {
-        var AreaCode = $("#AreaCode").val()
-        console.log(AreaCode)
+    function Register() {
         var phone = $("#username1").val()
         console.log(phone)
         var SMSCode = $("#SMSCode").val()
         console.log(SMSCode)
+        var pwd = $("#Password").val()
         if (SMSCode == code) {
-            var data = "{\"type\" : \"Phone\" , \"verification\" : \"2\" , \"username\" : \"" + phone +
-                "\" , \"code\" : \"" + SMSCode + "\"}"
+            var data = "{\"type\" : \"Phone\" , \"username\" : \"" + phone +
+                "\" , \"code\" : \"" + SMSCode + "\" , \"pwd\" : \"" + pwd + "\"}"
             console.log(data)
             $.ajax({
-                url: "App/login",
+                url: "App/register",
                 type: "post",
                 contentType: 'application/json; charset=UTF-8',
                 data: data,
-                success: function(data) {
-                    window.location.href = 'cart/index.jhtml';
+                success: function (data) {
+                    window.location.href = 'App/login.jhtml';
                 },
-                error: function() {
-                    alert("发送未知错误！ 无法发送验证码！")
-                }
-            });
-        }
-    }
-
-    function login_2() {
-        var phone = $("#username2").val()
-        console.log(phone)
-        var pwd = $("#password").val()
-        console.log(pwd)
-        if (pwd != null) {
-            var data = "{\"type\" : \"Phone\" , \"verification\" : \"1\" , \"username\" : \"" + phone +
-                "\" , \"pwd\" : \"" + pwd + "\"}"
-            $.ajax({
-                url: "App/login",
-                type: "post",
-                contentType: 'application/json; charset=UTF-8',
-                data: data,
-                success: function(data) {
-                    window.location.href = 'cart/index.jhtml';
-                },
-                error: function() {
-                    alert("发送未知错误！ 无法发送验证码！")
+                error: function () {
+                    alert("注册失败！")
                 }
             });
         }
@@ -205,7 +167,7 @@
 </script>
 
 <script>
-    function ToReg() {
-        window.location.href = 'App/register.jhtml';
+    function ToLogin() {
+        window.location.href = 'App/login.jhtml';
     }
 </script>

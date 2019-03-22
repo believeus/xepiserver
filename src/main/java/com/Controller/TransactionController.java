@@ -95,6 +95,11 @@ public class TransactionController {
         System.out.println(data);
         Map map = new HashMap();
         map.put("data" ,data);
+
+        if (session.getAttribute("userInfo") == null){
+            map.put("msg" , "error");
+            return map;
+        }
         return map;
     }
 
@@ -158,7 +163,7 @@ public class TransactionController {
     //提交订单
     @ResponseBody
     @RequestMapping(value = "/LoadOrder" , produces = "application/json;charset=UTF-8")
-    public ModelAndView PostOrder(@RequestBody JSONObject jsonObject) {
+    public Map PostOrder(@RequestBody JSONObject jsonObject) {
         /*
         * {
         *   "wares" : [ //用户选择提交的商品列表
@@ -180,17 +185,16 @@ public class TransactionController {
 
         HttpSession session = request.getSession();
         session.setAttribute("ORDER" , jsonObject);
-        ModelAndView modelView=new ModelAndView();
+        Map<String , Object> map = new HashMap<String , Object>();
 
         if (session.getAttribute("userInfo") == null){
-            modelView.addObject("canback",true);
-            modelView.setViewName("/WEB-INF/front/login.jsp");
-            return modelView;
+            map.put("msg" , "error");
+            return map;
         }
 
         System.out.println(jsonObject.toJSONString());
         List<Wares> list = new ArrayList<Wares>();
-        Map<String , Object> map = new HashMap<String , Object>();
+
 
         //用于存储前台传递的数值的对象
         JsonOrderBean data = new JsonOrderBean();
@@ -209,10 +213,7 @@ public class TransactionController {
         //获取json中用户传递的收货地址信息
         if(jsonObject.getString("addr").isEmpty()){
            map.put("msg" , "获取用户地址失败！");
-           //return map;
-            modelView.addObject("canback",true);
-            modelView.setViewName("/WEB-INF/front/cart.jsp");
-            return modelView;
+           return map;
         }
         else {
             Address address = jsonObject.getObject("addr" , Address.class);
@@ -248,28 +249,19 @@ public class TransactionController {
             e.printStackTrace();
             map.put("msg" ,"创建订单失败，请联系管理员！");
             map.put("data",null);
-//            return map;
-            modelView.addObject("canback",true);
-            modelView.setViewName("/WEB-INF/front/index.jsp");
-            return modelView;
+            return map;
         }
         if (data != null){
             map.put("msg" , null);
             //Map<String , Object> m2 = orderService.OrderCreate(data);
             map.put("data", orderService.OrderCreate(data));
 
-            //return map;
-            modelView.addObject("canback",true);
-            modelView.setViewName("/WEB-INF/front/check.jsp");
-            return modelView;
+            return map;
         }
 
         map.put("msg" ,"创建订单失败，请联系管理员！");
         map.put("data",null);
-        //return map;
-        modelView.addObject("canback",true);
-        modelView.setViewName("/WEB-INF/front/index.jsp");
-        return modelView;
+        return map;
     }
 
     //调起支付
