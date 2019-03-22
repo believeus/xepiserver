@@ -14,11 +14,11 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 /*头部结束*/
 
 input[type="checkbox"]{-webkit-appearance:none;outline: none;}
-input.check{background:url(../img/icon/icon_radio3.png) no-repeat center left;background-size:20px 20px;position:absolute;top:50%;left:10px;margin-top:-18px;width:20px;height:35px;}
-input.check:checked{background:url(../img/icon/icon_radio4.png) no-repeat center left;background-size:20px 20px;}
-input.goodsCheck:checked{background:url(../img/icon/icon_radio4.png) no-repeat center left;background-size:20px 20px;}
-input.check:checked{background:url(../img/icon/icon_radio4.png) no-repeat center left;background-size:20px 20px;}
-.checked{background:url(../img/icon/icon_radio4.png) no-repeat left center;background-size:20px 20px;position:absolute;top:50%;left:15px;margin-top:-18px;width:20px;height:35px;}
+input.check{background:url(../images/icon_radio3.png) no-repeat center left;background-size:20px 20px;position:absolute;top:50%;left:10px;margin-top:-18px;width:20px;height:35px;}
+input.check:checked{background:url(../images/icon_radio4.png) no-repeat center left;background-size:20px 20px;}
+input.goodsCheck:checked{background:url(../images/icon_radio4.png) no-repeat center left;background-size:20px 20px;}
+input.check:checked{background:url(../images/icon_radio4.png) no-repeat center left;background-size:20px 20px;}
+.checked{background:url(../images/icon_radio4.png) no-repeat left center;background-size:20px 20px;position:absolute;top:50%;left:15px;margin-top:-18px;width:20px;height:35px;}
 
 /*尾部开始*/
 .footer .copyright{height:44px;line-height:44px;text-align:center;color:#848689;font-size:12px;}

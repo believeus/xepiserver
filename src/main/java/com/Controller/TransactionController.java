@@ -158,7 +158,7 @@ public class TransactionController {
     //提交订单
     @ResponseBody
     @RequestMapping(value = "/LoadOrder" , produces = "application/json;charset=UTF-8")
-    public Map<String , Object> PostOrder(@RequestBody JSONObject jsonObject) {
+    public ModelAndView PostOrder(@RequestBody JSONObject jsonObject) {
         /*
         * {
         *   "wares" : [ //用户选择提交的商品列表
@@ -180,6 +180,13 @@ public class TransactionController {
 
         HttpSession session = request.getSession();
         session.setAttribute("ORDER" , jsonObject);
+        ModelAndView modelView=new ModelAndView();
+
+        if (session.getAttribute("userInfo") == null){
+            modelView.addObject("canback",true);
+            modelView.setViewName("/WEB-INF/front/login.jsp");
+            return modelView;
+        }
 
         System.out.println(jsonObject.toJSONString());
         List<Wares> list = new ArrayList<Wares>();
@@ -202,7 +209,10 @@ public class TransactionController {
         //获取json中用户传递的收货地址信息
         if(jsonObject.getString("addr").isEmpty()){
            map.put("msg" , "获取用户地址失败！");
-           return map;
+           //return map;
+            modelView.addObject("canback",true);
+            modelView.setViewName("/WEB-INF/front/cart.jsp");
+            return modelView;
         }
         else {
             Address address = jsonObject.getObject("addr" , Address.class);
@@ -238,19 +248,28 @@ public class TransactionController {
             e.printStackTrace();
             map.put("msg" ,"创建订单失败，请联系管理员！");
             map.put("data",null);
-            return map;
+//            return map;
+            modelView.addObject("canback",true);
+            modelView.setViewName("/WEB-INF/front/index.jsp");
+            return modelView;
         }
         if (data != null){
             map.put("msg" , null);
             //Map<String , Object> m2 = orderService.OrderCreate(data);
             map.put("data", orderService.OrderCreate(data));
 
-            return map;
+            //return map;
+            modelView.addObject("canback",true);
+            modelView.setViewName("/WEB-INF/front/check.jsp");
+            return modelView;
         }
 
         map.put("msg" ,"创建订单失败，请联系管理员！");
         map.put("data",null);
-        return map;
+        //return map;
+        modelView.addObject("canback",true);
+        modelView.setViewName("/WEB-INF/front/index.jsp");
+        return modelView;
     }
 
     //调起支付

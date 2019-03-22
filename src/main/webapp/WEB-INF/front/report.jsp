@@ -19,7 +19,7 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <script src="static/js/build/dist/echarts.js"></script>
-	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="static/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
 	// 路径配置
 	require.config({

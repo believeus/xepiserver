@@ -314,7 +314,7 @@
             contentType: 'application/json; charset=UTF-8',
             data : s2,
             success: function(data) {
-                window.location.href = 'cart/order.jhtml';
+                //window.location.href = 'cart/order.jhtml';
             },
             error: function() {
                 alert("发送未知错误！ 无法发送验证码！")

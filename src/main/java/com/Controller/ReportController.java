@@ -30,13 +30,13 @@ public class ReportController {
     @Resource
     private HttpServletResponse response;
 
-    @RequestMapping(value = "/getData.jhtml")
+    @RequestMapping(value = "/getData")
     @ResponseBody
     public List getData(@RequestBody JSONObject jsonObject){
         return reportService.GetDataForReport(jsonObject.getString("id"));
     }
 
-    @RequestMapping(value = "/report.jhtml")
+    @RequestMapping(value = "/report")
     public ModelAndView index(){
         response.setHeader("Access-Control-Allow-Origin", "*");
         ModelAndView modelView=new ModelAndView();
