@@ -7,10 +7,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
-	@RequestMapping("/index")
+	@RequestMapping("/index.jhtml")
 	public ModelAndView   home(){
 		ModelAndView modelView=new ModelAndView();
-		modelView.setViewName("index");
+		modelView.setViewName("/WEB-INF/front/index.jsp");
 		modelView.addObject("title","Home");
 		modelView.addObject("canback",false);
 		return modelView;
@@ -19,7 +19,7 @@ public class IndexController {
 	@RequestMapping("/")
 	public ModelAndView   home2(){
 		ModelAndView modelView=new ModelAndView();
-		modelView.setViewName("index");
+		modelView.setViewName("/WEB-INF/front/index.jsp");
 		modelView.addObject("title","Home");
 		modelView.addObject("canback",false);
 		return modelView;

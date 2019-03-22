@@ -4,13 +4,11 @@ import com.Serivce.OrderService;
 import com.paypal.api.payments.*;
 import com.paypal.base.rest.APIContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,10 +16,14 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+@CrossOrigin
 @RequestMapping(value = "/paypal")
 public class PayPalController {
 	@Resource
 	private HttpServletRequest request;
+
+	@Resource
+	private HttpServletResponse response;
 
 	@Resource
 	private OrderService orderService;
@@ -32,6 +34,7 @@ public class PayPalController {
 	//负责发起支付请求,会跳转到paypal的支付页面
 	@RequestMapping("/payment.jhtml")
 	public String payment() {
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		HttpSession session = request.getSession();
 
 		Map<String , Object> data = (Map<String,Object>)session.getAttribute("Order");
@@ -92,7 +95,7 @@ public class PayPalController {
 			}
 
 
-			return  execute.toJSON();
+			return  "/transaction/Success.jhtml";
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

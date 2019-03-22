@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.CartDao">
+    <!--添加产品进入购物车-->
+    <insert id="InsertIntoCart">
+        insert into user_cart(wares_id ,wares_count ,uuid)
+        values (#{cart.wares_id} , 1 , #{cart.uuid})
+    </insert>
+
+    <!--更新产品在购物车的数量-->
+    <update id="UpdateSetCart">
+        update user_cart
+        set wares_count = #{cart.wares_count}
+        where uuid = #{cart.uuid} and wares_id = #{cart.wares_id}
+    </update>
+
+    <!--在购物车中移除产品-->
+    <delete id="DeleteFromCart">
+        delete from user_cart
+        where uuid = #{cart.uuid} and wares_id = #{cart.wares_id}
+    </delete>
+
+    <!--用于清除购物车中被选择提交生成订单的商品-->
+    <delete id="MoveCartWares">
+        delete from user_cart
+        where uuid = #{uuid} and wares_id in
+        <foreach item="item" index="index" collection="list" separator="," open="(" close=")">
+            #{item.wares_id}
+        </foreach>
+    </delete>
+</mapper>

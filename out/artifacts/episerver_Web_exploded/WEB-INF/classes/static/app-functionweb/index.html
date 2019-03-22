@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/slide.js"></script>
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Home</title>
+		<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/demo-1.css">
+
+		<!--不同屏幕显示不同尺寸字体-->
+<style>
+@media screen and (min-width:300px){
+				html{font-size: 12px;}
+}
+@media screen and (min-width: 320px) {
+    html {font-size: 12px;}
+}
+ 
+@media screen and (min-width: 375px) {
+    html {font-size: 14px;}
+}
+ 
+@media screen and (min-width: 400px) {
+    html {font-size: 18px;}
+}
+ 
+@media screen and (min-width: 440px) {
+    html {font-size: 14px;}
+}
+ 
+@media screen and (min-width: 768px) {
+    html {font-size: 22px;}
+}
+ 
+@media screen and (min-width: 1024px) {
+    html {font-size: 24px;}
+}
+
+</style>
+		<!--设置slide轮播图按比例缩放-->
+		<!--<script type="text/javascript">
+			function ChageImg(){
+	var img = document.getElementById("img1")
+	console.log(img)
+	console.log(img.offsetWidth)
+	var imgWidth = img.offsetWidth
+	console.log(img.offsetHeight)
+	var imgHeight = img.offsetHeight
+	
+	var bili =  imgHeight / imgWidth 
+	
+	console.log(bili * 500)
+	img.style.height = bili * 500 + "px"
+	img.style.width = 500 + "px"
+}
+		</script>-->
+		<style>
+			div[id=dot]:before{
+				content: "●";
+				font-size: 0.3rem;
+				color: #FFFFFF;
+				margin-right: 8px;
+			}
+			
+		</style>
+		<style>
+			div[id=blue-dot]:before{
+				content: "●";
+				font-size: 0.3rem;
+				color: #207EBF;
+				margin-right: 8px;
+			}
+			
+		</style>
+	</head>
+	
+	<body style="padding: 0px;margin: 0px;">
+		<div style="width: 100%;height: 100%;">
+			
+			<div id="header" >
+			<div id="slide" class="slide"style="width: 100%;height:auto;">
+						<ul>
+							<li><img id="img1" src="img/Home-icon/home1.jpg"></li>
+							<li><img id="img1" src="img/Home-icon/home2.jpg"></li>
+							<li><img id="img1" src="img/Home-icon/home3.jpg"></li>
+						</ul>
+					<div>
+					<span class="prev_btn"> < </span>
+					<span class="next_btn"> > </span>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			<!--@Author: eestill ControllerPart Begin -->
+			
+				<div style="width:100%;height: auto;;display: flex;">
+					<div style="width: 3%;height: 100%;"></div>
+					<div style="width: 96%;height: 100%;">
+						<!--中心圆 begin-->
+						<div style="width: 42%;height: 0;padding-top: 42%;top : 305px;left : 28%;border-radius: 100%;box-sizing: border-box;position: absolute;background-color:#ffffff;">
+							<div style="width: 42%;height: 135px;position:absolute;left:65px; right:0; top:0; bottom:0;margin:auto;border-radius:0 78px 78px 0;background-image: url(img/index/BR.png);background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;"></div>
+							<div style="width: 42%;height: 135px;position:absolute;left:0; right:65px; top:0; bottom:0;margin:auto;border-radius:78px 0 0 78px;background-image: url(img/index/BL.png);background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;"></div>
+						</div>
+						<!--中心圆 End-->
+						<div style="width: 100%;height: 10px;"></div>
+							<div style="width: 100%;height: 150px;display: flex;">
+								<div style="width:47%;height: 100%;border-radius: 16px;">
+									<img src="img/index/L1.png" style="width: 100%;height: 100%;" />
+								</div>
+								<div style="width:5%;height: 100%;"></div>
+								<div style="width:47%;height: 100%;border-radius: 16px;">
+									<img src="img/index/R1.png" style="width: 100%;height: 100%;" />
+								</div>
+							</div>
+							<div style="width: 100%;height: 20px;"></div>
+							<div style="width: 100%;height: 150px;display: flex;">
+								<div style="width:47%;height: 100%;border-radius: 16px;">
+									<img src="img/index/L2.png" style="width: 100%;height: 100%;" />
+								</div>
+								<div style="width:5%;height: 100%;"></div>
+								<div style="width:47%;height: 100%;border-radius: 16px;">
+									<img src="img/index/R2.png" style="width: 100%;height: 100%;" />
+								</div>
+							</div>
+						<div style="width: 100%;height: 10px;"></div>
+					</div>
+					<div style="width: 3%;height: 100%;"></div>
+				</div>
+			<!--ControllerPart End-->
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div id="bio"style="width: 100%;height: auto; background-color: #F0F0F0;position: relative;">
+				<div style="width: 100%;height: 50px;"></div>
+				<div class="bio-title"style="width: 100%;height:60px ;">
+					<div style="width: 58%;height: auto;float: left; line-height: 27px;font-weight: 600; font-family: arial;">
+							Biological Age Detection of  DNA  Methylation
+					</div>
+					<div style="width: 17%;height: 61px;float: left; font-family: arial;font-size: 30px;font-weight: bold;color: #036EB7;line-height: 40px; ">
+						<div style="width: 80%;height: auto;margin: 0 auto;line-height: 30px;">$99</div> 
+					</div>
+					<div style="width: 25%;height: 61px;float: right; ">
+						<div style="width: 78%;height: 40px;color: white; background-color: #93278F;margin: 0 auto ;margin-top: 9px;text-align: center; line-height: 40px; font-size: large; border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+							Buy
+						</div>
+					</div>
+				</div>
+				<div class="bio-con"style="width: 100%;height:auto ;background-color: #F0F0F0;">
+					<div style="width: 100%;height: 20px;"></div>
+					<p style="font-family: arial; color: #666666;">
+						Only 1ml saliva samle is needed for detection,which is convenient and safe. 
+						<br /> The sample will be sent to the laboratory for detection  in the form of cash on delivery,<br /> and then the test result will be sent to you throught the APP, and we will follow up your results in all aspects
+					</p>
+					<div style="width: 100%;height: 20px;"></div>
+				</div>
+				<div class="bio-pic"style="width: 100%;height: auto;background-color: #F0F0F0;">
+					<div style="width: 90%;height: auto;margin: 0 auto;">
+					
+						<img src="img/Home-icon/pic-04.png" style="width: 100%;height: auto;" />
+					</div>
+					<div style="width: 100%;height: 50px;background-color: #F0F0F0;"></div>
+				</div>
+				
+			</div>
+			
+			<div id="app"style="width: 100%;height: auto;background-color: #036EB7; ">
+				<div style="width: 100%;height: 40px; background-color: #036EB7;"></div>
+				<div style="width: 96%;height: auto;margin: 0 auto; color: white; font-size: 12px;">
+					<div style="margin: 0 auto;margin-bottom: 8px; font-size: large;">
+						Our intelligent APP system
+					</div>
+					
+						<div id="dot">Internationally renowned exports patent research results</div>
+						<div id="dot">Dynamic personal reporting</div>
+						<div id="dot">Unique questionnaire system</div>
+						<div id="dot">Intervention and continuous follow-up programmes</div>
+					
+				</div>
+				<div style="width: 100%;height: 40px; background-color: #036EB7;"></div>
+			</div>
+			<div id="app-pic" style="width: 100%;height: auto;margin: 0 auto;">
+				<img src="img/Home-icon/pic-en.jpg" style="width: 100%;height: auto;"/>
+					
+			</div>
+			<div style="clear: both;"></div>
+			<div style="width: 100%;height: auto;background-color: #036EB7;margin: 0 auto; ">
+				<div class="blank"style="width: 100%;height: 30px;background-color: #036EB7 ; "></div>
+				<img src="img/Home-icon/pic-19.png" style="width: 100%;height: auto;background-color: #036EB7;"/> 
+				<div class="blank"style="width: 100%;height: 30px;background-color: #036EB7 ; "></div>
+			</div>
+			<div id="sam-e"style="width: 100%;height: 800px;">
+				<div style="width: 100%;height: 20px;"></div>
+				<div class="bio-title"style="width: 100%;height:60px ;">
+					<div style="width: 58%;height: auto;float: left; line-height: 59px;font-weight: 600; font-family: arial;">
+							What is SAM-e？
+					</div>
+					<div style="width: 17%;height: 61px;float: left; font-family: arial;font-size: 30px;font-weight: bold;color: #036EB7;line-height: 40px; ">
+						<div style="width: 80%;height: auto;margin: 0 auto;line-height: 58px;">$99</div> 
+					</div>
+					<div style="width: 25%;height: 61px;float: right; ">
+						<div style="width: 78%;height: 40px;color: white; background-color: #93278F;margin: 0 auto ;margin-top: 9px;text-align: center; line-height: 40px; font-size: large; border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+							Buy
+						</div>
+					</div>
+				</div>
+				<div id="sam-e-pic"style="width: 100%;height: auto;margin: 0 auto; "><img src="img/Home-icon/pic-06.png"style="width: 100%;height: auto;" /> </div>
+				<div id="sam-e-con"style="width: 100%;height: auto;font-size: 12px; ">
+					<div style="width: 96%;height: auto;margin: 0 auto; font-family: arial;color: #666666;">
+						<div id="blue-dot">SAM-e is a nutritional supplement not a drug.</div>
+						<div style="width: 100%;height: 20px;"></div>
+						<div id="blue-dot">SAM-e (S-Adenosyl Methionine) is a chemical found naturally in the body.</div>
+						<div style="width: 100%;height: 20px;"></div>
+						<div id="blue-dot">SAM-e is considered the most important methyl donor in the body.</div>
+						<div style="width: 100%;height: 20px;"></div>
+						<div id="blue-dot">The level of SAM-e decreases as the body ages. Concomitantly, a number of health issues, including mood, joint, and liver disorders are likely to occur</div>
+						<div style="width: 100%;height: 20px;"></div>
+						<div id="blue-dot">All SAM-e molecules have two forms: the SS (active) isomer and the RS (inactive) isomer.</div>
+						<div style="width: 100%;height: 20px;"></div>
+						<div id="blue-dot">While SAM-e comes in two stable salt forms; tosylate and butane disulphanate, only the tosylate form is backed by twenty years of research for safety and effectiveness</div>
+					</div>
+				</div>
+				<div id="intro-sam"style="width: 100%;height: auto;background-color: #F4F4F6; ">
+					<div style="width: 100%;height: auto;">
+						<div class="blank"style="width: 100%;height: 30px;background-color: #F4F4F6 ; "></div>
+						<div style="width: 96%;height: auto;margin: 0 auto;font-family: arial; font-weight: 600;">
+							According to clinical studies,sam-e can improve emotional health, joint relaxation and liver function
+						</div>
+						<div class="blank"style="width: 100%;height: 30px;background-color: #F4F4F6 ; "></div>
+					</div>
+						<div style="width: 100%;height: auto;margin: 0 auto;">
+							<img src="img/Home-icon/home.png"style="width: 100%;height: auto;"/>
+						</div>
+						<div style="width: 100%;height: auto;background-color: #F4F4F6; ">
+							<div style="width: 95%;height:auto;margin: 0 auto;border-top: 9px; align-content: center;background-color: #C1E1E8;border-radius: 10px;">
+								<br/>In March of 2003, the AHRQ (Agency for Healthcare Research and Quality) a division of the United States Health and Human Services, released the findings of a major study on SAM-e. <br />
+							<i style="color: #4A9ACA;">https://www.ncbi.nlm.nih.gov/books/NBK11886/</i>
+							</div>
+							<div style="width: 100%;height: auto;">
+								<div style="width: 96%;height: auto;margin: 0 auto;font-family: arial; color: #666666;">
+								<div style="width:100%;height:auto;margin:0 auto;">
+									<div id="blue-dot">SAM-e is as effective as conventional prescription medications in the treatment of depression</div>
+									<div style="width: 100%;height: 20px;"></div>
+									<div id="blue-dot">SAM-e is as effective as standard prescription medications (NSAIDs) in the treatment of osteoarthritis</div>
+									<div style="width: 100%;height: 20px;"></div>
+									<div id="blue-dot">SAM-e has significant benefits for patients suffering from various liver diseases</div>
+									<div style="width: 100%;height: 20px;"></div>
+									<div id="blue-dot">Natural SAM-e was not found to have any noticeable side effects</div>
+								</div>	
+								</div>
+							</div>
+						</div>
+				</div>
+				<div id="vitamine"style="width: 100%;height: auto;">
+					<div class="blank"style="width: 100%height: 20px;"></div>
+					<div class="vit-con"style="width: 100%;height:auto ;">
+						<div style="width: 100%;height: 50px;"></div>
+						<div style="width: 96%;height: auto; font-family: arial; font-weight: 600;margin: 0 auto;">Vitamin</div>
+						<div style="width: 100%;height: 20px;"></div>
+						<div style="width: 96%;height: auto;margin: 0 auto; font-size: 12px;font-family: arial;line-height: 20px;">
+						Vitamin is a natural nutritional supplement in the human body, which can affect human health
+						</div>
+						<div style="width: 100%;height: 30px;"></div>
+					</div> 
+					<div style="width: 100%;height: 30px;"></div>
+					<div class="vit-list"style="width: 100%;height: auto;">
+						<div style="width: 100%;height: auto;">
+							<div style="width: 92%;height: auto;margin: 0 auto;">
+								<img src="img/Home-icon/vit1.png"style="width: 100%;height: auto;"/>
+							</div>
+						</div>
+						<div style="width: 100%;height: 30px;"></div>
+							<div style="width: 100%;height: auto;">
+							<div style="width: 92%;height: auto;margin: 0 auto;">
+								<img src="img/Home-icon/vit2.png"style="width: 100%;height: auto;" />
+							</div>
+						</div>
+						<div style="width: 100%;height: 30px;"></div>
+							<div style="width: 100%;height: auto;">
+							<div style="width: 92%;height: auto;margin: 0 auto;">
+								<img src="img/Home-icon/vit3.png"style="width: 100%;height: auto;" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style="width: 100%;height: 90px;"></div>
+				<div id="fun-list"style="width: 100%;height: auto;">
+					<div class="rep-style"style="width: 100%;height: auto;">
+						<div style="width: 92%;height: auto;margin: 0 auto;">
+							<img src="img/Home-icon/foot1.png"style="width: 100%;height: auto;" />
+						</div>
+					</div>
+					<div style="width: 100%;height: 30px;"></div>
+					<div class="rep-style"style="width: 100%;height: auto;">
+						<div style="width: 92%;height: auto;margin: 0 auto;">
+							<img src="img/Home-icon/foot2.png"style="width: 100%;height: auto;" />
+						</div>
+					</div>
+					<div style="width: 100%;height: 30px;"></div>
+					<div class="rep-style"style="width: 100%;height: auto;">
+						<div style="width: 92%;height: auto;margin: 0 auto;">
+							<img src="img/Home-icon/foot3.png"style="width: 100%;height: auto;" />
+						</div>
+					</div>
+					<div style="width: 100%;height: 30px;"></div>
+					
+					<div class="rep-style"style="width: 100%;height: auto;">
+						<div style="width: 92%;height: auto;margin: 0 auto;">
+							<img src="img/Home-icon/foot4.png"style="width: 100%;height: auto;" />
+						</div>
+					</div>
+					<div style="width: 100%;height: 30px;"></div>
+					
+					<div class="rep-style"style="width: 100%;height: auto;">
+						<div style="width: 92%;height: auto;margin: 0 auto;">
+							<img src="img/Home-icon/foot5.png"style="width: 100%;height: auto;" />
+						</div>
+					</div>
+					<div style="width: 100%;height: 30px;"></div>
+					
+					<div class="rep-style"style="width: 100%;height: auto;">
+						<div style="width: 92%;height: auto;margin: 0 auto;">
+							<img src="img/Home-icon/foot6.png"style="width: 100%;height: auto;" />
+						</div>
+					</div>
+					<div style="width: 100%;height: 30px;"></div>
+					
+				</div>
+				<div id="download"style="width: 100%;height: 60px;">
+					<div style="width: 60%;height: 60px;margin: 0 auto; background-color: #036EB7;color: white; font-size: large;font-weight: bolder;text-align: center;line-height: 60px; border-radius: 5px;">Download App</div>
+				</div>
+				<div id="all-right"style="width: 100%;height: auto;color:#666666;font-family: arial;">
+					<div style="width: 100%;height: 30px;"></div>
+					<div style="width: 86%;height: auto;margin: 0 auto;">
+						@2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved
+					</div>
+				</div>
+			</div>
+		</div>
+                    
+                
+		
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.QuestionnaireDao">
+
+    <insert id="InsertPain" parameterType="java.util.Map">
+        insert into mcgillpainquestionnaire(uuid , fraction , updata_time , week)
+        VALUES (#{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER})
+    </insert>
+
+    <insert id="InsertMood" parameterType="java.util.Map">
+insert into moodselfassesment(uuid , fraction , updata_time , week)
+        VALUES (#{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER})
+    </insert>
+
+    <insert id="InsertSleep" parameterType="java.util.Map">
+insert into sleepselfassesment(uuid , fraction , updata_time , week)
+        VALUES (#{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER})
+    </insert>
+</mapper>

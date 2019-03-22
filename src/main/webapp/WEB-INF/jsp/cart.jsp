@@ -13,23 +13,23 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>购物车</title>
 
-    <script type="text/javascript" src="static/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 
-    <link type="text/css" rel="stylesheet" href="static/css/base.css" />
-    <link type="text/css" rel="stylesheet" href="static/css/module.css" />
+    <link type="text/css" rel="stylesheet" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" href="css/module.css" />
 
 </head>
 
 
 <body>
-<div style="width: 100%;height: 100%;">
-	<jsp:include page="header.jsp"/>
-</div>
+<div  style="width: 100%;height: 100%;">
+    <jsp:include page="header.jsp"></jsp:include>
 <div class="header">
     <h1>Cart</h1>
     <a href="#" class=""></a>
 </div>
 <div class="shopping">
+
     <div class="shop-group-item">
         <div class="shop-name">
             <input type="checkbox" class="check goods-check shopCheck">
@@ -38,18 +38,21 @@
             <ul>
                 <li>
                     <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="1">
+                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="1001">
                         <div class="shop-info-img" style="text-align: center;">
-                            <a href="aging/index.jhtml"><img src="static/images/DNA.png" style="width: 90%;height:auto;transform: translateY(10px);" /></a></div>
+
+                            <img src="img/Goods/DNA.png"
+                                 style="width: 90%;height:auto;transform: translateY(10px);" />
+                        </div>
                         <div class="shop-info-text">
-                            <h4> <a href="aging/index.jhtml">Biological age detection 2.0</a></h4>
-                            <div class="shop-brief"><span> <a href="aging/index.jhtml">Saliva DNA Collection Kit</a></span></div>
+                            <h4>Biological age detection 2.0</h4>
+                            <div class="shop-brief"><span>Saliva DNA Collection Kit</span></div>
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">150</b></div>
                                 <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus">-</a>
-                                    <span class="num" name="count" id="count_1">1</span>
-                                    <a href="javascript:;" class="plus">+</a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <span class="num" name="count" id="count_1001">1</span>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                 </div>
                             </div>
                         </div>
@@ -58,18 +61,18 @@
                 </li>
                 <li>
                     <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="2">
+                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="2001">
                         <div class="shop-info-img" style="text-align: center;">
-                           <a href="same/index.jhtml"> <img src="static/images/SAM-e.png" style="width: 100%;height:auto;" /></a></div>
+                            <img src="img/Goods/SAM-e.png" style="width: 100%;height:auto;" /></div>
                         <div class="shop-info-text">
-                            <h4><a href="same/index.jhtml">SAM-e</a></h4>
-                            <div class="shop-brief"><span><a href="same/index.jhtml">S-adenosine Supplement</a></span></div>
+                            <h4>SAM-e</h4>
+                            <div class="shop-brief"><span>S-adenosine Supplement</span></div>
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">35</b></div>
                                 <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus">-</a>
-                                    <span class="num" name="count" id="count_2">1</span>
-                                    <a href="javascript:;" class="plus">+</a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <span class="num" name="count" id="count_2001">1</span>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                 </div>
                             </div>
                         </div>
@@ -79,18 +82,20 @@
                 </li>
                 <li>
                     <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3">
+                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3001">
                         <div class="shop-info-img" style="text-align: center;">
-                            <a href="vitaminA/index.jhtml"><img src="static/images/VitaminA.png" style="width: 60%;height:auto;" /></a></div>
+                            <img src="img/Goods/VitaminA.png" style="width: 60%;height:auto;" /></div>
                         <div class="shop-info-text">
-                            <h4><a href="vitaminA/index.jhtml">VitaminA</a></h4>
-                            <div class="shop-brief" style="line-height: 12px;"><a href="vitaminA/index.jhtml">Fast Dissolve , MaximumStrength,<br>Strawberry,5000 mcg ,100 Tablets</a></div>
+                            <h4>VitaminA</h4>
+                            <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum
+                                Strength,<br>Strawberry,5000 mcg ,
+                                100 Tablets</div>
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">30</b></div>
                                 <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus">-</a>
-                                    <span class="num" name="count" id="count_3">1</span>
-                                    <a href="javascript:;" class="plus">+</a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <span class="num" name="count" id="count_3001">1</span>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                 </div>
                             </div>
                         </div>
@@ -99,20 +104,21 @@
                 </li>
                 <li>
                     <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="4">
+                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3002">
                         <div class="shop-info-img" style="text-align: center;">
 
-                           <a href="vitaminC/index.jhtml"><img src="static/images/VitaminC.png" style="width: 60%;height:auto;" /></a></div>
+                            <img src="img/Goods/VitaminC.png" style="width: 60%;height:auto;" /></div>
                         <div class="shop-info-text">
-                            <h4><a href="vitaminC/index.jhtml">VitaminC</a></h4>
-                            <div class="shop-brief" style="line-height: 12px;"><a href="vitaminC/index.jhtml">Fast Dissolve , Maximum
-                                Strength,<br>Strawberry,5000 mcg ,100 Tablets</a></div>
+                            <h4>VitaminC</h4>
+                            <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum
+                                Strength,<br>Strawberry,5000 mcg ,
+                                100 Tablets</div>
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">30</b></div>
                                 <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus">-</a>
-                                    <span class="num" name="count" id="count_4">1</span>
-                                    <a href="javascript:;" class="plus">+</a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <span class="num" name="count" id="count_3002">1</span>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                 </div>
                             </div>
                         </div>
@@ -121,21 +127,22 @@
                 </li>
                 <li>
                     <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="5">
+                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3003">
                         <div class="shop-info-img" style="text-align: center;">
-                           <a href="vitaminD/index.jhtml"><img src="static/images/VitaminD.png" style="width: 60%;height:auto;" /></a>
-                           </div>
+                            <img src="img/Goods/VitaminD.png" style="width: 60%;height:auto;" /></div>
                         <div class="shop-info-text">
-                            <h4><a href="vitaminD/index.jhtml">VitaminD</a></h4>
-                            <div class="shop-brief" style="line-height: 12px;"><a href="vitaminD/index.jhtml">Fast Dissolve , Maximum
-                                Strength,<br>Strawberry,5000 mcg ,100 Tablets</a></div>
+                            <h4>VitaminD</h4>
+                            <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum
+                                Strength,<br>Strawberry,5000 mcg ,
+                                100 Tablets</div>
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">30</b></div>
                                 <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus">-</a>
-                                    <span class="num" name="count" id="count_5">1</span>
-                                    <a href="javascript:;" class="plus">+</a>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    <span class="num" name="count" id="count_3003">1</span>
+                                    <a href="javascript:;" class="minus" style="background-image:url('img/icon/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -292,23 +299,30 @@
                     }
                 }
             }
+
             s1 += "],"
+
             console.log("list --->" + s1)
 
             var price = document.getElementById('AllTotal').innerHTML;
             //alert(price)
-            s1 += ' "total_price":"' + price + ' "}';
+            s1 += '"total_price":"' + price + '"'
+
+            data.total_price = $("#AllTotal").text();
+
+            s1 += '}'
+
             console.log(s1)
 
             $.ajax({
-                url: "http://localhost:8080/transaction/PostCar",
+                url: "transaction/PostCar",
                 type: "post",
                 contentType: 'application/json; charset=UTF-8',
                 data: s1,
                 async: true,
                 success: function (str) {
                     console.log(str)
-                    window.location.href = '/cart/check.jhtml';
+                    window.location.href = 'cart/check.jhtml';
                 },
                 error: function () {
                     alert("发送未知错误！ 无法发送验证码！")

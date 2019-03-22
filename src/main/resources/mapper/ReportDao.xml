@@ -34,4 +34,29 @@
         <result column="food_Dinner" property="food_Dinner"/>
         <result column="food_Dinner_snacks" property="food_Dinner_snacks"/>
     </resultMap>
+
+    <select id="GetBioData" resultMap="GetBioDataResultMap">
+        select
+          natural_age , biological_age
+        from biological
+    </select>
+
+    <resultMap id="GetBioDataResultMap" type="bio">
+        <result property="natural_age" column="natural_age"/>
+        <result property="biological_age" column="biological_age"/>
+    </resultMap>
+
+    <select id="GetBioDataForPerson" resultMap="GetBioDataForPersonResultMap" parameterType="String">
+        select
+          *
+        from biological
+        where bar_code = #{id}
+    </select>
+
+    <resultMap id="GetBioDataForPersonResultMap" type="bio">
+        <result property="natural_age" column="natural_age"/>
+        <result property="biological_age" column="biological_age"/>
+        <result property="id" column="bar_code"/>
+        <result property="name" column="name"/>
+    </resultMap>
 </mapper>

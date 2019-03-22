@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.ILifeDao">
+    <select id="getDateLast" resultType="Long" parameterType="String">
+        select update_time
+        from life_style l
+        where uuid = #{uuid}
+        order by update_time desc
+        limit 0,1
+    </select>
+
+    <!-- Body栏目 begin -->
+    <update id="upDateBody" parameterType="Life">
+        update life_style
+        set
+          weight = #{weight},
+          height = #{height},
+          bmi = #{bmi}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertBody" parameterType="Life">
+        insert into life_style(weight , height , bmi , uuid , update_time , week)
+        values (#{weight} , #{height} , #{bmi} , #{uuid} , #{update_time} , #{week})
+    </insert>
+
+    <select id="selectBody" parameterType="String" resultMap="selectBodyResult">
+        select
+          uuid,
+          weight,
+          height,
+          bmi,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectBodyResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="weight" property="weight"/>
+        <result column="height" property="height"/>
+        <result column="bmi" property="bmi"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Body栏目 end -->
+
+    <!-- Sport栏目 begin-->
+    <update id="upDateSport" parameterType="life">
+        update life_style
+        set
+        sport = #{sport}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertSport" parameterType="Life">
+        insert into life_style(sport , uuid , update_time)
+        values (#{sport} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectSport" parameterType="String" resultMap="selectSportResult">
+        select
+          uuid,
+          sport,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectSportResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="sport" property="sport"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Sport栏目 end-->
+    
+    <!-- Heart栏目 begin -->
+    <update id="upDateHeart" parameterType="Life">
+        update life_style
+        set
+          heart_rate = #{heart_rate}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertHeart" parameterType="Life">
+        insert into life_style(heart_rate , uuid , update_time)
+        values (#{heart_rate} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectHeart" parameterType="String" resultMap="selectHeartResult">
+        select
+          uuid,
+          heart_rate,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectHeartResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="heart_rate" property="heart_rate"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Heart栏目 end -->
+
+    <!-- BP栏目 begin -->
+    <update id="upDateBP" parameterType="Life">
+        update life_style
+        set
+          systolic_BP = #{systolic_BP},
+          diastolic_BP = #{diastolic_BP}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertBP" parameterType="Life">
+        insert into life_style(systolic_BP , diastolic_BP , uuid , update_time)
+        values (#{systolic_BP} , #{diastolic_BP} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectBP" parameterType="String" resultMap="selectBPResult">
+        select
+          uuid,
+          systolic_BP ,
+          diastolic_BP,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectBPResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="systolic_BP" property="systolic_BP"/>
+        <result column="diastolic_BP" property="diastolic_BP"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- BP栏目 end -->
+
+    <!-- Cholesterol栏目 begin -->
+    <update id="upDateCholesterol" parameterType="Life">
+        update life_style
+        set
+          cholesterol = #{cholesterol}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertCholesterol" parameterType="Life">
+        insert into life_style(cholesterol , uuid , update_time)
+        values (#{cholesterol} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectCholesterol" parameterType="String" resultMap="selectCholesterolResult">
+        select
+          uuid,
+          cholesterol,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectCholesterolResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="cholesterol" property="cholesterol"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Cholesterol栏目 end -->
+
+    <!-- Sleep栏目 begin -->
+    <update id="upDateSleep" parameterType="Life">
+        update life_style
+        set
+          sleep = #{sleep}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertSleep" parameterType="Life">
+        insert into life_style(sleep , uuid , update_time)
+        values (#{sleep} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectSleep" parameterType="String" resultMap="selectSleepResult">
+        select
+          uuid,
+          sleep,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectSleepResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="sleep" property="sleep"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Sleep栏目 end -->
+
+    <!-- Aerobic_Exercise栏目 begin -->
+    <update id="upDateAerobic_Exercise" parameterType="Life">
+        update life_style
+        set
+          aerobic_exercise = #{aerobic_exercise}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertAerobic_Exercise" parameterType="Life">
+        insert into life_style(aerobic_exercise , uuid , update_time)
+        values (#{aerobic_exercise} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectAerobic_Exercise" parameterType="String" resultMap="selectAerobicResult">
+        select
+          uuid,
+          aerobic_exercise,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectAerobicResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="aerobic_exercise" property="aerobic_exercise"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Aerobic_Exercise栏目 end -->
+
+    <!-- Food_1栏目 begin -->
+    <update id="upDateFood_1" parameterType="Life">
+        update life_style
+        set
+          food_Breakfast = #{calories},
+          food_Breakfast_snacks = #{calories_plus}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertFood_1" parameterType="Life">
+        insert into life_style(food_Breakfast , food_Breakfast_snacks , uuid , update_time)
+        values (#{calories} ,#{calories_plus} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectFood_1" parameterType="String" resultMap="selectFood_1Result">
+        select
+          uuid,
+          food_Breakfast,
+          food_Breakfast_snacks,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectFood_1Result" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="food_Breakfast" property="calories"/>
+        <result column="food_Breakfast_snacks" property="calories_plus"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Food_1栏目 end -->
+
+    <!-- Food_2栏目 begin -->
+    <update id="upDateFood_2" parameterType="Life">
+        update life_style
+        set
+          food_Lunch = #{calories},
+          food_Lunch_snacks = #{calories_plus}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertFood_2" parameterType="Life">
+        insert into life_style(food_Lunch , food_Lunch_snacks , uuid , update_time)
+        values (#{calories} ,#{calories_plus} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectFood_2" parameterType="String" resultMap="selectFood_1Result">
+        select
+          uuid,
+          food_Lunch
+          food_Lunch_snacks,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectFood_2Result" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="food_Lunch" property="calories"/>
+        <result column="food_Lunch_snacks" property="calories_plus"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Food_2栏目 end -->
+
+    <!-- Food_3栏目 begin -->
+    <update id="upDateFood_3" parameterType="Life">
+        update life_style
+        set
+          food_Dinner = #{calories},
+          food_Dinner_snacks = #{calories_plus}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertFood_3" parameterType="Life">
+        insert into life_style(food_Dinner , food_Dinner_snacks , uuid , update_time)
+        values (#{calories} ,#{calories_plus} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectFood_3" parameterType="String" resultMap="selectFood_3Result">
+        select
+          uuid,
+          food_Dinner,
+          food_Dinner_snacks,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectFood_3Result" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="food_Dinner" property="calories"/>
+        <result column="food_Dinner_snacks" property="calories_plus"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Food_3栏目 end -->
+
+    <!-- Mediatation栏目 begin -->
+    <update id="upDateMediatation" parameterType="Life">
+        update life_style
+        set
+          mediatation = #{mediatation}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertMediatation" parameterType="Life">
+        insert into life_style(mediatation , uuid , update_time)
+        values (#{mediatation} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectMediatation" parameterType="String" resultMap="selectMediatationResult">
+        select
+          uuid,
+          mediatation,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectMediatationResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="mediatation" property="mediatation"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Mediatation栏目 end -->
+
+    <!-- SexLife栏目 begin -->
+    <update id="upDateSexLife" parameterType="Life">
+        update life_style
+        set
+        sex_life_score = #{sex_life_score},
+        sex_life_frequency = #{sex_life_frequency}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertSexLife" parameterType="Life">
+        insert into life_style(sex_life_score , sex_life_frequency , uuid , update_time)
+        values (#{sex_life_score} , #{sex_life_frequency} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectSexLife" parameterType="String" resultMap="selectSexLifeResult">
+        select
+          uuid,
+          sex_life_frequency,
+          sex_life_score,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectSexLifeResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="sex_life_score" property="sex_life_score"/>
+        <result column="sex_life_frequency" property="sex_life_frequency"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- SexLife栏目 end -->
+
+    <!-- Smoking栏目 begin -->
+    <update id="upDateSmoking" parameterType="Life">
+        update life_style
+        set
+        smoking = #{smoking}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertSmoking" parameterType="Life">
+        insert into life_style(smoking , uuid , update_time)
+        values (#{smoking} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectSmoking" parameterType="String" resultMap="selectSmokingResult">
+        select
+          uuid,
+          smoking,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectSmokingResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="smoking" property="smoking"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Smoking栏目 end -->
+
+    <!-- Alcohol栏目 begin -->
+    <update id="upDateAlcohol" parameterType="Life">
+        update life_style
+        set
+        alcohol = #{alcohol}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertAlcohol" parameterType="Life">
+        insert into life_style(alcohol , uuid , update_time)
+        values (#{alcohol} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectAlcohol" parameterType="String" resultMap="selectAlcoholResult">
+        select
+          uuid,
+          alcohol,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectAlcoholResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="alcohol" property="alcohol"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Alcohol栏目 end -->
+
+    <!-- Vitamin_A栏目 begin -->
+    <update id="upDateVitamin_A" parameterType="Life">
+        update life_style
+        set
+        vitamin_A = #{vitamin_A}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertVitamin_A" parameterType="Life">
+        insert into life_style(vitamin_A , uuid , update_time)
+        values (#{vitamin_A} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectVitamin_A" parameterType="String" resultMap="selectVitamin_AResult">
+        select
+          uuid,
+          vitamin_A,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectVitamin_AResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="vitamin_A" property="vitamin_A"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Vitamin_A栏目 end -->
+
+    <!-- Vitamin_B栏目 begin -->
+    <update id="upDateVitamin_B" parameterType="Life">
+        update life_style
+        set
+        vitamin_B = #{vitamin_B}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertVitamin_B" parameterType="Life">
+        insert into life_style(vitamin_B , uuid , update_time)
+        values (#{vitamin_B} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectVitamin_B" parameterType="String" resultMap="selectVitamin_BResult">
+        select
+          uuid,
+          vitamin_B,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectVitamin_BResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="vitamin_B" property="vitamin_B"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Vitamin_B栏目 end -->
+
+    <!-- Vitamin_C栏目 begin -->
+    <update id="upDateVitamin_C" parameterType="Life">
+        update life_style
+        set
+        vitamin_C = #{vitamin_C}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertVitamin_C" parameterType="Life">
+        insert into life_style(vitamin_C , uuid , update_time)
+        values (#{vitamin_C} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectVitamin_C" parameterType="String" resultMap="selectVitamin_CResult">
+        select
+          uuid,
+          vitamin_C,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectVitamin_CResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="vitamin_C" property="vitamin_C"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Vitamin_C栏目 end -->
+
+    <!-- Vitamin_D栏目 begin -->
+    <update id="upDateVitamin_D" parameterType="Life">
+        update life_style
+        set
+        vitamin_D = #{vitamin_D}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertVitamin_D" parameterType="Life">
+        insert into life_style(vitamin_D , uuid , update_time)
+        values (#{vitamin_D} , #{uuid} , #{update_time})
+    </insert>
+
+    <select id="selectVitamin_D" parameterType="String" resultMap="selectVitamin_DResult">
+        select
+          uuid,
+          vitamin_D,
+          FROM_UNIXTIME(update_time/1000,'%Y-%m-%d %h:%i:%s') as date
+        from
+          life_style
+        where
+          uuid = #{uuid}
+    </select>
+
+    <resultMap id="selectVitamin_DResult" type="Life">
+        <result column="uuid" property="uuid"/>
+        <result column="vitamin_D" property="vitamin_D"/>
+        <result column="date" property="date"/>
+    </resultMap>
+    <!-- Vitamin_D栏目 end -->
+
+    <!-- 获取数据 begin-->
+    <select id="getDateOfLife" parameterType="String" resultMap="getDateOfLifeResult">
+        select *
+        from life_style
+        where uuid = #{uuid}
+        order by update_time desc
+    </select>
+
+    <resultMap id="getDateOfLifeResult" type="Life">
+        <result property="height" column="height"/>
+        <result property="weight" column="weight"/>
+        <result property="bmi" column="bmi"/>
+        <result property="heart_rate" column="heart_rate"/>
+        <result property="systolic_BP" column="systolic_BP"/>
+        <result property="diastolic_BP" column="diastolic_BP"/>
+        <result property="cholesterol" column="cholesterol"/>
+        <result property="sleep" column="sleep"/>
+        <result property="mediatation" column="mediatation"/>
+        <result property="sex_life_score" column="sex_life_score"/>
+        <result property="sex_life_frequency" column="sex_life_frequency"/>
+        <result property="smoking" column="smoking"/>
+        <result property="alcohol" column="alcohol"/>
+        <result property="vitamin_A" column="vitamin_A"/>
+        <result property="vitamin_B" column="vitamin_B"/>
+        <result property="vitamin_C" column="vitamin_C"/>
+        <result property="vitamin_D" column="vitamin_D"/>
+        <result property="update_time" column="update_time"/>
+        <result property="uuid" column="uuid"/>
+    </resultMap>
+    <!-- 获取数据 end-->
+
+</mapper>

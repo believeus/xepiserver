@@ -31,6 +31,7 @@ import com.Serivce.WaresService;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @ CreateDate : Create in 11:29 2019/3/8
@@ -177,6 +178,9 @@ public class TransactionController {
         * }
         * */
 
+        HttpSession session = request.getSession();
+        session.setAttribute("ORDER" , jsonObject);
+
         System.out.println(jsonObject.toJSONString());
         List<Wares> list = new ArrayList<Wares>();
         Map<String , Object> map = new HashMap<String , Object>();
@@ -185,7 +189,6 @@ public class TransactionController {
         JsonOrderBean data = new JsonOrderBean();
 
         //获得uuid
-        HttpSession session = request.getSession();
         User userInfo = (User)session.getAttribute("userInfo");
         data.setUuid(userInfo.getUuid());
 
@@ -228,6 +231,9 @@ public class TransactionController {
 
             //推广码
             data.setPromo_code(jsonObject.getString("promo_code"));
+            System.out.println("---------------》");
+            System.out.println(jsonObject.getString("promo_code"));
+            System.out.println("---------------》");
         } catch (JSONException e) {
             e.printStackTrace();
             map.put("msg" ,"创建订单失败，请联系管理员！");
@@ -236,9 +242,8 @@ public class TransactionController {
         }
         if (data != null){
             map.put("msg" , null);
-            Map<String , Object> m2 = orderService.OrderCreate(data);
-            map.put("data",m2);
-            session.setAttribute("Order" , m2);
+            //Map<String , Object> m2 = orderService.OrderCreate(data);
+            map.put("data", orderService.OrderCreate(data));
 
             return map;
         }
@@ -249,4 +254,15 @@ public class TransactionController {
     }
 
     //调起支付
+
+
+    @RequestMapping(value = "/Success.jhtml")
+    public ModelAndView PaySuccess(){
+        ModelAndView modelView=new ModelAndView();
+        modelView.setViewName("/WEB-INF/front/success.jsp");
+        modelView.addObject("title"," Pay Success!");
+        modelView.addObject("canback", true);
+        return modelView;
+    }
+
 }

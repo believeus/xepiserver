@@ -1,0 +1,49 @@
+.tab-header{
+    width: 100%;
+    margin: 10px auto;
+    height: 50px;
+    text-align: center;
+}
+
+.tab-header ul li{
+    list-style-type: none;
+    float: left;
+    width: 49%;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.first-li{
+    border:1px  solid #e1e1e1;
+    background-color: #fff;
+}
+.second-li{
+    border:1px  solid #e1e1e1;
+    border-left: none;
+    background-color: #fff;
+}
+
+.content{
+    border: 1px solid #eee;
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.first-content{
+    color: #00c679;
+}
+
+
+/*控制列表选项卡活动状态时的背景颜色*/
+.tab-header .active{
+    background-color: #efefef;
+}
+
+/*控制列表切换内容的显示与隐藏*/
+.first-content, .second-content{
+    display: none;
+}
+.first-content.active, .second-content.active {
+    display: block;
+}

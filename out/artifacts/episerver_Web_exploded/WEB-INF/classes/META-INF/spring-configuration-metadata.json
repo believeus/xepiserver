@@ -1,0 +1,330 @@
+{
+  "groups": [
+    {
+      "name": "address",
+      "type": "com.Bean.Address",
+      "sourceType": "com.Bean.Address"
+    },
+    {
+      "name": "chartdata",
+      "type": "com.Bean.ChartData",
+      "sourceType": "com.Bean.ChartData"
+    },
+    {
+      "name": "life",
+      "type": "com.Bean.Life",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "order",
+      "type": "com.Bean.Order",
+      "sourceType": "com.Bean.Order"
+    },
+    {
+      "name": "user",
+      "type": "com.Bean.User",
+      "sourceType": "com.Bean.User"
+    },
+    {
+      "name": "wares",
+      "type": "com.Bean.Wares",
+      "sourceType": "com.Bean.Wares"
+    }
+  ],
+  "properties": [
+    {
+      "name": "address.address",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Address"
+    },
+    {
+      "name": "address.address-id",
+      "type": "java.lang.Integer",
+      "sourceType": "com.Bean.Address"
+    },
+    {
+      "name": "address.country",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Address"
+    },
+    {
+      "name": "address.phone",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Address"
+    },
+    {
+      "name": "address.postalcode",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Address"
+    },
+    {
+      "name": "address.recipient",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Address"
+    },
+    {
+      "name": "address.uuid",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Address"
+    },
+    {
+      "name": "chartdata.date",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.ChartData"
+    },
+    {
+      "name": "chartdata.name",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.ChartData"
+    },
+    {
+      "name": "chartdata.value",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.ChartData"
+    },
+    {
+      "name": "life.advice",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.alcohol",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.bmi",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.calories",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.calories-plus",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.cholesterol",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.date",
+      "type": "java.util.Date",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.diastolic-b-p",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.heart-rate",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.height",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.mediatation",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.sex-life-frequency",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.sex-life-score",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.sleep",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.smoking",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.sport",
+      "type": "java.lang.Integer",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.systolic-b-p",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.update-time",
+      "type": "java.lang.Long",
+      "sourceType": "com.Bean.Life",
+      "defaultValue": 0
+    },
+    {
+      "name": "life.uuid",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.vitamin-a",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.vitamin-b",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.vitamin-c",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.vitamin-d",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.week",
+      "type": "java.lang.Integer",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "life.weight",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Life"
+    },
+    {
+      "name": "order.goods-count",
+      "type": "java.lang.Integer",
+      "sourceType": "com.Bean.Order"
+    },
+    {
+      "name": "order.goods-id",
+      "type": "java.lang.Integer",
+      "sourceType": "com.Bean.Order"
+    },
+    {
+      "name": "order.order-id",
+      "type": "java.lang.Long",
+      "sourceType": "com.Bean.Order"
+    },
+    {
+      "name": "order.order-time",
+      "type": "java.lang.Long",
+      "sourceType": "com.Bean.Order"
+    },
+    {
+      "name": "order.pay-status-code",
+      "type": "java.lang.Integer",
+      "sourceType": "com.Bean.Order"
+    },
+    {
+      "name": "user.avatar-urls",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.User"
+    },
+    {
+      "name": "user.city",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.User"
+    },
+    {
+      "name": "user.country",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.User"
+    },
+    {
+      "name": "user.gender",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.User"
+    },
+    {
+      "name": "user.mail",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.User"
+    },
+    {
+      "name": "user.nick-name",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.User"
+    },
+    {
+      "name": "user.phone",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.User"
+    },
+    {
+      "name": "user.province",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.User"
+    },
+    {
+      "name": "user.state",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.User"
+    },
+    {
+      "name": "user.uuid",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.User"
+    },
+    {
+      "name": "wares.discount",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Wares"
+    },
+    {
+      "name": "wares.sell-price",
+      "type": "java.lang.Double",
+      "sourceType": "com.Bean.Wares"
+    },
+    {
+      "name": "wares.uuid",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Wares"
+    },
+    {
+      "name": "wares.wares-count",
+      "type": "java.lang.Integer",
+      "sourceType": "com.Bean.Wares",
+      "defaultValue": 0
+    },
+    {
+      "name": "wares.wares-id",
+      "type": "java.lang.Integer",
+      "sourceType": "com.Bean.Wares",
+      "defaultValue": 0
+    },
+    {
+      "name": "wares.wares-img",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Wares"
+    },
+    {
+      "name": "wares.wares-info",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Wares"
+    },
+    {
+      "name": "wares.wares-name",
+      "type": "java.lang.String",
+      "sourceType": "com.Bean.Wares"
+    }
+  ],
+  "hints": []
+}

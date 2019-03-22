@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.OrderDao">
+    <insert id="OrderMessCreate" parameterType="java.util.Map">
+        insert into ordermess(order_id , goods_id , goods_count )
+        values
+          <foreach collection="list" item="item" index="index" separator=",">
+              (#{order_id,jdbcType=BIGINT} , #{item.wares_id,jdbcType=INTEGER} , #{item.wares_count,jdbcType=INTEGER})
+          </foreach>
+    </insert>
+
+    <insert id="OrderListCreate" parameterType="java.util.Map">
+        insert into orderlist(order_id, uuid, price, identifier, PayStatus_code, order_time)
+        values
+        (#{order_id , jdbcType=INTEGER} , #{uuid ,jdbcType=VARCHAR} , #{price , jdbcType=DOUBLE} , #{identifier , jdbcType=INTEGER} , #{PayStatus_code , jdbcType=INTEGER} , #{order_time , jdbcType=BIGINT})
+    </insert>
+
+    <!--<update id="UpdateUserOrder" parameterType="Map">
+        update orderlist
+        set
+          PayStatus_code = #{}
+        where uuid = #{uuid} and order_id = #{}
+    </update>-->
+</mapper>

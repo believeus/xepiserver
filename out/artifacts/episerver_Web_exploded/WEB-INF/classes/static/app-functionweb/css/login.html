@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)http://www.17sucai.com/preview/1149930/2018-04-11/login/demo.html -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta name="TTUNION_verify" content="b846c3c2b85efabc496d2a2b8399cd62">
+		<meta name="sogou_site_verification" content="gI1bINaJcL">
+		<meta name="360-site-verification" content="37ae9186443cc6e270d8a52943cd3c5a">
+		<meta name="baidu_union_verify" content="99203948fbfbb64534dbe0f030cbe817">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+
+		<title>登录页面</title>
+
+		<link rel="stylesheet" type="text/css" href="css/login.css">
+		<script src="js/jquery-2.1.1.min.js"></script>
+
+	</head>
+	<body style="padding: 0; margin: 0;width:100%;height:auto;background-image: url(img/login/bg.png);background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;">
+		<div style="width: 100%;height: auto;">
+
+			<div style="width:100%;height: 40px;;display: flex;">
+				<div style="width: 3.5%;height: 100%;"></div>
+				<div style="width: 5%;height: 100%;">
+					<div style="width: 100%;height: 30%;"></div>
+					<img src="img/login/index.png" style="width: 100%;height: 50%;" />
+				</div>
+
+			</div>
+
+			<!--logo-->
+			<div style="width:100%;height: auto;;text-align: center;display: flex;">
+				<div style="width: 25%;height: 100%;"></div>
+				<div style="width: 50%;height: 100%;">
+					<img src="img/login/logo.png" style="width:100%;height: auto;" />
+				</div>
+				<div style="width: 25%;height: 100%;"></div>
+
+			</div>
+
+			<!--Content begin-->
+
+			<div style="width:100%;height: auto;display: flex;">
+				<div style="width:10%;height: 100%;;"></div>
+				<div style="width:80%;height: 100%;;padding:11% 0;">
+
+					<div style="width:100%;height: 80%;;border-radius: 18px;background:rgba(76,70,67,0.24);display:flex">
+						<div style="width: 5%;height: 100%;;"></div>
+						<div style="width: 90%;height: 100%;;">
+							<!--切换的内容-->
+							<div id="PwdSignIn">
+								<div style="width: 100%;height:7%;;font-size:20px;color: #FFFFFF;font-weight: 100;margin-top: 20px;">Account</div>
+								<input style="width: 100%;height:6%;font-size: 20px;border-radius: 4px;" type="text" name="username" />
+								<div style="width: 100%;height:7%;;font-size:20px;color: #FFFFFF;font-weight: 100;margin-top: 20px;">Password</div>
+								<input style="width: 100%;height:6%;font-size: 20px;border-radius: 4px;" type="text" name="pwd" />
+								<div style="width: 100%;height:7%;;font-size:15px;color: #FFFFFF;font-weight: 100;margin-top: 20px;">Forgot
+									your password?</div>
+								<div style="width:100%;height: 20px;"></div>
+								<button style="width: 100%;height: 7%;background-color: #2a5eea;font-size: 13px;color: #FFFFFF;border-radius: 4px;border: none;line-height: 30px;">Log
+									in</button>
+							</div>
+
+							<div id="SMSSignIn" style="display: none;">
+								<div style="width: 100%;height:7%;;font-size:20px;color: #FFFFFF;font-weight: 100;margin-top: 20px;">Phone
+									Number</div>
+								<input style="width: 100%;height:6%;font-size: 20px;border-radius: 4px;" id="PhoneSMS" type="text" name="username" />
+								<div style="width: 100%;height:7%;;font-size:20px;color: #FFFFFF;font-weight: 100;margin-top: 20px;">Verification
+									Code</div>
+								<input style="width: 70%;height:6%;font-size: 20px;float: left;border-radius: 4px;" type="text" name="SMScode" id="SMScode"/>
+								<button style="width: 25%;height: 6%;font-size: 13px;float: right;background-color: #2a5eea;color: #FFFFFF;border-radius: 4px;border: none;line-height: 30px;"
+								 onclick="time(this)">SMS</button>
+								<div style="clear: both;"></div>
+								<div style="width: 100%;height: 40px;"></div>
+								<div style="width:100%;height: 20px;"></div>
+								<button style="width: 100%;height: 7%;background-color: #2a5eea;font-size: 13px;color: #FFFFFF;border-radius: 4px;border: none;line-height: 27px;" onclick="login_2()">Log
+									in</button>
+							</div>
+
+							<!--切换的内容 end-->
+							<div style="width: 100%;height: 20px;"></div>
+							<div style="width: 100%;height: 9%;;display: flex;">
+								<div style="width: 49.2%;height: 100%;;font-size: 16px;color: #FFFFFF;line-height: 32px;text-align: center; "
+								 onclick="Pwd()">Pwd Sign In</div>
+								<div style="width: 0.6%;height: 100%;;background-color: #FFFFFF;"></div>
+								<div style="width: 49.2%;height: 100%;;font-size: 16px;color: #FFFFFF;line-height: 32px;text-align: center;"
+								 onclick="SMS()">Send
+									SMS</div>
+							</div>
+							<div style="width: 100%;height: 70px;"></div>
+							<div style="width: 100%;height: 6%;font-size: 13px;color: #FFFFFF;text-align: center;">Don't have an account? <a
+								 href="#" style="color: #477eee;text-decoration: none;">Join us!</a></div>
+							<div style="width: 100%;height: 20px;"></div>
+						</div>
+						<div style="width: 5%;height: 100%;;"></div>
+					</div>
+				</div>
+				<div style="width:10%;height: 100%;;"></div>
+			</div>
+			<!--Content end-->
+		</div>
+
+
+	</body>
+</html>
+<script>
+	function Pwd() {
+		document.getElementById("PwdSignIn").style.display = "block";
+		document.getElementById("SMSSignIn").style.display = "none";
+	}
+
+	function SMS() {
+		document.getElementById("PwdSignIn").style.display = "none";
+		document.getElementById("SMSSignIn").style.display = "block";
+	}
+</script>
+
+<script>
+	//60秒之后获取验证码
+	var wait = 60;
+
+	function time(obj) {
+		if (wait == 60) {
+			var phone = $("#PhoneSMS").val()
+			var data = "{\"type\" : \"Phone\" , \"purpose\" : \"login\" , \"username\" : \"" + phone +
+				"\" , \"region\" : \"CN\"}"
+			$.ajax({
+				url: "http://localhost:8080/App/getCode",
+				type: "post",
+				contentType: 'application/json; charset=UTF-8',
+				data: data,
+				success: function(data) {
+					if (data != null) {
+						code = data
+					}
+				},
+				error: function() {
+					alert("发送未知错误！ 无法发送验证码！")
+				}
+			});
+		}
+		if (wait == 0) {
+			obj.removeAttribute("disabled");
+			obj.innerHTML = "SMS";
+
+			wait = 60;
+		} else {
+			obj.setAttribute("disabled", true);
+			obj.innerHTML = wait + "s";
+			wait--;
+			setTimeout(function() {
+					time(obj)
+				},
+				1000)
+		}
+	}
+</script>
+
+<script>
+	function login_2() {
+		var phone = $("#PhoneSMS").val()
+		console.log(phone)
+		var SMSCode = $("#SMScode").val()
+		console.log(SMSCode)
+		if (SMSCode == code) {
+			var data = "{\"type\" : \"Phone\" , \"verification\" : \"2\" , \"username\" : \"" + phone +
+				"\" , \"code\" : \"" + SMSCode + "\"}"
+			$.ajax({
+				url: "http://localhost:8080/App/login",
+				type: "post",
+				contentType: 'application/json; charset=UTF-8',
+				data: data,
+				success: function(data) {
+					console.log(data)
+				},
+				error: function() {
+					alert("发送未知错误！ 无法发送验证码！")
+				}
+			});
+		}
+	}
+</script>

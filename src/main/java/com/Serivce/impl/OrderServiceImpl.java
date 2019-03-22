@@ -103,6 +103,11 @@ public class OrderServiceImpl implements OrderService {
         dataMap.put("order_time" , time);
         dataMap.put("identifier" , i);
         dataMap.put("promo_code" , data.getPromo_code());
+
+        System.out.println("---------------》");
+        System.out.println(data.getPromo_code());
+        System.out.println("---------------》");
+
         HttpSession session = request.getSession();
         session.setAttribute("Order" , dataMap);
         if (orderDao.OrderListCreate(dataMap) > 0){
