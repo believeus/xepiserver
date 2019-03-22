@@ -153,17 +153,17 @@
 <script>
 
     function ToPay(){
-
-        $.ajax({
-            url: "paypal/payment.jhtml",
-            type: "post",
-            contentType: 'application/json; charset=UTF-8',
-            success: function(data) {
-                window.location.href = 'transaction/Success.jhtml';
-            },
-            error: function() {
-                alert("发送未知错误！")
-            }
-        })
+        window.location.href = 'paypal/payment.jhtml';
+        // $.ajax({
+        //     header:{"Access-Control-Allow-Origin":"https://localhost:8080"},
+        //     type : "post",
+        //     url : "http://localhost:8080/paypal/payment.jhtml",
+        //     success: function (data) {
+        //        // window.location.href = 'paypal/payment.jhtml';
+        //     },
+        //     error: function () {
+        //         alert("生成支付订单失败！")
+        //     }
+        // })
     }
 </script>

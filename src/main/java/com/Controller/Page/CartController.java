@@ -23,12 +23,4 @@ public class CartController {
 		return modelView;
 	}
 
-	@RequestMapping("/cart/order.jhtml")
-	public ModelAndView order(){
-		ModelAndView modelView=new ModelAndView();
-		modelView.setViewName("/WEB-INF/front/order.jsp");
-		modelView.addObject("title"," Order Display");
-		modelView.addObject("canback", true);
-		return modelView;
-	}
 }

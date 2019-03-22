@@ -32,9 +32,13 @@ public class PayPalController {
 	public  final String secret = "EA0jDUxg0JYDPTVnz1pajlTBMdMo-kvjSqwRZ2mxwSIW5wES7I0LztJ8iQQMQC6-CS8b_9xCzKJy0Trx";
 	public final APIContext apiContext = new APIContext(clienId, secret, "sandbox");
 	//负责发起支付请求,会跳转到paypal的支付页面
-	@RequestMapping("/payment.jhtml")
+	@RequestMapping("/payment")
 	public String payment() {
-		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Origin","https://localhost:8080");
+		response.setHeader("Access-Control-Allow-Credentials", "true");
+		response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
+		response.setHeader("Access-Control-Max-Age", "5000");
+		response.setHeader("Access-Control-Allow-Headers", "Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With,Authorization,Token");
 		HttpSession session = request.getSession();
 
 		Map<String , Object> data = (Map<String,Object>)session.getAttribute("Order");
@@ -80,8 +84,9 @@ public class PayPalController {
 	//当用户在paypal页面上点击支付的时候,这个请求会被调用
 	//参数paymentId和PayerID必填,在这个方法逻辑中负责转账支付
 	@ResponseBody
-	@RequestMapping(value = "/paysuccess.jhtml",method = RequestMethod.GET)
+	@RequestMapping(value = "/paysuccess",method = RequestMethod.GET)
 	public String paysuccess(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId) {
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		try {
 			 Payment payment = new Payment(); 
 			 payment.setId(paymentId); 
@@ -93,7 +98,6 @@ public class PayPalController {
 			if ((orderService.UpdateOrder("success")).equals("error")) {
 				System.out.println("修改订单成功！");
 			}
-
 
 			return  "/transaction/Success.jhtml";
 		} catch (Exception e) {

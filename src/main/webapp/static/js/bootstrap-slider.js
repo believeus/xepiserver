@@ -237,10 +237,14 @@
 				/* Create elements needed for slider */
 				this.sliderElem = document.createElement("div");
 				this.sliderElem.className = "slider";
-
+				 var gradient=this.element.getAttribute("style-gradient");
 				/* Create slider track elements */
 				var sliderTrack = document.createElement("div");
-				sliderTrack.className = "slider-track";
+				sliderTrack.style.height="10px";
+				sliderTrack.style.width="100%";
+				sliderTrack.style['border-radius']="5px";
+				sliderTrack.style.background=gradient;
+				//sliderTrack.className = "slider-track";
 
 				sliderTrackSelection = document.createElement("div");
 				sliderTrackSelection.className = "slider-selection";

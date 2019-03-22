@@ -75,7 +75,7 @@ border-image: linear-gradient( #666666 , #666666) 30 30;
 		<div id="container" style="width: 100%;height: 100%;">
 		<jsp:include page="header.jsp"></jsp:include>
 			<div id="header"style="width: 100%;height: 100%;">
-				<div style="width: 100%;height: 80px;margin: 0 auto;"></div>
+				<div style="width: 100%;height: 28px;margin: 0 auto;"></div>
 				<div style="width: 100%;height: 142px;overflow: hidden;margin: 0 auto;">
 					<div style="width: 33%;height: 80px;float: left;"></div>
 					<div style="width: 33%;height: 100px;float: left; ">
@@ -86,7 +86,7 @@ border-image: linear-gradient( #666666 , #666666) 30 30;
 				<div style="clear: both;"></div>
 				<div style="width: 100%;height: auto;text-align: center;font-family: arial;color: #666666;font-weight: 600;line-height: 29px;">
 					Moshe Szyf, Prof.<br />
-					Chairman & CEO of HKG epiTHERAPEUTICS</div>
+					Chairman & CEO: HKG Epitherapeutics, Hong Kong</div>
 				</div>
 			
 			<div id="pro-stem"style="width: 100%;height: auto;background-color: #F7F7F9;margin: 0 auto;">
@@ -284,7 +284,6 @@ border-image: linear-gradient( #666666 , #666666) 30 30;
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
 

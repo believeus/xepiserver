@@ -153,6 +153,16 @@
 <script>
 
     function ToPay(){
-        window.location.href = 'paypal/payment.jhtml';
+
+        $.ajax({
+            type : "post",
+            url : "http://localhost:8080/paypal/payment.jhtml",
+            success: function (data) {
+                //window.location.href = 'paypal/payment.jhtml';
+            },
+            error: function () {
+                alert("生成订单失败失败！")
+            }
+		})
     }
 </script>
