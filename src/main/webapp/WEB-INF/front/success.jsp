@@ -1,49 +1,47 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2019/3/21
-  Time: 16:06
-  To change this template use File | Settings | File Templates.
---%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-    String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE html>
-<!-- saved from url=(0065)http://www.17sucai.com/preview/1149930/2018-04-11/login/demo.html -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
-    <base href="<%=basePath%>">
-    <meta charset="utf-8">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>购物车</title>
-
-    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-
-    <link type="text/css" rel="stylesheet" href="css/base.css" />
-    <link type="text/css" rel="stylesheet" href="css/module.css" />
-
+	<base href="<%=basePath%>">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<title>Successful Payment</title>
 </head>
+<body style="padding: 0px;margin: 0px;">
+<div style="width: 100%;height: auto;overflow: hidden;">
+	<jsp:include page="header.jsp"></jsp:include>
+	<div style="width: 100%;height: 72px;"></div>
+	<div style="width: 100%;height: auto;">
+		<div style="width: 40%;height: 100px;float: left;"></div>
+		<div style="width: 20%;height: 100px;float: left;">
+			<img src="static/images/success-2.png"style="width: 100%;height: auto;"/>
+		</div>
+		<div style="width: 30%;height: 100px;float: left;"></div>
+	</div>
+	<div style="width: 100%;height: 439px;overflow: hidden;">
+		<div style="width: 100%;height: 87px;text-align: center;line-height: 40px;font-weight: bold;font-family: arial;font-size: 20px;color: #0071BC;font-family: arial;"> Payment successful</div>
 
+		<div style="width: 100%;height:288px;">
+			<div style="width: 100%;height: 60px;line-height: 60px;font-weight: bold;font-size: 38px;text-align: center;color: #0071BC;font-family: arial;">$30.00</div>
+		</div>
+		<div style="width: 100%;height: 40px;">
+			<a href="index.jhtml">
+				<div style="width: 50%;height: 40px;border-radius: 10px;border: 1px solid grey;margin: 0 auto;text-align: center;line-height: 40px;font-size:16px ;background-color: #0071BC;font-family: arial;color: #FFFFFF;">Done</div>
+			</a>
+		</div>
+	</div>
 
-
-<body>
-<!--头部开始-->
-<div  style="width: 100%;height: 100%;">
-    <jsp:include page="header.jsp"></jsp:include>
-    <div  style="width: 100%;height: 100%;">
-        <div class="header">
-            <h1>Success</h1>
-            <a href="#" class=""></a>
-        </div>
-    </div>
-
-    支付成功，您的订单号为： ${sessionScope.Order.order_id}
+	<div id="all-right"style="width: 100%;height: auto;font-family: arial;">
+		<div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;">
+			@2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved
+		</div>
+	</div>
+</div>
 </body>
-
 </html>

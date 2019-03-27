@@ -3,6 +3,8 @@ package com.Bean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @ CreateDate : Create in 9:55 2019/3/9
  * @ Explain :
@@ -17,6 +19,8 @@ public class Order {
     private int Goods_count;
     private long Order_time;
     private int PayStatus_Code;
+    private int identifier;
+    private List<Wares> list;
 
     public long getOrder_id() {
         return Order_id;
@@ -58,4 +62,19 @@ public class Order {
         PayStatus_Code = payStatus_Code;
     }
 
+    public int getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(int identifier) {
+        this.identifier = identifier;
+    }
+
+    public List<Wares> getList() {
+        return list;
+    }
+
+    public void setList(List<Wares> list) {
+        this.list = list;
+    }
 }

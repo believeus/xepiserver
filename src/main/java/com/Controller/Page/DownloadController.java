@@ -7,18 +7,23 @@ import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
 public class DownloadController {  
- 
+
+    @Value("${apkpath)")
+    private String apkpath;
+
     @RequestMapping("/download/EPIAging-apk")  
     public void doPost(HttpServletResponse response)  throws ServletException, IOException {  
     	ResourceBundle bundle = ResourceBundle.getBundle("project");
     	String apkpath = bundle.getString("apkpath");
-        File f = new File(apkpath);  
+        File f = new File("/usr/local/data/EPIAging.apk");
         if(f.exists()){  
             FileInputStream  fis = new FileInputStream(f);  
             String filename=URLEncoder.encode(f.getName(),"utf-8"); //解决中文文件名下载后乱码的问题  

@@ -17,157 +17,348 @@
 <link href="static/css/lifestyle-bootstrap-slider.css" rel="stylesheet">
 <script type='text/javascript' src="static/js/jquery-2.1.0.min.js"></script>
 <script type='text/javascript' src="static/js/bootstrap-slider.js"></script>
+<script src="static/js/build/dist/echarts.js"></script>
+<script type="text/javascript">
+	// 路径配置
+	require.config({
+		paths : {
+			echarts : 'static/js/build/dist'
+		}
+	});
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 
 <title>Life Style Questionnaire</title>
 </head>
 <body style="padding: 0;margin: 0;">
 	<div id="container" style="width: 100%;height: auto;background-color: #EDEDED;">
+		<jsp:include page="header.jsp" />
 		<script>
 			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex1");
-				slider
-						.on(
-								"slide",
-								function(slideEvt) {
-									var value = "0 ";
-									switch (slideEvt.value) {
-									case 0:
-										value = "< 1000 calorie/day";
-		break;
-		case 1:
-			value="2000 calorie/day";
-		break;
-		case 2:
-			value="2500 calorie/day";
-		break;
-		case 3:
-			value="3000 calorie/day";
-		break;
-		case 4:
-			value="> 4000 calorie/day";
-										break;
-
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-food-report'));
+					//初始化报表数据
+					var data = '{"column": "Food","type" : "lunch" ,"uuid":"HKEPI201937192024320"}';
+					//console.info(data);
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+							var option = {
+								xAxis : [ {
+									name : "date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name : "calories",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value}'
 									}
-									$(".ex1SliderVal").text(value);
+								} ],
+								series : [ {
+									name : 'calories status',
+									type : 'line',
+									data : data[1],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+
+					var slider = new Slider(".lifestyle-food");
+					//拖动发送
+					slider.on("slide", function(slideEvt) {
+						var value = "not at all(0 level)";
+						var _v = 1000;
+						switch (slideEvt.value) {
+						case 0:
+							value = "< 1000 calories/day";
+								_v=1000;
+								break;
+								case 1:
+									value="2000 calories/day";
+									_v=2000;
+								break;
+								case 2:
+									value="2500 calories/day";
+									_v=2500;
+								break;
+								case 3:
+									value="3000 calories/day";
+									_v=3000;
+								break;
+								case 4:
+									_v=4000;
+									value="> 4000 calories/day";
+							break;
+						}
+						var data = '{ "column":"Food","type" :"lunch" ,"value1" :" ' + _v + '","uuid" :"HKEPI201937192024320"}';
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								$(".ex1SliderVal").text(value);
+								var idata = '{"column": "Food","type": "lunch","uuid": "HKEPI201937192024320"}';
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : idata,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+										var option = {
+											legend : {
+												data : [ 'calories status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name : "date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name : "calories",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value}'
+												}
+											} ],
+											series : [ {
+												name : 'calories status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										};
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
 								});
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});
+				});
 			});
 		</script>
-	<script>
-			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex2");
-				slider
-						.on(
-								"slide",
-								function(slideEvt) {
-									var value = "0 ";
-									switch (slideEvt.value) {
-									case 0:
-										value = "< 1000 calorie/day";
-		break;
-		case 1:
-			value="1600 calorie/day";
-		break;
-		case 2:
-			value="2000 calorie/day";
-		break;
-		case 3:
-			value="2400 calorie/day";
-		break;
-		case 4:
-			value="> 2400 calorie/day";
-										break;
-
-									}
-									$(".ex2SliderVal").text(value);
-								});
-			});
-		</script> 
-
 
 		<div class="food" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
-
 			<div style="width: 100%;height: 30px;"></div>
-			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Food consumption (calorie/day)</div>
-
+			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Food consumption (calories/day)</div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<a href="https://www.healthline.com/nutrition/how-many-calories-per-day#section5">Source: Healthline</a>
 			</div>
-
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong>An average woman needs to eat about 2000 calories per day to maintain, and 1500 calories to lose one pound of weight per week. An average man needs 2500 calories to maintain, and 2000 to lose one pound of weight per week.
 			</div>
 			<div style="width: 100%;height: 20px; "></div>
-			<p style="font-weight: bold; font-size: 16px;">Male</p>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-
 				<div class="ex1SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 				<div>
-					<input id="food" class="ex1" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="3"  style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)">
+					<input id="food" class="lifestyle-food" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)">
 				</div>
-				<div class="ex1CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="width: 100%;height: 20px;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-food-report'></div>
 			</div>
-			<div style="width: 100%;height: 20px;"></div>
-			<p style="font-weight: bold; font-size: 16px">Female</p>
-			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-
-				<div class="ex2SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
-				<div>
-					<input class="ex2" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"    style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)">
-				</div>
-				<div class="ex2CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
-				<div style="width: 100%;height: 20px;"></div>
-			</div>
-
 		</div>
-		<div style="width: 100%;height: 40px;"></div>
-
-
-
-
 		<script>
 			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex11");
-				slider
-						.on(
-								"slide",
-								function(slideEvt) {
-									var value = "0 ";
-									switch (slideEvt.value) {
-									case 0:
-										value = "< 44 kg";
-		break;
-		case 1:
-			value="44-50 kg";
-		break;
-		case 2:
-			value="51-80 kg";
-		break;
-		case 3:
-			value="81-104 kg";
-		break;
-		case 4:
-			value="> 104 kg";
-										break;
-
+				//拖动变化bmi的值
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-bmi-report'));
+					//初始化报表数据
+					var data = '{"column" : "Body","uuid" : "HKEPI201937192024320"}';
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+							console.info(data);
+							var option = {
+								xAxis : [ {
+									name : "date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name : "bmi",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value}'
 									}
-									$(".ex11SliderVal").text(value);
+								} ],
+								series : [ {
+									name : 'bmi status',
+									type : 'line',
+									data : data[1],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+
+					//$(".lifestyle-heigth-val");
+					var _weightSlider = new Slider(".lifestyle-weight");
+					//拖动发送
+					_weightSlider.on("slide", function(slideEvt) {
+						$(".lifestyle-weigth-val").text(slideEvt.value);
+						var _wValue = $(".lifestyle-weigth-val").text();
+						var _hValue = $(".lifestyle-heigth-val").text();
+						console.info("_weightSlider_wValue" + _wValue + "  _hValue" + _hValue);
+
+						if (_wValue == "0" || _hValue == "0") {
+							return;
+						}
+						//var data = '{ "column":"Body" ,"value1" :" ' + slideEvt.value + '","uuid" :"HKEPI201937192024320"}';
+						var data = '{"column": "Body","value1": "' + _wValue + '","value2" : "' + _hValue + '","uuid" : "HKEPI201937192024320"}';
+						console.info("_weightSlider--->" + data);
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								//console.info("_heightSlider---_hValue-->"+_hValue+"--_wValue--->"+_wValue);
+								//再次查询
+								//var idata = '{"column": "Body","value1": "' + _wValue + '","value2" : "'+_hValue+'","uuid" : "HKEPI201937192024320"}'
+								var _sdata = '{"column" : "Body","uuid" : "HKEPI201937192024320"}';
+								console.info("_weightSlider---->" + _sdata);
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _sdata,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+										var option = {
+											legend : {
+												data : [ 'bmi status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name : "date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name : "bmi",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value}'
+												}
+											} ],
+											series : [ {
+												name : 'bmi status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										};
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
 								});
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});
+
+					//拖动
+					var _heightSlider = new Slider(".lifestyle-height");
+					//拖动发送
+					_heightSlider.on("slide", function(slideEvt) {
+						$(".lifestyle-heigth-val").text(slideEvt.value);
+						var _wValue = $(".lifestyle-weigth-val").text();
+						var _hValue = $(".lifestyle-heigth-val").text();
+						console.info("_heightSlider_wValue" + _wValue + "  _hValue" + _hValue);
+						if (_wValue == "0" || _hValue == "0") {
+							return;
+						}
+						var data = '{"column": "Body","value1": "' + _wValue + '","value2" : "' + _hValue + '","uuid" : "HKEPI201937192024320"}';
+						console.info("_heightSlider--->" + data);
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								//console.info("_heightSlider---_hValue-->"+_hValue+"--_wValue--->"+_wValue);
+								//再次查询
+								//var idata = '{"column": "Body","value1": "' + _wValue + '","value2" : "'+_hValue+'","uuid" : "HKEPI201937192024320"}'
+								var _sdata = '{"column" : "Body","uuid" : "HKEPI201937192024320"}';
+								console.info("_heightSlider---->" + _sdata);
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _sdata,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+										var option = {
+											legend : {
+												data : [ 'bmi status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name : "date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name : "bmi",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value}'
+												}
+											} ],
+											series : [ {
+												name : 'bmi status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										};
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
+								});
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});
+
+				});
 			});
 		</script>
 		<div class="weight" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
-			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Weight</div>
-
+			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Weight(kg)</div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<a href="https://www.cdc.gov/healthyweight/index.html">Source: Centers for Disease Control and Prevention</a>
 			</div>
-
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong>
@@ -179,93 +370,26 @@
 			<div style="width: 100%;height: 20px; "></div>
 
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-				<div class="ex11SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-weigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 				<div>
-					<input class="ex11" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)">
+					<input class="lifestyle-weight" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="20" data-slider-max="150" data-slider-step="1" data-slider-value="20">
 				</div>
 				<div class="ex11CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 		</div>
-		<div style="width: 100%;height: 40px;"></div>
-
-		<script>
-			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex12");
-				slider
-						.on(
-								"slide",
-								function(slideEvt) {
-									var value = "0 ";
-									switch (slideEvt.value) {
-									case 0:
-										value = "< 1.48 m";
-		break;
-		case 1:
-			value="1.48-1.60 m";
-		break;
-		case 2:
-			value="1.61-1.70 m";
-		break;
-		case 3:
-			value="1.71-2.04 m";
-		break;
-		case 4:
-			value="> 2.04 m";
-										break;
-
-									}
-									$(".ex12SliderVal").text(value);
-								});
-			});
-		</script>
 		<div class="height" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
-			<div style="width: 100%;height: 30px;"></div>
-			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Height</div>
-
-			<div style="width: 100%;height: 20px; "></div>
-
+			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Height(cm)</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-				<div class="ex12SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-heigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 				<div>
-					<input class="ex12" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-height" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="50" data-slider-max="250" data-slider-step="50" data-slider-value="50">
 				</div>
-				<div class="ex12CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 		</div>
-		<div style="width: 100%;height: 40px;"></div>
 
-		<script>
-			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex13");
-				slider
-						.on(
-								"slide",
-								function(slideEvt) {
-									var value = "0 ";
-									switch (slideEvt.value) {
-									case 0:
-										value = "< 18.5 kg/m2";
-		break;
-		case 1:
-			value="18.5 – 25 kg/m2";
-		break;
-		case 2:
-			value="25 – 30 kg/m2";
-		break;
-		case 3:
-			value="> 30 kg/m2";
-										break;
-
-									}
-									$(".ex13SliderVal").text(value);
-								});
-			});
-		</script>
-		<div class="MBI" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
+		<div class="mbi" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
 			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">BMI {Body Mass Index = Weight (kg) / [Height (m)]2}</div>
 
@@ -281,116 +405,148 @@
 				<p>Overweight: BMI 25 – 30 kg/m2</p>
 				<p>Obese: BMI > 30 kg/m2</p>
 			</div>
-			<div style="width: 100%;height: 20px; "></div>
-
-			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-				<div class="ex13SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
-				<div>
-					<input class="ex13" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="0">
-				</div>
-				<div class="ex13CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
-				<div style="width: 100%;height: 20px;"></div>
-			</div>
+			<div style="width: 100%;height: 350px;" id='lifestyle-bmi-report'></div>
 		</div>
 		<div style="width: 100%;height: 40px;"></div>
 
-		<script>
+<script>
 			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex14");
-				slider
-						.on(
-								"slide",
-								function(slideEvt) {
-									var value = "0 ";
-									switch (slideEvt.value) {
-									case 0:
-										value = "< 60  beats/min";
-		break;
-		case 1:
-			value="60-80 beats/min";
-		break;
-		case 2:
-			value="81-100 beats/min";
-		break;
-		case 3:
-			value="100-120 beats/min";
-		break;
-		case 4:
-			value="> 120 beats/min";
-										break;
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-heartrate-report'));
+					//初始化报表数据
+					var data = '{"column" : "HeartRate","uuid" : "HKEPI201937192024320"}';
+					//console.info(data);
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+							console.info(data);
+							var option = {
+								xAxis : [ {
+									name:"date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name:"beats/min",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value} '
 									}
-									$(".ex14SliderVal").text(value);
+								} ],
+								series : [ {
+									name : 'beats status',
+									type : 'line',
+									data : data[1],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+
+					var slider = new Slider(".lifestyle-heartrate");
+					//拖动发送
+					slider.on("slide", function(slideEvt) {
+						var value=slideEvt.value;
+						var data = '{ "column":"HeartRate","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								$(".ex1SliderVal").text(value);
+								var _data = '{"column" : "HeartRate","uuid" : "HKEPI201937192024320"}';
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _data,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+									 	var option = {
+											legend : {
+												data : [ 'beat status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name:"date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name:"beat",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value} '
+												}
+											} ],
+											series : [ {
+												name : 'beats status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										}; 
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
 								});
+
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					}); 
+				});
 			});
 		</script>
 		<div class="heartrate" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
 			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Heart rate (beats/min)</div>
-
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<a href="https://www.heart.org/en/health-topics/high-blood-pressure/the-facts-about-high-blood-pressure/all-about-heart-rate-pulse">Source: American Heart Association</a>
 			</div>
-
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong> Your resting heart rate is the heart pumping the lowest amount of blood you need because you’re not exercising. If you’re sitting or lying and you’re calm, relaxed and aren’t ill, your heart rate is normally between 60 (beats per minute) and 100 (beats per minute).
 			</div>
 			<div style="width: 100%;height: 20px; "></div>
-
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-				<div class="ex14SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="ex122SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 				<div>
-					<input class="ex14" style="background: -webkit-linear-gradient(left, #92D050, #FFC000, red);	background: -moz-linear-gradient(left, #92D050, #FFC000, red);background: -ms-linear-gradient(left, #92D050, #FFC000, red);background: -o-linear-gradient(left, #92D050, #FFC000, red);background: linear-gradient(left, #92D050, #FFC000, red);" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-heartrate"   style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)"   type="text" data-slider-min="40" data-slider-max="180" data-slider-step="1" data-slider-value="40">
 				</div>
-				<div class="ex14CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="width: 100%;height: 20px;"></div>
-			</div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-heartrate-report'></div>
+		</div>
 		</div>
 		<div style="width: 100%;height: 40px;"></div>
 
 		<script>
 			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex15");
-				slider
-						.on(
-								"slide",
-								function(slideEvt) {
-									var value = "0 ";
-									switch (slideEvt.value) {
-									case 0:
-										value = "< 60 mmHG";
-		break;
-		case 1:
-			value="60-120 mmHG";
-		break;
-		case 2:
-			value="120-140 mmHG";
-		break;
-		case 3:
-			value="140-180 mmHG";
-		break;
-		case 4:
-			value="> 180 mmHG";
-										break;
-									}
-									$(".ex15SliderVal").text(value);
-								});
+				var slider = new Slider(".lifestyle-systolic");
+				slider.on("slide", function(slideEvt) {
+					
+				});
 			});
 		</script>
 		<script>
 			$(function() {
 				// Without JQuery
 				var slider = new Slider(".ex16");
-				slider
-						.on(
-								"slide",
-								function(slideEvt) {
-									var value = "0 ";
-									switch (slideEvt.value) {
-									case 0:
-										value = "< 80 mmHG";
+				slider.on("slide", function(slideEvt) {
+					var value = "0 ";
+					switch (slideEvt.value) {
+					case 0:
+						value = "< 80 mmHG";
 		break;
 		case 1:
 			value="81-100 mmHG";
@@ -403,10 +559,10 @@
 		break;
 		case 4:
 			value="> 140 mmHG";
-										break;
-									}
-									$(".ex16SliderVal").text(value);
-								});
+						break;
+					}
+					$(".ex16SliderVal").text(value);
+				});
 			});
 		</script>
 		<div class="food" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
@@ -427,9 +583,9 @@
 
 				<div class="ex15SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 				<div>
-					<input class="ex15" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-systolic"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"     type="text" data-slider-min="60" data-slider-max="180" data-slider-step="1" data-slider-value="60">
 				</div>
-				<div class="ex15CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-systolic-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 			<div style="width: 100%;height: 20px;"></div>
@@ -453,14 +609,11 @@
 			$(function() {
 				// Without JQuery
 				var slider = new Slider(".ex17");
-				slider
-						.on(
-								"slide",
-								function(slideEvt) {
-									var value = "0 ";
-									switch (slideEvt.value) {
-									case 0:
-										value = "< 60 mg/dL";
+				slider.on("slide", function(slideEvt) {
+					var value = "0 ";
+					switch (slideEvt.value) {
+					case 0:
+						value = "< 60 mg/dL";
 		break;
 		case 1:
 			value="61-150 mg/dL";
@@ -473,10 +626,10 @@
 		break;
 		case 4:
 			value="> 240 mg/dL";
-										break;
-									}
-									$(".ex17SliderVal").text(value);
-								});
+						break;
+					}
+					$(".ex17SliderVal").text(value);
+				});
 			});
 		</script>
 		<div class="heartrate" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
@@ -508,14 +661,11 @@
 			$(function() {
 				// Without JQuery
 				var slider = new Slider(".ex18");
-				slider
-						.on(
-								"slide",
-								function(slideEvt) {
-									var value = "0 ";
-									switch (slideEvt.value) {
-									case 0:
-										value = "< 60 mg/dL";
+				slider.on("slide", function(slideEvt) {
+					var value = "0 ";
+					switch (slideEvt.value) {
+					case 0:
+						value = "< 60 mg/dL";
 		break;
 		case 1:
 			value="61-150 mg/dL";
@@ -528,10 +678,10 @@
 		break;
 		case 4:
 			value="> 240 mg/dL";
-										break;
-									}
-									$(".ex18SliderVal").text(value);
-								});
+						break;
+					}
+					$(".ex18SliderVal").text(value);
+				});
 			});
 		</script>
 		<div class="heartrate" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">

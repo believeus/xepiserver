@@ -28,9 +28,15 @@ public class PayPalController {
 	@Resource
 	private OrderService orderService;
 
-	public  final String clienId = "AT61CAlskHNaaTSd05_OHGo1MGHdRrUhuVLNiWXda_hZx2iHdCkrqLJSkrHRX-bsYxCwQpR2zPq5F7LI";
-	public  final String secret = "EA0jDUxg0JYDPTVnz1pajlTBMdMo-kvjSqwRZ2mxwSIW5wES7I0LztJ8iQQMQC6-CS8b_9xCzKJy0Trx";
-	public final APIContext apiContext = new APIContext(clienId, secret, "sandbox");
+	//沙箱测试
+//	public  final String clienId = "AT61CAlskHNaaTSd05_OHGo1MGHdRrUhuVLNiWXda_hZx2iHdCkrqLJSkrHRX-bsYxCwQpR2zPq5F7LI";
+//	public  final String secret = "EA0jDUxg0JYDPTVnz1pajlTBMdMo-kvjSqwRZ2mxwSIW5wES7I0LztJ8iQQMQC6-CS8b_9xCzKJy0Trx";
+//	public final APIContext apiContext = new APIContext(clienId, secret, "sandbox");
+
+
+	public  final String clienId = "AZrj5hDXIJWEa5MBrCDqSy5cBE877968Swrqw4p59PTi7JrsZlcYCrTTbE9s2T8iPRHPIkHDDP7SJ8Md";
+	public  final String secret = "EEWmiwODSJPMUtSYBGedZUXOZ7h0c58CAGeuX0RJ2xq9kKlJXOpNcibbK40FvlhR1TW_ABvZpq3YluWC";
+	public final APIContext apiContext = new APIContext(clienId, secret, "live");
 	//负责发起支付请求,会跳转到paypal的支付页面
 	@RequestMapping("/payment")
 	public String payment() {
@@ -44,6 +50,10 @@ public class PayPalController {
 		Map<String , Object> data = (Map<String,Object>)session.getAttribute("Order");
 
 		String total = data.get("Total_price").toString();
+
+		System.out.println(total);
+		//测试数据
+		//String total = "5";
 		try {
 
 			Amount amount = new Amount();
@@ -62,7 +72,8 @@ public class PayPalController {
 			RedirectUrls redirectUrls = new RedirectUrls();
 			redirectUrls.setCancelUrl("https://example.com/cancel");
 			// //当用户在paypal页面上点击支付的时候,这个请求会被调用
-			redirectUrls.setReturnUrl("http://localhost:8080/paypal/paysuccess.jhtml");
+			redirectUrls.setReturnUrl("https://app.beijingepidial.com/paypal/paysuccess.jhtml");
+			//redirectUrls.setReturnUrl("http://localhost:8080/paypal/paysuccess.jhtml");
 			payment.setRedirectUrls(redirectUrls);
 			Payment createdPayment = payment.create(apiContext);
 			Iterator<Links> links = createdPayment.getLinks().iterator();
@@ -83,7 +94,6 @@ public class PayPalController {
 	}
 	//当用户在paypal页面上点击支付的时候,这个请求会被调用
 	//参数paymentId和PayerID必填,在这个方法逻辑中负责转账支付
-	@ResponseBody
 	@RequestMapping(value = "/paysuccess",method = RequestMethod.GET)
 	public String paysuccess(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId) {
 		response.setHeader("Access-Control-Allow-Origin", "*");
@@ -99,7 +109,7 @@ public class PayPalController {
 				System.out.println("修改订单成功！");
 			}
 
-			return  "/transaction/Success.jhtml";
+			return  "redirect:https://app.beijingepidial.com/transaction/Success.jhtml";
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,7 +1,9 @@
 package com.Dao;
 
+import com.Bean.Order;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
 import java.util.Map;
 
 @Mapper
@@ -15,4 +17,7 @@ public interface OrderDao {
 
     //修改订单状态
     public int OrderUpdate(Map<String , Object> map);
+
+    //反馈用户所有订单状况
+    public List<Order> CheckOrder(String uuid);
 }

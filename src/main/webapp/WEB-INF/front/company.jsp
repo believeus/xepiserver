@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 						</div>
 						<div style="width: 100%;height: 151px;font-family: arial;font-size: 16px;color: #666666;margin-top: 30px;line-height: 24px;">
-							The biological age of human body was accurately calculated by detecting highly correlated methylation sites of biological age of human body
+							<a>The biological age of human body was accurately calculated by detecting highly correlated methylation sites of biological age of human body
 						</div>
 					</div>
 					<div style="width: 96%;height: auto;margin: 0 auto;"><hr /></div>

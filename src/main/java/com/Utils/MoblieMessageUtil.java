@@ -28,7 +28,7 @@ public class MoblieMessageUtil {
         static final String accessKeyId = "LTAI46ALQti3N0fQ";  // TODO 修改成自己的
         static final String accessKeySecret = "E9MiXvH9Ih5HE0nJPJmL2S9pbOuPHd";   // TODO 修改成自己的
 
-        public static SendSmsResponse sendSms(String telephone, String code , String region) throws ClientException {
+        public static SendSmsResponse sendSms(String telephone, String code , String Areacode) throws ClientException {
             //可自助调整超时时间
             System.setProperty("sun.net.client.defaultConnectTimeout", "10000");
             System.setProperty("sun.net.client.defaultReadTimeout", "10000");
@@ -43,7 +43,7 @@ public class MoblieMessageUtil {
             //必填:短信签名-可在短信控制台中找到
             request.setSignName("Epidial");    // TODO 修改成自己的
 
-            if (region.equals("CN")) {
+            if (Areacode.equals("86")) {
                 //国内短信模板
                 request.setTemplateCode("SMS_159965409");    // TODO 修改成自己的
             }else

@@ -20,7 +20,7 @@ public interface ILifeService {
      *  @param value1 属性值1
      *  @param value2 属性值2
      */
-    public Map<String, Object> getLift(String column, Double value1, Double value2);
+    public Map<String, Object> getLift(String column, Double value1, Double value2 , String uuid);
 
     /**
      *
@@ -32,7 +32,7 @@ public interface ILifeService {
      * @param value1 属性值1
      * @param value2 属性值2
      */
-    public Map<String, Object> getLift(String column,String type, Double value1, Double value2);
+    public Map<String, Object> getLift(String column,String type, Double value1, Double value2 , String uuid);
 
-    public List<ChartData> getData(String column , String type);
+    public List<ChartData> getData(String column , String type , String uuid);
 }

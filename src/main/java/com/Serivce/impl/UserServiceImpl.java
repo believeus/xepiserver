@@ -157,7 +157,7 @@ public class UserServiceImpl implements IUserSerivce {
     }
 
     @Override
-    public int CheckTel(String phone) {
+    public Integer CheckTel(String phone) {
         return userDao.CheckTel(phone);
     }
 }

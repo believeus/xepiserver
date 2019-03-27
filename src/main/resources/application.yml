@@ -2,6 +2,10 @@ server:
   port: 8080
 
 spring:
+    # 静态文件请求匹配方式
+    mvc: static-path-pattern=/**
+    # 修改默认的静态寻址资源目录 多个使用逗号分隔
+    resources: static-locations = classpath:/webapp/
     datasource:
         name: mybatis_test
         #使用druid连接池
@@ -14,7 +18,7 @@ spring:
           #配置基本属性
           url: jdbc:mysql://localhost:3306/epi?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
           username: root
-          password: 123456
+          password:
           #配置初始化大小/最小/最大
           initial-size: 1
           min-idle: 1

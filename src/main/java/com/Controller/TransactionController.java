@@ -1,5 +1,6 @@
 package com.Controller;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.Bean.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +23,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Bean.Address;
-import com.Bean.JsonOrderBean;
-import com.Bean.User;
-import com.Bean.UserInfo;
-import com.Bean.Wares;
 import com.Serivce.CartService;
 import com.Serivce.OrderService;
 import com.Serivce.WaresService;
@@ -39,7 +37,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @ UpdateDate : Update in
  * @ Author : Eestill
  */
-@RestController
+@Controller
 @CrossOrigin
 @RequestMapping(value = "/transaction")
 public class TransactionController {
@@ -61,7 +59,9 @@ public class TransactionController {
 
     //用于接受购物车第一次的商品传递
     @RequestMapping(value = "/PostCar")
-    public Map PostCar(@RequestBody JSONObject jsonObject, HttpServletResponse response){
+    @ResponseBody
+    public String PostCar(@RequestBody JSONObject jsonObject, HttpServletResponse response){
+        ModelAndView modelView=new ModelAndView();
         List<Wares> list = new ArrayList<Wares>();
         System.out.println("wares:");
 
@@ -97,10 +97,12 @@ public class TransactionController {
         map.put("data" ,data);
 
         if (session.getAttribute("userInfo") == null){
+
             map.put("msg" , "error");
-            return map;
+            return "login.jhtml";
         }
-        return map;
+        //return map;
+        return "cart/check.jhtml";
     }
 
     //购物车查询
@@ -187,10 +189,10 @@ public class TransactionController {
         session.setAttribute("ORDER" , jsonObject);
         Map<String , Object> map = new HashMap<String , Object>();
 
-        if (session.getAttribute("userInfo") == null){
-            map.put("msg" , "error");
-            return map;
-        }
+//        if (session.getAttribute("userInfo") == null){
+//            map.put("msg" , "error");
+//            return map;
+//        }
 
         System.out.println(jsonObject.toJSONString());
         List<Wares> list = new ArrayList<Wares>();
@@ -264,8 +266,15 @@ public class TransactionController {
         return map;
     }
 
-    //调起支付
-
+    //查询用户所有订单情况
+    @RequestMapping(value = "/Check")
+    @ResponseBody
+    public List<Order> Check(){
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("userInfo");
+        //String uuid = "HKEPI201937192024320";
+        return orderService.CheckOrder(user.getUuid());
+    }
 
     @RequestMapping(value = "/Success.jhtml")
     public ModelAndView PaySuccess(){

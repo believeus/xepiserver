@@ -4,17 +4,23 @@
 
     <insert id="InsertPain" parameterType="java.util.Map">
         insert into mcgillpainquestionnaire(uuid , fraction , updata_time , week)
-        VALUES (#{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER})
-    </insert>
+        select #{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER}
+        from dual
+        WHERE NOT EXISTS(SELECT updata_time FROM mcgillpainquestionnaire WHERE uuid = #{uuid , jdbcType=VARCHAR} and updata_time = #{time , jdbcType=BIGINT})
+        </insert>
 
     <insert id="InsertMood" parameterType="java.util.Map">
-insert into moodselfassesment(uuid , fraction , updata_time , week)
-        VALUES (#{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER})
+        insert into moodselfassesment(uuid , fraction , updata_time , week)
+        select #{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER}
+        from dual
+        WHERE NOT EXISTS(SELECT updata_time FROM moodselfassesment WHERE uuid = #{uuid , jdbcType=VARCHAR} and updata_time = #{time , jdbcType=BIGINT})
     </insert>
 
     <insert id="InsertSleep" parameterType="java.util.Map">
-insert into sleepselfassesment(uuid , fraction , updata_time , week)
-        VALUES (#{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER})
+    insert into sleepselfassesment(uuid , fraction , updata_time , week)
+    select #{uuid , jdbcType=VARCHAR} , #{data , jdbcType=VARCHAR} , #{time , jdbcType=BIGINT} , #{week , jdbcType=INTEGER}
+    from dual
+        WHERE NOT EXISTS(SELECT updata_time FROM sleepselfassesment WHERE uuid = #{uuid , jdbcType=VARCHAR} and updata_time = #{time , jdbcType=BIGINT})
     </insert>
 
 
@@ -54,7 +60,7 @@ insert into sleepselfassesment(uuid , fraction , updata_time , week)
           uuid = #{uuid , jdbcType=VARCHAR} and updata_time = #{time , jdbcType=BIGINT}
     </select>
 
-    <resultMap id="SelectPainResultMap" type="Questionnaire">
+    <resultMap id="SelectPainResultMap" type="questionnaire">
         <result property="fraction" column="fraction"/>
         <result property="updata_time" column="updata_time"/>
     </resultMap>

@@ -8,6 +8,8 @@ import com.Dao.QuestionnaireDao;
 import com.Dao.ReportDao;
 import com.Serivce.QuestionnaireService;
 import com.alibaba.fastjson.JSONArray;
+import com.mysql.jdbc.exceptions.MySQLTransactionRollbackException;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLDataException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,8 +67,9 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 
         String type = questionnaire.getType();
         if (type.equals("Pain")){
+
             //获取今日的数据
-            Questionnaire data = questionnaireDao.SelectPain(map);
+            Questionnaire data =  questionnaireDao.SelectPain(map);
 
             long dateBaseTime = 0;
 
@@ -115,7 +118,12 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
                         str = str + b[i] + "|";
                 }
                 map.put("data" ,str);
-                questionnaireDao.InsertPain(map);
+
+                try {
+                    questionnaireDao.InsertPain(map);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 return map;
             }
@@ -171,7 +179,11 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
                             str = str + b[i] + "|";
                     }
                     map.put("data" ,str);
-                    questionnaireDao.InsertMood(map);
+                    try {
+                        questionnaireDao.InsertMood(map);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                     return map;
                 }
@@ -228,7 +240,11 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
                         str = str + b[i] + "|";
                 }
                 map.put("data" ,str);
-                questionnaireDao.InsertSleep(map);
+                try {
+                    questionnaireDao.InsertSleep(map);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 return map;
             }
@@ -279,6 +295,7 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
             time = new String[list.size()];
 
         //存放解析后的数组
+        //flag代表题号实际数量，list.size()为数据的条数
         String [][] data = new String[flag][list.size()];
         int c = 0;
 

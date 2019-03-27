@@ -17,14 +17,22 @@ import java.util.Map;
  */
 @Controller
 public class LoginController {
-
-    @RequestMapping(value = "/login.jhtml")
-    public ModelAndView login(){
-        ModelAndView modelView=new ModelAndView();
+    @RequestMapping(value = "/login")
+    public ModelAndView Tologin(){
+        ModelAndView modelView = new ModelAndView();
         modelView.setViewName("/WEB-INF/front/login.jsp");
-        modelView.addObject("title","Login");
-        modelView.addObject("canback",true);
-        return modelView;
+        modelView.addObject("title"," User");
+        modelView.addObject("canback", true);
+        return  modelView;
+    }
+
+    @RequestMapping(value = "/register")
+    public ModelAndView ToRegister(){
+        ModelAndView modelView = new ModelAndView();
+        modelView.setViewName("/WEB-INF/front/register.jsp");
+        modelView.addObject("title"," User");
+        modelView.addObject("canback", true);
+        return  modelView;
     }
 
 }

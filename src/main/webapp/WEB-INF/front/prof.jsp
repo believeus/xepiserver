@@ -75,7 +75,7 @@ border-image: linear-gradient( #666666 , #666666) 30 30;
 		<div id="container" style="width: 100%;height: 100%;">
 		<jsp:include page="header.jsp"></jsp:include>
 			<div id="header"style="width: 100%;height: 100%;">
-				<div style="width: 100%;height: 80px;margin: 0 auto;"></div>
+				<div style="width: 100%;height: 28px;margin: 0 auto;"></div>
 				<div style="width: 100%;height: 142px;overflow: hidden;margin: 0 auto;">
 					<div style="width: 33%;height: 80px;float: left;"></div>
 					<div style="width: 33%;height: 100px;float: left; ">
@@ -85,23 +85,31 @@ border-image: linear-gradient( #666666 , #666666) 30 30;
 				</div>
 				<div style="clear: both;"></div>
 				<div style="width: 100%;height: auto;text-align: center;font-family: arial;color: #666666;font-weight: 600;line-height: 29px;">
-					Moshe Szyf, Prof.<br />
-					Chairman & CEO of HKG epiTHERAPEUTICS</div>
+					<strong>Moshe Szyf, Prof.</strong><br />
+					Chairman & CEO<br/>  HKG Epitherapeutics, Hong Kong</div>
 				</div>
 			
 			<div id="pro-stem"style="width: 100%;height: auto;background-color: #F7F7F9;margin: 0 auto;">
 				<div style="width: 96%;height: auto;margin: 0 auto;">
-					<div style="width: 100%;height: auto;line-height: 50px;font-weight: 700;">Professional Experience</div>
+					<div style="width: 100%;height: auto;line-height: 50px;font-weight: 700;">Professional Statement</div>
 					<hr />
-					<div style="width: 100%;height: auto;line-height: 39px;">
+					<div style="width: 100%;height: auto;line-height: 22px;font-weight: 500">
 						<div id="dot" >Academician of the Royal Canadian Academy of Sciences and Academician of the Canadian Academy of Health Sciences</div>
+						<div style="width: 30%;height: 20px;"></div>
 						<div id="dot">First class tenured professor, McGill university, Canada;</div>
+						<div style="width: 30%;height: 20px;"></div>
 						<div id="dot" >The first batch of patent inventors in the field of international cancer-related DNA methylation research</div>
+						<div style="width: 30%;height: 20px;"></div>
 						<div id="dot" >The world's most widely patented inventor of epigenetics</div>
+						<div style="width: 30%;height: 20px;"></div>
 						<div id="dot" >Resident chief scientist of Beijing epidia medical diagnostic technology co., LTD.</div>
+						<div style="width: 30%;height: 20px;"></div>
 						<div id="dot" >Director of epigenetic institute, Beijing yizhuang innovation institute;</div>
+						<div style="width: 30%;height: 20px;"></div>
 						<div id="dot" >Founder of behavioral and psychological epigenetics;</div>
+						<div style="width: 30%;height: 20px;"></div>
 						<div id="dot" >Famous leader in the field of thought communication and has published more than 280 papers;</div>
+						<div style="width: 30%;height: 20px;"></div>
 						<div id="dot" >Cited 33,000 times, 18500 times in 5 years, and the h-index value was 90</div>
 					</div>
 				</div>
@@ -262,21 +270,8 @@ border-image: linear-gradient( #666666 , #666666) 30 30;
 					</div>
 					<div class="swiper-slide">
 						<div class="content-slide">
-						<div style="width:100%;height: auto;font-family: arial;font-size: 14px;color: #666666; ">
-						<p style="font-weight: 600;">Subsidies received over the years</p>
-						<ul style="list-style: none">
-							<li style="font-weight: 600;">From 1985 to 2013, Academician Szyf's research projects were funded by organizations such as Canada and the United States.</li>
-							<li style="font-weight: 600;">Listed below Representational funding projects :</li>
-							<li>1989-1992 Canadian National Cancer Institute Management Fund (C$74,592/year)</li>
-							<li>  1997-2000 Canadian Council for Natural Science and Engineering Research (C$145,500)</li>
-							<li>2005-2010 Canadian Institute of Health-DNA Methyltransferase I Inhibitor and Its Therapeutic Prospect (C$168158)	</li>
-							<li>2007-2012 Canadian National Cancer Institute-Demethylase Analysis C$141,000</li>
-							<li>2010-2013 Canadian Health Research Institute - Canadian Health Research Cooperative Team in China (C$166,666 )</li>
-							<li></li>
-							<li></li>
-						</ul>
-						<div></div>
-						<div> </div>
+						<div style="width:100%;height: auto; ">
+							<img src="/static/images/prof3.png" style="width: 100%;height: auto;">
 						</div>
 						
 						</div>
@@ -284,7 +279,6 @@ border-image: linear-gradient( #666666 , #666666) 30 30;
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
 

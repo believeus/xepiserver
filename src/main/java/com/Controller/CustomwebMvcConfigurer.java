@@ -10,4 +10,5 @@ public class CustomwebMvcConfigurer implements WebMvcConfigurer {
     public void configurePathMatch(PathMatchConfigurer configurer) {
         configurer.setUseRegisteredSuffixPatternMatch(true);
     }
+
 }

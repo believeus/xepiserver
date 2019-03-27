@@ -36,10 +36,6 @@
 <!--头部开始-->
 <div  style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
-<div class="header">
-    <h1>信息填写</h1>
-    <a href="#" class=""></a>
-</div>
 
 <div style="background-color:#ffffff;padding-bottom: 40px">
 
@@ -144,11 +140,11 @@
     <div style="text-align: center;height: 100%;background-color: #37475d;width: 60%;color: #f4f6f8;float: left;">
         <div style="height: 100%;font-size: 21px;line-height: 40px">
             <div class="shop-total">
-                <strong>总价：<i class="total" id="AllTotal" name="total_price">${sessionScope.Cart.total_price}</i></strong>
+                <strong>About：<i class="total" id="AllTotal" name="total_price">${sessionScope.Cart.total_price}</i></strong>
             </div></div>
     </div>
     <div style="width: 40%;background-color: #0071b1;height: 100%;text-align: center;color: #f4f6f8;float:right;">
-        <div style="height:100%;font-size: 21px;line-height: 40px" onclick="PostAddr()">提交订单</div>
+        <div style="height:100%;font-size: 21px;line-height: 40px" onclick="PostAddr()">Post</div>
     </div>
 </div>
 
@@ -314,7 +310,7 @@
             contentType: 'application/json; charset=UTF-8',
             data : s2,
             success: function(data) {
-                //window.location.href = 'cart/order.jhtml';
+                window.location.href = 'cart/order.jhtml';
             },
             error: function() {
                 alert("发送未知错误！ 无法发送验证码！")

@@ -6,7 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class CartController {
-	@RequestMapping("/cart/index.jhtml")
+	@RequestMapping("/cart/index")
 	public ModelAndView  index(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/cart.jsp");
@@ -14,7 +14,7 @@ public class CartController {
 		modelView.addObject("canback", true);
 		return  modelView;
 	}
-	@RequestMapping("/cart/check.jhtml")
+	@RequestMapping("/cart/check")
 	public ModelAndView   check(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/check.jsp");
@@ -23,4 +23,12 @@ public class CartController {
 		return modelView;
 	}
 
+	@RequestMapping("/cart/order")
+	public ModelAndView   order(){
+		ModelAndView modelView=new ModelAndView();
+		modelView.setViewName("/WEB-INF/front/order.jsp");
+		modelView.addObject("title"," Order display");
+		modelView.addObject("canback", true);
+		return modelView;
+	}
 }

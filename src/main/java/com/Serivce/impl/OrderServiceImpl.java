@@ -1,6 +1,7 @@
 package com.Serivce.impl;
 
 import com.Bean.JsonOrderBean;
+import com.Bean.Order;
 import com.Bean.Wares;
 import com.Dao.CartDao;
 import com.Dao.IUserDao;
@@ -129,5 +130,10 @@ public class OrderServiceImpl implements OrderService {
             orderDao.OrderUpdate(data);
         }
         return "error";
+    }
+
+    @Override
+    public List<Order> CheckOrder(String uuid) {
+        return orderDao.CheckOrder(uuid);
     }
 }

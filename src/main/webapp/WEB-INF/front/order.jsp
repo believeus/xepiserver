@@ -21,12 +21,12 @@
 	<meta charset="utf-8">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	<title>购物车</title>
+	<title>Order</title>
 
-	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="static/js/jquery-2.1.1.min.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="css/base.css" />
-	<link type="text/css" rel="stylesheet" href="css/module.css" />
+	<link type="text/css" rel="stylesheet" href="static/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="static/css/module.css" />
 
 </head>
 
@@ -136,7 +136,7 @@
 		<div style="text-align: center;height: 100%;background-color: #37475d;width: 60%;color: #f4f6f8;float: left;">
 			<div style="height: 100%;font-size: 21px;line-height: 40px">
 				<div class="shop-total">
-					<strong>总价：<i class="total" id="AllTotal" name="total_price">${sessionScope.Cart.total_price}</i></strong>
+					<strong>About：<i class="total" id="AllTotal" name="total_price">${sessionScope.Cart.total_price}</i></strong>
 				</div></div>
 		</div>
 		<div style="width: 40%;background-color: #0071b1;height: 100%;text-align: center;color: #f4f6f8;float:right;">

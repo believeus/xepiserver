@@ -4,7 +4,10 @@ import com.Bean.User;
 import com.Bean.UserInfo;
 import com.Serivce.IUserSerivce;
 import com.Utils.GeneratorCode;
+import com.Utils.MoblieMessageUtil;
 import com.alibaba.fastjson.JSONObject;
+import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
+import com.aliyuncs.exceptions.ClientException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -49,9 +52,9 @@ public class AppUserController {
      * @author Eestill
      * @date 2019/3/7 13:42
      */
-    @RequestMapping(value = "/login")
+    @RequestMapping(value = "/Userlogin")
     @ResponseBody
-    public Map UserLogin(@RequestBody JSONObject jsonObject){
+    public String UserLogin(@RequestBody JSONObject jsonObject){
         /*
         * {"type" : //输入的账户方式 -> Phone|Mail
         *  "verification" : //前端传递的登陆方式 -> 1(账户 + 密码)|2(账户 + 验证码)
@@ -104,7 +107,10 @@ public class AppUserController {
             user.setUuid(data.getUuid());
             session.setAttribute("user" , user);
 
-            return map;
+            //获取上一次请求的链接
+            String uri = request.getRequestURI();
+            //跳转返回上一次访问的页面
+            return  "index.jhtml";
         }else if (verification.equals("2")){
             HttpSession session = request.getSession();
             UserInfo userLink = (UserInfo)session.getAttribute("userLink");
@@ -122,6 +128,10 @@ public class AppUserController {
                     session.setAttribute("user" , user);
 
                     map.put("data" , u);
+
+                    //获取上一次请求的链接
+                    String uri = request.getRequestURI();
+                    return  "index.jhtml";
                 }
                 else
                     map.put("msg" , "验证码输入有误。");
@@ -132,7 +142,7 @@ public class AppUserController {
         else
             map.put("msg" , "请检查账户验证方式是否输入有误！");
 
-        return map;
+        return "error";
     }
 
     @RequestMapping(value = "/getCode")
@@ -162,8 +172,11 @@ public class AppUserController {
 
         if (type.equals("Phone")){
             if (purpose.equals("register")){
-                if (iUserSerivce.CheckTel(username) == 1){
-                    return "error!";
+                if (iUserSerivce.CheckTel(username) != null) {
+                    Integer flag = iUserSerivce.CheckTel(username);
+                    if (flag > 1) {
+                        return "error";
+                    }
                 }
             }
             userInfo.setPhone(username);
@@ -190,16 +203,16 @@ public class AppUserController {
             }
 
             //调用阿里云短信服务发送验证码到用户手机
-//            try {
-//                SendSmsResponse response = MoblieMessageUtil.sendSms(username,code,region);
-//                System.out.println("短信接口返回的数据----------------");
-//                System.out.println("Code=" + response.getCode());
-//                System.out.println("Message=" + response.getMessage());
-//                System.out.println("RequestId=" + response.getRequestId());
-//                System.out.println("BizId=" + response.getBizId());
-//            } catch (ClientException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                SendSmsResponse response = MoblieMessageUtil.sendSms(username,code,AreaCode);
+                System.out.println("短信接口返回的数据----------------");
+                System.out.println("Code=" + response.getCode());
+                System.out.println("Message=" + response.getMessage());
+                System.out.println("RequestId=" + response.getRequestId());
+                System.out.println("BizId=" + response.getBizId());
+            } catch (ClientException e) {
+                e.printStackTrace();
+            }
             return code;
 
         }
@@ -222,7 +235,7 @@ public class AppUserController {
         return "error";
     }
 
-    @RequestMapping(value = "/register")
+    @RequestMapping(value = "/Userregister")
     @ResponseBody
     public Map UserRegister(@RequestBody JSONObject jsonObject){
         /*
@@ -339,21 +352,5 @@ public class AppUserController {
         return map;
     }
 
-    @RequestMapping(value = "/login.jhtml")
-    public ModelAndView Tologin(){
-        ModelAndView modelView = new ModelAndView();
-        modelView.setViewName("login");
-        modelView.addObject("title"," User");
-        modelView.addObject("canback", true);
-        return  modelView;
-    }
 
-    @RequestMapping(value = "/register.jhtml")
-    public ModelAndView ToRegister(){
-        ModelAndView modelView = new ModelAndView();
-        modelView.setViewName("register");
-        modelView.addObject("title"," User");
-        modelView.addObject("canback", true);
-        return  modelView;
-    }
 }

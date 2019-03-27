@@ -30,12 +30,15 @@
 
     <title>登录页面</title>
 
-    <link rel="stylesheet" type="text/css" href="css/login.css">
-    <link rel="stylesheet" type="text/css" href="css/login2.css">
-    <script src="js/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/login.css">
+    <link rel="stylesheet" type="text/css" href="static/css/login2.css">
+    <script src="static/js/jquery-2.1.1.min.js"></script>
 
 </head>
-<body style="background-image:url('img/bg.png');height: auto;width:100%;margin: 0;padding: 0">
+<body style="background-image:url('static/images/bg.png');height: auto;width:100%;margin: 0;padding: 0">
+<div  style="width: 100%;height: 100%;">
+    <jsp:include page="header.jsp"></jsp:include>
+</div>
 <div style="width:100%;height:100%;">
     <div id="zhuce" onclick="ToLogin()">Login</div>
     <div id="login"></div>
@@ -77,6 +80,7 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 
 </html>
@@ -105,7 +109,7 @@
             var data = "{\"type\" : \"Phone\" , \"purpose\" : \"register\" , \"username\" : \"" + phone +
                 "\" , \"AreaCode\" : \"" + AreaCode + "\"}"
             $.ajax({
-                url: "App/getCode",
+                url: "App/getCode.jhtml",
                 type: "post",
                 contentType: 'application/json; charset=UTF-8',
                 data: data,
@@ -151,12 +155,12 @@
                 "\" , \"code\" : \"" + SMSCode + "\" , \"pwd\" : \"" + pwd + "\"}"
             console.log(data)
             $.ajax({
-                url: "App/register",
+                url: "App/Userregister.jhtml",
                 type: "post",
                 contentType: 'application/json; charset=UTF-8',
                 data: data,
                 success: function (data) {
-                    window.location.href = 'App/login.jhtml';
+                    window.location.href = 'login.jhtml';
                 },
                 error: function () {
                     alert("注册失败！")
@@ -168,6 +172,6 @@
 
 <script>
     function ToLogin() {
-        window.location.href = 'App/login.jhtml';
+        window.location.href = 'login.jhtml';
     }
 </script>

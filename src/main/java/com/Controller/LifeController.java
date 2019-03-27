@@ -1,15 +1,16 @@
 package com.Controller;
 
 import com.Bean.ChartData;
+import com.Bean.User;
 import com.Serivce.ILifeService;
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +19,8 @@ import java.util.Map;
  * @ Explain :
  * @ UpdateDate : Update in
  */
-@RestController
+@Controller
+@CrossOrigin
 @RequestMapping(value = "/Life")
 public class LifeController {
     @Resource
@@ -28,8 +30,9 @@ public class LifeController {
     private HttpServletRequest request;
 
 
-    @RequestMapping(value = "/getPartOfLife")
-    public Map<String, Object> getLife(@RequestBody JSONObject jsonObject){
+    @RequestMapping(value = "/InsertPartOfLife")
+    @ResponseBody
+    public Map<String , Object> getLife(@RequestBody JSONObject jsonObject){
         /*
         *  {
         *   "column" : //栏目内容,
@@ -38,22 +41,49 @@ public class LifeController {
         *   "value2" : //输入的值2
         *  }
         * */
+        System.out.println("*****************************");
+        System.out.println(jsonObject);
+        System.out.println("*****************************");
 
+        //column 去空格处理
         String column = jsonObject.getString("column");
-        Double value1 = Double.parseDouble(jsonObject.getString("value1"));
+        column = column.replace(" " , "");
+
+        Double value1 = 0.00;
         Double value2 = 0.00;
+
+        //前端传值 uuid 去空格处理
+        String uuid = jsonObject.getString("uuid");
+        uuid = uuid.replace(" " , "");
+
+        HttpSession session = request.getSession();
+        User userInfo = (User)session.getAttribute("userInfo");
+        //String uuid = userInfo.getUuid();
+
+        System.out.println(jsonObject);
+        if (jsonObject.getString("value1") != null){
+            value1 = Double.parseDouble(jsonObject.getString("value1"));
+        }
+
         if (jsonObject.getString("value2") != null) {
             value2 = Double.parseDouble(jsonObject.getString("value2"));
         }
         String type = jsonObject.getString("type");
         if (column.equals("Food")){
-            return lifeService.getLift(column,type,value1,value2);
+            lifeService.getLift(column,type,value1,value2,uuid);
+            Map map = new HashMap();
+            map.put("msg" , "success");
+            return map;
         }
         else
-            return lifeService.getLift(column,value1,value2);
+            lifeService.getLift(column,value1,value2,uuid);
+            Map map = new HashMap();
+            map.put("msg" , "success");
+            return map;
     }
 
     @RequestMapping(value = "/getDataOfLife")
+    @ResponseBody
     public List getDateOfLife(@RequestBody JSONObject jsonObject){
         /*
         *  {
@@ -62,9 +92,23 @@ public class LifeController {
         *  }
         * */
         //String uuid = jsonObject.getString("uuid");
+        System.out.println("-------------------------------");
+        System.out.println(jsonObject);
+        System.out.println("-------------------------------");
 
+        HttpSession session = request.getSession();
+        User userInfo = (User)session.getAttribute("userInfo");
+        //String uuid = userInfo.getUuid();
+
+        //column 去空格处理
         String column = jsonObject.getString("column");
+        column = column.replace(" " , "");
+
         String type = jsonObject.getString("type");
-        return lifeService.getData(column , type);
+
+        //前端传值 uuid 去空格处理
+        String uuid  = jsonObject.getString("uuid");
+        uuid = uuid.replace(" " , "");
+        return lifeService.getData(column , type , uuid);
     }
 }

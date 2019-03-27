@@ -18,9 +18,7 @@ public class Firewall{
 //@WebFilter(urlPatterns = "*.jhtml", filterName = "authFilter")
 //public class Firewall implements Filter {
 //
-//
 //        public void init(FilterConfig config) throws ServletException {
-//
 //	}
 //	public void doFilter(ServletRequest request, ServletResponse response,
 //			FilterChain chain) throws IOException, ServletException {
@@ -39,17 +37,24 @@ public class Firewall{
 //			if (uri.equals("/") || uri.equals("/paypal/paysuccess.jhtml") || uri.equals("/cart/index.jhtml")) {
 //				chain.doFilter(request, response);// 放行filter
 //			} else {
-//				resp.sendRedirect("/");// 打回主页 重定向找谁？！！web.xml
+//                if (uri.equals("/index.jhtml")){
+//                    chain.doFilter(request, response);// 放行filter
+//                }else
+//				resp.sendRedirect("/index.jhtml");// 打回主页 重定向找谁？！！web.xml
 //			}
-//		} else {
-//			if(!req.getRequestURI().equals("")){
-//				if ((SplitUrl.SplitUrl(uri)).equals("App")){
-//					chain.doFilter(request, response);// 放行filter
-//				}
+//            chain.doFilter(request, response);// 放行filter
+//		}
+//		else {
+//		    //----->transaction //指向交易栏目
+//            //----->paypal //指向支付
+//            //----->
+//			String flag = SplitUrl.SplitUrl(uri);
+//
+//			//if(req.getRequestURI().equals("")){
+//			if(flag.equals("transaction") || flag.equals("paypal")){
 //				User user=(User)req.getSession().getAttribute("userInfo");
 //				if(user==null){
-//					resp.sendRedirect("/login"); //用户为null直接跳转到登陆页面
-//					return;
+//					resp.sendRedirect("/login.jhtml"); //用户为null直接跳转到登陆页面
 //				}else{
 //					chain.doFilter(request, response);
 //				}
@@ -57,7 +62,10 @@ public class Firewall{
 //				chain.doFilter(request, response);
 //			}
 //		}
+
+
 //	}
+//
 //	public void destroy() {
 //
 //	}

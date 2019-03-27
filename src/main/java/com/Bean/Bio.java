@@ -14,6 +14,7 @@ public class Bio {
     private Double biological_age;
     private String name;
     private String id;
+    private String uuid;
 
     public Double getNatural_age() {
         return natural_age;
@@ -45,5 +46,13 @@ public class Bio {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

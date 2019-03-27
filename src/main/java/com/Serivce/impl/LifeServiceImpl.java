@@ -6,6 +6,7 @@ import com.Bean.Time;
 import com.Bean.User;
 import com.Dao.ILifeDao;
 import com.Serivce.ILifeService;
+import com.Utils.DealWithArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -55,7 +56,7 @@ public class LifeServiceImpl implements ILifeService {
 
     //身体属性
     private void Body(String uuid,Double value1,Double value2){
-        //默认list中的顺序为[身高(cm)，体重]
+        //默认list中的顺序为[体重 , 身高(cm)]
         //前台默认传递身高的单位为cm,体重的单位为kg
         Integer flag = 0;
 
@@ -68,9 +69,20 @@ public class LifeServiceImpl implements ILifeService {
         //获取今日对应的周数
         Integer week = getNowInitTime(nowTime).getWeek();
 
-        Double height = value1 / 100;
-        Double weight = value2;
-        Double BMI = weight / (height * height);
+        Double weight = 0.0;
+
+        if (value1 != 0.0){
+            weight = value1;
+        }
+
+        Double height = 0.0;
+
+        Double BMI = 1.0;
+
+        if (value2 != 0.0){
+            height = value2 / 100;
+            BMI = weight / (height * height);
+        }
 
         //创建对象life，用于存储传递值
         Life life = new Life();
@@ -250,9 +262,14 @@ public class LifeServiceImpl implements ILifeService {
         //获取今日对应的周数
         Integer week = getNowInitTime(nowTime).getWeek();
 
-        Double systolic = value1;
-        Double diastolic = value2;
-
+        Double systolic = null;
+        Double diastolic = null;
+        if (value1 != 0.0) {
+            systolic = value1;
+        }
+        if (value2 != 0.0) {
+            diastolic = value2;
+        }
         //创建对象life，用于存储传递值
         Life life = new Life();
         life.setUuid(uuid);
@@ -290,6 +307,12 @@ public class LifeServiceImpl implements ILifeService {
             case 1 :
                 life.setUpdate_time(dayTime / 1000);
                 life.setWeek(week);
+                if (value2 == 0.0 || value2 == null) {
+                    life.setDiastolic_BP(0.0);
+                }
+                if (value1 == 0.0 || value1 == null) {
+                    life.setSystolic_BP(0.0);
+                }
                 lifeDao.insertBP(life);
                 break;//返回值为1，则今日并没有更新数据，执行插入操作
             default:
@@ -547,14 +570,17 @@ public class LifeServiceImpl implements ILifeService {
         //获取今日对应的周数
         Integer week = getNowInitTime(nowTime).getWeek();
 
-        //前台默认传递吸烟的单位为：stick/day
-        Double smoking = value1;
-        Double smoking_time = value2;
-
         //创建对象life，用于存储传递值
         Life life = new Life();
+
+        //前台默认传递吸烟的单位为：stick/day
+        Double smoking = value1;
+        if (value2 != null) {
+            Double smoking_time = value2;
+            life.setSmoking_time(smoking_time);
+        }
+
         life.setSmoking(smoking);
-        life.setSmoking_time(smoking_time);
         life.setUuid(uuid);
 
         //查询数据库中是否有该用户的数据，若无则不需要计算时间
@@ -833,15 +859,15 @@ public class LifeServiceImpl implements ILifeService {
 
     //用于返回对应的数据类型给上一层
     @Override
-    public Map<String, Object> getLift(String column, Double value1, Double value2) {
+    public Map<String, Object> getLift(String column, Double value1, Double value2 , String uuid) {
 
         Map<String, Object> map = new HashMap<>();
         HttpSession session = request.getSession();
         //String uuid = ((User)session.getAttribute("userInfo")).getUuid();
-        String uuid = "HKEPI201937192024320";
+        //String uuid = "HKEPI201937192024320";
         System.out.println(uuid);
 
-        //身体属性,操作数据为身高和体重，反馈数据补充修改bmi
+        //身体属性,操作数据为体重和身高，反馈数据补充修改bmi
         if (column.equals("Body")){
             Body(uuid, value1, value2);
             map.put("data" , "success");
@@ -940,12 +966,12 @@ public class LifeServiceImpl implements ILifeService {
 
     //处理卡路里摄入
     @Override
-    public Map<String, Object> getLift(String column, String type, Double value1, Double value2) {
+    public Map<String, Object> getLift(String column, String type, Double value1, Double value2 , String uuid) {
         Map<String , Object> map = new HashMap<>();
 
         //从session中取出uuid
         //String uuid = ((User)request.getSession().getAttribute("userInfo")).getUuid();
-        String uuid = "HKEPI201937192024320";
+        //String uuid = "HKEPI201937192024320";
 
         //反馈的提示信息
         String msg = "";
@@ -968,7 +994,7 @@ public class LifeServiceImpl implements ILifeService {
         //每个栏目下会附带一个snacks
         //将前台获取的卡路里的值存放在对象中
         life.setCalories(value1);
-        life.setCalories_plus(value2);
+        //life.setCalories_plus(value2);
 
         if (type.equals("breakfast")){
 
@@ -1099,7 +1125,7 @@ public class LifeServiceImpl implements ILifeService {
                     lifeDao.insertFood_3(life);
                     break;//返回值为1，则今日并没有更新数据，执行插入操作
                 default:
-                    System.out.println("error!");
+                    System.out.println("error");
             }
 
             //map.put("data" ,lifeDao.selectFood_3(uuid));
@@ -1114,15 +1140,16 @@ public class LifeServiceImpl implements ILifeService {
 
     //用于返回数据给页面渲染表格
     @Override
-    public List getData(String column , String type) {
+    public List getData(String column , String type , String uuid) {
         //从session 中获取用户的信息
         //HttpSession session = request.getSession();
         //User userInfo = (User)session.getAttribute("userInfo");
         User userInfo = new User();
-        userInfo.setUuid("HKEPI201937192024320");
+        //userInfo.setUuid("HKEPI201937192024320");
+        userInfo.setUuid(uuid);
 
         //设置时间类型
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 
         //获取全部数据
@@ -1147,20 +1174,20 @@ public class LifeServiceImpl implements ILifeService {
         //用于记录存放需要删除的数据
         List num  = new ArrayList();
 
-        //身体属性,获取的是height、weight、bmi
+        //身体属性,获取的是weight、height、bmi
+        //统一返回BMI进行表格渲染
         if (column.equals("Body")){
             for (int i = 0 ; i < originData.size() ; i++){
                 Life life = originData.get(i);
-                String [] a = new String[3];
-                if (life.getHeight() != null){
-                    a[0] = life.getHeight().toString();
-                }
-                if (life.getWeight() != null){
-                    a[1] = life.getWeight().toString();
-                }
-
+                String [] a = new String[1];
+//                if (life.getHeight() != null){
+//                    a[0] = life.getHeight().toString();
+//                }
+//                if (life.getWeight() != null){
+//                    a[1] = life.getWeight().toString();
+//                }
                 if (life.getBmi() != null){
-                    a[2] = life.getBmi().toString();
+                    a[0] = life.getBmi().toString();
                 }else {
                     num.add(i);
                 }
@@ -1176,6 +1203,7 @@ public class LifeServiceImpl implements ILifeService {
                     columnList.add(j, data[i][j]);
 
                 }
+                //按顺序进行值的插入
                 listData.add(i, columnList);
             }
 
@@ -1185,7 +1213,8 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            //删除部分内容为空 的列 避免影响数据渲染
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -1203,34 +1232,42 @@ public class LifeServiceImpl implements ILifeService {
                 System.out.println(listTime.get(i));
             }
 
+            //用户数据有可能小于7或大于7
             if (listData.size() > 7) {
                 //截取前7条数据
-                String [][] d = new String[7][];
+                //String [][] d = new String[7][];
                 String [] t = new String[7];
+                String [] Td = new String[7];
                 for (int i = 0; i < 7; i++) {
-                    String[] Cache = new String[3];
+                    String[] Cache = new String[1];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }else {
                 //截取前7条数据
-                String [][] d = new String[listData.size()][];
+                //String [][] d = new String[listData.size()][];
+                //用处理后的list长度判断数组长度
+                String [] Td = new String[listTime.size()];
                 String [] t = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
-                    String [] Cache = new String[3];
+                    String [] Cache = new String[1];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }
 
         }
@@ -1240,7 +1277,7 @@ public class LifeServiceImpl implements ILifeService {
                 Life life = originData.get(i);
                 String [] a = new String[1];
                 if (life.getHeart_rate() != null){
-                    a[0] = life.getHeight().toString();
+                    a[0] = life.getHeart_rate().toString();
                 }else {
                     num.add(i);
                 }
@@ -1263,7 +1300,7 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -1283,32 +1320,39 @@ public class LifeServiceImpl implements ILifeService {
 
             if (listData.size() > 7) {
                 //截取前7条数据
-                String [][] d = new String[7][];
+                //因为返回的数据只有一条，因此为了更好的判断，则只需要一维数组存放数据
+                //String [][] d = new String[7][];
+                String [] Td = new String[7];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[1];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                //list.add(DealWithArray.DoChangeDouble(d));
+                list.add(DealWithArray.DoChange(Td));
             }else {
                 //截取前7条数据
-                String [][] d = new String[listData.size()][];
+                //String [][] d = new String[listData.size()][];
                 String [] t = new String[listTime.size()];
+                String [] Td = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[1];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                //list.add(DealWithArray.DoChangeDouble(d));
+                list.add(DealWithArray.DoChange(Td));
             }
         }
         //血压，操作数据为systolic_BP和diastolic_BP
@@ -1346,7 +1390,7 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -1367,6 +1411,8 @@ public class LifeServiceImpl implements ILifeService {
             if (listData.size() > 7) {
                 //截取前7条数据
                 String [][] d = new String[7][];
+                String [] sys = new String[7];
+                String [] dia = new String[7];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[2];
@@ -1374,13 +1420,20 @@ public class LifeServiceImpl implements ILifeService {
                         Cache[j] = listData.get(i).get(j);
                     }
                     d[i] = Cache;
+                    sys[i] = Cache[0];
+                    dia[i] = Cache[1];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+                //list.add(t);
+                //list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(sys));
+                list.add(DealWithArray.DoChange(dia));
             }else {
                 //截取前7条数据
                 String [][] d = new String[listData.size()][];
+                String [] sys = new String[listData.size()];
+                String [] dia = new String[listData.size()];
                 String [] t = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[2];
@@ -1388,10 +1441,15 @@ public class LifeServiceImpl implements ILifeService {
                         Cache[j] = listData.get(i).get(j);
                     }
                     d[i] = Cache;
+                    sys[i] = Cache[0];
+                    dia[i] = Cache[1];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(sys));
+                list.add(DealWithArray.DoChange(dia));
             }
         }
         //胆固醇，操作数据为cholesterol
@@ -1426,7 +1484,7 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -1446,32 +1504,39 @@ public class LifeServiceImpl implements ILifeService {
 
             if (listData.size() > 7) {
                 //截取前7条数据
-                String [][] d = new String[7][];
+                //String [][] d = new String[7][];
+                String [] Td = new String[7];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[1];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
+                //list.add(DealWithArray.DoChangeDouble(d));
             }else {
                 //截取前7条数据
-                String [][] d = new String[listData.size()][];
+                //String [][] d = new String[listData.size()][];
+                String [] Td = new String[listData.size()];
                 String [] t = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[1];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(DealWithArray.DoChange(t));
+//                list.add(DealWithArray.DoChangeDouble(d));
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }
         }
         //睡眠情况，操作数据为sleep
@@ -1505,7 +1570,7 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -1525,32 +1590,40 @@ public class LifeServiceImpl implements ILifeService {
 
             if (listData.size() > 7) {
                 //截取前7条数据
-                String [][] d = new String[7][];
+                //String [][] d = new String[7][];
+                String [] Td = new String[7];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[1];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+                //list.add(t);
+                //list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }else {
                 //截取前7条数据
-                String [][] d = new String[listData.size()][];
+                //String [][] d = new String[listData.size()][];
+                String [] Td = new String[listData.size()];
                 String [] t = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[1];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }
         }
         //冥想情况，操作数据为mediatation
@@ -1584,7 +1657,7 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -1604,32 +1677,40 @@ public class LifeServiceImpl implements ILifeService {
 
             if (listData.size() > 7) {
                 //截取前7条数据
-                String [][] d = new String[7][];
+                //String [][] d = new String[7][];
+                String [] Td = new String[7];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[1];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }else {
                 //截取前7条数据
-                String [][] d = new String[listData.size()][];
+                //String [][] d = new String[listData.size()][];
+                String [] Td = new String[listData.size()];
                 String [] t = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[1];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }
         }
         //性生活情况，操作数据为sex_life_frequency和sex_life_score
@@ -1667,7 +1748,7 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -1746,9 +1827,11 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0 ; j--){
                 System.out.println("进入删除list中" + num.get(j));
-                System.out.println(num.get(j).toString());
+                //System.out.println(num.size());
+                //System.out.println(Arrays.toString(listData.toArray()));
+                //System.out.println(num.get(j).toString());
 
                 //删除数据列中为空的列
                 listData.remove(Integer.parseInt(num.get(j).toString()));
@@ -1766,32 +1849,40 @@ public class LifeServiceImpl implements ILifeService {
 
             if (listData.size() > 7) {
                 //截取前7条数据
-                String [][] d = new String[7][];
+                //String [][] d = new String[7][];
+                String [] Td = new String[7];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[1];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }else {
                 //截取前7条数据
-                String [][] d = new String[listData.size()][];
+                //String [][] d = new String[listData.size()][];
+                String [] Td = new String[listData.size()];
                 String [] t = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[1];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }
         }
         //喝酒情况，操作数据为alcohol
@@ -1825,7 +1916,7 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -1845,32 +1936,40 @@ public class LifeServiceImpl implements ILifeService {
 
             if (listData.size() > 7) {
                 //截取前7条数据
-                String [][] d = new String[7][];
+                //String [][] d = new String[7][];
+                String [] Td = new String[7];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[1];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    Td[i] = Cache[0];
+                    //d[i] = Cache;
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }else {
                 //截取前7条数据
-                String [][] d = new String[listData.size()][];
+                //String [][] d = new String[listData.size()][];
+                String [] Td = new String[listData.size()];
                 String [] t = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[1];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }
         }
         //维他命A情况，操作数据为vitamin_A
@@ -1905,7 +2004,7 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -1925,32 +2024,40 @@ public class LifeServiceImpl implements ILifeService {
 
             if (listData.size() > 7) {
                 //截取前7条数据
-                String [][] d = new String[7][];
+                //String [][] d = new String[7][];
+                String [] Td = new String[7];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[1];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }else {
                 //截取前7条数据
-                String [][] d = new String[listData.size()][];
+                //String [][] d = new String[listData.size()][];
+                String [] Td = new String[listData.size()];
                 String [] t = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[1];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }
         }
         //维他命C情况，操作数据为vitamin_C
@@ -1984,7 +2091,7 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -2004,32 +2111,40 @@ public class LifeServiceImpl implements ILifeService {
 
             if (listData.size() > 7) {
                 //截取前7条数据
-                String [][] d = new String[7][];
+                //String [][] d = new String[7][];
+                String [] Td = new String[7];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[1];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }else {
                 //截取前7条数据
-                String [][] d = new String[listData.size()][];
+                String [] Td = new String[listData.size()];
+                //String [][] d = new String[listData.size()][];
                 String [] t = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[1];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }
         }
         //维他命D情况，操作数据为vitamin_D
@@ -2063,7 +2178,7 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -2083,32 +2198,40 @@ public class LifeServiceImpl implements ILifeService {
 
             if (listData.size() > 7) {
                 //截取前7条数据
-                String [][] d = new String[7][];
+                String [] Td = new String[7];
+                //String [][] d = new String[7][];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[1];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }else {
                 //截取前7条数据
-                String [][] d = new String[listData.size()][];
+                String[] Td = new String [listData.size()];
+                //String [][] d = new String[listData.size()][];
                 String [] t = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[1];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                  //  d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }
         }
         //有氧运动情况，操作数据为sport
@@ -2142,7 +2265,7 @@ public class LifeServiceImpl implements ILifeService {
                 listTime.add(time[i]);
             }
 
-            for (int j = 0 ; j < num.size() ; j++){
+            for (int j = (num.size() - 1) ; j >= 0  ; j--){
                 System.out.println("进入删除list中" + num.get(j));
                 System.out.println(num.get(j).toString());
 
@@ -2162,32 +2285,40 @@ public class LifeServiceImpl implements ILifeService {
 
             if (listData.size() > 7) {
                 //截取前7条数据
-                String [][] d = new String[7][];
+                String [] Td = new String[7];
+                //String [][] d = new String[7][];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[1];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                  //  d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }else {
                 //截取前7条数据
-                String [][] d = new String[listData.size()][];
+                String [] Td = new String [listData.size()];
+                //String [][] d = new String[listData.size()][];
                 String [] t = new String[listTime.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[1];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                  //  d[i] = Cache;
+                    Td[i] = Cache[0];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(Td));
             }
         }
         //摄入卡路里状况，涉及卡路里等相关信息
@@ -2272,16 +2403,15 @@ public class LifeServiceImpl implements ILifeService {
                 }
             }
             else if (type.equals("lunch")){
+                //遍历获取数据 依次拿出lunch的数据
                 for (int i = 0 ; i < originData.size() ; i++){
                     Life life = originData.get(i);
-                    String [] a = new String[2];
+                    String [] a = new String[1];
                     if (life.getFood_Lunch() != null){
                         a[0] = life.getFood_Lunch().toString();
                     }else {
+                        //用于排除空的数据
                         num.add(i);
-                    }
-                    if (life.getFood_Lunch() != null){
-                        a[1] = life.getFood_Lunch_snacks().toString();
                     }
                     data[i] = a;
                 }
@@ -2302,7 +2432,7 @@ public class LifeServiceImpl implements ILifeService {
                     listTime.add(time[i]);
                 }
 
-                for (int j = 0 ; j < num.size() ; j++){
+                for (int j = (num.size() - 1) ; j >= 0  ; j--){
                     System.out.println("进入删除list中" + num.get(j));
                     System.out.println(num.get(j).toString());
 
@@ -2322,32 +2452,41 @@ public class LifeServiceImpl implements ILifeService {
 
                 if (listData.size() > 7) {
                     //截取前7条数据
-                    String [][] d = new String[7][];
+                    //String [][] d = new String[7][];
                     String [] t = new String[7];
+                    String [] Td = new String [7];
                     for (int i = 0; i < 7; i++) {
-                        String[] Cache = new String[2];
+                        String[] Cache = new String[1];
                         for (int j = 0; j < listData.get(i).size(); j++) {
                             Cache[j] = listData.get(i).get(j);
                         }
-                        d[i] = Cache;
+                        //d[i] = Cache;
                         t[i] = listTime.get(i).toString();
+                        Td[i] = Cache[0];
                     }
-                    list.add(t);
-                    list.add(d);
+
+                    //因业务需要 数据存放在一个数组中
+
+
+                    list.add(DealWithArray.DoChange(t));
+                    list.add(DealWithArray.DoChange(Td));
                 }else {
                     //截取前7条数据
-                    String [][] d = new String[listData.size()][];
+                    //String [][] d = new String[listData.size()][];
+                    String [] Td = new String[listTime.size()];
                     String [] t = new String[listTime.size()];
                     for (int i = 0 ; i < listData.size() ; i++){
-                        String [] Cache = new String[2];
+                        String [] Cache = new String[1];
                         for (int j = 0 ; j < listData.get(i).size() ; j++){
                             Cache[j] = listData.get(i).get(j);
                         }
-                        d[i] = Cache;
+                        //d[i] = Cache;
+                        Td[i] = Cache[0];
                         t[i] = listTime.get(i).toString();
                     }
-                    list.add(t);
-                    list.add(d);
+
+                    list.add(DealWithArray.DoChange(t));
+                    list.add(DealWithArray.DoChange(Td));
                 }
             }
             else if (type.equals("dinner")){
@@ -2381,7 +2520,7 @@ public class LifeServiceImpl implements ILifeService {
                     listTime.add(time[i]);
                 }
 
-                for (int j = 0 ; j < num.size() ; j++){
+                for (int j = (num.size() - 1) ; j >= 0  ; j--){
                     System.out.println("进入删除list中" + num.get(j));
                     System.out.println(num.get(j).toString());
 

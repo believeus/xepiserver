@@ -36,6 +36,11 @@
 
 </head>
 <body style="background-image:url('static/images/bg.png');height: auto;width:100%;margin: 0;padding: 0">
+<!--头部开始-->
+<div  style="width: 100%;height: 100%;">
+    <jsp:include page="header.jsp"></jsp:include>
+</div>
+    <div  style="width: 100%;height: 100%;">
 <div style="width:100%;height:100%;">
     <div id="zhuce" onclick="ToReg()">Register</div>
     <div id="login"></div>
@@ -93,6 +98,8 @@
             </div>
         </div>
     </div>
+</div>
+    </div>
 </body>
 
 </html>
@@ -121,7 +128,7 @@
             var data = "{\"type\" : \"Phone\" , \"purpose\" : \"login\" , \"username\" : \"" + phone +
                 "\" , \"AreaCode\" : \"" + AreaCode + "\"}"
             $.ajax({
-                url: "App/getCode",
+                url: "App/getCode.jhtml",
                 type: "post",
                 contentType: 'application/json; charset=UTF-8',
                 data: data,
@@ -166,15 +173,15 @@
                 "\" , \"code\" : \"" + SMSCode + "\"}"
             console.log(data)
             $.ajax({
-                url: "App/login",
+                url: "App/Userlogin.jhtml",
                 type: "post",
                 contentType: 'application/json; charset=UTF-8',
                 data: data,
                 success: function(data) {
-                    window.location.href = 'cart/index.jhtml';
+                    window.location.href = 'index.jhtml';
                 },
                 error: function() {
-                    alert("发送未知错误！ 无法发送验证码！")
+                    alert("Log In Error！")
                 }
             });
         }
@@ -189,15 +196,15 @@
             var data = "{\"type\" : \"Phone\" , \"verification\" : \"1\" , \"username\" : \"" + phone +
                 "\" , \"pwd\" : \"" + pwd + "\"}"
             $.ajax({
-                url: "App/login",
+                url: "App/Userlogin.jhtml",
                 type: "post",
                 contentType: 'application/json; charset=UTF-8',
                 data: data,
                 success: function(data) {
-                    window.location.href = 'cart/index.jhtml';
+                    window.location.href = 'index.jhtml';
                 },
                 error: function() {
-                    alert("发送未知错误！ 无法发送验证码！")
+                    alert("Log In Error！")
                 }
             });
         }
@@ -206,6 +213,6 @@
 
 <script>
     function ToReg() {
-        window.location.href = 'App/register.jhtml';
+        window.location.href = 'register.jhtml';
     }
 </script>

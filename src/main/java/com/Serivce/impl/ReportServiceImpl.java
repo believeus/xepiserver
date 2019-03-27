@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class ReportServiceImpl implements ReportService {
     private HttpServletRequest request;
 
     @Override
-    public List GetDataForReport(String id) {
+    public List GetDataForReport(String uuid) {
         HttpSession session = request.getSession();
         List<Bio> list = new LinkedList<>();
 
@@ -65,7 +66,18 @@ public class ReportServiceImpl implements ReportService {
         list1.add(dataListLt);
         list1.add(dataListGt);
 
-        Bio bio = reportDao.GetBioDataForPerson(id);
+//        Bio bio = reportDao.GetBioDataForPerson(id);
+//
+//        List Person = new LinkedList();
+//        Person.add(bio.getId());
+//        Person.add(bio.getName());
+//        Person.add(bio.getNatural_age());
+//        Person.add(bio.getBiological_age());
+
+        //list1.add(GetDataForPersonById(id));
+
+        //获得该用户的数据
+        Bio bio = reportDao.GetBioDataForPersonByUuid(uuid);
 
         List Person = new LinkedList();
         Person.add(bio.getId());
@@ -74,7 +86,6 @@ public class ReportServiceImpl implements ReportService {
         Person.add(bio.getBiological_age());
 
         list1.add(Person);
-
 
 
         return list1;
@@ -86,5 +97,44 @@ public class ReportServiceImpl implements ReportService {
         session.setAttribute("BioReport" , reportDao.GetBioData());
 
         return reportDao.GetBioData();
+    }
+
+    //根据条码id查询个人信息
+    public List GetDataForPerson(String id) {
+        HttpSession session = request.getSession();
+        List<Bio> list = new LinkedList<>();
+
+        Bio bio = reportDao.GetBioDataForPerson(id);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+
+        List Person = new LinkedList();
+        Person.add(bio.getId());
+        Person.add(bio.getName());
+        Person.add(bio.getNatural_age());
+        Person.add(bio.getBiological_age());
+        Person.add(simpleDateFormat.format(System.currentTimeMillis()));
+
+        return Person;
+    }
+
+    @Override
+    //根据用户id查询生物学年龄信息
+    public List GetDataForPersonById(String uuid) {
+        HttpSession session = request.getSession();
+        List<Bio> list = new LinkedList<>();
+
+        Bio bio = reportDao.GetBioDataForPersonByUuid(uuid);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+
+        List Person = new LinkedList();
+        Person.add(bio.getId());
+        Person.add(bio.getName());
+        Person.add(bio.getNatural_age());
+        Person.add(bio.getBiological_age());
+        Person.add(simpleDateFormat.format(System.currentTimeMillis()));
+
+        return Person;
     }
 }

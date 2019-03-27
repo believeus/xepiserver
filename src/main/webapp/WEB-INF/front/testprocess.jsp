@@ -20,9 +20,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<jsp:include page="header.jsp"></jsp:include>
 				
 				<div style="width: 100%;height: auto;">
-			
+				
+				
 				<img src="static/images/tp-1.png"style="width: 100%;height: auto;"/>
+				<a href="download/EPIAging-apk.jhtml">
 				<img src="static/images/tp-2.png"style="width: 100%;height: auto;"/>
+				</a>
 				<a href="aging/index.jhtml">
 				<img src="static/images/tp-3.png"style="width: 100%;height: auto;"/>
 				</a>

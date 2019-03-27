@@ -117,5 +117,5 @@ public interface IUserDao {
     public Integer getKey(@Param("uuid")String uuid);
 
     //检查填写的账户是否已经注册
-    public int CheckTel(@Param("phone") String phone);
+    public Integer CheckTel(@Param("phone") String phone);
 }

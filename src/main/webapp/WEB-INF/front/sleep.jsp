@@ -77,7 +77,7 @@
 						var data = "{\"type\" :\"Sleep\",\"number\" : \"1\"" + "}";
 						$.ajax({
 							type : "post",
-							url : "http://192.168.1.126:8080/Questionnaire/GetData",
+							url : "Questionnaire/GetData.jhtml",
 							data : data,
 							dataType : "json",
 							contentType : "application/json",
@@ -129,7 +129,7 @@
 							var data = "{\"type\" : \"Sleep\",\"data\" : {\"id\" : \"1\",\"value\" :\"" + slideEvt.value + "\"}}";
 							$.ajax({
 								type : "post",
-								url : "http://192.168.1.126:8080/Questionnaire/Input",
+								url : "Questionnaire/Input.jhtml",
 								dataType : "json",
 								contentType : "application/json",
 								data : data,
@@ -138,7 +138,7 @@
 									var data = "{\"type\" :\"Sleep\",\"number\" : \"1\"" + "}";
 									$.ajax({
 										type : "post",
-										url : "http://192.168.1.126:8080/Questionnaire/GetData",
+										url : "Questionnaire/GetData.jhtml",
 										data : data,
 										dataType : "json",
 										contentType : "application/json",
@@ -214,7 +214,7 @@
 						var data = "{\"type\" :\"Sleep\",\"number\" : \"2\"" + "}";
 						$.ajax({
 							type : "post",
-							url : "http://192.168.1.126:8080/Questionnaire/GetData",
+							url : "Questionnaire/GetData.jhtml",
 							data : data,
 							dataType : "json",
 							contentType : "application/json",
@@ -266,7 +266,7 @@
 							var data = "{\"type\" : \"Sleep\",\"data\" : {\"id\" : \"2\",\"value\" :\"" + slideEvt.value + "\"}}";
 							$.ajax({
 								type : "post",
-								url : "http://192.168.1.126:8080/Questionnaire/Input",
+								url : "Questionnaire/Input.jhtml",
 								dataType : "json",
 								contentType : "application/json",
 								data : data,
@@ -275,7 +275,7 @@
 									var data = "{\"type\" :\"Sleep\",\"number\" : \"2\"" + "}";
 									$.ajax({
 										type : "post",
-										url : "http://192.168.1.126:8080/Questionnaire/GetData",
+										url : "Questionnaire/GetData.jhtml",
 										data : data,
 										dataType : "json",
 										contentType : "application/json",
@@ -354,7 +354,7 @@
 						var data = "{\"type\" :\"Sleep\",\"number\" : \"3\"" + "}";
 						$.ajax({
 							type : "post",
-							url : "http://192.168.1.126:8080/Questionnaire/GetData",
+							url : "Questionnaire/GetData.jhtml",
 							data : data,
 							dataType : "json",
 							contentType : "application/json",
@@ -406,7 +406,7 @@
 							var data = "{\"type\" : \"Sleep\",\"data\" : {\"id\" : \"3\",\"value\" :\"" + slideEvt.value + "\"}}";
 							$.ajax({
 								type : "post",
-								url : "http://192.168.1.126:8080/Questionnaire/Input",
+								url : "Questionnaire/Input.jhtml",
 								dataType : "json",
 								contentType : "application/json",
 								data : data,
@@ -415,7 +415,7 @@
 									var data = "{\"type\" :\"Sleep\",\"number\" : \"3\"" + "}";
 									$.ajax({
 										type : "post",
-										url : "http://192.168.1.126:8080/Questionnaire/GetData",
+										url : "Questionnaire/GetData.jhtml",
 										data : data,
 										dataType : "json",
 										contentType : "application/json",
@@ -493,7 +493,7 @@
 						var data = "{\"type\" :\"Sleep\",\"number\" : \"4\"" + "}";
 						$.ajax({
 							type : "post",
-							url : "http://192.168.1.126:8080/Questionnaire/GetData",
+							url : "Questionnaire/GetData.jhtml",
 							data : data,
 							dataType : "json",
 							contentType : "application/json",
@@ -545,7 +545,7 @@
 							var data = "{\"type\" : \"Sleep\",\"data\" : {\"id\" : \"4\",\"value\" :\"" + slideEvt.value + "\"}}";
 							$.ajax({
 								type : "post",
-								url : "http://192.168.1.126:8080/Questionnaire/Input",
+								url : "Questionnaire/Input.jhtml",
 								dataType : "json",
 								contentType : "application/json",
 								data : data,
@@ -554,7 +554,7 @@
 									var data = "{\"type\" :\"Sleep\",\"number\" : \"4\"" + "}";
 									$.ajax({
 										type : "post",
-										url : "http://192.168.1.126:8080/Questionnaire/GetData",
+										url : "Questionnaire/GetData.jhtml",
 										data : data,
 										dataType : "json",
 										contentType : "application/json",
@@ -632,7 +632,7 @@
 						var data = "{\"type\" :\"Sleep\",\"number\" : \"5\"" + "}";
 						$.ajax({
 							type : "post",
-							url : "http://192.168.1.126:8080/Questionnaire/GetData",
+							url : "Questionnaire/GetData.jhtml",
 							data : data,
 							dataType : "json",
 							contentType : "application/json",
@@ -684,7 +684,7 @@
 							var data = "{\"type\" : \"Sleep\",\"data\" : {\"id\" : \"5\",\"value\" :\"" + slideEvt.value + "\"}}";
 							$.ajax({
 								type : "post",
-								url : "http://192.168.1.126:8080/Questionnaire/Input",
+								url : "Questionnaire/Input.jhtml",
 								dataType : "json",
 								contentType : "application/json",
 								data : data,
@@ -693,7 +693,7 @@
 									var data = "{\"type\" :\"Sleep\",\"number\" : \"5\"" + "}";
 									$.ajax({
 										type : "post",
-										url : "http://192.168.1.126:8080/Questionnaire/GetData",
+										url : "Questionnaire/GetData.jhtml",
 										data : data,
 										dataType : "json",
 										contentType : "application/json",
@@ -770,7 +770,7 @@
 						var data = "{\"type\" :\"Sleep\",\"number\" : \"6\"" + "}";
 						$.ajax({
 							type : "post",
-							url : "http://192.168.1.126:8080/Questionnaire/GetData",
+							url : "Questionnaire/GetData.jhtml",
 							data : data,
 							dataType : "json",
 							contentType : "application/json",
@@ -822,7 +822,7 @@
 							var data = "{\"type\" : \"Sleep\",\"data\" : {\"id\" : \"6\",\"value\" :\"" + slideEvt.value + "\"}}";
 							$.ajax({
 								type : "post",
-								url : "http://192.168.1.126:8080/Questionnaire/Input",
+								url : "Questionnaire/Input.jhtml",
 								dataType : "json",
 								contentType : "application/json",
 								data : data,
@@ -831,7 +831,7 @@
 									var data = "{\"type\" :\"Sleep\",\"number\" : \"6\"" + "}";
 									$.ajax({
 										type : "post",
-										url : "http://192.168.1.126:8080/Questionnaire/GetData",
+										url : "Questionnaire/GetData.jhtml",
 										data : data,
 										dataType : "json",
 										contentType : "application/json",
@@ -907,7 +907,7 @@
 						var data = "{\"type\" :\"Sleep\",\"number\" : \"7\"" + "}";
 						$.ajax({
 							type : "post",
-							url : "http://192.168.1.126:8080/Questionnaire/GetData",
+							url : "Questionnaire/GetData.jhtml",
 							data : data,
 							dataType : "json",
 							contentType : "application/json",
@@ -959,7 +959,7 @@
 							var data = "{\"type\" : \"Sleep\",\"data\" : {\"id\" : \"7\",\"value\" :\"" + slideEvt.value + "\"}}";
 							$.ajax({
 								type : "post",
-								url : "http://192.168.1.126:8080/Questionnaire/Input",
+								url : "Questionnaire/Input.jhtml",
 								dataType : "json",
 								contentType : "application/json",
 								data : data,
@@ -968,7 +968,7 @@
 									var data = "{\"type\" :\"Sleep\",\"number\" : \"7\"" + "}";
 									$.ajax({
 										type : "post",
-										url : "http://192.168.1.126:8080/Questionnaire/GetData",
+										url : "Questionnaire/GetData.jhtml",
 										data : data,
 										dataType : "json",
 										contentType : "application/json",
@@ -1045,7 +1045,7 @@
 						var data = "{\"type\" :\"Sleep\",\"number\" : \"8\"" + "}";
 						$.ajax({
 							type : "post",
-							url : "http://192.168.1.126:8080/Questionnaire/GetData",
+							url : "Questionnaire/GetData.jhtml",
 							data : data,
 							dataType : "json",
 							contentType : "application/json",
@@ -1097,7 +1097,7 @@
 							var data = "{\"type\" : \"Sleep\",\"data\" : {\"id\" : \"8\",\"value\" :\"" + slideEvt.value + "\"}}";
 							$.ajax({
 								type : "post",
-								url : "http://192.168.1.126:8080/Questionnaire/Input",
+								url : "Questionnaire/Input.jhtml",
 								dataType : "json",
 								contentType : "application/json",
 								data : data,
@@ -1106,7 +1106,7 @@
 									var data = "{\"type\" :\"Sleep\",\"number\" : \"8\"" + "}";
 									$.ajax({
 										type : "post",
-										url : "http://192.168.1.126:8080/Questionnaire/GetData",
+										url : "Questionnaire/GetData.jhtml",
 										data : data,
 										dataType : "json",
 										contentType : "application/json",

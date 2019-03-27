@@ -83,6 +83,6 @@ public interface IUserSerivce {
 
 
     //检查输入的电话号码是否被注册
-    public int CheckTel(String phone);
+    public Integer CheckTel(String phone);
 
 }
