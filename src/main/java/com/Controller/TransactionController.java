@@ -271,9 +271,10 @@ public class TransactionController {
     @ResponseBody
     public List<Order> Check(){
         HttpSession session = request.getSession();
-        User user = (User)session.getAttribute("userInfo");
+        User user = (User) session.getAttribute("userInfo");
         //String uuid = "HKEPI201937192024320";
         return orderService.CheckOrder(user.getUuid());
+
     }
 
     @RequestMapping(value = "/Success.jhtml")

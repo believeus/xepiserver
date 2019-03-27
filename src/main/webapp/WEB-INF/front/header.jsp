@@ -79,10 +79,9 @@
 							<li class="menuItem"><a href="index.jhtml">Home</a></li>
 							<li class="menuItem"><a href="aboutus/index.jhtml">About Us</a></li>
 							<li class="menuItem"><a href="">MYReport</a></li>
-							<!-- <li class="menuItem"><a href="same/index.jhtml">Same</a></li>
-							<li class="menuItem"><a href="aging/index.jhtml">Biological age Detection</a></li> -->
 							<li class="menuItem"><a href="cart/index.jhtml">Health Market</a></li>
-							<li class="menuItem"><a href="#wordpress">Science team</a></li>
+							<li class="menuItem"><a href="scienceteam/index.jhtml">Science team</a></li>
+							<li class="menuItem"><a href="usercenter/index.jhtml">User Center</a></li>
 						</ul>
 					</div>
 				</div>

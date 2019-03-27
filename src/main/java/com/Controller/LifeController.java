@@ -49,15 +49,15 @@ public class LifeController {
         String column = jsonObject.getString("column");
         column = column.replace(" " , "");
 
-        Double value1 = 0.00;
-        Double value2 = 0.00;
+        Double value1 = 0.0;
+        Double value2 = 0.0;
 
         //前端传值 uuid 去空格处理
         String uuid = jsonObject.getString("uuid");
         uuid = uuid.replace(" " , "");
 
         HttpSession session = request.getSession();
-        User userInfo = (User)session.getAttribute("userInfo");
+        //User userInfo = (User)session.getAttribute("userInfo");
         //String uuid = userInfo.getUuid();
 
         System.out.println(jsonObject);
@@ -97,7 +97,7 @@ public class LifeController {
         System.out.println("-------------------------------");
 
         HttpSession session = request.getSession();
-        User userInfo = (User)session.getAttribute("userInfo");
+        //User userInfo = (User)session.getAttribute("userInfo");
         //String uuid = userInfo.getUuid();
 
         //column 去空格处理

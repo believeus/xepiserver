@@ -72,34 +72,11 @@
 						}
 					});
 
-					var slider = new Slider(".lifestyle-food");
+					var slider = new Slider(".lifestyle-food-bar");
 					//拖动发送
 					slider.on("slide", function(slideEvt) {
-						var value = "not at all(0 level)";
-						var _v = 1000;
-						switch (slideEvt.value) {
-						case 0:
-							value = "< 1000 calories/day";
-								_v=1000;
-								break;
-								case 1:
-									value="2000 calories/day";
-									_v=2000;
-								break;
-								case 2:
-									value="2500 calories/day";
-									_v=2500;
-								break;
-								case 3:
-									value="3000 calories/day";
-									_v=3000;
-								break;
-								case 4:
-									_v=4000;
-									value="> 4000 calories/day";
-							break;
-						}
-						var data = '{ "column":"Food","type" :"lunch" ,"value1" :" ' + _v + '","uuid" :"HKEPI201937192024320"}';
+						$(".lifestyle-food-val").text(slideEvt.value+" calories");
+						var data = '{ "column":"Food","type" :"lunch" ,"value1" :" ' + slideEvt.value + '","uuid" :"HKEPI201937192024320"}';
 						$.ajax({
 							type : "post",
 							url : "Life/InsertPartOfLife.jhtml",
@@ -107,7 +84,6 @@
 							contentType : "application/json",
 							data : data,
 							success : function(data) {
-								$(".ex1SliderVal").text(value);
 								var idata = '{"column": "Food","type": "lunch","uuid": "HKEPI201937192024320"}';
 								$.ajax({
 									type : "post",
@@ -166,9 +142,9 @@
 			</div>
 			<div style="width: 100%;height: 20px; "></div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-				<div class="ex1SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-food-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 				<div>
-					<input id="food" class="lifestyle-food" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)">
+					<input id="food" class="lifestyle-food-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="10000" data-slider-step="1" data-slider-value="0" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)">
 				</div>
 				<div style="width: 100%;height: 20px;"></div>
 				<div style="width: 100%;height: 350px;" id='lifestyle-food-report'></div>
@@ -188,7 +164,6 @@
 						dataType : "json",
 						contentType : "application/json",
 						success : function(data) {
-							console.info(data);
 							var option = {
 								xAxis : [ {
 									name : "date",
@@ -215,7 +190,7 @@
 					});
 
 					//$(".lifestyle-heigth-val");
-					var _weightSlider = new Slider(".lifestyle-weight");
+					var _weightSlider = new Slider(".lifestyle-weight-bar");
 					//拖动发送
 					_weightSlider.on("slide", function(slideEvt) {
 						$(".lifestyle-weigth-val").text(slideEvt.value);
@@ -228,7 +203,6 @@
 						}
 						//var data = '{ "column":"Body" ,"value1" :" ' + slideEvt.value + '","uuid" :"HKEPI201937192024320"}';
 						var data = '{"column": "Body","value1": "' + _wValue + '","value2" : "' + _hValue + '","uuid" : "HKEPI201937192024320"}';
-						console.info("_weightSlider--->" + data);
 						$.ajax({
 							type : "post",
 							url : "Life/InsertPartOfLife.jhtml",
@@ -284,7 +258,7 @@
 					});
 
 					//拖动
-					var _heightSlider = new Slider(".lifestyle-height");
+					var _heightSlider = new Slider(".lifestyle-height-bar");
 					//拖动发送
 					_heightSlider.on("slide", function(slideEvt) {
 						$(".lifestyle-heigth-val").text(slideEvt.value);
@@ -307,7 +281,6 @@
 								//再次查询
 								//var idata = '{"column": "Body","value1": "' + _wValue + '","value2" : "'+_hValue+'","uuid" : "HKEPI201937192024320"}'
 								var _sdata = '{"column" : "Body","uuid" : "HKEPI201937192024320"}';
-								console.info("_heightSlider---->" + _sdata);
 								$.ajax({
 									type : "post",
 									url : "Life/getDataOfLife.jhtml",
@@ -372,7 +345,7 @@
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div class="lifestyle-weigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 				<div>
-					<input class="lifestyle-weight" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="20" data-slider-max="150" data-slider-step="1" data-slider-value="20">
+					<input class="lifestyle-weight-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="20" data-slider-max="150" data-slider-step="1" data-slider-value="20">
 				</div>
 				<div class="ex11CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="width: 100%;height: 20px;"></div>
@@ -383,7 +356,7 @@
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div class="lifestyle-heigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 				<div>
-					<input class="lifestyle-height" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="50" data-slider-max="250" data-slider-step="50" data-slider-value="50">
+					<input class="lifestyle-height-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="50" data-slider-max="250" data-slider-step="50" data-slider-value="50">
 				</div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
@@ -391,7 +364,7 @@
 
 		<div class="mbi" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
-			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">BMI {Body Mass Index = Weight (kg) / [Height (m)]2}</div>
+			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">BMI {Body Mass Index = Weight (kg) / [Height (m)]<sup>2</sup>}</div>
 
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<a href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">Source: National Heart, Lung, and Blood Institute</a>
@@ -400,16 +373,15 @@
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong>
-				<p>Underweight: BMI < 18.5 kg/m2</p>
-				<p>Normal weight: BMI 18.5 – 25 kg/m2</p>
-				<p>Overweight: BMI 25 – 30 kg/m2</p>
-				<p>Obese: BMI > 30 kg/m2</p>
+				<p>Underweight: BMI < 18.5 kg/m<sup>2</sup></p>
+				<p>Normal weight: BMI 18.5 – 25 kg/m<sup>2</sup></p>
+				<p>Overweight: BMI 25 – 30 kg/m<sup>2</sup></p>
+				<p>Obese: BMI > 30 kg/m<sup>2</sup></p>
 			</div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-bmi-report'></div>
 		</div>
 		<div style="width: 100%;height: 40px;"></div>
-
-<script>
+		<script>
 			$(function() {
 				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
 					var chart = ec.init(document.getElementById('lifestyle-heartrate-report'));
@@ -423,7 +395,6 @@
 						dataType : "json",
 						contentType : "application/json",
 						success : function(data) {
-							console.info(data);
 							var option = {
 								xAxis : [ {
 									name:"date",
@@ -449,7 +420,7 @@
 						}
 					});
 
-					var slider = new Slider(".lifestyle-heartrate");
+					var slider = new Slider(".lifestyle-heartrate-bar");
 					//拖动发送
 					slider.on("slide", function(slideEvt) {
 						var value=slideEvt.value;
@@ -461,7 +432,6 @@
 							contentType : "application/json",
 							data : data,
 							success : function(data) {
-								$(".ex1SliderVal").text(value);
 								var _data = '{"column" : "HeartRate","uuid" : "HKEPI201937192024320"}';
 								$.ajax({
 									type : "post",
@@ -472,7 +442,7 @@
 									success : function(data) {
 									 	var option = {
 											legend : {
-												data : [ 'beat status' ]
+												data : [ 'beats status' ]
 											},
 											calculable : true,
 											xAxis : [ {
@@ -520,59 +490,221 @@
 			</div>
 			<div style="width: 100%;height: 20px; "></div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-				<div class="ex122SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-heartrate-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 				<div>
-					<input class="lifestyle-heartrate"   style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)"   type="text" data-slider-min="40" data-slider-max="180" data-slider-step="1" data-slider-value="40">
+					<input class="lifestyle-heartrate-bar"   style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)"   type="text" data-slider-min="40" data-slider-max="180" data-slider-step="1" data-slider-value="40">
 				</div>
 				<div style="width: 100%;height: 20px;"></div>
 				<div style="width: 100%;height: 350px;" id='lifestyle-heartrate-report'></div>
 		</div>
 		</div>
 		<div style="width: 100%;height: 40px;"></div>
-
 		<script>
 			$(function() {
-				var slider = new Slider(".lifestyle-systolic");
-				slider.on("slide", function(slideEvt) {
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-systolic-report'));
+					//初始化报表数据
+					var data = '{"column" : "BP","uuid" : "HKEPI201937192024320"}';
+					//console.info(data);
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+						
+							var option = {
+								xAxis : [ {
+									name:"date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name:"mmHg",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value} '
+									}
+								} ],
+								series : [ {
+									name : 'BP status',
+									type : 'line',
+									data : data[1],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+
+					var slider = new Slider(".lifestyle-systolic-bar");
+					//拖动发送
+					slider.on("slide", function(slideEvt) {
+						var value=slideEvt.value;
+						var data = '{ "column":"BP","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								$(".lifestyle-systolic-val").text(value);
+								var _data = '{"column" : "BP","uuid" : "HKEPI201937192024320"}';
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _data,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+									 	var option = {
+											legend : {
+												data : [ 'Systolic BP status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name:"date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name:"mmHg",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value} '
+												}
+											} ],
+											series : [ {
+												name : 'Systolic BP status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										}; 
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
+								});
+
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});  
+					
 					
 				});
 			});
 		</script>
 		<script>
 			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex16");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "< 80 mmHG";
-		break;
-		case 1:
-			value="81-100 mmHG";
-		break;
-		case 2:
-			value="101-120 mmHG";
-		break;
-		case 3:
-			value="121-140 mmHG";
-		break;
-		case 4:
-			value="> 140 mmHG";
-						break;
-					}
-					$(".ex16SliderVal").text(value);
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-diastolic-report'));
+					//初始化报表数据
+					var data = '{"column" : "BP","uuid" : "HKEPI201937192024320"}';
+					//console.info(data);
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+							var option = {
+								xAxis : [ {
+									name:"date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name:"mmHg",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value} '
+									}
+								} ],
+								series : [ {
+									name : 'BP status',
+									type : 'line',
+									data : data[2],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+
+					var slider = new Slider(".lifestyle-diastolic-bar");
+					//拖动发送
+					slider.on("slide", function(slideEvt) {
+						var value=slideEvt.value;
+						var data = '{ "column":"BP","value2" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								$(".lifestyle-diastolic-val").text(value);
+								var _data = '{"column" : "BP","uuid" : "HKEPI201937192024320"}';
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _data,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+									 	var option = {
+											legend : {
+												data : [ 'Diastolic BP status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name:"date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name:"mmHg",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value} '
+												}
+											} ],
+											series : [ {
+												name : 'Diastolic BP status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										}; 
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
+								});
+
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});  
 				});
 			});
 		</script>
-		<div class="food" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
+		
+		<div class="Systolic" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
 			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Blood pressure (mmHG)</div>
-
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<a href="https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings">Source: American Heart Association</a>
 			</div>
-
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong>Blood pressure numbers of less than 120/80 mm Hg are considered within the normal range.
@@ -580,10 +712,9 @@
 			<div style="width: 100%;height: 20px; "></div>
 			<p style="font-weight: bold; font-size: 16px;">Systolic BP</p>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-
-				<div class="ex15SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-systolic-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 				<div>
-					<input class="lifestyle-systolic"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"     type="text" data-slider-min="60" data-slider-max="180" data-slider-step="1" data-slider-value="60">
+					<input class="lifestyle-systolic-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"     type="text" data-slider-min="60" data-slider-max="180" data-slider-step="1" data-slider-value="60">
 				</div>
 				<div style="width: 100%;height: 350px;" id='lifestyle-systolic-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
@@ -591,231 +722,496 @@
 			<div style="width: 100%;height: 20px;"></div>
 			<p style="font-weight: bold; font-size: 16px">Diastolic BP</p>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-
-				<div class="ex16SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-diastolic-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 				<div>
-					<input class="ex16" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-diastolic-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  type="text" data-slider-min="60" data-slider-max="130" data-slider-step="1" data-slider-value="60">
 				</div>
 				<div class="ex16CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-diastolic-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
-
 		</div>
-		<div style="width: 100%;height: 40px;"></div>
-
-
-
-		<script>
+		<div style="width: 100%;height: 40px;"></div> 
+		 <script>
 			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex17");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "< 60 mg/dL";
-		break;
-		case 1:
-			value="61-150 mg/dL";
-		break;
-		case 2:
-			value="151-200 mg/dL";
-		break;
-		case 3:
-			value="201-240 mg/dL";
-		break;
-		case 4:
-			value="> 240 mg/dL";
-						break;
-					}
-					$(".ex17SliderVal").text(value);
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-cholesterol-report'));
+					//初始化报表数据
+					var data = '{"column" : "Cholesterol","uuid" : "HKEPI201937192024320"}';
+					//console.info(data);
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+							var option = {
+								xAxis : [ {
+									name:"date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name:"mg/dl",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value} '
+									}
+								} ],
+								series : [ {
+									name : 'Cholesterol status',
+									type : 'line',
+									data : data[1],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+					var slider = new Slider(".lifestyle-cholesterol-bar");
+					//拖动发送
+					slider.on("slide", function(slideEvt) {
+						var value=slideEvt.value;
+						var data = '{ "column":"Cholesterol","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								var _data = '{"column" : "Cholesterol","uuid" : "HKEPI201937192024320"}';
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _data,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+										console.info(data);
+									 	var option = {
+											legend : {
+												data : [ 'Cholesterol status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name:"date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name:"mmol/L",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value} '
+												}
+											} ],
+											series : [ {
+												name : 'Cholesterol status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										}; 
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
+								});
+
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});  
+					
+					
 				});
 			});
 		</script>
-		<div class="heartrate" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
+		<div class="cholesterol" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
-			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Cholesterol (mg/dL)</div>
+			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Cholesterol (mmol/L)</div>
 
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<a href="https://www.heart.org/en/health-topics/cholesterol/about-cholesterol/what-your-cholesterol-levels-mean">Source: American Heart Association</a>
 			</div>
-
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong> All adults age 20 or older should have their cholesterol (and other risk factors) checked every four to six years.
 			</div>
 			<div style="width: 100%;height: 20px; "></div>
-
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-				<div class="ex17SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-cholesterol-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;"></div>
 				<div>
-					<input class="ex17" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-cholesterol-bar"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="100" data-slider-max="300" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="ex17CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-cholesterol-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 		</div>
 		<div style="width: 100%;height: 40px;"></div>
 
-		<script>
+	<script>
 			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex18");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "< 60 mg/dL";
-		break;
-		case 1:
-			value="61-150 mg/dL";
-		break;
-		case 2:
-			value="151-200 mg/dL";
-		break;
-		case 3:
-			value="201-240 mg/dL";
-		break;
-		case 4:
-			value="> 240 mg/dL";
-						break;
-					}
-					$(".ex18SliderVal").text(value);
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-meditation-report'));
+					//初始化报表数据
+					var data = '{"column" : "Meditation","uuid" : "HKEPI201937192024320"}';
+					//console.info(data);
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+							var option = {
+								xAxis : [ {
+									name:"date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name:"mg/dl",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value} '
+									}
+								} ],
+								series : [ {
+									name : 'Cholesterol status',
+									type : 'line',
+									data : data[1],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+					var slider = new Slider(".lifestyle-meditation-bar");
+					//拖动发送
+					slider.on("slide", function(slideEvt) {
+						var value=slideEvt.value;
+						$(".lifestyle-meditation-value").text(value+"h");
+						var data = '{ "column":"Meditation","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								var _data = '{"column" : "Meditation","uuid" : "HKEPI201937192024320"}';
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _data,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+										console.info(data);
+									 	var option = {
+											legend : {
+												data : [ 'meditation status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name:"date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name:"hours",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value} '
+												}
+											} ],
+											series : [ {
+												name : 'meditation status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										}; 
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
+								});
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});  
 				});
 			});
 		</script>
-		<div class="heartrate" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
+		<div class="Meditation" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
 			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Meditation</div>
-
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<a href="https://www.mayoclinic.org/tests-procedures/meditation/in-depth/meditation/art-20045858">Source: Mayo Clinic</a>
 			</div>
-
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong> All adults age 20 or older should have their cholesterol (and other risk factors) checked every four to six years.
 			</div>
 			<div style="width: 100%;height: 20px; "></div>
-
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-				<div class="ex18SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-meditation-value" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0h</div>
 				<div>
-					<input class="ex18" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-meditation-bar"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  type="text" data-slider-min="0" data-slider-max="24" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="ex18CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-meditation-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 		</div>
-		<div style="width: 100%;height: 40px;"></div>
+		<div style="width: 100%;height: 40px;"></div> 
 
 
-
-
-		<script>
+	<script>
 			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex3");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "10 minutes per day";
-						break;
-					case 1:
-						value = "20 minutes per day";
-						break;
-					case 2:
-						value = "30 minutes per day";
-						break;
-					case 3:
-						value = "40 minutes per day";
-						break;
-					case 4:
-						value = "60 minutes per day";
-						break;
-					case 5:
-						value = "more than 60 minutes per day";
-						break;
-					}
-					$(".ex3SliderVal").text(value);
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-vascular-report'));
+					//初始化报表数据
+					var data = '{"column" : "Sport","uuid" : "HKEPI201937192024320"}';
+					//console.info(data);
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+							var option = {
+								xAxis : [ {
+									name:"date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name:"min",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value} '
+									}
+								} ],
+								series : [ {
+									name : 'Sport status',
+									type : 'line',
+									data : data[1],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+					var slider = new Slider(".liftstyle-vascular-bar");
+					//拖动发送
+					slider.on("slide", function(slideEvt) {
+						var value=slideEvt.value;
+						$(".liftstyle-vascular-val").text(value+"min");
+						var data = '{ "column":"Sport","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								var _data = '{"column" : "Sport","uuid" : "HKEPI201937192024320"}';
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _data,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+										console.info(data);
+									 	var option = {
+											legend : {
+												data : [ 'sport status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name:"date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name:"min",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value} '
+												}
+											} ],
+											series : [ {
+												name : 'sport status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										}; 
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
+								});
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});  
 				});
 			});
 		</script>
-		<div class="cardio" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;">
+		<div class="Vascular" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
 			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Cardio Vascular Health</div>
-
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<a href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-adults">Source: American Heart Association Recommendations for Physical Activity in Adults</a>
 			</div>
-
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong>Get at least 150 minutes per week of moderate-intensity aerobic activity or 75 minutes per week of vigorous aerobic activity, or a combination of both, preferably spread throughout the week
 			</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="ex3SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="liftstyle-vascular-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0min</div>
 				<div>
-					<input class="ex3" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
+					<input class="liftstyle-vascular-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="240" data-slider-step="1" data-slider-value="0">
 				</div>
-				<div class="ex3CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-vascular-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 		</div>
-		<div style="width: 100%;height: 40px;"></div>
+		<div style="width: 100%;height: 40px;"></div> 
+
+
+
 		<script>
 			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex23");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "4 hours per day";
-						break;
-					case 1:
-						value = "6 hours per day";
-						break;
-					case 2:
-						value = "8 hours per day";
-						break;
-					case 3:
-						value = "10 hours per day";
-						break;
-					case 4:
-						value = "12 hours per day";
-						break;
-					case 5:
-						value = "more than 12 hours per day";
-						break;
-					}
-					$(".ex23SliderVal").text(value);
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-sleep-report'));
+					//初始化报表数据
+					var data = '{"column" : "Sleep","uuid" : "HKEPI201937192024320"}';
+					//console.info(data);
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+							var option = {
+								xAxis : [ {
+									name:"date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name:"min",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value} '
+									}
+								} ],
+								series : [ {
+									name : 'sleep status',
+									type : 'line',
+									data : data[1],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+					var slider = new Slider(".lifestyle-sleep-bar");
+					//拖动发送
+					slider.on("slide", function(slideEvt) {
+						var value=slideEvt.value;
+						$(".liftstyle-sleep-val").text(value+"min");
+						var data = '{ "column":"Sleep","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								var _data = '{"column" : "Sleep","uuid" : "HKEPI201937192024320"}';
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _data,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+										console.info(data);
+									 	var option = {
+											legend : {
+												data : [ 'sleep status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name:"date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name:"min",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value} '
+												}
+											} ],
+											series : [ {
+												name : 'sleep status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										}; 
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
+								});
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});  
 				});
 			});
 		</script>
 		<div class="sleep" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;">
-
 			<div style="width: 100%;height: 30px;"></div>
 			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Sleep</div>
-
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<a href="https://www.sleepfoundation.org/">Source: National Sleep Foundation</a>
 			</div>
-
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong>NATIONAL SLEEP FOUNDATION recommonds 7-9 hours for 18-64 years, and doesn't recommend less than 6 and more than 11 hours for 8-25 years and less than 6 and more than 10 hours for 26-64 years.
-
 			</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="ex23SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-sleep-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0h</div>
 				<div>
-					<input class="ex23" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-sleep-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="ex23CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-sleep-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 		</div>
@@ -823,123 +1219,321 @@
 
 		<script>
 			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex4");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "0 times";
-						break;
-					case 1:
-						break;
-					value = "1-10 times";
-				case 2:
-					value = "11-20 times";
-					break;
-				case 3:
-					value = "21-30 times";
-					break;
-				case 4:
-					value = "31-40 times";
-					break;
-				case 5:
-					value = "41-50 times";
-					break;
-				case 6:
-					value = "6 days a week";
-					break;
-				case 7:
-					value = "everyday";
-				}
-				$(".ex4SliderVal").text(value);
-			}	);
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-activesex-report'));
+					//初始化报表数据
+					var data = '{"column" : "SexLife","uuid" : "HKEPI201937192024320"}';
+					//console.info(data);
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+							var option = {
+								xAxis : [ {
+									name:"date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name:"min",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value} '
+									}
+								} ],
+								series : [ {
+									name : 'sleep status',
+									type : 'line',
+									data : data[1],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+					var slider = new Slider(".lifestyle-activesex-bar");
+					//拖动发送
+					slider.on("slide", function(slideEvt) {
+						var value=slideEvt.value;
+						$(".lifestyle-activesex-val").text(value+" times");
+						var data = '{ "column":"SexLife","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								var _data = '{"column" : "SexLife","uuid" : "HKEPI201937192024320"}';
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _data,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+										console.info(data);
+									 	var option = {
+											legend : {
+												data : [ 'SexLife status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name:"date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name:"times",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value} '
+												}
+											} ],
+											series : [ {
+												name : 'SexLife status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										}; 
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
+								});
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});  
+				});
 			});
 		</script>
+		
 		<script>
 			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex5");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "0";
-						break;
-					case 1:
-						value = "1";
-						break;
-					case 2:
-						value = "2";
-						break;
-					case 3:
-						value = "3";
-						break;
-					case 4:
-						value = "4";
-						break;
-					case 5:
-						value = "5";
-						break;
-					}
-					$(".ex5SliderVal").text(value);
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-hsexlife-report'));
+					//初始化报表数据
+					var data = '{"column" : "SexLife","uuid" : "HKEPI201937192024320"}';
+					//console.info(data);
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+							var option = {
+								xAxis : [ {
+									name:"date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name:"min",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value} '
+									}
+								} ],
+								series : [ {
+									name : 'sleep status',
+									type : 'line',
+									data : data[1],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+					var slider = new Slider(".lifestyle-hsexlife-bar");
+					//拖动发送
+					slider.on("slide", function(slideEvt) {
+						var value=slideEvt.value;
+						$(".lifestyle-hsexlife-val").text("level "+value);
+						var data = '{ "column":"SexLife","value2" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								var _data = '{"column" : "SexLife","uuid" : "HKEPI201937192024320"}';
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _data,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+										console.info(data);
+									 	var option = {
+											legend : {
+												data : [ 'SexLife status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name:"date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name:"times",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value} '
+												}
+											} ],
+											series : [ {
+												name : 'SexLife status',
+												type : 'line',
+												data : data[2],
+											}, ]
+										}; 
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
+								});
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});  
 				});
 			});
 		</script>
 		<div class="sexlife" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
 			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Sex Life</div>
-
 			<div style="width: 100%;height: 20px;"></div>
-
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="ex4SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
-				<div>
-					<input class="ex4" type="text" data-slider-min="0" data-slider-max="7" data-slider-step="1" data-slider-value="0">
-				</div>
-				<div class="ex4CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="width: 100%;height: 20px;text-align: center;">Years of active sex life</div>
-			</div>
+				<div class="lifestyle-activesex-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 times</div>
+				<div><input class="lifestyle-activesex-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%,  #92D050 100%)" type="text" data-slider-min="0" data-slider-max="60" data-slider-step="1" data-slider-value="0"></div>
+				<div class="ex4CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-activesex-report'></div>
+			</div> 
 			<div style="width: 100%;height: 20px;"></div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="ex5SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div style="width: 100%;height: 20px;text-align: center;">How is your sex life</div>
+				<div class="lifestyle-hsexlife-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">level 1</div>
 				<div>
-					<input class="ex5" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-hsexlife-bar" style-gradient="-webkit-linear-gradient(left, red 0%,  #FFFC00 50%,#92D050 100%)"   type="text" data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="ex5CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
-				<div style="width: 100%;height: 20px;text-align: center;">How is your sex life</div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-hsexlife-report'></div>
 			</div>
 		</div>
-		<div style="width: 100%;height: 40px;"></div>
-		<script>
-			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex6");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "Non drinker";
-						break;
-					case 1:
-						value = "Light <1 year";
-						break;
-					case 2:
-						value = "Moderate(1-2) years";
-						break;
-					case 3:
-						value = "Heavy (3-4) years";
-						break;
-					case 4:
-						value = "Very Heavy 5+ years";
-						break;
-
+		<div style="width: 100%;height: 40px;"></div> 
+		
+		 <script>
+		$(function() {
+			require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+				var chart = ec.init(document.getElementById('lifestyle-alcohol-report'));
+				//初始化报表数据
+				var data = '{"column" : "Alcohol","uuid" : "HKEPI201937192024320"}';
+				//console.info(data);
+				$.ajax({
+					type : "post",
+					url : "Life/getDataOfLife.jhtml",
+					data : data,
+					dataType : "json",
+					contentType : "application/json",
+					success : function(data) {
+						var option = {
+							xAxis : [ {
+								name:"date",
+								type : 'category',
+								boundaryGap : false,
+								data : data[0]
+							} ],
+							yAxis : [ {
+								name:"gram",
+								type : 'value',
+								axisLabel : {
+									formatter : '{value} '
+								}
+							} ],
+							series : [ {
+								name : 'sleep status',
+								type : 'line',
+								data : data[1],
+							}, ]
+						};
+						// 为echarts对象加载数据 
+						chart.setOption(option);
 					}
-					$(".ex6SliderVal").text(value);
 				});
+				var slider = new Slider(".lifestyle-alcohol-bar");
+				//拖动发送
+				slider.on("slide", function(slideEvt) {
+					var value=slideEvt.value;
+					$(".lifestyle-alcohol-val").text(value+"gram");
+					var data = '{ "column":"Alcohol","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+					$.ajax({
+						type : "post",
+						url : "Life/InsertPartOfLife.jhtml",
+						dataType : "json",
+						contentType : "application/json",
+						data : data,
+						success : function(data) {
+							var _data = '{"column" : "Alcohol","uuid" : "HKEPI201937192024320"}';
+							$.ajax({
+								type : "post",
+								url : "Life/getDataOfLife.jhtml",
+								data : _data,
+								dataType : "json",
+								contentType : "application/json",
+								success : function(data) {
+									console.info(data);
+								 	var option = {
+										legend : {
+											data : [ 'alcohol status' ]
+										},
+										calculable : true,
+										xAxis : [ {
+											name:"date",
+											type : 'category',
+											boundaryGap : false,
+											data : data[0]
+										} ],
+										yAxis : [ {
+											name:"gram",
+											type : 'value',
+											axisLabel : {
+												formatter : '{value} '
+											}
+										} ],
+										series : [ {
+											name : 'alcohol status',
+											type : 'line',
+											data : data[1],
+										}, ]
+									}; 
+									// 为echarts对象加载数据 
+									chart.setOption(option);
+								}
+							});
+						},
+						error : function(jqXHR) {
+							console.info(jqXHR);
+						}
+					});
+				});  
 			});
+		});
 		</script>
 		<div class="alcohol" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
@@ -952,46 +1546,115 @@
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong>Drink no more than 1 drink per day for women or 2 per day for men.
-
 			</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="ex6SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-alcohol-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0gram</div>
 				<div>
-					<input class="ex6" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-alcohol-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="ex6CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-alcohol-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 		</div>
 		<div style="width: 100%;height: 40px;"></div>
-		<script>
-			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex7");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "Non smoker";
-						break;
-					case 1:
-						value = "Light smoker (1-7) years";
-						break;
-					case 2:
-						value = "Moderate smoker (8-14) years";
-						break;
-					case 3:
-						value = "Heavy smoker (5-24) years";
-						break;
-					case 4:
-						value = "Very Heavy smoker (25+) years";
-						break;
-
+		 <script>
+		$(function() {
+			require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+				var chart = ec.init(document.getElementById('lifestyle-smoking-report'));
+				//初始化报表数据
+				var data = '{"column" : "Smoking","uuid" : "HKEPI201937192024320"}';
+				//console.info(data);
+				$.ajax({
+					type : "post",
+					url : "Life/getDataOfLife.jhtml",
+					data : data,
+					dataType : "json",
+					contentType : "application/json",
+					success : function(data) {
+						var option = {
+							xAxis : [ {
+								name:"date",
+								type : 'category',
+								boundaryGap : false,
+								data : data[0]
+							} ],
+							yAxis : [ {
+								name:"gram",
+								type : 'value',
+								axisLabel : {
+									formatter : '{value} '
+								}
+							} ],
+							series : [ {
+								name : 'sleep status',
+								type : 'line',
+								data : data[1],
+							}, ]
+						};
+						// 为echarts对象加载数据 
+						chart.setOption(option);
 					}
-					$(".ex7SliderVal").text(value);
 				});
+				var slider = new Slider(".lifestyle-smoking-bar");
+				//拖动发送
+				slider.on("slide", function(slideEvt) {
+					var value=slideEvt.value;
+					$(".lifestyle-smoking-val").text(value+"stick");
+					var data = '{ "column":"Smoking","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+					$.ajax({
+						type : "post",
+						url : "Life/InsertPartOfLife.jhtml",
+						dataType : "json",
+						contentType : "application/json",
+						data : data,
+						success : function(data) {
+							var _data = '{"column" : "Smoking","uuid" : "HKEPI201937192024320"}';
+							$.ajax({
+								type : "post",
+								url : "Life/getDataOfLife.jhtml",
+								data : _data,
+								dataType : "json",
+								contentType : "application/json",
+								success : function(data) {
+									console.info(data);
+								 	var option = {
+										legend : {
+											data : [ 'smoking status' ]
+										},
+										calculable : true,
+										xAxis : [ {
+											name:"date",
+											type : 'category',
+											boundaryGap : false,
+											data : data[0]
+										} ],
+										yAxis : [ {
+											name:"stick",
+											type : 'value',
+											axisLabel : {
+												formatter : '{value} '
+											}
+										} ],
+										series : [ {
+											name : 'smoking status',
+											type : 'line',
+											data : data[1],
+										}, ]
+									}; 
+									// 为echarts对象加载数据 
+									chart.setOption(option);
+								}
+							});
+						},
+						error : function(jqXHR) {
+							console.info(jqXHR);
+						}
+					});
+				});  
 			});
+		});
 		</script>
 		<div class="smoking" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
@@ -1000,51 +1663,116 @@
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong>Stop Smoking
-
 			</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="ex7SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-smoking-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0stick</div>
 				<div>
-					<input class="ex7" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-smoking-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="30" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="ex7CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-smoking-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 		</div>
 		<div style="width: 100%;height: 40px;"></div>
-		<script>
-			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex8");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "100 international units (IU)";
-						break;
-					case 1:
-						value = "200 international units (IU)";
-						break;
-					case 2:
-						value = "300 international units (IU)";
-						break;
-					case 3:
-						value = "400 international units (IU)";
-						break;
-					case 4:
-						value = "500 international units (IU)";
-						break;
-					case 5:
-						value = "600 international units (IU)";
-						break;
-					case 6:
-						value = "700 international units (IU)";
-						break;
+
+		 		<script>
+		$(function() {
+			require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+				var chart = ec.init(document.getElementById('lifestyle-vitamind-report'));
+				//初始化报表数据
+				var data = '{"column" : "Vitamin_D","uuid" : "HKEPI201937192024320"}';
+				//console.info(data);
+				$.ajax({
+					type : "post",
+					url : "Life/getDataOfLife.jhtml",
+					data : data,
+					dataType : "json",
+					contentType : "application/json",
+					success : function(data) {
+						var option = {
+							xAxis : [ {
+								name:"date",
+								type : 'category',
+								boundaryGap : false,
+								data : data[0]
+							} ],
+							yAxis : [ {
+								name:"gram",
+								type : 'value',
+								axisLabel : {
+									formatter : '{value} '
+								}
+							} ],
+							series : [ {
+								name : 'sleep status',
+								type : 'line',
+								data : data[1],
+							}, ]
+						};
+						// 为echarts对象加载数据 
+						chart.setOption(option);
 					}
-					$(".ex8SliderVal").text(value);
 				});
+				var slider = new Slider(".lifestyle-vitamind-bar");
+				//拖动发送
+				slider.on("slide", function(slideEvt) {
+					var value=slideEvt.value;
+					$(".lifestyle-vitamind-val").text(value+"IU");
+					var data = '{ "column":"Vitamin_D","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+					$.ajax({
+						type : "post",
+						url : "Life/InsertPartOfLife.jhtml",
+						dataType : "json",
+						contentType : "application/json",
+						data : data,
+						success : function(data) {
+							var _data = '{"column" : "Vitamin_D","uuid" : "HKEPI201937192024320"}';
+							$.ajax({
+								type : "post",
+								url : "Life/getDataOfLife.jhtml",
+								data : _data,
+								dataType : "json",
+								contentType : "application/json",
+								success : function(data) {
+									console.info(data);
+								 	var option = {
+										legend : {
+											data : [ 'vitamind status' ]
+										},
+										calculable : true,
+										xAxis : [ {
+											name:"date",
+											type : 'category',
+											boundaryGap : false,
+											data : data[0]
+										} ],
+										yAxis : [ {
+											name:"IU",
+											type : 'value',
+											axisLabel : {
+												formatter : '{value} '
+											}
+										} ],
+										series : [ {
+											name : 'vitamind status',
+											type : 'line',
+											data : data[1],
+										}, ]
+									}; 
+									// 为echarts对象加载数据 
+									chart.setOption(option);
+								}
+							});
+						},
+						error : function(jqXHR) {
+							console.info(jqXHR);
+						}
+					});
+				});  
 			});
+		});
 		</script>
 		<div class="vitaminD" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
@@ -1061,41 +1789,114 @@
 			</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="ex8SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-vitamind-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0IU</div>
 				<div>
-					<input class="ex8" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-vitamind-bar"  style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="6000" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="ex8CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-vitamind-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 		</div>
 		<div style="width: 100%;height: 40px;"></div>
-		<script>
-			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex9");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "less than 50 mg";
-						break;
-					case 1:
-						value = "51-70 mg";
-						break;
-					case 2:
-						value = "71-90 mg";
-						break;
-					case 3:
-						value = "more than 90 mg";
-						break;
-
+		 <script>
+		$(function() {
+			require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+				var chart = ec.init(document.getElementById('lifestyle-vitaminc-report'));
+				//初始化报表数据
+				var data = '{"column" : "Vitamin_C","uuid" : "HKEPI201937192024320"}';
+				//console.info(data);
+				$.ajax({
+					type : "post",
+					url : "Life/getDataOfLife.jhtml",
+					data : data,
+					dataType : "json",
+					contentType : "application/json",
+					success : function(data) {
+						var option = {
+							xAxis : [ {
+								name:"date",
+								type : 'category',
+								boundaryGap : false,
+								data : data[0]
+							} ],
+							yAxis : [ {
+								name:"gram",
+								type : 'value',
+								axisLabel : {
+									formatter : '{value} '
+								}
+							} ],
+							series : [ {
+								name : 'sleep status',
+								type : 'line',
+								data : data[1],
+							}, ]
+						};
+						// 为echarts对象加载数据 
+						chart.setOption(option);
 					}
-					$(".ex9SliderVal").text(value);
 				});
+				var slider = new Slider(".lifestyle-vitaminc-bar");
+				//拖动发送
+				slider.on("slide", function(slideEvt) {
+					var value=slideEvt.value;
+					$(".lifestyle-vitaminc-val").text(value+"mg");
+					var data = '{ "column":"Vitamin_C","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
+					$.ajax({
+						type : "post",
+						url : "Life/InsertPartOfLife.jhtml",
+						dataType : "json",
+						contentType : "application/json",
+						data : data,
+						success : function(data) {
+							var _data = '{"column" : "Vitamin_C","uuid" : "HKEPI201937192024320"}';
+							$.ajax({
+								type : "post",
+								url : "Life/getDataOfLife.jhtml",
+								data : _data,
+								dataType : "json",
+								contentType : "application/json",
+								success : function(data) {
+									console.info(data);
+								 	var option = {
+										legend : {
+											data : [ 'vitaminc status' ]
+										},
+										calculable : true,
+										xAxis : [ {
+											name:"date",
+											type : 'category',
+											boundaryGap : false,
+											data : data[0]
+										} ],
+										yAxis : [ {
+											name:"mg/day",
+											type : 'value',
+											axisLabel : {
+												formatter : '{value} '
+											}
+										} ],
+										series : [ {
+											name : 'vitaminc status',
+											type : 'line',
+											data : data[1],
+										}, ]
+									}; 
+									// 为echarts对象加载数据 
+									chart.setOption(option);
+								}
+							});
+						},
+						error : function(jqXHR) {
+							console.info(jqXHR);
+						}
+					});
+				});  
 			});
+		});
 		</script>
-		<div class="vitaminC" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;">
+		<div class="vitaminc" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
 			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Vitamin C</div>
 
@@ -1106,68 +1907,140 @@
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong> The recommended daily amount of vitamin C for adult men is 90 milligrams and for adult women is 75 milligrams.
-
 			</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="ex9SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-vitaminc-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0mg</div>
 				<div>
-					<input class="ex9" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-vitaminc-bar"   style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 70%, red 100%)"  type="text" data-slider-min="0" data-slider-max="5000" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="ex9CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-vitaminc-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 
 		</div>
 		<div style="width: 100%;height: 40px;"></div>
-		<script>
-			$(function() {
-				// Without JQuery
-				var slider = new Slider(".ex10");
-				slider.on("slide", function(slideEvt) {
-					var value = "0 ";
-					switch (slideEvt.value) {
-					case 0:
-						value = "less than 500 mcg";
-						break;
-					case 1:
-						value = "501-700 mcg";
-						break;
-					case 2:
-						value = "701-900 mcg";
-						break;
-					case 3:
-						value = "more than 900 mcg";
-						break;
 
-					}
-					$(".ex10SliderVal").text(value);
+
+		 <script>
+			$(function() {
+				require([ 'echarts', 'echarts/chart/line' ], function(ec) {
+					var chart = ec.init(document.getElementById('lifestyle-vitamina-report'));
+					//初始化报表数据
+					var data = '{"column" : "Vitamin_A","uuid" : "HKEPI201937192024320"}';
+					//console.info(data);
+					$.ajax({
+						type : "post",
+						url : "Life/getDataOfLife.jhtml",
+						data : data,
+						dataType : "json",
+						contentType : "application/json",
+						success : function(data) {
+							var option = {
+								xAxis : [ {
+									name : "date",
+									type : 'category',
+									boundaryGap : false,
+									data : data[0]
+								} ],
+								yAxis : [ {
+									name : "mg/day",
+									type : 'value',
+									axisLabel : {
+										formatter : '{value} '
+									}
+								} ],
+								series : [ {
+									name : 'vitamina status',
+									type : 'line',
+									data : data[1],
+								}, ]
+							};
+							// 为echarts对象加载数据 
+							chart.setOption(option);
+						}
+					});
+					var slider = new Slider(".lifestyle-vitamina-bar");
+					//拖动发送
+					slider.on("slide", function(slideEvt) {
+						var value = slideEvt.value;
+						$(".lifestyle-vitamina-val").text(value + "mg");
+						var data = '{ "column":"Vitamin_A","value1" :" ' + value + '","uuid" :"HKEPI201937192024320"}';
+						$.ajax({
+							type : "post",
+							url : "Life/InsertPartOfLife.jhtml",
+							dataType : "json",
+							contentType : "application/json",
+							data : data,
+							success : function(data) {
+								var _data = '{"column" : "Vitamin_A","uuid" : "HKEPI201937192024320"}';
+								$.ajax({
+									type : "post",
+									url : "Life/getDataOfLife.jhtml",
+									data : _data,
+									dataType : "json",
+									contentType : "application/json",
+									success : function(data) {
+										console.info(data);
+										var option = {
+											legend : {
+												data : [ 'vitamina status' ]
+											},
+											calculable : true,
+											xAxis : [ {
+												name : "date",
+												type : 'category',
+												boundaryGap : false,
+												data : data[0]
+											} ],
+											yAxis : [ {
+												name : "mg/day",
+												type : 'value',
+												axisLabel : {
+													formatter : '{value} '
+												}
+											} ],
+											series : [ {
+												name : 'vitamina status',
+												type : 'line',
+												data : data[1],
+											}, ]
+										};
+										// 为echarts对象加载数据 
+										chart.setOption(option);
+									}
+								});
+							},
+							error : function(jqXHR) {
+								console.info(jqXHR);
+							}
+						});
+					});
 				});
 			});
 		</script>
 		<div class="vitaminA" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;">
 			<div style="width: 100%;height: 30px;"></div>
 			<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Vitamin A</div>
-
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<a href="https://www.mayoclinic.org/drugs-supplements-vitamin-a/art-20365945">Source: Mayo Clinic</a>
 			</div>
-
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 				<strong> Recommendation: </strong> The recommended daily amount of vitamin A is 900 micrograms (mcg) for adult men and 700 mcg for adult women.
 			</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="ex10SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+				<div class="lifestyle-vitamina-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0mg</div>
 				<div>
-					<input class="ex10" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="0">
+					<input class="lifestyle-vitamina-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="5000" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="ex10CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
+				<div style="width: 100%;height: 350px;" id='lifestyle-vitamina-report'></div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 		</div>
-
 		<div style="width: 100%;height: 60px;"></div>
 		<div id="all-right" style="width: 100%;height: auto;font-family: arial;">
 			<div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;">@2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved</div>

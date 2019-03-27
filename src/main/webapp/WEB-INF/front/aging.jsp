@@ -156,18 +156,18 @@ div[id=box]:before {
 			style="width: 100%;height: auto;font-size: 16px;font-family:arial; color: #FF6B03; ">
 			<div style="width: 90%;height: auto;margin: 0 auto;">
 				<span
-					style="text-decoration: line-through;font-family: arial; font-size: 18px;color: #7F7F7F;">$150/kit
+					style="text-decoration: line-through;font-family: arial; font-size: 18px;color: #7F7F7F;">$120/kit
 					for original price<br />
 				</span>
 				<p></p>
 				<span style="font-size: 18px;font-family: arial"><strong
-					style="font-weight: 600 ;font-size: 18px; font-family: arial; ">$120</strong>
+					style="font-weight: 600 ;font-size: 18px; font-family: arial; ">$98</strong>
 					per kit for purchase <strong
 					style="font-family: arial;font-size: 18px;"> 2</strong> kit<br />
 				</span>
 				<p></p>
 				<span style="font-family: arial;font-size: 18px;"><strong
-					style="font-weight: bold;font-size: 24px;">$110</strong> per kit
+					style="font-weight: bold;font-size: 24px;">$96</strong> per kit
 					when purchase over <strong
 					style="font-weight: bold;font-size: 24px;">3</strong> kit </span>
 				<p></p>
@@ -175,8 +175,11 @@ div[id=box]:before {
 		</div>
 		<div id="add-cart" style="width: 100%;height: auto;margin-top: 20px;">
 			<div style="width: 90%;height: auto;margin: 0 auto;">
+			<a href="cart/index.jhtml">
 				<div style="width: 40%;height: 40px;font-family: arial;font-size: 18px;text-align: center;line-height: 40px; color:#FFFFFF ;float: left;background-color: #0365D2; border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
-					ADD TO CART</div>
+					ADD TO CART
+					</div>
+			</a>
 				<a href="cart/index.jhtml">
 				<div style="width: 40%;height: 40px;font-family: arial;font-size: 18px;text-align: center;line-height: 40px; color:#FFFFFF ;float: right;background-color: #0365D2; border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
 					BUY

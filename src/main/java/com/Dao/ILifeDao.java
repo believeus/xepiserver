@@ -89,12 +89,12 @@ public interface ILifeDao {
         public int insertSleep(Life life);
 
 
-    //Mediatation栏目
+    //Meditation栏目
         //更新冥想情况数值
-        public int upDateMediatation(Life life);
+        public int upDateMeditation(Life life);
 
         //新增冥想情况数值
-        public int insertMediatation(Life life);
+        public int insertMeditation(Life life);
 
     //SexLife栏目
         //更新性生活情况数值

@@ -37,8 +37,8 @@
     </update>
 
     <insert id="insertSport" parameterType="Life">
-        insert into life_style(sport , uuid , update_time)
-        select #{sport} , #{uuid} , #{update_time}
+        insert into life_style(sport , uuid , update_time ,week)
+        select #{sport} , #{uuid} , #{update_time} , #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -54,8 +54,8 @@
     </update>
 
     <insert id="insertHeart" parameterType="Life">
-        insert into life_style(heart_rate , uuid , update_time)
-        Select #{heart_rate} , #{uuid} , #{update_time}
+        insert into life_style(heart_rate , uuid , update_time , week)
+        Select #{heart_rate} , #{uuid} , #{update_time}, #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -77,8 +77,8 @@
     </update>
 
     <insert id="insertBP" parameterType="Life">
-        insert into life_style(systolic_BP , diastolic_BP , uuid , update_time)
-        select #{systolic_BP} , #{diastolic_BP} , #{uuid} , #{update_time}
+        insert into life_style(systolic_BP , diastolic_BP , uuid , update_time , week)
+        select #{systolic_BP} , #{diastolic_BP} , #{uuid} , #{update_time}, #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -94,8 +94,8 @@
     </update>
 
     <insert id="insertCholesterol" parameterType="Life">
-        insert into life_style(cholesterol , uuid , update_time)
-        Select #{cholesterol} , #{uuid} , #{update_time}
+        insert into life_style(cholesterol , uuid , update_time ,week)
+        Select #{cholesterol} , #{uuid} , #{update_time}, #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -112,8 +112,8 @@
     </update>
 
     <insert id="insertSleep" parameterType="Life">
-        insert into life_style(sleep , uuid , update_time)
-        select #{sleep} , #{uuid} , #{update_time}
+        insert into life_style(sleep , uuid , update_time ,week)
+        select #{sleep} , #{uuid} , #{update_time} , #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -129,8 +129,8 @@
     </update>
 
     <insert id="insertFood_1" parameterType="Life">
-        insert into life_style(food_Breakfast , uuid , update_time)
-        select #{calories} , #{uuid} , #{update_time}
+        insert into life_style(food_Breakfast , uuid , update_time ,week)
+        select #{calories} , #{uuid} , #{update_time} , #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -146,8 +146,8 @@
     </update>
 
     <insert id="insertFood_2" parameterType="Life">
-        insert into life_style(food_Lunch  , uuid , update_time)
-        select #{calories}, #{uuid} , #{update_time}
+        insert into life_style(food_Lunch  , uuid , update_time ,week)
+        select #{calories}, #{uuid} , #{update_time}, #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -163,29 +163,29 @@
     </update>
 
     <insert id="insertFood_3" parameterType="Life">
-        insert into life_style(food_Dinner , uuid , update_time)
-        select #{calories} , #{uuid} , #{update_time}
+        insert into life_style(food_Dinner , uuid , update_time , week)
+        select #{calories} , #{uuid} , #{update_time} , #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
 
     <!-- Food_3栏目 end -->
 
-    <!-- Mediatation栏目 begin -->
-    <update id="upDateMediatation" parameterType="Life">
+    <!-- Meditation栏目 begin -->
+    <update id="upDateMeditation" parameterType="Life">
         update life_style
         set
-          mediatation = #{mediatation}
+          meditation = #{meditation}
         where uuid = #{uuid} and update_time = #{update_time}
     </update>
 
-    <insert id="insertMediatation" parameterType="Life">
-        insert into life_style(mediatation , uuid , update_time)
-        select #{mediatation} , #{uuid} , #{update_time}
+    <insert id="insertMeditation" parameterType="Life">
+        insert into life_style(meditation , uuid , update_time , week)
+        select #{meditation} , #{uuid} , #{update_time} , #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
-    <!-- Mediatation栏目 end -->
+    <!-- Meditation栏目 end -->
 
     <!-- SexLife栏目 begin -->
     <update id="upDateSexLife" parameterType="Life">
@@ -197,8 +197,8 @@
     </update>
 
     <insert id="insertSexLife" parameterType="Life">
-        insert into life_style(sex_life_score , sex_life_frequency , uuid , update_time)
-        select #{sex_life_score} , #{sex_life_frequency} , #{uuid} , #{update_time}
+        insert into life_style(sex_life_score , sex_life_frequency , uuid , update_time , week)
+        select #{sex_life_score} , #{sex_life_frequency} , #{uuid} , #{update_time} , #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -214,8 +214,8 @@
     </update>
 
     <insert id="insertSmoking" parameterType="Life">
-        insert into life_style(smoking , smoking_time , uuid , update_time)
-        select #{smoking} , #{uuid} , #{update_time}
+        insert into life_style(smoking , smoking_time , uuid , update_time ,week)
+        select #{smoking} , #{uuid} , #{update_time}, #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -231,8 +231,8 @@
     </update>
 
     <insert id="insertAlcohol" parameterType="Life">
-        insert into life_style(alcohol , uuid , update_time)
-        select #{alcohol} , #{uuid} , #{update_time}
+        insert into life_style(alcohol , uuid , update_time , week)
+        select #{alcohol} , #{uuid} , #{update_time} , #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -248,8 +248,8 @@
     </update>
 
     <insert id="insertVitamin_A" parameterType="Life">
-        insert into life_style(vitamin_A , uuid , update_time)
-        select #{vitamin_A} , #{uuid} , #{update_time}
+        insert into life_style(vitamin_A , uuid , update_time ,week)
+        select #{vitamin_A} , #{uuid} , #{update_time} , #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -265,8 +265,8 @@
     </update>
 
     <insert id="insertVitamin_C" parameterType="Life">
-        insert into life_style(vitamin_C , uuid , update_time)
-        select #{vitamin_C} , #{uuid} , #{update_time}
+        insert into life_style(vitamin_C , uuid , update_time , week)
+        select #{vitamin_C} , #{uuid} , #{update_time} , #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -282,8 +282,8 @@
     </update>
 
     <insert id="insertVitamin_D" parameterType="Life">
-        insert into life_style(vitamin_D , uuid , update_time)
-        select #{vitamin_D} , #{uuid} , #{update_time}
+        insert into life_style(vitamin_D , uuid , update_time ,week)
+        select #{vitamin_D} , #{uuid} , #{update_time} , #{week}
         from dual
         WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
     </insert>
@@ -307,7 +307,7 @@
         <result property="diastolic_BP" column="diastolic_BP"/>
         <result property="cholesterol" column="cholesterol"/>
         <result property="sleep" column="sleep"/>
-        <result property="mediatation" column="mediatation"/>
+        <result property="meditation" column="meditation"/>
         <result property="sex_life_score" column="sex_life_score"/>
         <result property="sex_life_frequency" column="sex_life_frequency"/>
         <result property="smoking" column="smoking"/>

@@ -38,7 +38,7 @@
 		</style>
 	</head>
 	
-	<body style="padding: 0px;margin: 0px;">
+	<body style="padding: 0;margin: 0;">
 		<div style="width: 100%;height: 100%;">
 			<jsp:include page="header.jsp"/>
 			<div id="header" >
@@ -75,17 +75,30 @@
 			</div>
 			
 		<div style="width: 100%;height: auto;">
-		<div style="width: 96%;height: 300px;margin: 0 auto; background-image: url(static/images/home-bg.png);background-position: fixed center; background-size: 100% 100%; background-repeat: no-repeat; ">
+		<div style="width: 96%;height: 300px;margin: 0 auto; background-image: url(/static/images/taiji.png);background-position: fixed center; background-size: 100% 100%; background-repeat: no-repeat; ">
 			<div class="left" style="width: 30%;height: 100%;float: left; ">
 				<a href="aboutus/index.jhtml"> <div style="width: 100%;height: 50%;"></div></a>
 				 <a href="cart/index.jhtml"> <div style="width: 100%;height: 50%;"></div></a>
 			</div>
 			<div class="mid" style="width: 38%;height: 100%;float: left; ">
 				<div style="width: 100%;height: 26%;"></div>
+				
 				<div style="width: 100%;height: 45%;">
-					<a href="javascript:;"> <div style="width: 50%;height: 100%;float: left; "></div></a>
-					<a href="javascript:;"><div style="width: 50%;height: 100%;float: left; "></div></a>
+					<div style="width: 100%;height: 50%; ">
+						 <div style="width: 27%;height: 100%;float: left; "></div>
+						<a href="javascript:;">	 
+							<div style="width: 73%;height: 100%;float: left; "></div>
+						</a>
+					</div>
+					
+					<div style="width: 100%;height: 50%; ">
+					<a href="javascript:;">	
+						 <div style="width: 73%;height: 100%;float: left; "></div>
+					</a>
+							<div style="width: 27%;height: 100%;float: left; "></div>
+					</div>
 				</div>
+				
 				<div style="width: 100%;height: 28%;"></div>
 			</div>
 			<div class="right" style="width: 31%;height: 100%;float: left; ">
@@ -109,7 +122,7 @@
 							Biological Age Detection of  DNA  Methylation
 					</div>
 					<div style="width: 20%;height: 61px;float: left; font-family: arial;font-size: 30px;font-weight: bold;color: #036EB7;line-height: 40px; ">
-						<div style="width: 80%;height: auto;margin: 0 auto;line-height: 55px;">$150</div> 
+						<div style="width: 80%;height: auto;margin: 0 auto;line-height: 55px;">$99</div> 
 					</div>
 					<div style="width: 23%;height: 61px;float: right; ">
 						<a href="cart/index.jhtml">
@@ -206,10 +219,15 @@
 						<div style="width: 100%;height: auto;margin: 0 auto;">
 							<img src="static/images/hm8.png"style="width: 100%;height: auto;"/>
 						</div>
-						<div style="width: 100%;height: auto;background-color: #F4F4F6; ">
+						<div style="width: 100%;height: auto;background-color: #F4F4F6;overflow: hidden; ">
 							<div style="width: 95%;height:auto;margin: 0 auto;border-top: 9px; align-content: center;background-color: #C1E1E8;border-radius: 10px;">
 								<br/>In March of 2003, the AHRQ (Agency for Healthcare Research and Quality) a division of the United States Health and Human Services, released the findings of a major study on SAM-e. <br />
 							<i style="color: #4A9ACA;"><a href="https://www.ncbi.nlm.nih.gov/books/NBK11886/" target="_blank">https://www.ncbi.nlm.nih.gov/books/NBK11886/</a></i>
+							</div>
+							<div style="width: 100%;height: 20px;overflow: hidden;">
+								<div style="width: 20%;height: 20px;float: left;"></div>
+								<div style="width: 10%;height: 20px;float: left;"><img  src="static/images/sam4.png"style="width: 100%;height: auto;vertical-align:left;display:block;"> </div>
+								<div style="width: 60%;height: 20px;float: left;"></div>
 							</div>
 							<div style="width: 100%;height: auto;">
 								<div style="width: 96%;height: auto;margin: 0 auto;font-family: arial; color: #666666;">
@@ -278,6 +296,14 @@
 					<div style="width: 100%;height: 30px;"></div>
 					<div class="rep-style"style="width: 100%;height: auto;">
 						<div style="width: 92%;height: auto;margin: 0 auto;">
+							<a href="concent/index.jhtml">
+							<img src="static/images/hm20.png"style="width: 100%;height: auto;" />
+							 </a>
+						</div>
+					</div>
+					<div style="width: 100%;height: 30px;"></div>
+					<div class="rep-style"style="width: 100%;height: auto;">
+						<div style="width: 92%;height: auto;margin: 0 auto;">
 							<a href="testprocess/index.jhtml"><img src="static/images/hm16.png"style="width: 100%;height: auto;" /></a>
 						</div>
 					</div>
@@ -311,8 +337,8 @@
 					<div style="width: 100%;height: 30px;"></div>
 					
 				</div>
-				<div id="download"style="width: 100%;height: 60px;">
-					<a href="download/EPIAging-apk.jhtml"><div style="width: 60%;height: 60px;margin: 0 auto; background-color: #036EB7;color: white; font-size: large;font-weight: bolder;text-align: center;line-height: 60px; border-radius: 5px;">Download App</div></a>
+				<div id="download"style="width: 100%;height: 50px;">
+					<a href="download/EPIAging-apk.jhtml"><div style="width: 60%;height: 50px;margin: 0 auto; background-color: #036EB7;color: white; font-size: large;font-weight: bolder;text-align: center;line-height: 50px; border-radius: 5px;">Download App</div></a>
 				</div>
 				<div style="width: 100%;height: 60px;"></div>
 				<div id="all-right"style="width: 100%;height: auto;font-family: arial;">

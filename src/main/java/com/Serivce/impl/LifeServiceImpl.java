@@ -437,7 +437,7 @@ public class LifeServiceImpl implements ILifeService {
         }
     }
     //冥想
-    private void Mediatation(String uuid,Double value1){
+    private void Meditation(String uuid,Double value1){
         Integer flag = 0;
 
         //获取现在的系统时间
@@ -450,11 +450,11 @@ public class LifeServiceImpl implements ILifeService {
         Integer week = getNowInitTime(nowTime).getWeek();
 
         //前台默认传递冥想的单位为：hours/day
-        Double mediatation = value1;
+        Double Meditation = value1;
 
         //创建对象life，用于存储传递值
         Life life = new Life();
-        life.setMediatation(mediatation);
+        life.setMeditation(Meditation);
         life.setUuid(uuid);
 
         //查询数据库中是否有该用户的数据，若无则不需要计算时间
@@ -483,12 +483,12 @@ public class LifeServiceImpl implements ILifeService {
 
         //根据标识符flag来判断是否进行更新或是插入操作
         switch (flag){
-            case 0 : lifeDao.upDateMediatation(life);
+            case 0 : lifeDao.upDateMeditation(life);
                 break;//返回值为0，则今日已经有数据了，执行更新操作
             case 1 :
                 life.setUpdate_time(dayTime / 1000);
                 life.setWeek(week);
-                lifeDao.insertMediatation(life);
+                lifeDao.insertMeditation(life);
                 break;//返回值为1，则今日并没有更新数据，执行插入操作
             default:
                 System.out.println("error!");
@@ -903,9 +903,9 @@ public class LifeServiceImpl implements ILifeService {
             return map;
             //return map;
         }
-        //冥想情况，操作数据为mediatation
-        else if (column.equals("Mediatation")){
-            Mediatation(uuid, value1);
+        //冥想情况，操作数据为Meditation
+        else if (column.equals("Meditation")){
+            Meditation(uuid, value1);
             map.put("data" , "success");
             return map;
             //return map;
@@ -1249,6 +1249,9 @@ public class LifeServiceImpl implements ILifeService {
                 }
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
+
             }else {
                 //截取前7条数据
                 //String [][] d = new String[listData.size()][];
@@ -1268,6 +1271,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }
 
         }
@@ -1336,6 +1341,8 @@ public class LifeServiceImpl implements ILifeService {
                 list.add(DealWithArray.DoChange(t));
                 //list.add(DealWithArray.DoChangeDouble(d));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }else {
                 //截取前7条数据
                 //String [][] d = new String[listData.size()][];
@@ -1353,6 +1360,8 @@ public class LifeServiceImpl implements ILifeService {
                 list.add(DealWithArray.DoChange(t));
                 //list.add(DealWithArray.DoChangeDouble(d));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }
         }
         //血压，操作数据为systolic_BP和diastolic_BP
@@ -1429,6 +1438,10 @@ public class LifeServiceImpl implements ILifeService {
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(sys));
                 list.add(DealWithArray.DoChange(dia));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(sys[0]);
+                //用于渲染报告时返回的最后一次插入值
+                list.add(dia[0]);
             }else {
                 //截取前7条数据
                 String [][] d = new String[listData.size()][];
@@ -1450,6 +1463,10 @@ public class LifeServiceImpl implements ILifeService {
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(sys));
                 list.add(DealWithArray.DoChange(dia));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(sys[0]);
+                //用于渲染报告时返回的最后一次插入值
+                list.add(dia[0]);
             }
         }
         //胆固醇，操作数据为cholesterol
@@ -1519,6 +1536,8 @@ public class LifeServiceImpl implements ILifeService {
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
                 //list.add(DealWithArray.DoChangeDouble(d));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }else {
                 //截取前7条数据
                 //String [][] d = new String[listData.size()][];
@@ -1537,6 +1556,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(DealWithArray.DoChangeDouble(d));
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }
         }
         //睡眠情况，操作数据为sleep
@@ -1606,6 +1627,8 @@ public class LifeServiceImpl implements ILifeService {
                 //list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }else {
                 //截取前7条数据
                 //String [][] d = new String[listData.size()][];
@@ -1624,15 +1647,17 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }
         }
-        //冥想情况，操作数据为mediatation
-        else if (column.equals("Mediatation")){
+        //冥想情况，操作数据为Meditation
+        else if (column.equals("Meditation")){
             for (int i = 0 ; i < originData.size() ; i++){
                 Life life = originData.get(i);
                 String [] a = new String[1];
-                if (life.getMediatation() != null){
-                    a[0] = life.getMediatation().toString();
+                if (life.getMeditation() != null){
+                    a[0] = life.getMeditation().toString();
                 }else {
                     num.add(i);
                 }
@@ -1693,6 +1718,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }else {
                 //截取前7条数据
                 //String [][] d = new String[listData.size()][];
@@ -1711,6 +1738,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }
         }
         //性生活情况，操作数据为sex_life_frequency和sex_life_score
@@ -1769,31 +1798,53 @@ public class LifeServiceImpl implements ILifeService {
             if (listData.size() > 7) {
                 //截取前7条数据
                 String [][] d = new String[7][];
+                String [] score = new String[7];
+                String [] frequency = new String[7];
                 String [] t = new String[7];
                 for (int i = 0; i < 7; i++) {
                     String[] Cache = new String[2];
                     for (int j = 0; j < listData.get(i).size(); j++) {
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    score[i] = Cache[0];
+                    frequency[i] = Cache[1];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+                //list.add(t);
+                //list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(score));
+                list.add(DealWithArray.DoChange(frequency));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(score[0]);
+                //用于渲染报告时返回的最后一次插入值
+                list.add(frequency[0]);
             }else {
                 //截取前7条数据
                 String [][] d = new String[listData.size()][];
                 String [] t = new String[listTime.size()];
+                String [] score = new String[listData.size()];
+                String [] frequency = new String[listData.size()];
                 for (int i = 0 ; i < listData.size() ; i++){
                     String [] Cache = new String[2];
                     for (int j = 0 ; j < listData.get(i).size() ; j++){
                         Cache[j] = listData.get(i).get(j);
                     }
-                    d[i] = Cache;
+                    //d[i] = Cache;
+                    score[i] = Cache[0];
+                    frequency[i] = Cache[1];
                     t[i] = listTime.get(i).toString();
                 }
-                list.add(t);
-                list.add(d);
+//                list.add(t);
+//                list.add(d);
+                list.add(DealWithArray.DoChange(t));
+                list.add(DealWithArray.DoChange(score));
+                list.add(DealWithArray.DoChange(frequency));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(score[0]);
+                //用于渲染报告时返回的最后一次插入值
+                list.add(frequency[0]);
             }
         }
         //吸烟情况，操作数据为smoking
@@ -1865,6 +1916,9 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
+
             }else {
                 //截取前7条数据
                 //String [][] d = new String[listData.size()][];
@@ -1883,6 +1937,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }
         }
         //喝酒情况，操作数据为alcohol
@@ -1952,6 +2008,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }else {
                 //截取前7条数据
                 //String [][] d = new String[listData.size()][];
@@ -1970,6 +2028,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }
         }
         //维他命A情况，操作数据为vitamin_A
@@ -2040,6 +2100,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }else {
                 //截取前7条数据
                 //String [][] d = new String[listData.size()][];
@@ -2058,6 +2120,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }
         }
         //维他命C情况，操作数据为vitamin_C
@@ -2127,6 +2191,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }else {
                 //截取前7条数据
                 String [] Td = new String[listData.size()];
@@ -2145,6 +2211,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }
         }
         //维他命D情况，操作数据为vitamin_D
@@ -2214,6 +2282,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }else {
                 //截取前7条数据
                 String[] Td = new String [listData.size()];
@@ -2232,6 +2302,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }
         }
         //有氧运动情况，操作数据为sport
@@ -2301,6 +2373,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }else {
                 //截取前7条数据
                 String [] Td = new String [listData.size()];
@@ -2319,6 +2393,8 @@ public class LifeServiceImpl implements ILifeService {
 //                list.add(d);
                 list.add(DealWithArray.DoChange(t));
                 list.add(DealWithArray.DoChange(Td));
+                //用于渲染报告时返回的最后一次插入值
+                list.add(Td[0]);
             }
         }
         //摄入卡路里状况，涉及卡路里等相关信息
@@ -2466,10 +2542,9 @@ public class LifeServiceImpl implements ILifeService {
                     }
 
                     //因业务需要 数据存放在一个数组中
-
-
                     list.add(DealWithArray.DoChange(t));
                     list.add(DealWithArray.DoChange(Td));
+                    list.add(Td[0]);
                 }else {
                     //截取前7条数据
                     //String [][] d = new String[listData.size()][];
@@ -2487,6 +2562,8 @@ public class LifeServiceImpl implements ILifeService {
 
                     list.add(DealWithArray.DoChange(t));
                     list.add(DealWithArray.DoChange(Td));
+                    //用于渲染报告时返回的最后一次插入值
+                    list.add(Td[0]);
                 }
             }
             else if (type.equals("dinner")){

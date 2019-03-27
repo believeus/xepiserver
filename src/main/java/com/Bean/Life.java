@@ -23,7 +23,7 @@ public class Life {
     private Double diastolic_BP;
     private Double cholesterol;
     private Double sleep;
-    private Double mediatation;
+    private Double meditation;
     private Double sex_life_frequency;
     private Double sex_life_score;
     private Double smoking;
@@ -126,12 +126,12 @@ public class Life {
         this.sleep = sleep;
     }
 
-    public Double getMediatation() {
-        return mediatation;
+    public Double getMeditation() {
+        return meditation;
     }
 
-    public void setMediatation(Double mediatation) {
-        this.mediatation = mediatation;
+    public void setMeditation(Double meditation) {
+        this.meditation = meditation;
     }
 
     public Double getSex_life_frequency() {

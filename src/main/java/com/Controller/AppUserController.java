@@ -5,6 +5,7 @@ import com.Bean.UserInfo;
 import com.Serivce.IUserSerivce;
 import com.Utils.GeneratorCode;
 import com.Utils.MoblieMessageUtil;
+import com.Utils.SendMessage;
 import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import com.aliyuncs.exceptions.ClientException;
@@ -179,6 +180,11 @@ public class AppUserController {
                     }
                 }
             }
+            if (purpose.equals("login")){
+                if (iUserSerivce.CheckTel(username) == null) {
+                    return "error";
+                }
+            }
             userInfo.setPhone(username);
             //获取随机验证码
             String code = GeneratorCode.getValidationCode_4();
@@ -203,16 +209,23 @@ public class AppUserController {
             }
 
             //调用阿里云短信服务发送验证码到用户手机
-            try {
-                SendSmsResponse response = MoblieMessageUtil.sendSms(username,code,AreaCode);
-                System.out.println("短信接口返回的数据----------------");
-                System.out.println("Code=" + response.getCode());
-                System.out.println("Message=" + response.getMessage());
-                System.out.println("RequestId=" + response.getRequestId());
-                System.out.println("BizId=" + response.getBizId());
-            } catch (ClientException e) {
-                e.printStackTrace();
-            }
+            //国内ip:60.205.210.148
+            String url = "http://60.205.210.148:8787/Send?telephone=" + username + "&code=" + code + "&AreaCode=" + AreaCode;
+
+//            try {
+//                //SendSmsResponse response = MoblieMessageUtil.sendSms(username,code,AreaCode);
+//                SendSmsResponse response = SendMessage.doGet(url);
+//                System.out.println("短信接口返回的数据----------------");
+//                System.out.println("Code=" + response.getCode());
+//                System.out.println("Message=" + response.getMessage());
+//                System.out.println("RequestId=" + response.getRequestId());
+//                System.out.println("BizId=" + response.getBizId());
+//            } catch (ClientException e) {
+//                e.printStackTrace();
+//            }
+            String req = SendMessage.doGet(url);
+            //调用发送短信接口
+            System.out.println(req);
             return code;
 
         }

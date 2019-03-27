@@ -46,8 +46,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div style="width: 96%;height: auto;margin: 0 auto;overflow: hidden;">
 				<div style="width: 100%;height: 20px;"></div>
 				<div style="width: 100%;height: auto;">
-					<div style="width: 70%;height: auto;float: left;font-weight: 700;font-family: arial;font-size:18px;">How do we conduct data analysis</div>
-					<div style="width: 25%;height: auto;float: left;"><img src="static/images/ques2.png"style="width: 100%;height:auto ;"/></div>
+				<div style="width: 25%;height: auto;float: left;"><img src="static/images/ques2.png"style="width: 100%;height:auto ;"/></div>
+					<div style="width: 70%;height: 116px;float: left;font-weight: 700; font-family: arial;font-size:18px;">
+					<div style="width: 90%; height: 60px;margin: 18px auto; ">
+					How do we conduct data analysis
+					</div>
+					</div>
+					
 					<div style="width: 100%;height: 30px;"></div>
 					<div style="width: 100%;height: auto;color: #666666;">
 						<div id="dot" >All saliva samples are processed in the laboratory, in accordance with local regulations.</div>
@@ -82,8 +87,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div style="width: 96%;margin: 0 auto;height: auto;overflow: hidden;">
 				<div style="width: 100%;height: 20px;"></div>
 				<div style="width: 100%;height: auto;">
-					<div style="width: 70%;height: auto;float: left;font-weight: 700;font-size:18px; font-family: arial;">How do we ensure that information is confidential</div>
-					<div style="width: 25%;height: auto;float: left;"><img src="static/images/ques4.png"style="width: 100%;height: ;"/></div>
+				<div style="width: 25%;height: auto;float: left;"><img src="static/images/ques4.png"style="width: 100%;height: ;"/></div>
+					<div style="width: 70%;height: 116px;float: left;font-weight: 700;font-size:18px; font-family: arial;">
+						<div style="width: 90%; height: 60px;margin: 18px auto; ">
+					How do we ensure that information is confidential
+						</div>
+					</div>
+					
 					<div style="width: 100%;height: 30px;"></div>
 					<div style="width: 100%;height: auto;color: #666666;">
 						<div id="dot" >When you are not logged into the system, your health information and personal user information will be in a 'separate' state, and no one can find your related information.</div>

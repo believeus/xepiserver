@@ -46,51 +46,8 @@
 </head>
 <body style="padding: 0;margin: 0;">
 <div id="container" style="width: 100%;height: auto;">
+	<jsp:include page="header.jsp"/>
 
-
-
-	<!-- Bootstrap & Snippet plugin core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<!-- Custom styles for this template -->
-	<link href="css/stickup.css" rel="stylesheet">
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/stickUp.min.js"></script>
-	<script type="text/javascript">
-        jQuery(function($) {
-            $(document).ready(function() { //enabling stickUp on the '.navbar-wrapper' class
-                $('.navbar-wrapper').stickUp();
-            });
-        });
-	</script>
-	<style>
-		@media screen and (min-width:300px){
-			html{font-size: 12px;}
-		}
-		@media screen and (min-width: 320px) {
-			html {font-size: 12px;}
-		}
-
-		@media screen and (min-width: 375px) {
-			html {font-size: 14px;}
-		}
-
-		@media screen and (min-width: 400px) {
-			html {font-size: 14px;}
-		}
-
-		@media screen and (min-width: 440px) {
-			html {font-size: 14px;}
-		}
-
-		@media screen and (min-width: 768px) {
-			html {font-size: 22px;}
-		}
-
-		@media screen and (min-width: 1024px) {
-			html {font-size: 24px;}
-		}
-	</style>
 	<!-- END COVER -->
 	<!-- START THE NAVBAR -->
 	<div class="navbar-wrapper stuckMenu" style="z-index: 9999;">
@@ -145,6 +102,7 @@
 			</div>
 
 		</div>
+	</div>
 </body>
 </html>
 

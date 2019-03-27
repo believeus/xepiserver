@@ -21,9 +21,9 @@ public class DownloadController {
 
     @RequestMapping("/download/EPIAging-apk")  
     public void doPost(HttpServletResponse response)  throws ServletException, IOException {  
-    	ResourceBundle bundle = ResourceBundle.getBundle("project");
-    	String apkpath = bundle.getString("apkpath");
-        File f = new File("/usr/local/data/EPIAging.apk");
+    	//ResourceBundle bundle = ResourceBundle.getBundle("project");
+    	//String apkpath = bundle.getString("apkpath");
+        File f = new File(apkpath);
         if(f.exists()){  
             FileInputStream  fis = new FileInputStream(f);  
             String filename=URLEncoder.encode(f.getName(),"utf-8"); //解决中文文件名下载后乱码的问题  

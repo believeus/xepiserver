@@ -20,17 +20,16 @@
 
 </head>
 
-
 <body>
 <div  style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
-<div class="shopping">
+    <div class="shopping">
 
-    <div class="shop-group-item">
-        <div class="shop-name">
-            <input type="checkbox" class="check goods-check shopCheck">
-            <h4><a href="javascript:;">Information</a></h4>
-        </div>
+        <div class="shop-group-item">
+            <div class="shop-name">
+                <input type="checkbox" class="check goods-check shopCheck">
+                <h4><a href="javascript:;">Select All</a></h4>
+            </div>
             <ul>
                 <li>
                     <div class="shop-info">
@@ -43,7 +42,7 @@
                             <h4>Biological age detection 2.0</h4>
                             <div class="shop-brief"><span>Saliva DNA Collection Kit</span></div>
                             <div class="shop-price">
-                                <div class="shop-pices">$<b class="price">150</b></div>
+                                <div class="shop-pices">$<b class="price">99</b></div>
                                 <div class="shop-arithmetic">
                                     <a href="javascript:;" class="minus" style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                     <span class="num" name="count"  id="count_1001">1</span>
@@ -139,8 +138,8 @@
                 </li>
             </ul>
             <div class="shopPrice">About：$<span class="shop-total-amount ShopTotal">0.00</span></div>
+        </div>
     </div>
-</div>
     <div class="payment-bar">
         <div class="all-checkbox" style="float: left"><input type="checkbox" class="check goods-check" id="AllCheck"></div>
         <div class="shop-total" style="float: left">
@@ -281,7 +280,7 @@
         data.wares = list
 
         if(count > 0) {
-                for (i = 0; i < list.length; i++) {
+            for (i = 0; i < list.length; i++) {
                 s1 += list[i];
                 if (list.length > 1) {
                     if ((i + 1) != list.length) {
