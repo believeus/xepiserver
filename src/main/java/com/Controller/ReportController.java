@@ -45,10 +45,10 @@ public class ReportController {
     @ResponseBody
     public List getData(@RequestBody JSONObject jsonObject){
         HttpSession session = request.getSession();
-        //User userInfo = (User)session.getAttribute("userInfo");
-        String uuid = jsonObject.getString("uuid");
-        //return reportService.GetDataForReport(userInfo.getUuid());
-        return reportService.GetDataForReport(uuid);
+        User userInfo = (User)session.getAttribute("userInfo");
+        //String uuid = jsonObject.getString("uuid");
+        return reportService.GetDataForReport(userInfo.getUuid());
+        //return reportService.GetDataForReport(uuid);
     }
 
     @RequestMapping(value = "/report")
@@ -65,7 +65,7 @@ public class ReportController {
         }
         User userInfo = (User)session.getAttribute("userInfo");
 
-        if (orderService.CheckOrderExist(userInfo.getUuid())){
+        if (!orderService.CheckOrderExist(userInfo.getUuid())){
             ModelAndView modelView=new ModelAndView();
             modelView.setViewName("/WEB-INF/front/aging.jsp");
             modelView.addObject("title","Aging");
@@ -74,7 +74,7 @@ public class ReportController {
         }
 
         ModelAndView modelView=new ModelAndView();
-        modelView.setViewName("/WEB-INF/front/report.jsp");
+        modelView.setViewName("/WEB-INF/front/bioreport.jsp");
         modelView.addObject("title","Home");
         modelView.addObject("canback",false);
         return modelView;
@@ -84,6 +84,9 @@ public class ReportController {
     @ResponseBody
     public List getDataForOne(@RequestBody JSONObject jsonObject){
         //return reportService.GetDataForPerson(jsonObject.getString("id"));
-        return reportService.GetDataForPersonById(jsonObject.getString("uuid"));
+        //return reportService.GetDataForPersonById(jsonObject.getString("uuid"));
+        HttpSession session = request.getSession();
+        User userInfo = (User)session.getAttribute("userInfo");
+        return reportService.GetDataForPersonById(userInfo.getUuid());
     }
 }

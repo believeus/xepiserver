@@ -81,7 +81,7 @@
 							<li class="menuItem"><a href="report/report.jhtml">MYReport</a></li>
 							<li class="menuItem"><a href="cart/index.jhtml">Health Market</a></li>
 							<li class="menuItem"><a href="scienceteam/index.jhtml">Science team</a></li>
-							<li class="menuItem"><a href="usercenter/index.jhtml">User Center</a></li>
+							<li class="menuItem"><a href="/mycenter/index.jhtml">User Center</a></li>
 						</ul>
 					</div>
 				</div>

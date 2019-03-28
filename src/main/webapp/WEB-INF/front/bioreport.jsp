@@ -72,7 +72,7 @@
 								var data = "{\"uuid\" : \"HKEPI201937192024320\"}"
 								$.ajax({
 									type : "post",
-									url : "http://192.168.1.117:8080/report/getDataForOne.jhtml",
+									url : "report/getDataForOne.jhtml",
 									dataType : "json",
 									contentType : "application/json",
 									data : data,
@@ -99,7 +99,7 @@
 											$
 													.ajax({
 														type : "post",
-														url : "http://192.168.1.117:8080/report/getData.jhtml",
+														url : "report/getData.jhtml",
 														dataType : "json",
 														contentType : "application/json",
 														data : data,
