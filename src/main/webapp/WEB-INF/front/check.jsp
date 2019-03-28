@@ -37,7 +37,7 @@
 <div  style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
 
-<div style="background-color:#ffffff;padding-bottom: 40px">
+<div style="background-color:#ffffff;padding-bottom: 70px">
 
     <div style="width: 100%;height: 10px;"></div>
     <div style="width:100%;height:auto;">
@@ -136,7 +136,7 @@
 </div>
 
 <div
-        style="clear:both;overflow:hidden;width:100%;height:6%;position:fixed;bottom:0;border-top:1px solid #e0e0e0;background:#fff;">
+        style="clear:both;overflow:hidden;width:100%;height:9%;position:fixed;bottom:0;border-top:1px solid #e0e0e0;background:#fff;">
     <div style="text-align: center;height: 100%;background-color: #37475d;width: 60%;color: #f4f6f8;float: left;">
         <div style="height: 100%;font-size: 21px;line-height: 40px">
             <div class="shop-total">
@@ -144,7 +144,7 @@
             </div></div>
     </div>
     <div style="width: 40%;background-color: #0071b1;height: 100%;text-align: center;color: #f4f6f8;float:right;">
-        <div style="height:100%;font-size: 21px;line-height: 40px" onclick="PostAddr()">Post</div>
+        <div style="height:100%;font-size: 21px;line-height: 40px" onclick="PostAddr()">Sumbit</div>
     </div>
 </div>
 

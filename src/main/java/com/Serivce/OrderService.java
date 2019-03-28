@@ -16,4 +16,6 @@ public interface OrderService {
     public String UpdateOrder(String flags);
 
     public List<Order> CheckOrder(String uuid);
+
+    public boolean CheckOrderExist(String uuid);
 }

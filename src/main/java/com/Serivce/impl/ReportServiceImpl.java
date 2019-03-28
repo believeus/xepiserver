@@ -126,7 +126,7 @@ public class ReportServiceImpl implements ReportService {
 
         Bio bio = reportDao.GetBioDataForPersonByUuid(uuid);
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         List Person = new LinkedList();
         Person.add(bio.getId());

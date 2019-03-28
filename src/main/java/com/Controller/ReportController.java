@@ -2,6 +2,7 @@ package com.Controller;
 
 import com.Bean.User;
 import com.Dao.ReportDao;
+import com.Serivce.OrderService;
 import com.Serivce.ReportService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -32,6 +33,9 @@ public class ReportController {
     private ReportService reportService;
 
     @Resource
+    private OrderService orderService;
+
+    @Resource
     private HttpServletResponse response;
 
     @Autowired
@@ -41,8 +45,10 @@ public class ReportController {
     @ResponseBody
     public List getData(@RequestBody JSONObject jsonObject){
         HttpSession session = request.getSession();
-        User userInfo = (User)session.getAttribute("userInfo");
-        return reportService.GetDataForReport(userInfo.getUuid());
+        //User userInfo = (User)session.getAttribute("userInfo");
+        String uuid = jsonObject.getString("uuid");
+        //return reportService.GetDataForReport(userInfo.getUuid());
+        return reportService.GetDataForReport(uuid);
     }
 
     @RequestMapping(value = "/report")
@@ -54,6 +60,15 @@ public class ReportController {
             ModelAndView modelView=new ModelAndView();
             modelView.setViewName("/WEB-INF/front/login.jsp");
             modelView.addObject("title","Login");
+            modelView.addObject("canback",false);
+            return modelView;
+        }
+        User userInfo = (User)session.getAttribute("userInfo");
+
+        if (orderService.CheckOrderExist(userInfo.getUuid())){
+            ModelAndView modelView=new ModelAndView();
+            modelView.setViewName("/WEB-INF/front/aging.jsp");
+            modelView.addObject("title","Aging");
             modelView.addObject("canback",false);
             return modelView;
         }

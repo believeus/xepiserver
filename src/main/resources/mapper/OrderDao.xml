@@ -59,4 +59,8 @@
         <result column="sell_price" property="sell_price"/>
         <result column="wares_img" property="wares_img"/>
     </resultMap>
+    
+    <select id="CheckOrderExist" resultType="int" parameterType="string">
+        select count(*) from ordermess o , (select order_id from orderlist where PayStatus_code = "201" and uuid = #{uuid}) ol where goods_id = "1001" and ol.order_id = o.order_id
+    </select>
 </mapper>

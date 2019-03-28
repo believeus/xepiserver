@@ -32,7 +32,7 @@
             </div>
             <ul>
                 <li>
-                    <div class="shop-info">
+                    <div class="shop-info" style="border:4px inset #0480be">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="1001">
                         <div class="shop-info-img" style="text-align: center;">
 
@@ -121,7 +121,7 @@
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3003">
                         <div class="shop-info-img" style="text-align: center;">
                             <a href="#">
-                                <img src="static/images/VitaminA.png" style="width: 60%;height:auto;"/></a></div>
+                                <img src="static/images/VitaminD.png" style="width: 60%;height:auto;"/></a></div>
                         <div class="shop-info-text">
                             <h4>VitaminD</h4>
                             <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum Strength,<br>Strawberry,5000 mcg ,
@@ -135,13 +135,14 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </li>
             </ul>
             <div class="shopPrice">About：$<span class="shop-total-amount ShopTotal">0.00</span></div>
         </div>
     </div>
-    <div class="payment-bar">
-        <div class="all-checkbox" style="float: left"><input type="checkbox" class="check goods-check" id="AllCheck"></div>
+    <div class="payment-bar" style="height: 82px">
+        <div class="all-checkbox" style="float: left;height: 100%"><input type="checkbox" class="check goods-check" id="AllCheck" style="top:30%"></div>
         <div class="shop-total" style="float: left">
             <strong>About：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
         </div>

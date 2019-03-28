@@ -20,4 +20,7 @@ public interface OrderDao {
 
     //反馈用户所有订单状况
     public List<Order> CheckOrder(String uuid);
+
+    //查看用户是否购买产品
+    public Integer CheckOrderExist(String uuid);
 }

@@ -136,4 +136,13 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> CheckOrder(String uuid) {
         return orderDao.CheckOrder(uuid);
     }
+
+    @Override
+    public boolean CheckOrderExist(String uuid) {
+        Integer i = orderDao.CheckOrderExist(uuid);
+        if (i > 0){
+            return true;
+        }
+        return false;
+    }
 }

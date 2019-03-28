@@ -50,11 +50,11 @@ public class QuestionnaireController {
         //获取问卷调查表的类型
         String type = jsonObject.getString("type");
         HttpSession session = request.getSession();
-        //User userInfo = (User)session.getAttribute("userInfo");
+        User userInfo = (User)session.getAttribute("userInfo");
         //System.out.println(type);
 
         //userInfo.setUuid("HKEPI201937192024320");
-        String uuid = "HKEPI201937192024320";
+        //String uuid = "HKEPI201937192024320";
 
         //System.out.println(jsonArray);
         Question data = jsonObject.getObject("data" , Question.class);
@@ -73,7 +73,9 @@ public class QuestionnaireController {
 
         Questionnaire questionnaire = new Questionnaire();
 
-        questionnaire.setUuid(uuid);
+        questionnaire.setUuid(jsonObject.getString("uuid"));
+        //questionnaire.setUuid(uuid);
+        questionnaire.setUuid(userInfo.getUuid());
         questionnaire.setType(type);
 
         return questionnaireService.setData(questionnaire , data);
@@ -92,13 +94,13 @@ public class QuestionnaireController {
 
         HttpSession session = request.getSession();
         User userInfo = (User)session.getAttribute("userInfo");
-        //String uuid = userInfo.getUuid();
+        String uuid = userInfo.getUuid();
 
         Questionnaire questionnaire = new Questionnaire();
         //questionnaire.setUuid(jsonObject.getString("uuid"));
         questionnaire.setType(type);
-        questionnaire.setUuid("HKEPI201937192024320");
-        //questionnaire.setUuid(uuid);
+        //questionnaire.setUuid("HKEPI201937192024320");
+        questionnaire.setUuid(uuid);
 
         Map map = questionnaireService.getData(questionnaire);
 

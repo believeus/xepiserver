@@ -26,8 +26,8 @@ public class OrderecordController {
 		}
 		else
 		{
-			modelView.setViewName("/WEB-INF/front/index.jsp");
-			modelView.addObject("title", "Index");
+			modelView.setViewName("/WEB-INF/front/login.jsp");
+			modelView.addObject("title", "Log In");
 			modelView.addObject("canback", true);
 			return modelView;
 		}

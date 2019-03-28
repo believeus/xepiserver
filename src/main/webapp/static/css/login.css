@@ -2,8 +2,9 @@
 	text-align: right;
     margin-top: 10px;
     margin-right: 20px;
-    color: #535353;
+    color: #696969;
     font-size: 1.2em;
+    font-weight: 800;
 }
 #logo{
     margin: 9% auto;
@@ -14,7 +15,7 @@ img{
     width: 100%;
 }
  div.userName, div.passWord{
-    border-bottom: 1px solid #c1c1c1;
+    border-bottom: 1px solid #b3b3b3;
     padding:6% 0 6% 3%;
     height: 22%;
     background: #ffffff;
@@ -43,7 +44,7 @@ img{
     background: transparent;
     font-size: 1em;
     font-family: "Microsoft YaHei";
-    color: #b3b3b3;
+    color: #c1c1c1;
     letter-spacing: 1px;
     padding-left: 2px;
 }
@@ -51,6 +52,9 @@ img{
     height: 4.5em;
     line-height: 4.5em;
     padding: 0 5px;
+    font-weight: 800;
+     color: #b3b3b3;
+     
 }
 .choose_box div{
     float: left;
@@ -66,8 +70,8 @@ img{
     padding:3% 0 ;
     background: #222222;
     border: 0;
-    font-size: 1.3em;
-    font-family: "苹方";
+    font-size: 1.5em;
+    font-family: "arial";
     color:#FFFFFF;
     -webkit-border-radius: 2em;
     -moz-border-radius: 2em;

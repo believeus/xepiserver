@@ -61,7 +61,8 @@
     </resultMap>
 
     <select id="GetBioDataForPersonByUuid" parameterType="string" resultMap="GetBioDataByUUIDResultMap">
-       SELECT b. NAME, b.natural_age, b.biological_age , b.bar_code FROM biological b inner JOIN ( SELECT bar_code FROM orderstatus os INNER JOIN ( SELECT order_id FROM orderlist WHERE uuid = #{uuid} ORDER BY order_time DESC LIMIT 0,1 ) ol on os.order_id = ol.order_id ) o on 	b.bar_code = o.bar_code
+       SELECT b. NAME, b.natural_age, b.biological_age , b.bar_code FROM biological b inner JOIN ( SELECT bar_code FROM orderstatus os INNER JOIN ( SELECT order_id FROM orderlist WHERE uuid = #{uuid} ORDER BY order_time DESC LIMIT 0,1 ) ol on os.order_id = ol.order_id ) o on b.bar_code = o.bar_code
+       limit 0 , 1
     </select>
 
     <resultMap id="GetBioDataByUUIDResultMap" type="bio">
@@ -89,7 +90,7 @@
         <result property="diastolic_BP" column="diastolic_BP"/>
         <result property="cholesterol" column="cholesterol"/>
         <result property="sleep" column="sleep"/>
-        <result property="mediatation" column="mediatation"/>
+        <result property="meditation" column="meditation"/>
         <result property="sex_life_score" column="sex_life_score"/>
         <result property="sex_life_frequency" column="sex_life_frequency"/>
         <result property="smoking" column="smoking"/>

@@ -14,7 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--自适应字体大小-->
 
 
-</style>
 		<style>
 			div[id=dot]:before{
 				content:"●";

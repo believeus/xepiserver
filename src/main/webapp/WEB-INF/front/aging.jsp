@@ -161,16 +161,16 @@ div[id=box]:before {
 				</span>
 				<p></p>
 				<span style="font-size: 18px;font-family: arial"><strong
-					style="font-weight: 600 ;font-size: 18px; font-family: arial; ">$98</strong>
+					style="font-weight: 600 ;font-size: 18px; font-family: arial; ">$99</strong>
 					per kit for purchase <strong
-					style="font-family: arial;font-size: 18px;"> 2</strong> kit<br />
+					style="font-family: arial;font-size: 18px;"> 1</strong> kit<br />
 				</span>
 				<p></p>
-				<span style="font-family: arial;font-size: 18px;"><strong
-					style="font-weight: bold;font-size: 24px;">$96</strong> per kit
-					when purchase over <strong
-					style="font-weight: bold;font-size: 24px;">3</strong> kit </span>
-				<p></p>
+				<%--<span style="font-family: arial;font-size: 18px;"><strong--%>
+					<%--style="font-weight: bold;font-size: 24px;">$96</strong> per kit--%>
+					<%--when purchase over <strong--%>
+					<%--style="font-weight: bold;font-size: 24px;">3</strong> kit </span>--%>
+				<%--<p></p>--%>
 			</div>
 		</div>
 		<div id="add-cart" style="width: 100%;height: auto;margin-top: 20px;">

@@ -53,12 +53,12 @@ public class LifeController {
         Double value2 = 0.0;
 
         //前端传值 uuid 去空格处理
-        String uuid = jsonObject.getString("uuid");
-        uuid = uuid.replace(" " , "");
+//        String uuid = jsonObject.getString("uuid");
+//        uuid = uuid.replace(" " , "");
 
         HttpSession session = request.getSession();
-        //User userInfo = (User)session.getAttribute("userInfo");
-        //String uuid = userInfo.getUuid();
+        User userInfo = (User)session.getAttribute("userInfo");
+        String uuid = userInfo.getUuid();
 
         System.out.println(jsonObject);
         if (jsonObject.getString("value1") != null){
@@ -97,8 +97,8 @@ public class LifeController {
         System.out.println("-------------------------------");
 
         HttpSession session = request.getSession();
-        //User userInfo = (User)session.getAttribute("userInfo");
-        //String uuid = userInfo.getUuid();
+        User userInfo = (User)session.getAttribute("userInfo");
+        String uuid = userInfo.getUuid();
 
         //column 去空格处理
         String column = jsonObject.getString("column");
@@ -107,7 +107,7 @@ public class LifeController {
         String type = jsonObject.getString("type");
 
         //前端传值 uuid 去空格处理
-        String uuid  = jsonObject.getString("uuid");
+//        String uuid  = jsonObject.getString("uuid");
         uuid = uuid.replace(" " , "");
         return lifeService.getData(column , type , uuid);
     }

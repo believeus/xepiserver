@@ -28,7 +28,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
 
-    <title>登录页面</title>
+    <title>Login</title>
 
     <link rel="stylesheet" type="text/css" href="static/css/login.css">
     <link rel="stylesheet" type="text/css" href="static/css/login2.css">
@@ -65,9 +65,9 @@
                 </div>
                 <div class="choose_box">
                     <div>
-                        <lable style="color:#808080"  onclick="Pwd()">Sign in 2</lable>
+                        <lable style="color:#696969"  onclick="Pwd()">Sign in 2</lable>
                     </div>
-                    <a href="#" style="text-decoration:none;color: #808080">Forget it</a>
+                    <a href="#" style="text-decoration:none;color: #696969">Forget it</a>
                 </div>
                 <button class="login_btn" onclick="login_1()">Login</button>
             </div>
@@ -75,7 +75,7 @@
             <div id="PWDSignIn" style="display:none">
                 <div class="userName">
                     <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
-                    <input type="text" name="username2" id="username2" placeholder="Nickname" pattern="[0-9]{8,13}"  style="width: 60%" oninvalid="setCustomValidity('Please enter the correct mobile phone number!');"
+                    <input type="text" name="username2" id="username2" placeholder="Telephone" pattern="[0-9]{8,13}"  style="width: 60%" oninvalid="setCustomValidity('Please enter the correct mobile phone number!');"
                            oninput="setCustomValidity('');">
                 </div>
                 <div class="passWord">
@@ -84,7 +84,7 @@
                 </div>
                 <div class="choose_box">
                     <div>
-                        <lable style="color:#808080" onclick="SMS()">Sign in 1</lable>
+                        <lable style="color:#696969" onclick="SMS()">Sign in 1</lable>
                     </div>
                     <a href="#" style="text-decoration:none;color: #808080">Forget it</a>
                 </div>

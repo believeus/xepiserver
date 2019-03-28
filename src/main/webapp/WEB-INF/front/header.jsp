@@ -78,7 +78,7 @@
 						<ul class="nav navbar-nav">                                                                               
 							<li class="menuItem"><a href="index.jhtml">Home</a></li>
 							<li class="menuItem"><a href="aboutus/index.jhtml">About Us</a></li>
-							<li class="menuItem"><a href="">MYReport</a></li>
+							<li class="menuItem"><a href="report/report.jhtml">MYReport</a></li>
 							<li class="menuItem"><a href="cart/index.jhtml">Health Market</a></li>
 							<li class="menuItem"><a href="scienceteam/index.jhtml">Science team</a></li>
 							<li class="menuItem"><a href="usercenter/index.jhtml">User Center</a></li>
