@@ -32,7 +32,7 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public List GetDataForReport(String uuid) {
         HttpSession session = request.getSession();
-        List<Bio> list = new LinkedList<>();
+        List<Bio> list = new LinkedList<Bio>();
 
         //当用户已经进行一次查询之后，直接从session中获取数据在没有数据更新的情况下不在需要查询数据库
         if (session.getAttribute("BioReport") != null){
@@ -102,7 +102,7 @@ public class ReportServiceImpl implements ReportService {
     //根据条码id查询个人信息
     public List GetDataForPerson(String id) {
         HttpSession session = request.getSession();
-        List<Bio> list = new LinkedList<>();
+        List<Bio> list = new LinkedList<Bio>();
 
         Bio bio = reportDao.GetBioDataForPerson(id);
 
@@ -122,7 +122,7 @@ public class ReportServiceImpl implements ReportService {
     //根据用户id查询生物学年龄信息
     public List GetDataForPersonById(String uuid) {
         HttpSession session = request.getSession();
-        List<Bio> list = new LinkedList<>();
+        List<Bio> list = new LinkedList<Bio>();
 
         Bio bio = reportDao.GetBioDataForPersonByUuid(uuid);
 
