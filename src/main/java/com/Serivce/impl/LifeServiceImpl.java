@@ -861,7 +861,7 @@ public class LifeServiceImpl implements ILifeService {
     @Override
     public Map<String, Object> getLift(String column, Double value1, Double value2 , String uuid) {
 
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<String, Object>();
         HttpSession session = request.getSession();
         //String uuid = ((User)session.getAttribute("userInfo")).getUuid();
         //String uuid = "HKEPI201937192024320";
@@ -967,7 +967,7 @@ public class LifeServiceImpl implements ILifeService {
     //处理卡路里摄入
     @Override
     public Map<String, Object> getLift(String column, String type, Double value1, Double value2 , String uuid) {
-        Map<String , Object> map = new HashMap<>();
+        Map<String , Object> map = new HashMap<String, Object>();
 
         //从session中取出uuid
         //String uuid = ((User)request.getSession().getAttribute("userInfo")).getUuid();
@@ -1154,7 +1154,7 @@ public class LifeServiceImpl implements ILifeService {
 
         //获取全部数据
         List<Life> originData = lifeDao.getDateOfLife(userInfo.getUuid());
-        List list = new LinkedList<>();
+        List list = new LinkedList<Object>();
 
         //存放时间
         String [] time = new String[originData.size()];
