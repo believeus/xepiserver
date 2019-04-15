@@ -34,6 +34,9 @@
 	<jsp:include page="header.jsp"/>
 	<div style="width: 100%;height: 20px;"></div>
 	<div id="title" style="width: 100%;height: auto;">
+		<div>
+			<img src="static/images/sleep.png" style="width: 20%;height: 16%;float: right;" />
+		</div>
 		<div style="width: 100%;height: auto;">
 			<div style="width: 100%;height: 58px;text-align: center;font-size: 20px;font-family: arial;line-height: 60px; background-color: #FFFFFF; font-weight: 700;">Sleep Self Assesment</div>
 			<div style="height: auto;background-color: #f77a78;">

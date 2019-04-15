@@ -9,16 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 //@PropertySource("classpath:project.properties")
 public class IndexController {
-	@Value("${redis.host}")
-	private String i ;
-
-	@Value("${apkpath}")
-	private String apkpath;
 
 	@RequestMapping("/index")
 	public ModelAndView   home(){
-		System.out.println(i);
-		System.out.println(apkpath);
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/index.jsp");
 		modelView.addObject("title","Home");

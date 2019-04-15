@@ -79,7 +79,7 @@ div[name=subc]:before {
 				var data = "{\"uuid\" : \"${tid}\"}"
 				$.ajax({
 					type : "post",
-					url : "http://192.168.1.126:8080/report/getDataForOne.jhtml",
+					url : "report/getDataForOne.jhtml",
 					dataType : "json",
 					contentType : "application/json",
 					data : data,
@@ -243,7 +243,7 @@ div[name=subc]:before {
 										$
 												.ajax({
 													type : "post",
-													url : "http://192.168.1.126:8080/report/getData.jhtml",
+													url : "report/getData.jhtml",
 													dataType : "json",
 													contentType : "application/json",
 													data : data,
@@ -764,7 +764,7 @@ div[name=subc]:before {
 						var data = '{"type" :"Pain","number" : 1 ,"uuid":"' + uuid + '"}';
 						$.ajax({
 							type : "post",
-							url : "http://192.168.1.126:8080/Questionnaire/GetData.jhtml",
+							url : "Questionnaire/GetData.jhtml",
 							data : data,
 							dataType : "json",
 							contentType : "application/json",
@@ -858,7 +858,7 @@ div[name=subc]:before {
 						var data = '{"type" :"Pain","number" : 2 ,"uuid":"' + uuid + '"}';
 						$.ajax({
 							type : "post",
-							url : "http://192.168.1.126:8080/Questionnaire/GetData.jhtml",
+							url : "Questionnaire/GetData.jhtml",
 							data : data,
 							dataType : "json",
 							contentType : "application/json",
@@ -939,7 +939,7 @@ div[name=subc]:before {
 						var data = '{"type" :"Pain","number" : 3 ,"uuid":"' + uuid + '"}';
 						$.ajax({
 							type : "post",
-							url : "http://192.168.1.126:8080/Questionnaire/GetData.jhtml",
+							url : "Questionnaire/GetData.jhtml",
 							data : data,
 							dataType : "json",
 							contentType : "application/json",
@@ -1022,7 +1022,7 @@ div[name=subc]:before {
 							var data = '{"type" :"Pain","number" : 4 ,"uuid":"' + uuid + '"}';
 							$.ajax({
 								type : "post",
-								url : "http://192.168.1.126:8080/Questionnaire/GetData.jhtml",
+								url : "Questionnaire/GetData.jhtml",
 								data : data,
 								dataType : "json",
 								contentType : "application/json",

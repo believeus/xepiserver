@@ -73,7 +73,7 @@ public class QuestionnaireController {
 
         Questionnaire questionnaire = new Questionnaire();
 
-        questionnaire.setUuid(jsonObject.getString("uuid"));
+        //questionnaire.setUuid(jsonObject.getString("uuid"));
         //questionnaire.setUuid(uuid);
         questionnaire.setUuid(userInfo.getUuid());
         questionnaire.setType(type);

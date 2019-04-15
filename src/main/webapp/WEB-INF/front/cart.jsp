@@ -35,11 +35,12 @@
                     <div class="shop-info" style="border:4px inset #0480be">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="1001">
                         <div class="shop-info-img" style="text-align: center;">
-
+                            <a href="aging/index.jhtml">
                             <img src="static/images/DNA.png" style="width: 90%;height:auto;transform: translateY(10px);"/>
+                            </a>
                         </div>
                         <div class="shop-info-text">
-                            <h4>Biological age detection 2.0</h4>
+                            <h4><a href="aging/index.jhtml">Biological age detection 2.0</a></h4>
                             <div class="shop-brief"><span>Saliva DNA Collection Kit</span></div>
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">99</b></div>
@@ -57,10 +58,13 @@
                     <div class="shop-info">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="2001">
                         <div class="shop-info-img" style="text-align: center;">
-                            <img src="static/images/SAM-e.png" style="width: 100%;height:auto;" /></div>
+                            <a href="same/index.jhtml">
+                            <img src="static/images/SAM-e.png" style="width: 100%;height:auto;" />
+                            </a>
+                        </div>
                         <div class="shop-info-text">
-                            <h4>SAM-e</h4>
-                            <div class="shop-brief"><span>S-adenosine Supplement</span></div>
+                            <h4><a href="same/index.jhtml">SAM-e</a></h4>
+                            <div class="shop-brief"><span>S-adenosyl methionine supplement</span></div>
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">35</b></div>
                                 <div class="shop-arithmetic">
@@ -78,10 +82,10 @@
                     <div class="shop-info">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3001">
                         <div class="shop-info-img" style="text-align: center;">
-                            <a href="#">
+                            <a href="vitaminA/index.jhtml">
                                 <img src="static/images/VitaminA.png" style="width: 60%;height:auto;"/></a></div>
                         <div class="shop-info-text">
-                            <h4>VitaminA</h4>
+                            <h4><a href="vitaminA/index.jhtml">Vitamin A</a></h4>
                             <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum Strength,<br>Strawberry,5000 mcg ,
                                 100 Tablets</div>
                             <div class="shop-price">
@@ -99,10 +103,10 @@
                     <div class="shop-info">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3002">
                         <div class="shop-info-img" style="text-align: center;">
-                            <a href="#">
+                            <a href="vitaminC/index.jhtml">
                                 <img src="static/images/VitaminC.png" style="width: 60%;height:auto;"/></a></div>
                         <div class="shop-info-text">
-                            <h4>VitaminC</h4>
+                            <h4><a href="vitaminC/index.jhtml">Vitamin C</a></h4>
                             <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum Strength,<br>Strawberry,5000 mcg ,
                                 100 Tablets</div>
                             <div class="shop-price">
@@ -120,10 +124,10 @@
                     <div class="shop-info">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3003">
                         <div class="shop-info-img" style="text-align: center;">
-                            <a href="#">
+                            <a href="vitaminD/index.jhtml">
                                 <img src="static/images/VitaminD.png" style="width: 60%;height:auto;"/></a></div>
                         <div class="shop-info-text">
-                            <h4>VitaminD</h4>
+                            <h4><a href="vitaminD/index.jhtml">Vitamin D</a></h4>
                             <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum Strength,<br>Strawberry,5000 mcg ,
                                 100 Tablets</div>
                             <div class="shop-price">

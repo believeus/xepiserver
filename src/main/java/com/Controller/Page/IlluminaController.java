@@ -10,7 +10,7 @@ public class IlluminaController {
 	public ModelAndView illumina(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/illumina.jsp");
-		modelView.addObject("title","Illumina sequencing technology");
+		modelView.addObject("title"," What's Illumina sequencing introduction");
 		modelView.addObject("canback",true);
 		return modelView;
 	}

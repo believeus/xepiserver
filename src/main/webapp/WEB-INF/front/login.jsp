@@ -33,6 +33,9 @@
     <link rel="stylesheet" type="text/css" href="static/css/login.css">
     <link rel="stylesheet" type="text/css" href="static/css/login2.css">
     <script src="static/js/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="static/js/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="static/js/build/css/demo.css">
+    <script src="static/js/build/js/intlTelInput.js"></script>
 
 </head>
 <body style="background-image:url('static/images/bg.png');height: auto;width:100%;margin: 0;padding: 0">
@@ -53,8 +56,7 @@
             text-align: left;">
             <div id="CodeSignIn" style="display:block">
                 <div class="userName">
-                    <input type="text" name="AreaCode" id="AreaCode" style="width: 21%" value=" 86" >
-                    <input type="text" name="username1" id="username1" placeholder="Telephone" pattern="[0-9]{8,13}"  style="width: 48%" oninvalid="setCustomValidity('Please enter the correct mobile phone number!');"
+                    <input type="text" name="username1"  id="username1" style="width:92%" placeholder="Telephone" pattern="[0-9]{8,13}"  style="width: 48%" oninvalid="setCustomValidity('Please enter the correct mobile phone number!');"
                            oninput="setCustomValidity('');">
                     <button
                             style="width:23%;height:100%;border-radius: 5px;border:none;background-color: #6d83f8;color: #ffffff" onclick="time(this)">SMS</button>
@@ -65,9 +67,9 @@
                 </div>
                 <div class="choose_box">
                     <div>
-                        <lable style="color:#696969"  onclick="Pwd()">Sign in 2</lable>
+                        <lable style="color:#696969"  onclick="Pwd()">Sign in By account</lable>
                     </div>
-                    <a href="#" style="text-decoration:none;color: #696969">Forget it</a>
+                    <a href="javascript:void(0);" style="text-decoration:none;color: #696969">Forget it</a>
                 </div>
                 <button class="login_btn" onclick="login_1()">Login</button>
             </div>
@@ -84,9 +86,9 @@
                 </div>
                 <div class="choose_box">
                     <div>
-                        <lable style="color:#696969" onclick="SMS()">Sign in 1</lable>
+                        <lable style="color:#696969" onclick="SMS()">Sign in By Code</lable>
                     </div>
-                    <a href="#" style="text-decoration:none;color: #808080">Forget it</a>
+                    <a href="javascript:void(0);" style="text-decoration:none;color: #808080">Forget it</a>
                 </div>
                 <button class="login_btn" onclick="login_2()">Login</button>
             </div>
@@ -123,7 +125,11 @@
     function time(obj) {
         if (wait == 60) {
             var phone = $("#username1").val()
-            var AreaCode = $("#AreaCode").val()
+
+            var numberType = iti.getSelectedCountryData();
+            var AreaCode = numberType.dialCode
+
+            console.log(AreaCode)
 
             var data = "{\"type\" : \"Phone\" , \"purpose\" : \"login\" , \"username\" : \"" + phone +
                 "\" , \"AreaCode\" : \"" + AreaCode + "\"}"
@@ -159,10 +165,42 @@
     }
 </script>
 
+<script>
+    var input = document.querySelector("#username1");
+    var iti = window.intlTelInput(input, {
+        // allowDropdown: false,
+        // autoHideDialCode: false,
+        // autoPlaceholder: "off",
+        // dropdownContainer: document.body,
+        // excludeCountries: ["us"],
+        // formatOnDisplay: false,
+        // geoIpLookup: function(callback) {
+        //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+        //     var countryCode = (resp && resp.country) ? resp.country : "";
+        //     callback(countryCode);
+        //   });
+        // },
+        // hiddenInput: "full_number",
+        // initialCountry: "auto",
+        // localizedCountries: { 'de': 'Deutschland' },
+        // nationalMode: false,
+        // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+        // placeholderNumberType: "MOBILE",
+        preferredCountries: ['cn', 'us'],
+        // separateDialCode: true,
+        utilsScript: "static/js/build/js/utils.js",
+    });
+
+</script>
+
 
 <script>
     function login_1() {
-        var AreaCode = $("#AreaCode").val()
+        var numberType = iti.getSelectedCountryData();
+        console.log(numberType.dialCode)
+
+        var numberType = iti.getSelectedCountryData();
+        var AreaCode = numberType.dialCode
         console.log(AreaCode)
         var phone = $("#username1").val()
         console.log(phone)

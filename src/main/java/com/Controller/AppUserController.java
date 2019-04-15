@@ -158,6 +158,8 @@ public class AppUserController {
         * */
         UserInfo userInfo = new UserInfo();
 
+        System.out.println(jsonObject);
+
         //获得传入账户需要登陆的方式
         String type = jsonObject.getString("type");
 

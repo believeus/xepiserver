@@ -1149,7 +1149,7 @@ public class LifeServiceImpl implements ILifeService {
         userInfo.setUuid(uuid);
 
         //设置时间类型
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
 
 
         //获取全部数据

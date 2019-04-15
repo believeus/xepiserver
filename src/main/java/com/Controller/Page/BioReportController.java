@@ -26,7 +26,7 @@ public class BioReportController {
 			ModelAndView modelView=new ModelAndView();
 			modelView.setViewName("/WEB-INF/front/login.jsp");
 			modelView.addObject("title","Login");
-			modelView.addObject("canback",false);
+			modelView.addObject("canback",true);
 			return modelView;
 		}
 		User userInfo = (User)session.getAttribute("userInfo");
@@ -35,7 +35,7 @@ public class BioReportController {
 			ModelAndView modelView=new ModelAndView();
 			modelView.setViewName("/WEB-INF/front/aging.jsp");
 			modelView.addObject("title","Aging");
-			modelView.addObject("canback",false);
+			modelView.addObject("canback",true);
 			return modelView;
 		}
 		ModelAndView modelView=new ModelAndView();

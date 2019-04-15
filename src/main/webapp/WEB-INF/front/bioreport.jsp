@@ -21,50 +21,50 @@
 	});
 </script>
 <base href="<%=basePath%>">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <title>bioagereport</title>
 
 </head>
 <body style="padding: 0px;margin: 0px;background-color: #ffffff;">
-	<jsp:include page="header.jsp"></jsp:include>
 	<div style="width: 100%;height: auto;">
+	<jsp:include page="header.jsp"/>
 		<div style="width: 90%;height: auto;margin: 0 auto;">
-			<div style="width: 100%;height: 150px;"></div>
+			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;">
 				<div style="width: 90%;height: auto;margin:0 auto;text-align: center;">
 					<div style="width: 100%;height: 40px;border-top: 1px solid #5b9bd5;">
-						<div style="float: left;font-weight: bold;font-size: 18px;width: 50%;height: 40px;line-height: 40px;">Your chronological age</div>
-						<div style="float: left;width: 50%;height: 40px;font-weight: bold;line-height: 40px;" id="chroage"></div>
+						<div style="float: left;font-weight: bold;font-size: 12px;width: 50%;height: 40px;line-height: 40px;">Your chronological age</div>
+						<div style="float: left;width: 50%;font-size: 12px;height: 40px;font-weight: bold;line-height: 40px;" id="chroage"></div>
 					</div>
 					<div style="background-color:#DEEBF7;width: 100%;height: 40px;;border-top: 1px solid #5b9bd5;;border-bottom: 1px solid #5b9bd5;">
-						<div style="float: left;width: 50%;line-height: 40px;height: 40px;font-weight: bold;font-size: 18px;">Your biological age</div>
-						<div style="float: left; line-height: 40px;width: 50%;height: 40px;color: red;font-weight: bold;" id="bioage"></div>
+						<div style="float: left;width: 50%;line-height: 40px;height: 40px;font-weight: bold;font-size: 12px;">Your biological age</div>
+						<div style="float: left; line-height: 40px;width: 50%;height: 40px;color: red;font-weight: bold;font-size: 12px;" id="bioage"></div>
 					</div>
 				</div>
 				<div style="width: 100%;height: 20px;"></div>
-				<div style="width: 90%;height: 600px;position: relative;">
-					<div style="width: 100%;height: 580px;">
-						<div style="width: 5%;height: 100%;float: left;text-align: center;position: relative;left:120px;font-weight: bold;">
-							<div style="position:relative;left:25px; ">
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;height: 250px;"></div>
+				<div style="width: 100%;height: 400px;position: relative;">
+					<div style="width: 100%;height: auto;">
+						<div style="width: 5%;height: 100%;float: left;text-align: center;position: absolute;font-weight: bold;">
+							<div style="left:25px;position: relative; ">
+								<div style="-webkit-transform: rotate(-90deg);width: 12px;height: 120px;"></div>
 								<div style="-webkit-transform: rotate(-90deg);width: 12px;">e&nbsp;(years)</div>
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -13px;">g</div>
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -13px;">A</div>
+								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -11px;">g</div>
+								<div style="-webkit-transform: rotate(-90deg);width: 13px;margin-top: -13px;">A</div>
 								<div style="-webkit-transform: rotate(-90deg);width: 12px;height: 5px"></div>
 								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -15px;">l</div>
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -15px;">a</div>
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -15px;">c</div>
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -15px;">i</div>
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -15px;">g</div>
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -15px;">o</div>
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -15px;">l</div>
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -15px;">o</div>
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -15px;">i</div>
-								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -15px;">B</div>
+								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -14px;">a</div>
+								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -14px;">c</div>
+								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -14px;">i</div>
+								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -14px;">g</div>
+								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -14px;">o</div>
+								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -14px;">l</div>
+								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -14px;">o</div>
+								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -14px;">i</div>
+								<div style="-webkit-transform: rotate(-90deg);width: 12px;margin-top: -14px;">B</div>
 							</div>
 						</div>
-						<div style="width: 100%;height: auto;position: relative;left:70px">
-							<div style="width: 92%;height: 600px;float: left;margin: 0 auto;" id="biological-age-report"></div>
+						<div style="width: 100%;height: auto;position: relative;">
+							<div style="width: 100%;height: 300px;float: left;margin: 0 auto;" id="biological-age-report"></div>
 						</div>
 						<script>
 							$(function() {
@@ -227,7 +227,7 @@
 						</script>
 					</div>
 					<div style="width: 100%;height: 15px;"></div>
-					<div style="width: 100%;height: 20px;text-align: center;position: relative;top:-25px;font-weight: bold;left: 80px;">Chronological Age&nbsp;(years)</div>
+					<div style="width: 100%;height: 20px;text-align: center;position: relative;top:-25px;font-weight: bold;">Chronological Age&nbsp;(years)</div>
 				</div>
 			</div>
 		</div>

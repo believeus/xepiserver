@@ -33,6 +33,9 @@
     <link rel="stylesheet" type="text/css" href="static/css/login.css">
     <link rel="stylesheet" type="text/css" href="static/css/login2.css">
     <script src="static/js/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="static/js/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="static/js/build/css/demo.css">
+    <script src="static/js/build/js/intlTelInput.js"></script>
 
 </head>
 <body style="background-image:url('static/images/bg.png');height: auto;width:100%;margin: 0;padding: 0">
@@ -51,9 +54,8 @@
             text-align: left;">
             <div id="CodeSignIn" style="display:block">
                 <div class="userName">
-                    <input type="text" name="AreaCode" id="AreaCode" style="width: 21%" value=" 86">
                     <input type="text" name="username1" id="username1" placeholder="Telephone"
-                           pattern="[0-9]{8,13}" style="width: 48%"
+                           pattern="[0-9]{8,13}" style="width: 92%"
                            oninvalid="setCustomValidity('Please enter the correct mobile phone number!');"
                            oninput="setCustomValidity('');">
                     <button
@@ -98,13 +100,42 @@
 </script>
 
 <script>
+    var input = document.querySelector("#username1");
+    var iti = window.intlTelInput(input, {
+        // allowDropdown: false,
+        // autoHideDialCode: false,
+        // autoPlaceholder: "off",
+        // dropdownContainer: document.body,
+        // excludeCountries: ["us"],
+        // formatOnDisplay: false,
+        // geoIpLookup: function(callback) {
+        //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+        //     var countryCode = (resp && resp.country) ? resp.country : "";
+        //     callback(countryCode);
+        //   });
+        // },
+        // hiddenInput: "full_number",
+        // initialCountry: "auto",
+        // localizedCountries: { 'de': 'Deutschland' },
+        // nationalMode: false,
+        // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+        // placeholderNumberType: "MOBILE",
+        preferredCountries: ['cn', 'us'],
+        // separateDialCode: true,
+        utilsScript: "static/js/build/js/utils.js",
+    });
+
+</script>
+
+<script>
     //60秒之后获取验证码
     var wait = 60;
 
     function time(obj) {
         if (wait == 60) {
             var phone = $("#username1").val()
-            var AreaCode = $("#AreaCode").val()
+            var numberType = iti.getSelectedCountryData();
+            var AreaCode = numberType.dialCode
 
             var data = "{\"type\" : \"Phone\" , \"purpose\" : \"register\" , \"username\" : \"" + phone +
                 "\" , \"AreaCode\" : \"" + AreaCode + "\"}"

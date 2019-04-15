@@ -46,8 +46,8 @@ public class ReportController {
     public List getData(@RequestBody JSONObject jsonObject){
         HttpSession session = request.getSession();
         User userInfo = (User)session.getAttribute("userInfo");
-        //String uuid = jsonObject.getString("uuid");
         return reportService.GetDataForReport(userInfo.getUuid());
+        //String uuid = jsonObject.getString("uuid");
         //return reportService.GetDataForReport(uuid);
     }
 
@@ -60,7 +60,7 @@ public class ReportController {
             ModelAndView modelView=new ModelAndView();
             modelView.setViewName("/WEB-INF/front/login.jsp");
             modelView.addObject("title","Login");
-            modelView.addObject("canback",false);
+            modelView.addObject("canback",true);
             return modelView;
         }
         User userInfo = (User)session.getAttribute("userInfo");
@@ -69,20 +69,21 @@ public class ReportController {
             ModelAndView modelView=new ModelAndView();
             modelView.setViewName("/WEB-INF/front/aging.jsp");
             modelView.addObject("title","Aging");
-            modelView.addObject("canback",false);
+            modelView.addObject("canback",true);
             return modelView;
         }
 
         ModelAndView modelView=new ModelAndView();
         modelView.setViewName("/WEB-INF/front/bioreport.jsp");
-        modelView.addObject("title","Home");
-        modelView.addObject("canback",false);
+        modelView.addObject("title","Your Biological Age Report");
+        modelView.addObject("canback",true);
         return modelView;
     }
 
     @RequestMapping(value = "/getDataForOne")
     @ResponseBody
     public List getDataForOne(@RequestBody JSONObject jsonObject){
+    //public List getDataForOne(){
         //return reportService.GetDataForPerson(jsonObject.getString("id"));
         //return reportService.GetDataForPersonById(jsonObject.getString("uuid"));
         HttpSession session = request.getSession();

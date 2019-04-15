@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				
 				<img src="static/images/tp-1.png"style="width: 100%;height: auto;"/>
-				<a href="download/EPIAging-apk.jhtml">
+				<%--<a href="download/EPIAging-apk.jhtml">--%>
 				<img src="static/images/tp-2.png"style="width: 100%;height: auto;"/>
 				</a>
 				<a href="aging/index.jhtml">

@@ -21,7 +21,7 @@ public class LoginController {
     public ModelAndView Tologin(){
         ModelAndView modelView = new ModelAndView();
         modelView.setViewName("/WEB-INF/front/login.jsp");
-        modelView.addObject("title"," User");
+        modelView.addObject("title","Log In");
         modelView.addObject("canback", true);
         return  modelView;
     }
@@ -30,7 +30,7 @@ public class LoginController {
     public ModelAndView ToRegister(){
         ModelAndView modelView = new ModelAndView();
         modelView.setViewName("/WEB-INF/front/register.jsp");
-        modelView.addObject("title"," User");
+        modelView.addObject("title","Register");
         modelView.addObject("canback", true);
         return  modelView;
     }

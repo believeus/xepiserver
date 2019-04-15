@@ -92,6 +92,7 @@ public class LifeController {
         *  }
         * */
         //String uuid = jsonObject.getString("uuid");
+
         System.out.println("-------------------------------");
         System.out.println(jsonObject);
         System.out.println("-------------------------------");
@@ -107,7 +108,7 @@ public class LifeController {
         String type = jsonObject.getString("type");
 
         //前端传值 uuid 去空格处理
-//        String uuid  = jsonObject.getString("uuid");
+        //String uuid  = jsonObject.getString("uuid");
         uuid = uuid.replace(" " , "");
         return lifeService.getData(column , type , uuid);
     }

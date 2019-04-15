@@ -18,4 +18,14 @@ public interface QuestionnaireService {
 
 
     //public Map getReport(String uuid);
+
+
+    //插入大肠癌问卷
+    public Integer InsertColorectal(Map<String,String[]> map);
+
+    //插入癌症预防知识调查表
+    public Integer Insertprevent(Map<String , String []> map);
+
+    //插入肠癌筛查数量化风险评估问卷
+    public Integer Insertquantity(Map<String , String []> map);
 }

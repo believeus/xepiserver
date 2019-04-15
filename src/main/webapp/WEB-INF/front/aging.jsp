@@ -31,20 +31,17 @@ div[id=box]:before {
 			<div style="width: 100%;height: auto;margin-bottom: 10px;">
 				<div
 					style="width: 96%;height: auto;font-family: arial;color: #000000;font-size: 22px;font-weight: 700;  margin: 0 auto;text-align: center;">
-					Standard Edition 2.0 for DNA Methylation Detection</div>
+					Standard Edition 2.0 for DNA Methylation epiAging test</div>
 			</div>
 			<div
 				style="width: 96%;margin: 0 auto; height: auto;margin-bottom: 10px; font-family: arial;font-size: 18px;color: #1566B9;font-weight:600; ">
-				DNA methylation detection helps you decrypt age codes</div>
+				The epiAging test provides an assessment of your biological age</div>
 			<div
 				style="width: 96%;height: auto;margin: 0 auto; font-size: 16px;line-height: 18px; color:  #666666;font-family: arial; ">
-				<p>Everyone pays more attention to their age, especially as a
-					female customer. When we ask about age, we will take it into
-					account.</p>
-				<p>Of course, now we are talking about our actual age. How do we
+				<p>We are all cognizant of our age</p>
+				<p> We are however always  talking about our chronological age. How do we
 					know the age of our body?</p>
-				<p>That's biological age. That's what we need for our
-					professional testing program.</p>
+				<p>The epiAging test provides a measure of our true age.</p>
 			</div>
 		</div>
 		<div id="age-pic" style="width: 100%;height: auto;">
@@ -55,7 +52,7 @@ div[id=box]:before {
 				<div style="width: 100%;height: auto;">
 					<div
 						style="width: 96%;height: auto;margin: 0 auto; font-family: arial;margin-top: 30px; font-size: 18px;color: #1566B9;font-weight: 600;">
-						Biological Age Detection of DNA Methylation</div>
+						Biological Age Detection by DNA Methylation</div>
 					<div
 						style="width: 96%;height: auto;margin: 0 auto;font-family: arial; font-size: 18px;color:#666666;">
 						<div style="width: 100%;height: auto;font-size: 16px;">
@@ -67,7 +64,7 @@ div[id=box]:before {
 								Some people "look" and "feel" older than they are. <br />
 								Others look younger than they really are.
 							</p>
-							<p>Although the actual age of humans as a whole is related to
+							<p>Although the chronological age is overall corelated to
 								their biological age, it is not always the case.</p>
 						</div>
 					</div>
@@ -78,13 +75,11 @@ div[id=box]:before {
 						style="width: 96%;height: auto;margin: 0 auto;font-family: arial; font-size: 16px;color:#666666;">
 						<p>Biological age can be measured with only 1 ml saliva sample
 							Samples of saliva are collected according to the instructions and
-							sent back to our laboratory in pay on delivery.</p>
-						<p>We will push the test report to you through APP within 24
-							working days, you can easily get personal DNA biological age test
-							reports at home.</p>
-						<p>Official interpretation of about 5-10 core reports
-							(specific reports are based on actual tests), PDF version reports
-							and lifelong free updates.</p>
+							sent back to our laboratory.</p>
+						<p>We will push the test report to you through the APP within 24
+							working days.</p>
+						<p>We will provide an analysis of the life-style data you entered to your App,as well as PDF reports and updates.</p>
+						<p>Data from you and other users will be analyzed by our artificial intelligence system and a "personalized" set of suggestions will be provided to you.</p>
 					</div>
 				</div>
 			</div>
@@ -92,10 +87,6 @@ div[id=box]:before {
 		<div id="four-adg" style="width: 100%;height: auto;">
 			<div
 				style="width: 100%;height: auto;font-family: arial;font-size:20px ;font-weight: 400; color: #0F86A4; margin-top: 30px;">
-				<div
-					style="width: 96%;height: auto;margin: 0 auto;font-size: 18px;color: #1566B9;font-family: arial;font-weight: 600;">
-					Our Intelligence management system can help you customize
-					personalized services in all directions.</div>
 			</div>
 			<div style="width: 100%;height: auto;margin-top: 20px;">
 				<div style="width: 90%;height: auto;margin: 0 auto;">
@@ -104,14 +95,6 @@ div[id=box]:before {
 					</div>
 					<div style="width: 49%;height: auto;float: left;">
 						<img src="static/images/ic4.png" style="width: 100%;height: auto;" />
-					</div>
-				</div>
-				<div style="width: 90%;height: auto;margin: 0 auto;">
-					<div style="width: 49%;height: auto; float: left;">
-						<img src="static/images/ic3.png" style="width: 100%;height: auto;" />
-					</div>
-					<div style="width: 49%;height: auto;float: left;">
-						<img src="static/images/ic7.png" style="width: 100%;height: auto;" />
 					</div>
 				</div>
 			</div>
@@ -127,14 +110,11 @@ div[id=box]:before {
 						<div style="width: 100%;height: auto; font-size: 16px;">
 
 							<div id='box' style="color: #666666;font-family: arial;">
-								Accurate assessment - high accuracy of detection, which can
-								truly reflect biological aging</div>
+								A measure of your biological age using accurate DNA methylation technology.</div>
 							<div style="width: 100%;height: 20px;"></div>
 
 
-							<div id="box" style="color: #666666;font-family: arial;">Tracking
-								Detection - Provides a biological age reversal program to track
-								aging improvements by re-evaluating the tests</div>
+							<div id="box" style="color: #666666;font-family: arial;">App based management - dynamic tracking of personal life style data and interventions with iterative assessment of progress.</div>
 							<div style="width: 100%;height: 20px;"></div>
 
 							<div id="box" style="color: #666666;font-family: arial;">Advanced
@@ -142,9 +122,8 @@ div[id=box]:before {
 								Highly Age-related Methylation Loci in Human Biology</div>
 							<div style="width: 100%;height: 20px;"></div>
 
-							<div id="box" style="color: #666666;font-family: arial;">Big
-								Data Management - Check through APP Channel, Pay Real-time
-								Attention to Your Health and Intervention</div>
+							<div id="box" style="color: #666666;font-family: arial;">
+								Big Data analysis</div>
 							<div style="width: 100%;height: 20px;"></div>
 
 						</div>
