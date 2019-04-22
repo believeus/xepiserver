@@ -36,6 +36,18 @@ spring:
           #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
           pool-prepared-statements: false
           max-pool-prepared-statement-per-connection-size: 20
+    #mail
+    mail:
+       host: smtp.163.com #host地址（可以在你的邮箱设置里找到）
+       password: bingshuang150  #密码
+       username: eestill@163.com #邮箱账号
+       #port: 25 #端口号
+       default-encoding: UTF-8
+       properties:
+          mail.smtp.socketFactory.fallback : true
+          mail.smtp.starttls.enable: true
+       smtp.socketFactory.class : javax.net.ssl.SSLSocketFactory
+
 
 # Mybatis配置
 mybatis:

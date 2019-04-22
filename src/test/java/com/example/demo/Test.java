@@ -1,19 +1,16 @@
 package com.example.demo;
 
-import com.Bean.Wares;
-import com.Utils.UserCreate;
-import com.Utils.GeneratorCode;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONException;
-import com.alibaba.fastjson.JSONObject;
 
-import java.lang.reflect.Array;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.apache.tomcat.util.codec.binary.Base64;
+
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @ CreateDate : Create in 15:53 2019/2/26
@@ -21,6 +18,127 @@ import java.util.regex.Pattern;
  * @ UpdateDate : Update in
  */
 public class Test {
+
+//    static class DESUtil{
+//        private static final String KEY_ALGORITHM = "DES";
+//        private static final String DEFAULT_CIPHER_ALGORITHM = "DES/ECB/PKCS5Padding";//默认的加密算法
+//
+//        /**
+//         * DES 加密操作
+//         *
+//         * @param content 待加密内容
+//         * @param key 加密密钥
+//         * @return 返回Base64转码后的加密数据
+//         */
+//        public static String encrypt(String content, String key) {
+//            try {
+//                Cipher cipher = Cipher.getInstance(DEFAULT_CIPHER_ALGORITHM);// 创建密码器
+//
+//                byte[] byteContent = content.getBytes("utf-8");
+//
+//                cipher.init(Cipher.ENCRYPT_MODE, getSecretKey(key));// 初始化为加密模式的密码器
+//
+//                byte[] result = cipher.doFinal(byteContent);// 加密
+//
+//                return Base64.encodeBase64String(result);//通过Base64转码返回
+//            } catch (Exception ex) {
+//                Logger.getLogger(DESUtil.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//
+//            return null;
+//        }
+//
+//        /**
+//         * DES 解密操作
+//         *
+//         * @param content
+//         * @param key
+//         * @return
+//         */
+//        public static String decrypt(String content, String key) {
+//
+//            try {
+//                //实例化
+//                Cipher cipher = Cipher.getInstance(DEFAULT_CIPHER_ALGORITHM);
+//
+//                //使用密钥初始化，设置为解密模式
+//                cipher.init(Cipher.DECRYPT_MODE, getSecretKey(key));
+//
+//                //执行操作
+//                byte[] result = cipher.doFinal(Base64.decodeBase64(content));
+//
+//                return new String(result, "utf-8");
+//            } catch (Exception ex) {
+//                Logger.getLogger(DESUtil.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//
+//            return null;
+//        }
+//
+//        /**
+//         * 生成加密秘钥
+//         *
+//         * @return
+//         */
+//        private static SecretKeySpec getSecretKey(final String key) {
+//            //返回生成指定算法密钥生成器的 KeyGenerator 对象
+//            KeyGenerator kg = null;
+//
+//            try {
+//                kg = KeyGenerator.getInstance(KEY_ALGORITHM);
+//
+//                //DES 要求密钥长度为 56
+//                kg.init(56, new SecureRandom(key.getBytes()));
+//
+//                //生成一个密钥
+//                SecretKey secretKey = kg.generateKey();
+//
+//                return new SecretKeySpec(secretKey.getEncoded(), KEY_ALGORITHM);// 转换为DES专用密钥
+//            } catch (NoSuchAlgorithmException ex) {
+//                Logger.getLogger(DESUtil.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//
+//            return null;
+//        }
+//
+//
+//    }
+//
+//    @org.junit.Test
+//    public void add(){
+//        //String uuid = "HKGEPI2019418143047";
+//        //String content = "hello,您好";
+//        String content = "HKGEPI2019418143047";
+//        //String content = "eestill@163.com";
+//        //String key = "sde@5f98H*^hsff%dfs$r344&df8543*er";
+//        String key = "it@hkgepitherapeutics.com";
+//        System.out.println("content:" + content);
+//        String s1 = DESUtil.encrypt(content, key);
+//        System.out.println("s1:" + s1);
+//        System.out.println("s2:"+ DESUtil.decrypt(s1, key));
+//
+//    }
+
+
+//    @Value("${spring.mail.username}")
+//    private String postName;
+//
+//    @Autowired
+//    private JavaMailSender mailSender; //框架自带的
+//
+//    @org.junit.Test
+//    public void Mail(){
+//
+//        System.out.println("------------");
+//        System.out.println(postName);
+//        SimpleMailMessage message = new SimpleMailMessage();
+//        message.setFrom(postName);
+//        message.setTo("eestill@163.com");
+//        message.setSubject("主题：简单邮件");
+//        message.setText("测试邮件内容");
+//
+//        mailSender.send(message);
+//    }
 //    @org.junit.Test
 //    public void Createuuid(){
 //        String uuid = "";

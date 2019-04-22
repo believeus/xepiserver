@@ -85,4 +85,10 @@ public interface IUserSerivce {
     //检查输入的电话号码是否被注册
     public Integer CheckTel(String phone);
 
+    //检查输入的电子邮箱是否被注册
+    public Integer CheckMail(String mail);
+
+    //更改用户授权情况
+    public boolean UpdateMail(String uuid , String mail);
+
 }

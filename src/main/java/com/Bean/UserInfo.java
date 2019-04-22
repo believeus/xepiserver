@@ -14,6 +14,8 @@ public class UserInfo {
     private String code;
     private String type;
     private String pwd;
+    private String country;
+    private String mail_status;
 
     public String getPhone() {
         return phone;
@@ -70,6 +72,22 @@ public class UserInfo {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getMail_status() {
+        return mail_status;
+    }
+
+    public void setMail_status(String mail_status) {
+        this.mail_status = mail_status;
     }
 
     @Override

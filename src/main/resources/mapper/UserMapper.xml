@@ -28,8 +28,41 @@
     <!--app用户注册进行用户创建-->
     <insert id="app_createUser">
         insert into
-          user_table(uuid , phone , mail , password)
-        values(#{userInfo.uuid} , #{userInfo.phone} , #{userInfo.mail} , #{userInfo.pwd})
+          user_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userInfo.uuid != '' and userInfo.uuid != null ">
+                uuid ,
+            </if>
+            <if test="userInfo.phone != '' and userInfo.phone != null ">
+               phone ,
+            </if>
+            <if test="userInfo.mail != '' and userInfo.mail != null ">
+                mail ,
+            </if>
+            <if test="userInfo.pwd != '' and userInfo.pwd != null ">
+                password ,
+            </if>
+            <if test="userInfo.mail != '' and userInfo.mail != null ">
+                mail_status
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="userInfo.uuid != '' and userInfo.uuid != null ">
+            #{userInfo.uuid} ,
+        </if>
+        <if test="userInfo.phone != '' and userInfo.phone != null ">
+            #{userInfo.phone} ,
+        </if>
+        <if test="userInfo.mail != '' and userInfo.mail != null ">
+            #{userInfo.mail} ,
+        </if>
+        <if test="userInfo.pwd != '' and userInfo.pwd != null ">
+            #{userInfo.pwd} ,
+        </if>
+        <if test="userInfo.mail != '' and userInfo.mail != null ">
+            0
+        </if>
+        </trim>
     </insert>
 
     <!--app用户进行登陆操作-->
@@ -63,6 +96,7 @@
                   <if test="userInfo.pwd != null">
                       and password = #{userInfo.pwd}
                   </if>
+                  and mail_status = '1'
               </if>
           ) b
         where
@@ -79,8 +113,8 @@
     <!--userInfo表插初始化用户信息-->
     <insert id="Init_UserInfo">
         insert into
-          user_info(uuid ,nickName ,avatarUrls ,gender)
-        values (#{user.uuid} ,#{user.nickName} ,#{user.avatarUrls} ,#{user.gender})
+          user_info(uuid ,nickName ,avatarUrls ,gender , country)
+        values (#{user.uuid} ,#{user.nickName} ,#{user.avatarUrls} ,#{user.gender} , #{user.country})
     </insert>
 
     <!--user表进行密码强制修改-->
@@ -179,4 +213,19 @@
         from user_table
         where phone = #{phone}
     </select>
+
+    <!--查询用户填写的邮箱是否已经被注册-->
+    <select id="CheckMail" resultType="int" parameterType="string">
+        select * from user_table
+        where mail = #{mail} and mail_status = '1';
+    </select>
+
+    <!--更改用户邮箱认证情况-->
+    <update id="UpdateMail" parameterType="string">
+        update user_table
+        set
+          mail_status = "1"
+        where
+          mail = #{mail} and uuid = #{uuid}
+    </update>
 </mapper>

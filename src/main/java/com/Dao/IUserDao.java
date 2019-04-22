@@ -118,4 +118,10 @@ public interface IUserDao {
 
     //检查填写的账户是否已经注册
     public Integer CheckTel(@Param("phone") String phone);
+
+    //检查填写的账户是否已经注册
+    public Integer CheckMail(@Param("mail") String mail);
+
+    //更改用户邮箱授权状况
+    public Integer UpdateMail(@Param("uuid")String uuid , @Param("mail")String mail);
 }

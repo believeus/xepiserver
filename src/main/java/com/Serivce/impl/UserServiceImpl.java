@@ -5,6 +5,7 @@ import com.Bean.User;
 import com.Bean.UserInfo;
 import com.Dao.IUserDao;
 import com.Serivce.IUserSerivce;
+import com.Serivce.MailService;
 import com.Utils.UserCreate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,6 +30,9 @@ public class UserServiceImpl implements IUserSerivce {
 
     @Autowired
     private HttpServletRequest request;
+
+    @Resource
+    private MailService mailService;
 
     @Override
     public List<User> getUser() {
@@ -81,15 +85,20 @@ public class UserServiceImpl implements IUserSerivce {
         //对用户表进行创建
         int i = userDao.app_createUser(userCreat);
 
+        //如果是邮箱用户，发送点击验证
+        if (userCreat.getType().equals("Mail")){
+            mailService.sendMail(userCreat.getMail() , userCreat.getUuid());
+        }
+
         if (i == 1){
             User user = new User();
             user.setUuid(uuid);
-
 
             //设置用户默认初始值
             user.setNickName("user");
             user.setGender("0");
             user.setAvatarUrls("http://47.75.111.0/data/image/UserInfo/default.jpg");
+            user.setCountry(userCreat.getCountry());
 
             if (userDao.Init_UserInfo(user) == 1){
                 map.put("data" , user);
@@ -159,5 +168,18 @@ public class UserServiceImpl implements IUserSerivce {
     @Override
     public Integer CheckTel(String phone) {
         return userDao.CheckTel(phone);
+    }
+
+    @Override
+    public Integer CheckMail(String mail) {
+        return userDao.CheckMail(mail);
+    }
+
+    @Override
+    public boolean UpdateMail(String uuid, String mail) {
+        if (userDao.UpdateMail(uuid, mail) == 1){
+            return true;
+        }
+        return false;
     }
 }

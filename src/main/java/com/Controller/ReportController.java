@@ -47,8 +47,9 @@ public class ReportController {
         HttpSession session = request.getSession();
         User userInfo = (User)session.getAttribute("userInfo");
         return reportService.GetDataForReport(userInfo.getUuid());
-        //String uuid = jsonObject.getString("uuid");
-        //return reportService.GetDataForReport(uuid);
+
+//        String uuid = jsonObject.getString("uuid");
+//        return reportService.GetDataForReport(uuid);
     }
 
     @RequestMapping(value = "/report")
@@ -86,6 +87,7 @@ public class ReportController {
     //public List getDataForOne(){
         //return reportService.GetDataForPerson(jsonObject.getString("id"));
         //return reportService.GetDataForPersonById(jsonObject.getString("uuid"));
+
         HttpSession session = request.getSession();
         User userInfo = (User)session.getAttribute("userInfo");
         return reportService.GetDataForPersonById(userInfo.getUuid());

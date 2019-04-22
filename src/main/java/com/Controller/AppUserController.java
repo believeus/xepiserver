@@ -3,12 +3,12 @@ package com.Controller;
 import com.Bean.User;
 import com.Bean.UserInfo;
 import com.Serivce.IUserSerivce;
+import com.Serivce.MailService;
+import com.Utils.DESUtil;
 import com.Utils.GeneratorCode;
-import com.Utils.MoblieMessageUtil;
 import com.Utils.SendMessage;
 import com.alibaba.fastjson.JSONObject;
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
-import com.aliyuncs.exceptions.ClientException;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +46,9 @@ public class AppUserController {
     @Autowired
     private HttpServletRequest request;
 
+    @Resource
+    private MailService mailService;
+
     /**
      * @description 用于用户进行登陆操作
      * @param jsonObject
@@ -79,25 +82,32 @@ public class AppUserController {
         userInfo.setPwd(pwd);
 
         //根据传入的type来判断用户根据什么来进行登陆
-        userInfo.setType(type);
+        //userInfo.setType(type);
+
+        if (username.indexOf("@") != -1){
+            userInfo.setMail(username);
+        }
 
         //根据传入type来分别赋予值
         //判断选择用户登陆类型
-        if (type.equals("Phone")){
-            userInfo.setPhone(username);
-        }
-        else if (type.equals("Mail")){
-            userInfo.setMail(username);
-        }else if (type.equals("uuid")){
-            userInfo.setUuid(username);
-        }else
-            map.put("msg" , "登陆类型错误，请核实传入的登陆类型是否有误！");
+//        if (type.equals("Phone")){
+//            userInfo.setPhone(username);
+//        }
+//        else if (type.equals("Mail")){
+//            userInfo.setMail(username);
+//        }else if (type.equals("uuid")){
+//            userInfo.setUuid(username);
+//        }else
+//            map.put("msg" , "登陆类型错误，请核实传入的登陆类型是否有误！");
 
         //根据verification判断用户进行登陆验证的方式
         //1.账号 + 密码
         //2.账号 + 验证码
         if (verification.equals("1")) {
             HttpSession session = request.getSession();
+            if (iUserSerivce.LoginUser(userInfo) == null){
+                return "error";
+            }
             User data = iUserSerivce.LoginUser(userInfo);
             session.setAttribute("userInfo" ,data);
             map.put("data" , data);
@@ -232,9 +242,24 @@ public class AppUserController {
 
         }
         else if (type.equals("Mail")){
+            System.out.println("进入了Mail方法");
+            if (purpose.equals("register")){
+                if (iUserSerivce.CheckMail(username) != null) {
+                    Integer flag = iUserSerivce.CheckMail(username);
+                    if (flag > 1) {
+                        return "error";
+                    }
+                }
+            }
+            if (purpose.equals("login")){
+                if (iUserSerivce.CheckMail(username) == null) {
+                    return "error";
+                }
+            }
+            userInfo.setMail(username);
+            //获取随机验证码
             String code = GeneratorCode.getValidationCode_6();
             System.out.println(code);
-
             HttpSession session = request.getSession();
             userInfo.setCode(code);
 
@@ -242,9 +267,14 @@ public class AppUserController {
             //创建session对象，并将userInfo存入session中
             session.setAttribute("userLink" , userInfo);
 
+            System.out.println("发送的验证码为："+code);
             //调用邮箱发送验证码功能发送验证码到用户指定邮箱
-            //待补充
-            return code;
+
+            if (mailService.sendMail(username , code)){
+                return code;
+            }else
+                return "error";
+
         }
 
         return "error";
@@ -254,16 +284,20 @@ public class AppUserController {
     @ResponseBody
     public Map UserRegister(@RequestBody JSONObject jsonObject){
         /*
-        * "type" : //用户选择注册方式,
+        * "type" : //用户选择注册方式,[phone | mail]
         * "username" : //用户输入的账号,
         * "code" : //用户输入的验证码,
-        * "pwd" : //用户输入的密码
+        * "pwd" : //用户输入的密码,
+        * "country" : //用户选择的国家
         * */
         Map<String , Object> map = new HashMap<String , Object>();
 
         //获取session中存放的用户填写的账户信息
         HttpSession session = request.getSession();
-        UserInfo userLink = (UserInfo)session.getAttribute("userLink");
+        UserInfo userLink = new UserInfo();
+        if (session.getAttribute("userLink") != null) {
+            userLink = (UserInfo)session.getAttribute("userLink");
+        }
 
         //获取用户提交设置的密码
         String pwd = jsonObject.getString("pwd");
@@ -273,10 +307,32 @@ public class AppUserController {
         String type = jsonObject.getString("type");
         userLink.setType(type);
 
-        //验证用户传入的验证码和系统生成的验证码是否一致
-        String code = jsonObject.getString("code");
+        //获取用户选择的国家地区
+        String country = jsonObject.getString("country");
+        userLink.setCountry(country);
 
-        if (code.equals(userLink.getCode())){
+        //获取用户传递的username
+        String username = jsonObject.getString("username");
+
+        if (type.equals("Phone")) {
+            //验证用户传入的验证码和系统生成的验证码是否一致
+            String code = jsonObject.getString("code");
+
+            if (code.equals(userLink.getCode())){
+                return iUserSerivce.app_CreateUser(userLink);
+            }
+        } else {
+            Integer flag = null;
+            if (iUserSerivce.CheckMail(username) == null){
+                flag = 0;
+            }else
+                flag = iUserSerivce.CheckMail(username);
+            //Integer flag = iUserSerivce.CheckMail(username);
+            if (flag > 1) {
+                map.put("msg" , "请确认注册方式是否有误。");
+                return map;
+            }
+            userLink.setMail(username);
             return iUserSerivce.app_CreateUser(userLink);
         }
 
@@ -368,4 +424,55 @@ public class AppUserController {
     }
 
 
+    @RequestMapping(value = "/LastRegister")
+    public ModelAndView toLastRegister(){
+        ModelAndView modelView=new ModelAndView();
+        modelView.setViewName("/WEB-INF/front/LastRegister.jsp");
+        modelView.addObject("title","You will complete the registration.");
+        modelView.addObject("canback",false);
+        return modelView;
+    }
+
+    @RequestMapping(value = "/CheckMail")
+    public ModelAndView CheckMail(@Param("mail") String mail , @Param("code")String code){
+        String key = "it@hkgepitherapeutics.com";
+
+        //加密
+//        String s1 = DESUtil.encrypt(content, key);
+//
+//        System.out.println("s1:" + s1);
+
+        //解密
+        String email = DESUtil.decrypt(mail , key);
+        String uuid = DESUtil.decrypt(code, key);
+//
+//        System.out.println("uuid : " + email);
+//        System.out.println("mail : " + uuid);
+
+//        System.out.println(iUserSerivce.UpdateMail(uuid , email));
+
+        ModelAndView modelView=new ModelAndView();
+
+        if (iUserSerivce.UpdateMail(uuid , email)){
+            modelView.setViewName("/WEB-INF/front/verify_success.jsp");
+            return modelView;
+        }else {
+            modelView.setViewName("/WEB-INF/front/verify_error.jsp");
+            return modelView;
+        }
+    }
+
+    @RequestMapping(value = "/toSuccess")
+    public ModelAndView toSuccess(){
+        ModelAndView modelView=new ModelAndView();
+        modelView.setViewName("/WEB-INF/front/verify_success.jsp");
+        return modelView;
+    }
+
+    @RequestMapping(value = "/toError")
+    public ModelAndView toError(){
+        ModelAndView modelView=new ModelAndView();
+        modelView.setViewName("/WEB-INF/front/verify_error.jsp");
+        return modelView;
+    }
 }

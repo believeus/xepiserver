@@ -38,18 +38,18 @@
     <script src="static/js/build/js/intlTelInput.js"></script>
 
 </head>
-<body style="background-image:url('static/images/bg.png');height: auto;width:100%;margin: 0;padding: 0">
+<body style="margin: 0;padding: 0">
 <!--头部开始-->
-<div  style="width: 100%;height: 100%;">
+<div style="width: 100%;height: 50px;">
     <jsp:include page="header.jsp"></jsp:include>
 </div>
-    <div  style="width: 100%;height: 100%;">
+    <div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
 <div style="width:100%;height:100%;">
     <div id="zhuce" onclick="ToReg()">Register</div>
     <div id="login"></div>
     <div class="login_bg">
         <div id="logo">
-
+            <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%"/>
         </div>
         <div style="    width: 80%;
             margin: 0 auto;
@@ -62,7 +62,7 @@
                             style="width:23%;height:100%;border-radius: 5px;border:none;background-color: #6d83f8;color: #ffffff" onclick="time(this)">SMS</button>
                 </div>
                 <div class="passWord">
-                    <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
+                    <lable style="color:#808080">&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/images/InOrUp/scode.png" style="width: 16px;height: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;</lable>
                     <input type="text" name="SMSCode" id="SMSCode" placeholder="Verification Code" >
                 </div>
                 <div class="choose_box">
@@ -71,17 +71,19 @@
                     </div>
                     <a href="javascript:void(0);" style="text-decoration:none;color: #696969">Forget it</a>
                 </div>
-                <button class="login_btn" onclick="login_1()">Login</button>
+                <div class="other_login" style="margin-top: 40px;">
+                    <span>By clicking the button below, I agree to the User Agreement and Privacy Policy.</span>
+                    <button class="login_btn" onclick="login_1()" style="margin-top: 0px;">Login</button>
+                </div>
             </div>
 
             <div id="PWDSignIn" style="display:none">
                 <div class="userName">
                     <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
-                    <input type="text" name="username2" id="username2" placeholder="Telephone" pattern="[0-9]{8,13}"  style="width: 60%" oninvalid="setCustomValidity('Please enter the correct mobile phone number!');"
-                           oninput="setCustomValidity('');">
+                    <input type="text" name="username2" id="username2" placeholder="Telephone / Mail" style="width: 60%" >
                 </div>
                 <div class="passWord">
-                    <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
+                    <lable style="color:#808080">&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/images/InOrUp/pwd.png" style="width: 16px;height: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;</lable>
                     <input type="password" name="password" id="password" placeholder="Password" style="width:60%">
                 </div>
                 <div class="choose_box">
@@ -90,11 +92,13 @@
                     </div>
                     <a href="javascript:void(0);" style="text-decoration:none;color: #808080">Forget it</a>
                 </div>
-                <button class="login_btn" onclick="login_2()">Login</button>
+                <div class="other_login" style="margin-top: 40px;">
+                    <span>By clicking the button below, I agree to the User Agreement and Privacy Policy.</span>
+                    <button class="login_btn" onclick="login_2()" style="margin-top: 0px;">Login</button>
+                </div>
+
             </div>
-            <div class="other_login">
-                <span>By clicking the button below, I agree to the User Agreement and Privacy Policy.</span>
-            </div>
+
             <div class="other_choose">
 
             </div>
@@ -139,6 +143,7 @@
                 contentType: 'application/json; charset=UTF-8',
                 data: data,
                 success: function(data) {
+                    alert("Send Successful!")
                     if (data != null) {
                         code = data
                     }
@@ -186,7 +191,7 @@
         // nationalMode: false,
         // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
         // placeholderNumberType: "MOBILE",
-        preferredCountries: ['cn', 'us'],
+        preferredCountries: ['hk' , 'us'],
         // separateDialCode: true,
         utilsScript: "static/js/build/js/utils.js",
     });
@@ -216,7 +221,11 @@
                 contentType: 'application/json; charset=UTF-8',
                 data: data,
                 success: function(data) {
-                    window.location.href = 'index.jhtml';
+                    if(data == "error"){
+                        alert("验证码不正确")
+                    }else{
+                        window.location.href = 'index.jhtml';
+                    }
                 },
                 error: function() {
                     alert("Log In Error！")
@@ -239,7 +248,12 @@
                 contentType: 'application/json; charset=UTF-8',
                 data: data,
                 success: function(data) {
-                    window.location.href = 'index.jhtml';
+                    console.log(data)
+                    if(data == "error"){
+                        alert("Please check the account status.")
+                    }else{
+                        window.location.href = 'index.jhtml';
+                    }
                 },
                 error: function() {
                     alert("Log In Error！")
