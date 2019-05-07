@@ -94,7 +94,7 @@ div[id=box]:before {
 						<img src="static/images/ic2.png" style="width: 100%;height: auto;" />
 					</div>
 					<div style="width: 49%;height: auto;float: left;">
-						<img src="static/images/ic4.png" style="width: 100%;height: auto;" />
+						<img src="static/images/ic3.png" style="width: 100%;height: auto;" />
 					</div>
 				</div>
 			</div>
@@ -154,11 +154,8 @@ div[id=box]:before {
 		</div>
 		<div id="add-cart" style="width: 100%;height: auto;margin-top: 20px;">
 			<div style="width: 90%;height: auto;margin: 0 auto;">
-			<a href="cart/index.jhtml">
-				<div style="width: 40%;height: 40px;font-family: arial;font-size: 18px;text-align: center;line-height: 40px; color:#FFFFFF ;float: left;background-color: #0365D2; border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
-					ADD TO CART
+				<div style="width: 40%;height: 40px;font-family: arial;font-size: 18px;text-align: center;line-height: 40px; color:#FFFFFF ;float: left;">
 					</div>
-			</a>
 				<a href="cart/index.jhtml">
 				<div style="width: 40%;height: 40px;font-family: arial;font-size: 18px;text-align: center;line-height: 40px; color:#FFFFFF ;float: right;background-color: #0365D2; border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
 					BUY

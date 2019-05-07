@@ -12,6 +12,7 @@ import org.springframework.core.Ordered;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 @SpringBootApplication

@@ -95,9 +95,9 @@ public class UserServiceImpl implements IUserSerivce {
             user.setUuid(uuid);
 
             //设置用户默认初始值
-            user.setNickName("user");
+            user.setNickName(userCreat.getNickname());
             user.setGender("0");
-            user.setAvatarUrls("http://47.75.111.0/data/image/UserInfo/default.jpg");
+            user.setAvatarUrls("static/images/user-logo.png");
             user.setCountry(userCreat.getCountry());
 
             if (userDao.Init_UserInfo(user) == 1){

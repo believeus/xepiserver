@@ -19,6 +19,38 @@ import java.util.logging.Logger;
  */
 public class Test {
 
+    @org.junit.Test
+    public void TestCode(){
+        String uuid = "HKG201905051114";
+        String Enuuid = encodeStr(uuid);
+        System.out.println("加密后id为：" + Enuuid);
+        String Deuuid = decodeStr(Enuuid);
+        System.out.println("解密后id为：" + Deuuid);
+    }
+
+    public static String encodeStr(String plainText){
+        byte[] b=plainText.getBytes();
+        Base64 base64=new Base64();
+        b=base64.encode(b);
+        String s=new String(b);
+        return s;
+    }
+
+    /**
+     *
+     * 创建日期2011-4-25上午10:15:11
+     * 修改日期
+     * 作者：dh     *TODO 使用Base64加密
+     *return
+     */
+    public static String decodeStr(String encodeStr){
+        byte[] b=encodeStr.getBytes();
+        Base64 base64=new Base64();
+        b=base64.decode(b);
+        String s=new String(b);
+        return s;
+    }
+
 //    static class DESUtil{
 //        private static final String KEY_ALGORITHM = "DES";
 //        private static final String DEFAULT_CIPHER_ALGORITHM = "DES/ECB/PKCS5Padding";//默认的加密算法

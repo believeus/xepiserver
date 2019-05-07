@@ -59,6 +59,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div style="width: 100%;height: auto;line-height: 50px;"><a href="contact/index.jhtml"> Contact Us</a></div>
 			</div>
 			<hr size="1"/>
+
+			<div style="width: 70%;height: auto;margin: 0 auto;">
+				<div style="width: 100%;height: auto;line-height: 50px;"><a href="App/logout.jhtml"> Log out</a></div>
+			</div>
+			<hr size="1"/>
 		</div>
 	</div>
 </div>

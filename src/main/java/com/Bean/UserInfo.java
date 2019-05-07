@@ -16,6 +16,7 @@ public class UserInfo {
     private String pwd;
     private String country;
     private String mail_status;
+    private String nickname;
 
     public String getPhone() {
         return phone;
@@ -90,6 +91,14 @@ public class UserInfo {
         this.mail_status = mail_status;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -98,7 +107,11 @@ public class UserInfo {
                 ", mail='" + mail + '\'' +
                 ", wx_openid='" + wx_openid + '\'' +
                 ", code='" + code + '\'' +
+                ", type='" + type + '\'' +
                 ", pwd='" + pwd + '\'' +
+                ", country='" + country + '\'' +
+                ", mail_status='" + mail_status + '\'' +
+                ", nickname='" + nickname + '\'' +
                 '}';
     }
 }

@@ -114,35 +114,40 @@ border-image: linear-gradient( #666666 , #666666) 30 30;
 			</div>
 			
 	
-		<div class="vertical-line"style="height: 70px;"></div>	
-		<div style="width: 10%;height: auto;float: left;">2013</div>
-		<div class="vertical-circle"style="width: 4%;float: left;" ></div>
-		<div class="vertical-text"style="width: 78%;height: auto;float: left; margin: 0 auto;">Arthritis Today Magazine (October Issue) lists SAM-e as best supplement for osteoarthritis.
-		</div>
-		<div class="vertical-line"></div>
-		<div style="width: 10%;height: auto;float: left;">2013</div>
-		<div class="vertical-circle"style="width: 4%;float: left;"></div>
-		<div class="vertical-text"style="width: 78%;height: auto;float: left; margin: 0 auto;">Arthritis Research UK study gives SAM-e the highest grade for oral supplement for osteoarthritis relief.
-		</div>
-		<div class="vertical-line"></div>
-		<div style="width: 10%;height: auto;float: left;">2010</div>
-		<div class="vertical-circle"style="width: 4%;float: left;"></div>
-		<div class="vertical-text"style="width: 78%;height: auto;float: left; margin: 0 auto;">The study from Massachusetts General Hospital demonstrated that SAM-e combined with antidepressants significantly increased remission rates in patients with major depression who failed conventional therapy.
-						<i style="color: #2E86C3;"><a href="https://ajp.psychiatryonline.org/doi/full/10.1176/"  target="_blank"> https://ajp.psychiatryonline.org/doi/full/10.1176/</a><br /> appi.ajp.2009.09081198</i>
-		</div>
-		<div class="vertical-line"style="height: 220px;"></div>
-		<div style="width: 10%;height: auto;float: left;">2009</div>
-		<div class="vertical-circle"style="width: 4%;float: left;"></div>
-		<div class="vertical-text"style="width: 78%;height: auto;float: left; margin: 0 auto;">A Korean study found that SAM-e is as effective as the NSAID Nabumetone. 
-						<i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/20110025"  target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/20110025 </a></i>
-		</div>
-		
-		<div class="vertical-line"></div>
-		<div style="width: 10%;height: auto;float: left;">2004</div>
-		<div class="vertical-circle"style="width: 4%;float: left;"></div>
-		<div class="vertical-text"style="width: 78%;height: auto;float: left; margin: 0 auto;"> The study done by University of California showed that SAM-e is as effective as Celecoxib, a prescription drug for Arthritis.
-			<i><a href="https://www.ncbi.nlm.nih.gov/pubmed/15102339"  target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/15102339</a> </i> 
-		</div>
+		<%--<div class="vertical-line"style="height: 70px;"></div>	--%>
+		<%--<div style="width: 10%;height: auto;float: left;">2013</div>--%>
+		<%--<div class="vertical-circle"style="width: 4%;float: left;" ></div>--%>
+		<%--<div class="vertical-text"style="width: 78%;height: auto;float: left; margin: 0 auto;">Arthritis Today Magazine (October Issue) lists SAM-e as best supplement for osteoarthritis.--%>
+		<%--</div>--%>
+		<%--<div class="vertical-line"></div>--%>
+		<%--<div style="width: 10%;height: auto;float: left;">2013</div>--%>
+		<%--<div class="vertical-circle"style="width: 4%;float: left;"></div>--%>
+		<%--<div class="vertical-text"style="width: 78%;height: auto;float: left; margin: 0 auto;">Arthritis Research UK study gives SAM-e the highest grade for oral supplement for osteoarthritis relief.--%>
+		<%--</div>--%>
+		<%--<div class="vertical-line"></div>--%>
+		<%--<div style="width: 10%;height: auto;float: left;">2010</div>--%>
+		<%--<div class="vertical-circle"style="width: 4%;float: left;"></div>--%>
+		<%--<div class="vertical-text"style="width: 78%;height: auto;float: left; margin: 0 auto;">The study from Massachusetts General Hospital demonstrated that SAM-e combined with antidepressants significantly increased remission rates in patients with major depression who failed conventional therapy.--%>
+						<%--<i style="color: #2E86C3;"><a href="https://ajp.psychiatryonline.org/doi/full/10.1176/"  target="_blank"> https://ajp.psychiatryonline.org/doi/full/10.1176/</a><br /> appi.ajp.2009.09081198</i>--%>
+		<%--</div>--%>
+		<%--<div class="vertical-line"style="height: 220px;"></div>--%>
+		<%--<div style="width: 10%;height: auto;float: left;">2009</div>--%>
+		<%--<div class="vertical-circle"style="width: 4%;float: left;"></div>--%>
+		<%--<div class="vertical-text"style="width: 78%;height: auto;float: left; margin: 0 auto;">A Korean study found that SAM-e is as effective as the NSAID Nabumetone. --%>
+						<%--<i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/20110025"  target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/20110025 </a></i>--%>
+		<%--</div>--%>
+		<%----%>
+		<%--<div class="vertical-line"></div>--%>
+		<%--<div style="width: 10%;height: auto;float: left;">2004</div>--%>
+		<%--<div class="vertical-circle"style="width: 4%;float: left;"></div>--%>
+		<%--<div class="vertical-text"style="width: 78%;height: auto;float: left; margin: 0 auto;"> The study done by University of California showed that SAM-e is as effective as Celecoxib, a prescription drug for Arthritis.--%>
+			<%--<i><a href="https://www.ncbi.nlm.nih.gov/pubmed/15102339"  target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/15102339</a> </i> --%>
+		<%--</div>--%>
+
+			<div style="width: 100%;height: auto;">
+				<img src="static/images/hm-same.png" style="width: 100%;height: auto;">
+			</div>
+
 		<div class="vertical-line"style="height: 100px;"></div>
 		</div>
 		</div>

@@ -4,10 +4,10 @@ import com.Bean.User;
 import com.Bean.UserInfo;
 import com.Serivce.IUserSerivce;
 import com.Serivce.MailService;
-import com.Utils.DESUtil;
-import com.Utils.GeneratorCode;
-import com.Utils.SendMessage;
+import com.Utils.*;
 import com.alibaba.fastjson.JSONObject;
+import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
+import com.aliyuncs.exceptions.ClientException;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +33,7 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping(value = "/App")
 public class AppUserController {
+    public static final String key = "k@hkgepitherapeutics.com";
     /*
      * {"type" : //输入的账户方式 -> Phone|Mail
      *  "verification" : //前端传递的登陆方式 -> 1(账户 + 密码)|2(账户 + 验证码)
@@ -72,6 +76,8 @@ public class AppUserController {
         String username = jsonObject.getString("username");
         String pwd = jsonObject.getString("pwd");
         String code = jsonObject.getString("code");
+        //获取用户选择的国家地区
+        String country = jsonObject.getString("country");
 
         Map<String , Object> map = new HashMap();
         System.out.println(jsonObject);
@@ -86,7 +92,8 @@ public class AppUserController {
 
         if (username.indexOf("@") != -1){
             userInfo.setMail(username);
-        }
+        }else
+            userInfo.setPhone(username);
 
         //根据传入type来分别赋予值
         //判断选择用户登陆类型
@@ -129,6 +136,16 @@ public class AppUserController {
 
             if (userLink.getPhone().equals(username)){
                 if (code.equals(userLink.getCode())){
+                    //如果该用户不存在
+                    if (iUserSerivce.CheckTel(username) == null) {
+                        userLink.setCountry(country);
+                        userLink.setPwd("12345678");
+                        userLink.setType("Phone");
+                        User user = (User)(iUserSerivce.app_CreateUser(userLink)).get("data");
+                        session.setAttribute("user" , user);
+                        session.setAttribute("userInfo" , user);
+                        return  "index.jhtml";
+                    }
                     User u = iUserSerivce.LoginUser(userLink);
                     session.setAttribute("userInfo" ,u);
 
@@ -145,10 +162,10 @@ public class AppUserController {
                     return  "index.jhtml";
                 }
                 else
-                    map.put("msg" , "验证码输入有误。");
+                    map.put("msg" , "Verification code error!");
             }
             else
-                map.put("msg" , "请检查两次传入后台的通行证的值是否一致。");
+                map.put("msg" , "Inconsistent application for sending mobile phone and input mobile phone!");
         }
         else
             map.put("msg" , "请检查账户验证方式是否输入有误！");
@@ -193,9 +210,9 @@ public class AppUserController {
                 }
             }
             if (purpose.equals("login")){
-                if (iUserSerivce.CheckTel(username) == null) {
-                    return "error";
-                }
+//                if (iUserSerivce.CheckTel(username) == null) {
+//                    return "error";
+//                }
             }
             userInfo.setPhone(username);
             //获取随机验证码
@@ -223,10 +240,11 @@ public class AppUserController {
             //调用阿里云短信服务发送验证码到用户手机
             //国内ip:60.205.210.148
             String url = "http://60.205.210.148:8787/Send?telephone=" + username + "&code=" + code + "&AreaCode=" + AreaCode;
+            //String url = "http://localhost:8787/Send?telephone=" + username + "&code=" + code + "&AreaCode=" + AreaCode;
 
 //            try {
-//                //SendSmsResponse response = MoblieMessageUtil.sendSms(username,code,AreaCode);
-//                SendSmsResponse response = SendMessage.doGet(url);
+//                SendSmsResponse response = MoblieMessageUtil.sendSms(username,code,AreaCode);
+//                //SendSmsResponse response = SendMessage.doGet(url);
 //                System.out.println("短信接口返回的数据----------------");
 //                System.out.println("Code=" + response.getCode());
 //                System.out.println("Message=" + response.getMessage());
@@ -237,8 +255,12 @@ public class AppUserController {
 //            }
             String req = SendMessage.doGet(url);
             //调用发送短信接口
-            System.out.println(req);
-            return code;
+            //System.out.println(req);
+            if (req.equals("error")){
+                return "error";
+            }else {
+                return code;
+            }
 
         }
         else if (type.equals("Mail")){
@@ -315,13 +337,14 @@ public class AppUserController {
         String username = jsonObject.getString("username");
 
         if (type.equals("Phone")) {
+            userLink.setMail(null);
             //验证用户传入的验证码和系统生成的验证码是否一致
             String code = jsonObject.getString("code");
 
             if (code.equals(userLink.getCode())){
                 return iUserSerivce.app_CreateUser(userLink);
             }
-        } else {
+        } else if (type.equals("Mail")) {
             Integer flag = null;
             if (iUserSerivce.CheckMail(username) == null){
                 flag = 0;
@@ -329,10 +352,12 @@ public class AppUserController {
                 flag = iUserSerivce.CheckMail(username);
             //Integer flag = iUserSerivce.CheckMail(username);
             if (flag > 1) {
-                map.put("msg" , "请确认注册方式是否有误。");
+                map.put("msg" , 501);
                 return map;
             }
+            userLink.setNickname(jsonObject.getString("nickname"));
             userLink.setMail(username);
+            userLink.setPhone(null);
             return iUserSerivce.app_CreateUser(userLink);
         }
 
@@ -342,15 +367,16 @@ public class AppUserController {
 
     @RequestMapping(value = "/logout")
     @ResponseBody
-    public Map UserLogout(){
+    public ModelAndView UserLogout(){
         HttpSession session = request.getSession();
         session.removeAttribute("userLink");
         session.removeAttribute("userInfo");
 
-        Map<String , Object> map = new HashMap<String , Object>();
-
-        map.put("data" , "success");
-        return map;
+        ModelAndView modelView=new ModelAndView();
+        modelView.setViewName("/WEB-INF/front/index.jsp");
+        modelView.addObject("title","Home");
+        modelView.addObject("canback",false);
+        return modelView;
     }
 
     @RequestMapping(value = "/update")
@@ -435,20 +461,59 @@ public class AppUserController {
 
     @RequestMapping(value = "/CheckMail")
     public ModelAndView CheckMail(@Param("mail") String mail , @Param("code")String code){
-        String key = "it@hkgepitherapeutics.com";
 
         //加密
 //        String s1 = DESUtil.encrypt(content, key);
 //
 //        System.out.println("s1:" + s1);
+//        String email = "";
+//        String uuid = "";
+
+//        //url解码
+//        try {
+//            mail = URLDecoder.decode(mail , "utf-8");
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            code = URLDecoder.decode(code , "utf-8");
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+
+        //URL解码后
+        System.out.println("mail :" + mail);
+        System.out.println("code :" + code);
+
+        //进行url解码
+//        byte[] array = mail.getBytes(); //获取字符数组
+//        for(int i=0;i<array.length;i++) //遍历字符数组
+//        {
+//            array[i]=(byte)(array[i]^20000); //对每个数组元素进行异或运算
+//        }
+//
+//        try {
+//            email=new String(array,0,array.length,"utf-8");
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+//        //email = array.toString();
+//
+//        array = code.getBytes(); //获取字符数组
+//        for(int i=0;i<array.length;i++) //遍历字符数组
+//        {
+//            array[i]=(byte)(array[i]^20000); //对每个数组元素进行异或运算
+//        }
+//        uuid = array.toString();
 
         //解密
-        String email = DESUtil.decrypt(mail , key);
-        String uuid = DESUtil.decrypt(code, key);
+        System.out.println("解密密钥 : " + key);
 //
-//        System.out.println("uuid : " + email);
-//        System.out.println("mail : " + uuid);
-
+        System.out.println("uuid : " + code);
+        System.out.println("mail : " + mail);
+        String email = CodeUtils.decodeStr(mail);
+        String uuid = CodeUtils.decodeStr(code);
 //        System.out.println(iUserSerivce.UpdateMail(uuid , email));
 
         ModelAndView modelView=new ModelAndView();

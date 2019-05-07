@@ -14,6 +14,7 @@ import java.net.URL;
 public class SendMessage {
 
     public static String doGet(String httpurl) {
+        String flag = "";
         HttpURLConnection connection = null;
         InputStream is = null;
         BufferedReader br = null;
@@ -44,11 +45,14 @@ public class SendMessage {
                     sbf.append("\r\n");
                 }
                 result = sbf.toString();
+                flag = "success";
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
+            flag = "error";
         } catch (IOException e) {
             e.printStackTrace();
+            flag = "error";
         } finally {
             // 关闭资源
             if (null != br) {
@@ -70,7 +74,7 @@ public class SendMessage {
             connection.disconnect();// 关闭远程连接
         }
 
-        return result;
+        return flag;
     }
 
 //    public static String doPost(String httpUrl, String param) {

@@ -34,9 +34,12 @@
 
 <body>
 <!--头部开始-->
-<div  style="width: 100%;height: 100%;">
-	<jsp:include page="header.jsp"></jsp:include>
-<div  style="width: 100%;height: 100%;">
+<jsp:include page="header.jsp"></jsp:include>
+<div  style="width: 100%;height: auto;">
+	<div id="popDiv"
+		 style="z-index: 99; display: none;width: 100%;height: 100%; position: absolute;top:0;left: 0; background-color: #efefef;text-align: center;">
+		<img src="static/images/loading.gif" style="width: 80px;height: 80px;margin-top: 50%"/>
+	</div>
 
 	<div style="background-color:#ffffff;padding-bottom: 70px">
 <c:forEach var="item" items="${sessionScope.Cart.list}">
@@ -147,8 +150,16 @@
 
 
 <script>
+    function bodyScroll(event){
+        event.preventDefault();
+    }
 
     function ToPay(){
+		var pop = document.getElementById("popDiv");
+        document.body.addEventListener('touchmove',bodyScroll,false);
+        $('body').css({'position':'fixed',"width":"100%"});
+		pop.style.display = "block";
+
         window.location.href = 'paypal/payment.jhtml';
         // $.ajax({
         //     header:{"Access-Control-Allow-Origin":"https://localhost:8080"},

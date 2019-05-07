@@ -48,10 +48,16 @@
 				<a href="mood/index.jhtml"><img src="static/images/iQ2.png" style="width: 100%;height: auto;"></a>
 			</div>
 		</div>
+		<%--<div style="width: 100%;height: 20px;"></div>--%>
+		<%--<div style="width: 100%;height: auto">--%>
+			<%--<div style="width: 95%;height: auto;margin: 0 auto;">--%>
+				<%--<a href="pain/index.jhtml"><img src="static/images/iQ3.png" style="width: 100%;height: auto;"></a>--%>
+			<%--</div>--%>
+		<%--</div>--%>
 		<div style="width: 100%;height: 20px;"></div>
 		<div style="width: 100%;height: auto">
 			<div style="width: 95%;height: auto;margin: 0 auto;">
-				<a href="pain/index.jhtml"><img src="static/images/iQ3.png" style="width: 100%;height: auto;"></a>
+				<a href="shortformpain.jhtml"><img src="static/images/iQ5.png" style="width: 100%;height: auto;"></a>
 			</div>
 		</div>
 		<div style="width: 100%;height: 20px;"></div>
@@ -60,7 +66,12 @@
 				<a href="sleep/index.jhtml"><img src="static/images/iQ4.png" style="width: 100%;height: auto;"></a>
 			</div>
 		</div>
-		
+		<div style="width: 100%;height: 20px;"></div>
+		<div style="width: 100%;height: auto">
+			<div style="width: 95%;height: auto;margin: 0 auto;">
+				<a href="diet/index.jhtml"><img src="static/images/iQ6.png" style="width: 100%;height: auto;"></a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
