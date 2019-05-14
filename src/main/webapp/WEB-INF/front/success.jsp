@@ -24,12 +24,9 @@
 		</div>
 		<div style="width: 30%;height: 100px;float: left;"></div>
 	</div>
-	<div style="width: 100%;height: 439px;overflow: hidden;">
+	<div style="width: 100%;height: 300px;overflow: hidden;">
 		<div style="width: 100%;height: 87px;text-align: center;line-height: 40px;font-weight: bold;font-family: arial;font-size: 20px;color: #0071BC;font-family: arial;"> Payment successful</div>
 
-		<div style="width: 100%;height:288px;">
-			<div style="width: 100%;height: 60px;line-height: 60px;font-weight: bold;font-size: 38px;text-align: center;color: #0071BC;font-family: arial;">$30.00</div>
-		</div>
 		<div style="width: 100%;height: 40px;">
 			<a href="index.jhtml">
 				<div style="width: 50%;height: 40px;border-radius: 10px;border: 1px solid grey;margin: 0 auto;text-align: center;line-height: 40px;font-size:16px ;background-color: #0071BC;font-family: arial;color: #FFFFFF;">Done</div>

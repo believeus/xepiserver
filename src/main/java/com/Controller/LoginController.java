@@ -23,7 +23,7 @@ public class LoginController {
     public ModelAndView Tologin(){
         ModelAndView modelView = new ModelAndView();
         modelView.setViewName("/WEB-INF/front/login.jsp");
-        modelView.addObject("title","Log In");
+        modelView.addObject("title","Login");
         modelView.addObject("canback", true);
         return  modelView;
     }

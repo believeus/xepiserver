@@ -72,11 +72,15 @@
 
     <div style="width: 100%;height: 10px;background-color: #f4f6f8;"></div>
 
+    <div style="width: 100%;height: 30px;border-bottom: 1px solid #f4f6f8;font-size: 22px;">
+        <div style="margin-left: 18px;">Delivery Address</div>
+    </div>
+
     <div style="width:100%;display:flex;flex-direction: row;justify-content: center;">
         <div class='part1' style='width:90%'>
             <div style='height:15px'></div>
             <div>
-                <text>recipient</text>
+                <text>Full name</text>
                 <input
                         style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)' type="text" id="recipient" name="recipient"></input>
             </div>
@@ -84,30 +88,31 @@
             </div>
             <div style='height:15px'></div>
             <div>
-                <text>phone</text>
+                <text>Phone</text>
                 <input
                         style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)' type="text" id="phone" name="phone"></input>
             </div>
             <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
+
             <div style='height:15px'></div>
             <div>
-                <text>country</text>
-                <input
-                        style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)' type="text" id="country" name="country" ></input>
-            </div>
-            <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
-            <div style='height:15px'></div>
-            <div>
-                <text>address</text>
+                <text>Town/City</text>
                 <input
                         style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)' type="text" id="address" name="address"></input>
             </div>
             <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
             <div style='height:15px'></div>
             <div>
-                <text>postalcode</text>
+                <text>Country/Region</text>
                 <input
-                        style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)' type="text" id="postalcode" name="postalcode"></input>
+                        style='border:0.5px solid #e2e2e2;width:68%;display:inline-block;float: right;height:30px;transform: translateY(-5px)' type="text" id="country" name="country" ></input>
+            </div>
+            <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
+            <div style='height:15px'></div>
+            <div>
+                <text>Postalcode/ZIP</text>
+                <input
+                        style='border:0.5px solid #e2e2e2;width:68%;display:inline-block;float: right;height:30px;transform: translateY(-5px)' type="text" id="postalcode" name="postalcode"></input>
             </div>
             <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
 
@@ -140,7 +145,7 @@
     <div style="text-align: center;height: 100%;background-color: #37475d;width: 60%;color: #f4f6f8;float: left;">
         <div style="height: 100%;font-size: 21px;line-height: 40px">
             <div class="shop-total">
-                <strong>About：<i class="total" id="AllTotal" name="total_price">${sessionScope.Cart.total_price}</i></strong>
+                <strong>Total：<i class="total" id="AllTotal" name="total_price">${sessionScope.Cart.total_price}</i></strong>
             </div></div>
     </div>
     <div style="width: 40%;background-color: #0071b1;height: 100%;text-align: center;color: #f4f6f8;float:right;">

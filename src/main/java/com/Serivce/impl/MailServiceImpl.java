@@ -127,9 +127,8 @@ public class MailServiceImpl implements MailService {
 //            e.printStackTrace();
 //        }
         //System.out.println("code :" + uuid);
-        String message = "<html><body>" +
-                "<a href='https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + mail + "&code=" + uuid + "'>https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + mail + "&code=" + uuid + "</a>" +
-                "</body></html>";
+        String message = "<html><body>" + "<a href='https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + mail + "&code=" + uuid + "'>https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + mail + "&code=" + uuid + "</a>" + "</body></html>";
+        //String message = "测s试信息";
 
         //设置邮件会话参数
         Properties props = new Properties();

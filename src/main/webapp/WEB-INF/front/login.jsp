@@ -57,7 +57,7 @@
         <div style="    width: 80%;
             margin: 0 auto;
             text-align: left;">
-            <div id="CodeSignIn" style="display:block">
+            <div id="CodeSignIn" style="display:none">
                 <div class="userName" style="display:flex">
                     <input type="text" name="username1"  id="username1" style="width:92%" placeholder="Telephone" pattern="[0-9]{8,13}"  style="width: 48%" oninvalid="setCustomValidity('Please enter the correct mobile phone number!');"
                            oninput="setCustomValidity('');">
@@ -294,21 +294,21 @@
                 </div>
             </div>
 
-            <div id="PWDSignIn" style="display:none">
+            <div id="PWDSignIn" style="display:block">
                 <div class="userName">
-                    <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
-                    <input type="text" name="username2" id="username2" placeholder="Telephone / Mail" style="width: 60%" >
+                    <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
+                    <input type="text" name="username2" id="username2" placeholder="Telephone / Email" style="width: 60%" >
                 </div>
                 <div class="passWord">
                     <lable style="color:#808080">&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/images/InOrUp/pwd.png" style="width: 16px;height: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;</lable>
                     <input type="password" name="password" id="password" placeholder="Password" style="width:60%">
                 </div>
-                <div class="choose_box">
-                    <div>
-                        <lable style="color:#696969" onclick="SMS()">Sign in By Code</lable>
-                    </div>
-                    <a href="javascript:void(0);" style="text-decoration:none;color: #808080"></a>
-                </div>
+                <%--<div class="choose_box">--%>
+                    <%--<div>--%>
+                        <%--<lable style="color:#696969" onclick="SMS()">Sign in By Code</lable>--%>
+                    <%--</div>--%>
+                    <%--<a href="javascript:void(0);" style="text-decoration:none;color: #808080"></a>--%>
+                <%--</div>--%>
                 <div class="other_login" style="margin-top: 40px;">
                     <span>By clicking the button below, I agree to the User Agreement and Privacy Policy.</span>
                     <button class="login_btn" onclick="login_2()" style="margin-top: 0px;">Login</button>
@@ -459,12 +459,18 @@
     }
 
     function login_2() {
-        var phone = $("#username2").val()
-        console.log(phone)
+        var account = $("#username2").val()
+        var type = "Phone"
+        if (account.indexOf("@") > - 1){
+            type = "Mail"
+        }
+        //var phone = $("#username2").val()
+        //console.log(phone)
+        console.log(type)
         var pwd = $("#password").val()
         console.log(pwd)
         if (pwd != null) {
-            var data = "{\"type\" : \"Phone\" , \"verification\" : \"1\" , \"username\" : \"" + phone +
+            var data = "{\"type\" : \""+ type + "\" , \"verification\" : \"1\" , \"username\" : \"" + account +
                 "\" , \"pwd\" : \"" + pwd + "\"}"
             $.ajax({
                 url: "App/Userlogin.jhtml",

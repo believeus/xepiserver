@@ -18,7 +18,7 @@ public class CartController {
 	public ModelAndView   check(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/check.jsp");
-		modelView.addObject("title"," Cart display");
+		modelView.addObject("title"," My Cart");
 		modelView.addObject("canback", true);
 		return modelView;
 	}

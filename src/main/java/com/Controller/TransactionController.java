@@ -282,7 +282,7 @@ public class TransactionController {
         ModelAndView modelView=new ModelAndView();
         modelView.setViewName("/WEB-INF/front/success.jsp");
         modelView.addObject("title"," Pay Success!");
-        modelView.addObject("canback", true);
+        modelView.addObject("canback", false);
         return modelView;
     }
 
