@@ -27,13 +27,13 @@
 
         <div class="shop-group-item">
             <div class="shop-name">
-                <input type="checkbox" class="check goods-check shopCheck">
+                <input type="checkbox" class="check goods-check shopCheck"  style="border:0px solid #000">
                 <h4><a href="javascript:;">Select All</a></h4>
             </div>
             <ul>
                 <li>
                     <div class="shop-info" style="border:4px inset #0480be">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="1001">
+                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="1001"  style="border:0px solid #000">
                         <div class="shop-info-img" style="text-align: center;">
                             <a href="aging/index.jhtml">
                             <img src="static/images/DNA.png" style="width: 90%;height:auto;transform: translateY(10px);"/>
@@ -56,7 +56,7 @@
                 </li>
                 <li>
                     <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="2001">
+                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="2001" style="border:0px solid #000">
                         <div class="shop-info-img" style="text-align: center;">
                             <a href="same/index.jhtml">
                             <img src="static/images/SAM-e.png" style="width: 100%;height:auto;" />
@@ -80,7 +80,7 @@
                 </li>
                 <li>
                     <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3001">
+                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3001"  style="border:0px solid #000">
                         <div class="shop-info-img" style="text-align: center;">
                             <a href="vitaminA/index.jhtml">
                                 <img src="static/images/VitaminA.png" style="width: 60%;height:auto;"/></a></div>
@@ -101,7 +101,7 @@
                 </li>
                 <li>
                     <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3002">
+                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3002"  style="border:0px solid #000">
                         <div class="shop-info-img" style="text-align: center;">
                             <a href="vitaminC/index.jhtml">
                                 <img src="static/images/VitaminC.png" style="width: 60%;height:auto;"/></a></div>
@@ -122,7 +122,7 @@
                 </li>
                 <li>
                     <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3003">
+                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3003" style="border:0px solid #000">
                         <div class="shop-info-img" style="text-align: center;">
                             <a href="vitaminD/index.jhtml">
                                 <img src="static/images/VitaminD.png" style="width: 60%;height:auto;"/></a></div>
@@ -146,7 +146,7 @@
         </div>
     </div>
     <div class="payment-bar" style="height: 82px">
-        <div class="all-checkbox" style="float: left;height: 100%"><input type="checkbox" class="check goods-check" id="AllCheck" style="top:30%"></div>
+        <div class="all-checkbox" style="float: left;height: 100%"><input type="checkbox" class="check goods-check" id="AllCheck" style="top:30%;border:0px solid #000"></div>
         <div class="shop-total" style="float: left">
             <strong>About：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
         </div>
