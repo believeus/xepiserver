@@ -1,10 +1,9 @@
 package com.Serivce.impl;
 
-import com.Bean.ChartData;
 import com.Bean.Life;
 import com.Bean.Time;
 import com.Bean.User;
-import com.Dao.ILifeDao;
+import com.Dao.Qtion.ILifeDao;
 import com.Serivce.ILifeService;
 import com.Utils.DealWithArray;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.validation.constraints.NotNull;
 import java.text.SimpleDateFormat;
 import java.util.*;
 

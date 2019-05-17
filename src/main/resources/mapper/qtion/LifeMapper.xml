@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.Qtion.ILifeDao">
+    <select id="getDateLast" resultType="Long" parameterType="String">
+        select update_time
+        from life_style l
+        where uuid = #{uuid}
+        order by update_time desc
+        limit 0,1
+    </select>
+
+    <!-- Body栏目 begin -->
+    <update id="upDateBody" parameterType="com.Bean.Life">
+        update life_style
+        set
+          weight = #{weight},
+          height = #{height},
+          bmi = #{bmi}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertBody" parameterType="com.Bean.Life">
+        insert into life_style(weight , height , bmi , uuid , update_time , week)
+        select #{weight} , #{height} , #{bmi} , #{uuid} , #{update_time} , #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Body栏目 end -->
+
+    <!-- Sport栏目 begin-->
+    <update id="upDateSport" parameterType="com.Bean.Life">
+        update life_style
+        set
+        sport = #{sport}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertSport" parameterType="com.Bean.Life">
+        insert into life_style(sport , uuid , update_time ,week)
+        select #{sport} , #{uuid} , #{update_time} , #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Sport栏目 end-->
+    
+    <!-- Heart栏目 begin -->
+    <update id="upDateHeart" parameterType="com.Bean.Life">
+        update life_style
+        set
+          heart_rate = #{heart_rate}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertHeart" parameterType="com.Bean.Life">
+        insert into life_style(heart_rate , uuid , update_time , week)
+        Select #{heart_rate} , #{uuid} , #{update_time}, #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Heart栏目 end -->
+
+    <!-- BP栏目 begin -->
+    <update id="upDateBP" parameterType="com.Bean.Life">
+        update life_style
+        <set>
+        <if test="systolic_BP != 0.0 and systolic_BP != null">
+          systolic_BP = #{systolic_BP}
+        </if>
+        <if test="diastolic_BP != 0.0 and diastolic_BP != null">
+          diastolic_BP = #{diastolic_BP}
+        </if>
+        </set>
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertBP" parameterType="com.Bean.Life">
+        insert into life_style(systolic_BP , diastolic_BP , uuid , update_time , week)
+        select #{systolic_BP} , #{diastolic_BP} , #{uuid} , #{update_time}, #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- BP栏目 end -->
+
+    <!-- Cholesterol栏目 begin -->
+    <update id="upDateCholesterol" parameterType="com.Bean.Life">
+        update life_style
+        set
+          cholesterol = #{cholesterol}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertCholesterol" parameterType="com.Bean.Life">
+        insert into life_style(cholesterol , uuid , update_time ,week)
+        Select #{cholesterol} , #{uuid} , #{update_time}, #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Cholesterol栏目 end -->
+
+    <!-- Sleep栏目 begin -->
+    <update id="upDateSleep" parameterType="com.Bean.Life">
+        update life_style
+        set
+          sleep = #{sleep}
+        where uuid = #{uuid} and update_time = #{update_time}
+
+    </update>
+
+    <insert id="insertSleep" parameterType="com.Bean.Life">
+        insert into life_style(sleep , uuid , update_time ,week)
+        select #{sleep} , #{uuid} , #{update_time} , #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Sleep栏目 end -->
+
+    <!-- Food_1栏目 begin -->
+    <update id="upDateFood_1" parameterType="com.Bean.Life">
+        update life_style
+        set
+          food_Breakfast = #{calories}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertFood_1" parameterType="com.Bean.Life">
+        insert into life_style(food_Breakfast , uuid , update_time ,week)
+        select #{calories} , #{uuid} , #{update_time} , #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Food_1栏目 end -->
+
+    <!-- Food_2栏目 begin -->
+    <update id="upDateFood_2" parameterType="com.Bean.Life">
+        update life_style
+        set
+          food_Lunch = #{calories}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertFood_2" parameterType="com.Bean.Life">
+        insert into life_style(food_Lunch  , uuid , update_time ,week)
+        select #{calories}, #{uuid} , #{update_time}, #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Food_2栏目 end -->
+
+    <!-- Food_3栏目 begin -->
+    <update id="upDateFood_3" parameterType="com.Bean.Life">
+        update life_style
+        set
+          food_Dinner = #{calories}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertFood_3" parameterType="com.Bean.Life">
+        insert into life_style(food_Dinner , uuid , update_time , week)
+        select #{calories} , #{uuid} , #{update_time} , #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Food_3栏目 end -->
+
+    <!-- Meditation栏目 begin -->
+    <update id="upDateMeditation" parameterType="com.Bean.Life">
+        update life_style
+        set
+          meditation = #{meditation}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertMeditation" parameterType="com.Bean.Life">
+        insert into life_style(meditation , uuid , update_time , week)
+        select #{meditation} , #{uuid} , #{update_time} , #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+    <!-- Meditation栏目 end -->
+
+    <!-- SexLife栏目 begin -->
+    <update id="upDateSexLife" parameterType="com.Bean.Life">
+        update life_style
+        set
+        sex_life_score = #{sex_life_score},
+        sex_life_frequency = #{sex_life_frequency}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertSexLife" parameterType="com.Bean.Life">
+        insert into life_style(sex_life_score , sex_life_frequency , uuid , update_time , week)
+        select #{sex_life_score} , #{sex_life_frequency} , #{uuid} , #{update_time} , #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- SexLife栏目 end -->
+
+    <!-- Smoking栏目 begin -->
+    <update id="upDateSmoking" parameterType="com.Bean.Life">
+        update life_style
+        set
+        smoking = #{smoking}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertSmoking" parameterType="com.Bean.Life">
+        insert into life_style(smoking , smoking_time , uuid , update_time ,week)
+        select #{smoking} , #{uuid} , #{update_time}, #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Smoking栏目 end -->
+
+    <!-- Alcohol栏目 begin -->
+    <update id="upDateAlcohol" parameterType="com.Bean.Life">
+        update life_style
+        set
+        alcohol = #{alcohol}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertAlcohol" parameterType="com.Bean.Life">
+        insert into life_style(alcohol , uuid , update_time , week)
+        select #{alcohol} , #{uuid} , #{update_time} , #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Alcohol栏目 end -->
+
+    <!-- Vitamin_A栏目 begin -->
+    <update id="upDateVitamin_A" parameterType="com.Bean.Life">
+        update life_style
+        set
+        vitamin_A = #{vitamin_A}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertVitamin_A" parameterType="com.Bean.Life">
+        insert into life_style(vitamin_A , uuid , update_time ,week)
+        select #{vitamin_A} , #{uuid} , #{update_time} , #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Vitamin_A栏目 end -->
+
+    <!-- Vitamin_C栏目 begin -->
+    <update id="upDateVitamin_C" parameterType="com.Bean.Life">
+        update life_style
+        set
+        vitamin_C = #{vitamin_C}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertVitamin_C" parameterType="com.Bean.Life">
+        insert into life_style(vitamin_C , uuid , update_time , week)
+        select #{vitamin_C} , #{uuid} , #{update_time} , #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Vitamin_C栏目 end -->
+
+    <!-- Vitamin_D栏目 begin -->
+    <update id="upDateVitamin_D" parameterType="com.Bean.Life">
+        update life_style
+        set
+        vitamin_D = #{vitamin_D}
+        where uuid = #{uuid} and update_time = #{update_time}
+    </update>
+
+    <insert id="insertVitamin_D" parameterType="com.Bean.Life">
+        insert into life_style(vitamin_D , uuid , update_time ,week)
+        select #{vitamin_D} , #{uuid} , #{update_time} , #{week}
+        from dual
+        WHERE NOT EXISTS(SELECT update_time FROM life_style WHERE uuid = #{uuid , jdbcType=VARCHAR} and update_time = #{update_time , jdbcType=BIGINT})
+    </insert>
+
+    <!-- Vitamin_D栏目 end -->
+
+    <!-- 获取数据 begin-->
+    <select id="getDateOfLife" parameterType="String" resultMap="getDateOfLifeResult">
+        select *
+        from life_style
+        where uuid = #{uuid}
+        order by update_time desc
+    </select>
+
+    <resultMap id="getDateOfLifeResult" type="com.Bean.Life">
+        <result property="height" column="height"/>
+        <result property="weight" column="weight"/>
+        <result property="bmi" column="bmi"/>
+        <result property="heart_rate" column="heart_rate"/>
+        <result property="systolic_BP" column="systolic_BP"/>
+        <result property="diastolic_BP" column="diastolic_BP"/>
+        <result property="cholesterol" column="cholesterol"/>
+        <result property="sleep" column="sleep"/>
+        <result property="meditation" column="meditation"/>
+        <result property="sex_life_score" column="sex_life_score"/>
+        <result property="sex_life_frequency" column="sex_life_frequency"/>
+        <result property="smoking" column="smoking"/>
+        <result property="alcohol" column="alcohol"/>
+        <result property="vitamin_A" column="vitamin_A"/>
+        <result property="vitamin_C" column="vitamin_C"/>
+        <result property="vitamin_D" column="vitamin_D"/>
+        <result property="update_time" column="update_time"/>
+        <result property="food_Breakfast" column="food_Breakfast"/>
+        <result property="food_Breakfast_snacks" column="food_Breakfast_snacks"/>
+        <result property="food_Lunch" column="food_Lunch"/>
+        <result property="food_Lunch_snacks" column="food_Lunch_snacks"/>
+        <result property="food_Dinner" column="food_Dinner"/>
+        <result property="food_Dinner_snacks" column="food_Dinner_snacks"/>
+        <result property="uuid" column="uuid"/>
+    </resultMap>
+    <!-- 获取数据 end-->
+
+</mapper>

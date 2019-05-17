@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.Info.OrderDao">
+    <insert id="OrderMessCreate" parameterType="java.util.Map">
+        insert into ordermess(order_id , goods_id , goods_count )
+        values
+          <foreach collection="list" item="item" index="index" separator=",">
+              (#{order_id,jdbcType=BIGINT} , #{item.wares_id,jdbcType=INTEGER} , #{item.wares_count,jdbcType=INTEGER})
+          </foreach>
+    </insert>
+
+    <insert id="OrderListCreate" parameterType="java.util.Map">
+        insert into orderlist(order_id, uuid, price, identifier, PayStatus_code, order_time , promo_code)
+        values
+        (#{order_id , jdbcType=INTEGER} , #{uuid ,jdbcType=VARCHAR} , #{Total_price , jdbcType=DOUBLE} , #{identifier , jdbcType=INTEGER} , #{PayStatus_code , jdbcType=INTEGER} , #{order_time , jdbcType=BIGINT} , #{promo_code , jdbcType=VARCHAR})
+    </insert>
+
+    <update id="OrderUpdate" parameterType="Map">
+        update orderlist
+        set
+          PayStatus_code = "201"
+        where uuid = #{uuid} and order_id = #{order_id}
+    </update>
+
+    <select id="CheckOrder" parameterType="String" resultMap="CheckOrderResultMap">
+        SELECT DISTINCT
+            o.order_id,
+            w.wares_name,
+            w.wares_info,
+            w.sell_price,
+            w.wares_img,
+            o.goods_count as wares_count,
+            o.goods_id as wares_id,
+            d.order_time,
+            d.PayStatus_Code,
+            d.identifier
+        FROM wares_info w
+        INNER JOIN ( SELECT order_id, goods_id, goods_count  FROM ordermess ) o ON w.wares_id = o.goods_id
+        INNER JOIN
+        ( SELECT om.order_id, od.order_time, od.price, od.identifier, od.PayStatus_code
+          FROM ordermess om,( SELECT * FROM orderlist WHERE uuid = #{uuid} ) od WHERE om.order_id = od.order_id ) d
+        ON d.order_id = o.order_id
+    </select>
+
+    <resultMap id="CheckOrderResultMap" type="com.Bean.Order">
+        <id column="order_id" property="order_id"/>
+        <result column="goods_id" property="goods_id"/>
+        <result column="order_time" property="order_time"/>
+        <result column="PayStatus_Code" property="PayStatus_Code"/>
+        <result column="identifier" property="identifier"/>
+        <collection property="list" resultMap="selectWares_List" />
+    </resultMap>
+
+    <resultMap id="selectWares_List" type="com.Bean.Wares">
+        <id column="wares_id" property="wares_id"/>
+        <result column="wares_count" property="wares_count"/>
+        <result column="wares_name" property="wares_name"/>
+        <result column="wares_info" property="wares_info"/>
+        <result column="sell_price" property="sell_price"/>
+        <result column="wares_img" property="wares_img"/>
+    </resultMap>
+    
+    <select id="CheckOrderExist" resultType="int" parameterType="string">
+        select count(*) from ordermess o , (select order_id from orderlist where PayStatus_code = "201" and uuid = #{uuid}) ol where goods_id = "1001" and ol.order_id = o.order_id
+    </select>
+</mapper>

@@ -3,7 +3,7 @@ package com.Serivce.impl;
 import com.Bean.Address;
 import com.Bean.User;
 import com.Bean.UserInfo;
-import com.Dao.IUserDao;
+import com.Dao.Info.IUserDao;
 import com.Serivce.IUserSerivce;
 import com.Serivce.MailService;
 import com.Utils.UserCreate;

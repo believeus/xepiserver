@@ -2,11 +2,10 @@ package com.Serivce.impl;
 
 import com.Bean.JsonOrderBean;
 import com.Bean.Order;
-import com.Bean.Wares;
-import com.Dao.CartDao;
-import com.Dao.IUserDao;
-import com.Dao.OrderDao;
-import com.Dao.WaresDao;
+import com.Dao.Info.CartDao;
+import com.Dao.Info.IUserDao;
+import com.Dao.Info.OrderDao;
+import com.Dao.Info.WaresDao;
 import com.Serivce.OrderService;
 import com.Utils.GeneratorCode;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.Serivce.impl;
 
 import com.Bean.Bio;
-import com.Dao.ReportDao;
+import com.Dao.Info.ReportDao;
 import com.Serivce.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +10,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @ CreateDate : Create in 19:20 2019/3/21

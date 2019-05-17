@@ -1,4 +1,4 @@
-package com.Dao;
+package com.Dao.Info;
 
 import com.Bean.Bio;
 import com.Bean.Life;

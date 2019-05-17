@@ -1,4 +1,4 @@
-package com.Dao;
+package com.Dao.Qtion;
 
 import com.Bean.Life;
 import org.apache.ibatis.annotations.Mapper;

@@ -1,7 +1,7 @@
 package com.Serivce.impl;
 
 import com.Bean.Wares;
-import com.Dao.WaresDao;
+import com.Dao.Info.WaresDao;
 import com.Serivce.WaresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

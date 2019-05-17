@@ -1,4 +1,4 @@
-package com.Dao;
+package com.Dao.Info;
 
 import com.Bean.Colorectal_cancer;
 import com.Bean.Prevent_cancer;

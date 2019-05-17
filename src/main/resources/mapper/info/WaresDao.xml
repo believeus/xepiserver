@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.Info.WaresDao">
+    <select id="selectWares" parameterType="Integer" resultMap="selectWaresResultMap">
+        select
+          *
+        from wares_info
+        where
+          wares_id = #{wares_id}
+    </select>
+    <resultMap id="selectWaresResultMap" type="com.Bean.Wares">
+        <id column="wares_id" property="wares_id"/>
+        <result column="sell_price" property="sell_price"/>
+        <result column="wares_info" property="wares_info"/>
+        <result column="wares_count" property="wares_count"/>
+        <result column="wares_name" property="wares_name"/>
+        <result column="discount" property="discount"/>
+        <result column="wares_img" property="wares_img"/>
+    </resultMap>
+
+    <select id="selectCartWares" parameterType="String" resultMap="selectWaresResultMap">
+        select
+          *
+        from wares_info w ,(select wares_id from user_cart where uuid = #{uuid}) u
+        where
+          u.wares_id = w.wares_id
+    </select>
+
+    <select id="GetWaresInfo" parameterType="java.util.Map" resultMap="selectWaresResultMap">
+        select *
+        from wares_info
+        where wares_id in
+        <foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+            #{item.wares_id,jdbcType=INTEGER}
+        </foreach>
+    </select>
+</mapper>

@@ -1240,8 +1240,7 @@
                     contentType : "application/json",
                     success : function(data) {
                         var option = {
-                            noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
-                            xAxis : [ {
+							xAxis : [ {
                                 name:"date",
                                 type : 'category',
                                 boundaryGap : false,
@@ -1339,7 +1338,6 @@
                     contentType : "application/json",
                     success : function(data) {
                         var option = {
-                            noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                             xAxis : [ {
                                 name:"date",
                                 type : 'category',
@@ -1384,7 +1382,6 @@
                                 dataType : "json",
                                 contentType : "application/json",
                                 success : function(data) {
-                                    noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                     var option = {
                                         legend : {
                                             data : [ 'SexLife status' ]
@@ -1462,7 +1459,6 @@
                     dataType : "json",
                     contentType : "application/json",
                     success : function(data) {
-                        noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                         var option = {
                             xAxis : [ {
                                 name:"date",

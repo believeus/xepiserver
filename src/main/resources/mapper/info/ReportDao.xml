@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.Info.ReportDao">
+    <select id="GetLifeData" resultMap="GetLifeDataResultMap" parameterType="String">
+        select * from life_style
+        where uuid = #{uuid}
+        order by update_time
+    </select>
+
+    <resultMap id="GetLifeDataResultMap" type="com.Bean.Life">
+        <result column="update_time" property="update_time"/>
+        <result column="week" property="week"/>
+        <result column="mediatation" property="mediatation"/>
+        <result column="height" property="height"/>
+        <result column="sex_life_frequency" property="sex_life_frequency"/>
+        <result column="weight" property="weight"/>
+        <result column="sex_life_score" property="sex_life_score"/>
+        <result column="bmi" property="bmi"/>
+        <result column="systolic_BP" property="systolic_BP"/>
+        <result column="vitamin_A" property="vitamin_A"/>
+        <result column="alcohol" property="alcohol"/>
+        <result column="smoking" property="smoking"/>
+        <result column="sport" property="sport"/>
+        <result column="cholesterol" property="cholesterol"/>
+        <result column="heart_rate" property="heart_rate"/>
+        <result column="sleep" property="sleep"/>
+        <result column="diastolic_BP" property="diastolic_BP"/>
+        <result column="vitamin_C" property="vitamin_C"/>
+        <result column="vitamin_D" property="vitamin_D"/>
+        <result column="food_Breakfast" property="food_Breakfast"/>
+        <result column="food_Breakfast_snacks" property="food_Breakfast_snacks"/>
+        <result column="food_Lunch" property="food_Lunch"/>
+        <result column="food_Lunch_snacks" property="food_Lunch_snacks"/>
+        <result column="food_Dinner" property="food_Dinner"/>
+        <result column="food_Dinner_snacks" property="food_Dinner_snacks"/>
+    </resultMap>
+
+    <select id="GetBioData" resultMap="GetBioDataResultMap">
+        select
+          natural_age , biological_age
+        from biological
+    </select>
+
+    <resultMap id="GetBioDataResultMap" type="com.Bean.Bio">
+        <result property="natural_age" column="natural_age"/>
+        <result property="biological_age" column="biological_age"/>
+    </resultMap>
+
+    <select id="GetBioDataForPerson" resultMap="GetBioDataForPersonResultMap" parameterType="String">
+        select
+          *
+        from biological
+        where bar_code = #{id}
+    </select>
+
+    <resultMap id="GetBioDataForPersonResultMap" type="com.Bean.Bio">
+        <result property="natural_age" column="natural_age"/>
+        <result property="biological_age" column="biological_age"/>
+        <result property="id" column="bar_code"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <select id="GetBioDataForPersonByUuid" parameterType="string" resultMap="GetBioDataByUUIDResultMap">
+       SELECT b. NAME, b.natural_age, b.biological_age , b.bar_code FROM biological b inner JOIN ( SELECT bar_code FROM orderstatus os INNER JOIN ( SELECT order_id FROM orderlist WHERE uuid = #{uuid} ORDER BY order_time DESC LIMIT 0,1 ) ol on os.order_id = ol.order_id ) o on b.bar_code = o.bar_code
+       limit 0 , 1
+    </select>
+
+    <resultMap id="GetBioDataByUUIDResultMap" type="com.Bean.Bio">
+        <result property="natural_age" column="natural_age"/>
+        <result property="biological_age" column="biological_age"/>
+        <result property="id" column="bar_code"/>
+        <result property="name" column="name"/>
+        <result property="uuid" column="uuid"/>
+    </resultMap>
+
+    <!-- 获取数据 begin-->
+    <select id="GetLifeDataForPersonByUuid" parameterType="String" resultMap="getDateOfLifeResult">
+        select *
+        from life_style
+        where uuid = #{uuid}
+        order by update_time desc
+    </select>
+
+    <resultMap id="getDateOfLifeResult" type="com.Bean.Life">
+        <result property="height" column="height"/>
+        <result property="weight" column="weight"/>
+        <result property="bmi" column="bmi"/>
+        <result property="heart_rate" column="heart_rate"/>
+        <result property="systolic_BP" column="systolic_BP"/>
+        <result property="diastolic_BP" column="diastolic_BP"/>
+        <result property="cholesterol" column="cholesterol"/>
+        <result property="sleep" column="sleep"/>
+        <result property="meditation" column="meditation"/>
+        <result property="sex_life_score" column="sex_life_score"/>
+        <result property="sex_life_frequency" column="sex_life_frequency"/>
+        <result property="smoking" column="smoking"/>
+        <result property="alcohol" column="alcohol"/>
+        <result property="vitamin_A" column="vitamin_A"/>
+        <result property="vitamin_C" column="vitamin_C"/>
+        <result property="vitamin_D" column="vitamin_D"/>
+        <result property="update_time" column="update_time"/>
+        <result property="food_Breakfast" column="food_Breakfast"/>
+        <result property="food_Breakfast_snacks" column="food_Breakfast_snacks"/>
+        <result property="food_Lunch" column="food_Lunch"/>
+        <result property="food_Lunch_snacks" column="food_Lunch_snacks"/>
+        <result property="food_Dinner" column="food_Dinner"/>
+        <result property="food_Dinner_snacks" column="food_Dinner_snacks"/>
+        <result property="uuid" column="uuid"/>
+    </resultMap>
+    <!-- 获取数据 end-->
+
+    <!--疼痛问卷数据-->
+    <select id="SelectPainForReport" parameterType="String" resultMap="SelectPainResultMap">
+        select
+          fraction
+        from mcgillpainquestionnaire
+        where uuid = #{uuid}
+        order by updata_time desc
+        limit 0 , 1
+    </select>
+
+    <resultMap id="SelectPainResultMap" type="com.Bean.Questionnaire">
+        <result property="fraction" column="fraction"/>
+    </resultMap>
+
+    <!--Moodw问卷数据-->
+    <select id="SelectMoodForReport" parameterType="String" resultMap="SelectMoodResultMap">
+        select
+          fraction
+        from moodselfassesment
+        where uuid = #{uuid}
+        order by updata_time desc
+        limit 0 , 1
+    </select>
+
+    <resultMap id="SelectMoodResultMap" type="com.Bean.Questionnaire">
+        <result property="fraction" column="fraction"/>
+    </resultMap>
+
+    <!--Sleep-->
+    <select id="SelectSleepForReport" parameterType="String" resultMap="SelectSleepResultMap">
+        select
+          fraction
+        from sleepselfassesment
+        where uuid = #{uuid}
+        order by updata_time desc
+        limit 0 , 1
+    </select>
+
+    <resultMap id="SelectSleepResultMap" type="com.Bean.Questionnaire">
+        <result property="fraction" column="fraction"/>
+    </resultMap>
+
+
+</mapper>

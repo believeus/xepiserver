@@ -1,13 +1,10 @@
 package com.Serivce.impl;
 
 import com.Bean.*;
-import com.Dao.CancerDao;
-import com.Dao.QuestionnaireDao;
-import com.Dao.ReportDao;
+import com.Dao.Info.CancerDao;
+import com.Dao.Qtion.QuestionnaireDao;
+import com.Dao.Info.ReportDao;
 import com.Serivce.QuestionnaireService;
-import com.alibaba.fastjson.JSONArray;
-import com.mysql.jdbc.exceptions.MySQLTransactionRollbackException;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLDataException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

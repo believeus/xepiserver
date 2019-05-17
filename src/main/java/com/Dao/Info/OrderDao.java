@@ -1,4 +1,4 @@
-package com.Dao;
+package com.Dao.Info;
 
 import com.Bean.Order;
 import org.apache.ibatis.annotations.Mapper;

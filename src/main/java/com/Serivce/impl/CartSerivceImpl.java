@@ -1,10 +1,8 @@
 package com.Serivce.impl;
 
-import com.Bean.User;
-import com.Bean.UserInfo;
 import com.Bean.Wares;
-import com.Dao.CartDao;
-import com.Dao.WaresDao;
+import com.Dao.Info.CartDao;
+import com.Dao.Info.WaresDao;
 import com.Serivce.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
