@@ -21,7 +21,7 @@ import java.sql.SQLException;
 @MapperScan(basePackages = BackDataBaseConfig.PACKAGE, sqlSessionFactoryRef = "backSqlSessionFactory")
 public class BackDataBaseConfig {
     /*** dao层的包路径*/
-    static final String PACKAGE = "com.Dao.qtion";
+    static final String PACKAGE = "com.Dao.Qtion";
 
     /*** mapper文件的相对路径*/
     private static final String MAPPER_LOCATION = "classpath:mapper/qtion/*.xml";
