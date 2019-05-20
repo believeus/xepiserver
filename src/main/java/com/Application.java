@@ -7,17 +7,18 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 @SpringBootApplication
 @ServletComponentScan
 @PropertySource(value = "classpath:project.properties",encoding = "utf-8")
-public class DemoApplication  {
+public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
-
+    @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(DemoApplication.class);
+        return builder.sources(Application.class);
     }
 
     /**
