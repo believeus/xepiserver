@@ -4,22 +4,21 @@ import com.Bean.User;
 import com.Bean.UserInfo;
 import com.Serivce.IUserSerivce;
 import com.Serivce.MailService;
-import com.Utils.*;
+import com.Utils.GeneratorCode;
+import com.Utils.SendMessage;
 import com.alibaba.fastjson.JSONObject;
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
-import com.aliyuncs.exceptions.ClientException;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -461,64 +460,8 @@ public class AppUserController {
 
     @RequestMapping(value = "/CheckMail")
     public ModelAndView CheckMail(@Param("mail") String mail , @Param("code")String code){
-
-        //加密
-//        String s1 = DESUtil.encrypt(content, key);
-//
-//        System.out.println("s1:" + s1);
-//        String email = "";
-//        String uuid = "";
-
-//        //url解码
-//        try {
-//            mail = URLDecoder.decode(mail , "utf-8");
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        }
-//
-//        try {
-//            code = URLDecoder.decode(code , "utf-8");
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        }
-
-        //URL解码后
-        System.out.println("mail :" + mail);
-        System.out.println("code :" + code);
-
-        //进行url解码
-//        byte[] array = mail.getBytes(); //获取字符数组
-//        for(int i=0;i<array.length;i++) //遍历字符数组
-//        {
-//            array[i]=(byte)(array[i]^20000); //对每个数组元素进行异或运算
-//        }
-//
-//        try {
-//            email=new String(array,0,array.length,"utf-8");
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        }
-//        //email = array.toString();
-//
-//        array = code.getBytes(); //获取字符数组
-//        for(int i=0;i<array.length;i++) //遍历字符数组
-//        {
-//            array[i]=(byte)(array[i]^20000); //对每个数组元素进行异或运算
-//        }
-//        uuid = array.toString();
-
-        //解密
-        System.out.println("解密密钥 : " + key);
-//
-        System.out.println("uuid : " + code);
-        System.out.println("mail : " + mail);
-        String email = CodeUtils.decodeStr(mail);
-        String uuid = CodeUtils.decodeStr(code);
-//        System.out.println(iUserSerivce.UpdateMail(uuid , email));
-
         ModelAndView modelView=new ModelAndView();
-
-        if (iUserSerivce.UpdateMail(uuid , email)){
+        if (iUserSerivce.UpdateMail(code , mail)){
             modelView.setViewName("/WEB-INF/front/verify_success.jsp");
             return modelView;
         }else {

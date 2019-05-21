@@ -1,10 +1,7 @@
 package com.Serivce.impl;
 
 import com.Serivce.MailService;
-import com.Utils.CodeUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import javax.mail.*;
@@ -22,13 +19,9 @@ import java.util.Properties;
  */
 @Service
 public class MailServiceImpl implements MailService {
-    //private static final String key = "k@hkgepitherapeutics.com";
 
-    @Autowired
-    private JavaMailSender mailSender; //自动注入的Bean
-
-    @Value("${spring.mail.username}")
-    private  String Sender; //读取配置文件中的参数
+    @Value("${spring.mail.fromuser}")
+    private  String fromuser; //读取配置文件中的参数
 
     @Value("${spring.mail.host}")
     private String host; //
@@ -36,90 +29,47 @@ public class MailServiceImpl implements MailService {
     @Value("${spring.mail.password}")
     private String pwd;
 
-   final String smtpPort = "465";
-
-//    @Override
-//    public boolean sendMail(String username, String code) {
-//        System.out.println("Sending....");
-//        //密钥
-//        String key = "it@hkgepitherapeutics.com";
-//        //使用MimeMessage，MIME协议
-//        MimeMessage message = mailSender.createMimeMessage();
-//        MimeMessageHelper helper;
-//        //username 为目标邮箱
-//        String mail = DESUtil.encrypt(username , key);
-//        //code 为用户的uuid
-//        String uuid = DESUtil.encrypt(code , key);
-//
-//        //MimeMessageHelper帮助我们设置更丰富的内容
-//        try {
-//            helper = new MimeMessageHelper(message, true);
-//            helper.setFrom(Sender);
-//            helper.setTo(username);
-//            helper.setSubject("[DO NOT REPLY] Epi-Aging verification email");
-//            helper.setText("<html><body>" +
-//                    "<a href='https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + mail + "&code=" + uuid + "'>https://app.beijingepidial.com?mail=" + mail + "&code=" + uuid + "</a>" +
-//                    "</body></html>", true);//true代表支持html
-//            mailSender.send(message);
-//        } catch (MessagingException e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//        System.out.println("Send Success!");
-//        return true;
-//    }
+    @Value("${spring.mail.port}")
+    private String port;
 
     /**
      * 使用加密的方式,利用465端口进行传输邮件,开启ssl
      */
 
-    public boolean sendMail(String username,String code) {
-        final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
-        final String username1 = Sender;
-        final String password = pwd;
-
-        //为保证不泄露，进行加密传输
-        String mail = CodeUtils.encodeStr(username);
-        String uuid = CodeUtils.encodeStr(code);
-
-       String message = "<html><body>" + "<a href='https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + mail + "&code=" + uuid + "'>https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + mail + "&code=" + uuid + "</a>" + "</body></html>";
+    public boolean sendMail(String usermail,String uuid) {
+        Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+        String message = "<html><body>" + "<a href='https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + usermail + "&code=" + uuid + "'>https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + usermail + "&code=" + uuid + "</a>" + "</body></html>";
         //设置邮件会话参数
         Properties props = new Properties();
-        //邮箱的发送服务器地址
-        props.setProperty("mail.smtp.host", "smtp.163.com");
-        props.setProperty("mail.smtp.socketFactory.class", SSL_FACTORY);
+        props.setProperty("mail.smtp.host", "smtp.gmail.com");
+        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.setProperty("mail.smtp.socketFactory.fallback", "false");
-        //邮箱发送服务器端口,这里设置为465端口
         props.setProperty("mail.smtp.port", "465");
         props.setProperty("mail.smtp.socketFactory.port", "465");
         props.put("mail.smtp.auth", "true");
-
         try {
             Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
             //获取到邮箱会话,利用匿名内部类的方式,将发送者邮箱用户名和密码授权给jvm
-            Session session = Session.getDefaultInstance(props, new Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(username1, password);
+            Session session = Session.getInstance(props, new Authenticator()
+            {
+                protected PasswordAuthentication getPasswordAuthentication()
+                {
+                    return new PasswordAuthentication(fromuser, pwd);
                 }
             });
             //通过会话,得到一个邮件,用于发送
             Message msg = new MimeMessage(session);
             //设置发件人
-            msg.setFrom(new InternetAddress(Sender));
-            //设置收件人,to为收件人,cc为抄送,bcc为密送
-            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(username, false));
-//            msg.setRecipients(Message.RecipientType.CC, InternetAddress.parse(username, false));
-//            msg.setRecipients(Message.RecipientType.BCC, InternetAddress.parse(username, false));
+            msg.setFrom(new InternetAddress(fromuser));
+            msg.setRecipient(Message.RecipientType.TO, new InternetAddress(usermail));//一个收件人
             msg.setSubject("[DO NOT REPLY] Epi-Aging verification email");
             //设置邮件消息
             //msg.setText(message);
-            msg.setContent(message , "text/html;charset = gbk");
+            msg.setContent(message , "text/html;charset = utf-8");
             //设置发送的日期
             msg.setSentDate(new Date());
-
             //调用Transport的send方法去发送邮件
             Transport.send(msg);
-
         } catch (Exception e) {
             e.printStackTrace();
             return false;

@@ -29,4 +29,3 @@ public class Application extends SpringBootServletInitializer {
         return servletServletRegistrationBean;
     }
 }
-
