@@ -48,14 +48,15 @@ public class BackDataBaseConfig {
     @Bean(name = "backDataSource")
     public DataSource backDataSource() throws Exception {
         DruidDataSource druid = new DruidDataSource();
-        druid.setPassword(ConfigTools.decrypt(publickey,password));
+
         // 监控统计拦截的filters
         druid.setFilters(filters);
 
         // 配置基本属性
         druid.setDriverClassName(driverClassName);
         druid.setUsername(username);
-        druid.setPassword(password);
+       // druid.setPassword(password);
+        druid.setPassword(ConfigTools.decrypt(publickey,password));
         druid.setUrl(url);
 
         //初始化时建立物理连接的个数
