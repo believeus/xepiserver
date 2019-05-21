@@ -21,11 +21,7 @@ public class Application extends SpringBootServletInitializer {
         return builder.sources(Application.class);
     }
 
-    /**
-     * 设置匹配*.jhtml后缀请求
-     * @param dispatcherServlet
-     * @return
-     */
+    /*** 设置匹配*.jhtml后缀请求*/
     @Bean
     public ServletRegistrationBean servletRegistrationBean(DispatcherServlet dispatcherServlet) {
         ServletRegistrationBean<DispatcherServlet> servletServletRegistrationBean = new ServletRegistrationBean<DispatcherServlet>(dispatcherServlet);

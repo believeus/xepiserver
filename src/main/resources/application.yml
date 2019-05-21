@@ -33,7 +33,8 @@ primary:
           #配置基本属性
           url: jdbc:mysql://127.0.0.1:3306/epi?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useSSL=false
           username: root
-          password:
+          password: LZmy5cRxNcHQnxDhNtMm08t1dTncNuMkgU6+xZ3NPeY/Fu2LFGasDBEsFuel6A+osQljPgV5uMa3WqeZZpguaA==
+          publickey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJlRkDJNrJVIJu/TMBFJwEJJOxu0V3fVvDa1FoMWNrO5JuadCub/wvjSDtGUB1RVPXUIN/KIxiarqi5eaeCTeiECAwEAAQ==
           #配置初始化大小/最小/最大
           initialSize: 1
           minIdle: 1
@@ -62,7 +63,8 @@ back:
           #配置基本属性
           url: jdbc:mysql://127.0.0.1:3306/qtion?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useSSL=false
           username: root
-          password:
+          password: LZmy5cRxNcHQnxDhNtMm08t1dTncNuMkgU6+xZ3NPeY/Fu2LFGasDBEsFuel6A+osQljPgV5uMa3WqeZZpguaA==
+          publickey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJlRkDJNrJVIJu/TMBFJwEJJOxu0V3fVvDa1FoMWNrO5JuadCub/wvjSDtGUB1RVPXUIN/KIxiarqi5eaeCTeiECAwEAAQ==
           #配置初始化大小/最小/最大
           initialSize: 1
           minIdle: 1

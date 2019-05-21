@@ -1,5 +1,6 @@
 package com.config;
 
+import com.alibaba.druid.filter.config.ConfigTools;
 import com.alibaba.druid.pool.DruidDataSource;
 import lombok.Data;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -14,7 +15,6 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
 
 @Data
 @Configuration
@@ -34,6 +34,7 @@ public class PrimaryDataBaseConfig {
     private String url;
     private String username;
     private String password;
+    private String publickey;
     private String driverClassName;
     private int initialSize;
     private int minIdle;
@@ -51,7 +52,7 @@ public class PrimaryDataBaseConfig {
     // 主数据源使用@Primary注解进行标识
     @Primary
     @Bean(name = "primaryDataSource")
-    public DataSource primaryDataSource() throws SQLException {
+    public DataSource primaryDataSource() throws Exception {
         DruidDataSource druid = new DruidDataSource();
      // 监控统计拦截的filters
         druid.setFilters(filters);
@@ -59,7 +60,8 @@ public class PrimaryDataBaseConfig {
         // 配置基本属性
         druid.setDriverClassName(driverClassName);
         druid.setUsername(username);
-        druid.setPassword(password);
+        //druid.setPassword(password);
+        druid.setPassword(ConfigTools.decrypt(publickey,password));
         druid.setUrl(url);
 
         //初始化时建立物理连接的个数
@@ -85,14 +87,13 @@ public class PrimaryDataBaseConfig {
         druid.setPoolPreparedStatements(poolPreparedStatements);
         // 打开PSCache时，指定每个连接上PSCache的大小
         druid.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
-
         return druid;
     }
 
     // 创建该数据源的事务管理
     @Primary
     @Bean(name = "primaryTransactionManager")
-    public DataSourceTransactionManager primaryTransactionManager() throws SQLException {
+    public DataSourceTransactionManager primaryTransactionManager() throws Exception {
         return new DataSourceTransactionManager(primaryDataSource());
     }
 
@@ -104,7 +105,6 @@ public class PrimaryDataBaseConfig {
         sessionFactory.setDataSource(primaryDataSource);  // 设置数据源bean
         sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
                 .getResources(PrimaryDataBaseConfig.MAPPER_LOCATION));  // 设置mapper文件路径
-
         return sessionFactory.getObject();
     }
 }

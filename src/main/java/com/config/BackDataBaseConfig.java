@@ -1,5 +1,6 @@
 package com.config;
 
+import com.alibaba.druid.filter.config.ConfigTools;
 import com.alibaba.druid.pool.DruidDataSource;
 import lombok.Data;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -13,7 +14,6 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
 
 @Data
 @Configuration
@@ -30,6 +30,7 @@ public class BackDataBaseConfig {
     private String url;
     private String username;
     private String password;
+    private String publickey;
     private String driverClassName;
     private int initialSize;
     private int minIdle;
@@ -45,8 +46,9 @@ public class BackDataBaseConfig {
     private int maxPoolPreparedStatementPerConnectionSize;
 
     @Bean(name = "backDataSource")
-    public DataSource backDataSource() throws SQLException {
+    public DataSource backDataSource() throws Exception {
         DruidDataSource druid = new DruidDataSource();
+        druid.setPassword(ConfigTools.decrypt(publickey,password));
         // 监控统计拦截的filters
         druid.setFilters(filters);
 
@@ -82,7 +84,7 @@ public class BackDataBaseConfig {
         return druid;
     }
     @Bean(name = "backTransactionManager")
-    public DataSourceTransactionManager backTransactionManager() throws SQLException {
+    public DataSourceTransactionManager backTransactionManager() throws Exception {
         return new DataSourceTransactionManager(backDataSource());
     }
     @Bean(name = "backSqlSessionFactory")
