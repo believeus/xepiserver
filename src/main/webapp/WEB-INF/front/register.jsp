@@ -61,23 +61,23 @@
             <div style="width: 100%;height: auto;font-family: arial;font-size: 16px;color: #666666;">Create an account ot register and link your kit.</div>
             <div style="width: 100%;height: 20px;"></div>
             <div style="width: 90%;height: 40px;margin: 0 auto;">
-                <input type="text"placeholder="First name"value=""  name="firstname" id="firstname" style="width: 90%;height: 40px;margin: 0 auto; border: 1px solid #C0C0C0;border-radius: 3px;font-size: 16px;font-family: arial;font-weight: 500; padding-left: 12px;" />
+                <input type="text" required placeholder="First name"value=""  name="firstname" id="firstname" style="width: 90%;height: 40px;margin: 0 auto; border: 1px solid #C0C0C0;border-radius: 3px;font-size: 16px;font-family: arial;font-weight: 500; padding-left: 12px;" />
             </div>
             <div style="width: 100%;height: 15px;"></div>
             <div style="width: 90%;height: 40px;margin: 0 auto;">
-                <input type="text" placeholder="Last name" name="lastname" id="lastname" style="width: 90%;height: 40px;margin: 0 auto; border: 1px solid #C0C0C0;border-radius: 3px;font-size: 16px;font-family: arial;font-weight: 500; padding-left: 12px;" />
+                <input type="text" required placeholder="Last name" name="lastname" id="lastname" style="width: 90%;height: 40px;margin: 0 auto; border: 1px solid #C0C0C0;border-radius: 3px;font-size: 16px;font-family: arial;font-weight: 500; padding-left: 12px;" />
             </div>
             <div style="width: 100%;height: 15px;"></div>
             <div style="width: 90%;height: 40px;margin: 0 auto;">
-                <input type="email" placeholder="Email" name="mail" id="mail" style="width: 90%;height: 40px;margin: 0 auto; border: 1px solid #C0C0C0;border-radius: 3px;font-size: 16px;font-family: arial;font-weight: 500; padding-left: 12px;" />
+                <input type="email" required placeholder="Email" name="mail" id="mail" style="width: 90%;height: 40px;margin: 0 auto; border: 1px solid #C0C0C0;border-radius: 3px;font-size: 16px;font-family: arial;font-weight: 500; padding-left: 12px;" />
             </div>
             <div style="width: 100%;height: 15px;"></div>
             <div style="width: 90%;height: 40px;margin: 0 auto;">
-                <input type="password" placeholder="Create a password" name="Epwd" id="Epwd" style="width: 90%;height: 40px;margin: 0 auto; border: 1px solid #C0C0C0;border-radius: 3px;font-size: 16px;font-family: arial;font-weight: 500; padding-left: 12px;" />
+                <input type="password" required placeholder="Create a password" name="Epwd" id="Epwd" style="width: 90%;height: 40px;margin: 0 auto; border: 1px solid #C0C0C0;border-radius: 3px;font-size: 16px;font-family: arial;font-weight: 500; padding-left: 12px;" />
             </div>
             <div style="width: 100%;height: 15px;"></div>
             <div style="width: 90%;height: 40px;margin: 0 auto;">
-                <input type="password" placeholder="Confirm password" name="ReEpwd" id="ReEpwd" style="width: 90%;height: 40px;margin: 0 auto; border: 1px solid #C0C0C0;border-radius: 3px;font-size: 16px;font-family: arial;font-weight: 500; padding-left: 12px;" />
+                <input type="password" required placeholder="Confirm password" name="ReEpwd" id="ReEpwd" style="width: 90%;height: 40px;margin: 0 auto; border: 1px solid #C0C0C0;border-radius: 3px;font-size: 16px;font-family: arial;font-weight: 500; padding-left: 12px;" />
             </div>
             <div style="width: 100%;height: 15px;"></div>
             <div style="width: 90%;height: 50px;margin: 0 auto;">
@@ -322,17 +322,22 @@
     function Register2() {
         if($('#checkbox').is(':checked')) {
 
-        var mail = $("#mail").val()
+        var mail = $("#mail").val();
         if (mail == null || mail == 0){
-            alert("Mail cannot be empty!")
+            alert("Mail cannot be empty!");
             return false
         }
-
-
         console.log(mail)
-        var Epwd = $("#Epwd").val()
-
-        var ReEpwd = $("#ReEpwd").val()
+        var Epwd = $("#Epwd").val();
+        if(Epwd==""){
+            alert("password cannot be empty!");
+            return  false;
+        }
+        var ReEpwd = $("#ReEpwd").val();
+        if (Epwd != ReEpwd){
+            alert("Entered passwords differ!")
+            return false;
+        }
 
         var Fname = $("#firstname").val()
 
@@ -340,10 +345,7 @@
 
         var name = Fname + "-" + Lname
 
-        if (Epwd != ReEpwd){
-            alert("Entered passwords differ!")
-            return false;
-        }
+
 
 
         var country = $("#country2").find("option:selected").text();

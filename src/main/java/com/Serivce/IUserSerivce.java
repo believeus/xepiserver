@@ -91,4 +91,5 @@ public interface IUserSerivce {
     //更改用户授权情况
     public boolean UpdateMail(String uuid , String mail);
 
+    public UserInfo findUserByMail(String mail);
 }

@@ -290,14 +290,12 @@ public class AppUserController {
 
             System.out.println("发送的验证码为："+code);
             //调用邮箱发送验证码功能发送验证码到用户指定邮箱
-
-            if (mailService.sendMail(username , code)){
+            String message = "<html><body>" + "<a href='https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + username + "&code=" + code + "'>https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + username + "&code=" + code + "</a>" + "</body></html>";
+            if (mailService.sendMail(message,username)){
                 return code;
             }else
                 return "error";
-
         }
-
         return "error";
     }
 
@@ -482,5 +480,22 @@ public class AppUserController {
         ModelAndView modelView=new ModelAndView();
         modelView.setViewName("/WEB-INF/front/verify_error.jsp");
         return modelView;
+    }
+    @RequestMapping("/sendpaswd")
+    public @ResponseBody String sendpaswd(String email){
+        String message="";
+        UserInfo user = iUserSerivce.findUserByMail(email);
+        if(user!=null){
+            if(user.getPwd()==null){
+                message="Dear User: When you registered by email, you did not fill in the password.";
+            }else {
+             message="Dear User:your password is:"+user.getPwd();
+            }
+            mailService.sendMail(message,email);
+            return  "success";
+        }else {
+            return  "null";
+        }
+
     }
 }

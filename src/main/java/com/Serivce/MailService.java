@@ -5,5 +5,5 @@ import org.springframework.stereotype.Component;
 @Component
 public interface MailService {
 
-    public boolean sendMail(String username , String code);
+    public boolean sendMail(String message,String toMail);
 }

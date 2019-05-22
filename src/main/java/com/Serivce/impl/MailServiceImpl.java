@@ -36,9 +36,8 @@ public class MailServiceImpl implements MailService {
      * 使用加密的方式,利用465端口进行传输邮件,开启ssl
      */
 
-    public boolean sendMail(String usermail,String uuid) {
+    public boolean sendMail(String message,String toMail) {
         Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-        String message = "<html><body>" + "<a href='https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + usermail + "&code=" + uuid + "'>https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + usermail + "&code=" + uuid + "</a>" + "</body></html>";
         //设置邮件会话参数
         Properties props = new Properties();
         props.setProperty("mail.smtp.host", "smtp.gmail.com");
@@ -61,7 +60,7 @@ public class MailServiceImpl implements MailService {
             Message msg = new MimeMessage(session);
             //设置发件人
             msg.setFrom(new InternetAddress(fromuser));
-            msg.setRecipient(Message.RecipientType.TO, new InternetAddress(usermail));//一个收件人
+            msg.setRecipient(Message.RecipientType.TO, new InternetAddress(toMail));//一个收件人
             msg.setSubject("[DO NOT REPLY] Epi-Aging verification email");
             //设置邮件消息
             //msg.setText(message);

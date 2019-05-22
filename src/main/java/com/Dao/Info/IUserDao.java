@@ -7,29 +7,13 @@ import com.Bean.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.Map;
-
 @Mapper
 public interface IUserDao {
-    /**
-     *
-     * 功能描述: 测试方法
-     *
-     * @param:
-     * @return:
-     * @auther: Eestill
-     * @date: 2019/2/26 13:30
-     */
+
     public User getUser();
 
     /**
-     *
      * 功能描述: 用于获取user_id
-     *
-     * @param:  String
-     * @return: Integer
-     * @auther: Eestill
-     * @date: 2019/2/26 13:52
      */
     public String get_userid(@Param("wx_openid") String wx_openid);
 
@@ -49,9 +33,6 @@ public interface IUserDao {
     /**
      *
      * 功能描述: 根据邮箱/手机号 来进行用户的创建
-     * @author: Eestill
-     * @date: 2019/3/7 16:33
-     * @param userInfo
      */
     public int app_createUser(@Param("userInfo")UserInfo userInfo);
 
@@ -65,11 +46,7 @@ public interface IUserDao {
     public User app_LoginUser(@Param("userInfo")UserInfo userInfo);
 
     /**
-     *
      * 功能描述: 根据用户注册时，uuid进行数据初始化
-     * @author: Eestill
-     * @date: 2019/3/7 16:34
-     * @param user
      */
     public int Init_UserInfo(@Param("user")User user);
 
@@ -124,4 +101,7 @@ public interface IUserDao {
 
     //更改用户邮箱授权状况
     public Integer UpdateMail(@Param("uuid")String uuid , @Param("mail")String mail);
+
+    //根据邮箱查找用户信息
+    public UserInfo findUserByMail(@Param("mail") String mail);
 }

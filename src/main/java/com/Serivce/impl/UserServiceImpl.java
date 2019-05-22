@@ -87,7 +87,9 @@ public class UserServiceImpl implements IUserSerivce {
 
         //如果是邮箱用户，发送点击验证
         if (userCreat.getType().equals("Mail")){
-            mailService.sendMail(userCreat.getMail() , userCreat.getUuid());
+            String message = "<html><body>" + "<a href='https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + userCreat.getMail() + "&code=" + uuid + "'>https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + userCreat.getMail() + "&code=" + uuid + "</a>" + "</body></html>";
+            System.out.println(message);
+            mailService.sendMail(message,userCreat.getMail());
         }
 
         if (i == 1){
@@ -181,5 +183,11 @@ public class UserServiceImpl implements IUserSerivce {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public UserInfo findUserByMail(String mail) {
+        UserInfo user = userDao.findUserByMail(mail);
+        return user;
     }
 }

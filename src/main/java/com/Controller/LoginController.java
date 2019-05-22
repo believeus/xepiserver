@@ -4,20 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.Map;
-
-/**
- * @ CreateDate : Create in 0:37 2019/3/16
- * @ Explain :
- * @ UpdateDate : Update in
- * @ Author : Eestill
- */
 @Controller
 public class LoginController {
     static boolean flag = true;
+
 
     @RequestMapping(value = "/login")
     public ModelAndView Tologin(){
@@ -27,7 +17,12 @@ public class LoginController {
         modelView.addObject("canback", true);
         return  modelView;
     }
-
+    @RequestMapping("/forgetPasswd")
+    public ModelAndView forgetPasswd(){
+        ModelAndView modelView = new ModelAndView();
+        modelView.setViewName("/WEB-INF/front/fpaswd.jsp");
+        return  modelView;
+    }
     @RequestMapping(value = "/register")
     public ModelAndView ToRegister(){
         ModelAndView modelView = new ModelAndView();
@@ -43,5 +38,6 @@ public class LoginController {
         modelView.addObject("canback", true);
         return  modelView;
     }
+
 
 }

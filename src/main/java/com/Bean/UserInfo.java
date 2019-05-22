@@ -13,7 +13,7 @@ public class UserInfo {
     private String wx_openid;
     private String code;
     private String type;
-    private String pwd;
+    private String password;
     private String country;
     private String mail_status;
     private String nickname;
@@ -52,11 +52,11 @@ public class UserInfo {
 
 
     public String getPwd() {
-        return pwd;
+        return password;
     }
 
     public void setPwd(String pwd) {
-        this.pwd = pwd;
+        this.password = pwd;
     }
 
     public String getWx_openid() {
@@ -108,7 +108,7 @@ public class UserInfo {
                 ", wx_openid='" + wx_openid + '\'' +
                 ", code='" + code + '\'' +
                 ", type='" + type + '\'' +
-                ", pwd='" + pwd + '\'' +
+                ", pwd='" + password + '\'' +
                 ", country='" + country + '\'' +
                 ", mail_status='" + mail_status + '\'' +
                 ", nickname='" + nickname + '\'' +

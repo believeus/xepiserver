@@ -228,4 +228,8 @@
         where
           mail = #{mail} and uuid = #{uuid}
     </update>
+
+    <select id="findUserByMail" resultType="com.Bean.UserInfo">
+        select * from user_table where mail=#{mail} and mail_status=1
+    </select>
 </mapper>

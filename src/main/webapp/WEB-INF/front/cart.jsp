@@ -142,13 +142,13 @@
                     </div>
                 </li>
             </ul>
-            <div class="shopPrice">About：$<span class="shop-total-amount ShopTotal">0.00</span></div>
+            <div class="shopPrice">TOTAL：$<span class="shop-total-amount ShopTotal">0.00</span></div>
         </div>
     </div>
     <div class="payment-bar" style="height: 82px">
         <div class="all-checkbox" style="float: left;height: 100%"><input type="checkbox" class="check goods-check" id="AllCheck" style="top:30%;border:0px solid #000"></div>
         <div class="shop-total" style="float: left">
-            <strong>About：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
+            <strong>TOTAL：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
         </div>
         <a class="settlement" onclick="show()" href="javascript:;" style="float: right">Next</a>
     </div>

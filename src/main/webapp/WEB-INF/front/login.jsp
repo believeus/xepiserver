@@ -297,13 +297,14 @@
             <div id="PWDSignIn" style="display:block">
                 <div class="userName">
                     <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
-                    <input type="text" name="username2" id="username2" placeholder="Telephone / Email" style="width: 60%" >
+                    <input type="text" name="username2" id="username2" placeholder="Email" style="width: 60%" >
                 </div>
                 <div class="passWord">
                     <lable style="color:#808080">&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/images/InOrUp/pwd.png" style="width: 16px;height: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;</lable>
                     <input type="password" name="password" id="password" placeholder="Password" style="width:60%">
                 </div>
-                <%--<div class="choose_box">--%>
+                <div class="choose_box">
+                <lable style="color:#696969"><a href="/forgetPasswd.jhtml">forget password</a></lable>
                     <%--<div>--%>
                         <%--<lable style="color:#696969" onclick="SMS()">Sign in By Code</lable>--%>
                     <%--</div>--%>
