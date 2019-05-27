@@ -16,7 +16,7 @@
 <div id="container"style="width: 100%;height: 100%;">
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="ill-pic"style="width: 100%;height: auto;">
-		<img src="static/images/ill-2.jpeg" style="width: 100%;height: auto;"/>
+		<img src="static/images/ill-2.png" style="width: 100%;height: auto;"/>
 	</div>
 	<div id="intro" style="width: 100%;height: auto;  ">
 		<div style="width: 100%;height:20px;"> </div>

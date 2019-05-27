@@ -40,11 +40,9 @@
                         <img src="static/images/var-success.png" style="width: 20%;height: auto"/>
                     </div>
                     <div style="width: 100%;height: 40%;text-align: center">
-                        <p style="font-size: 24px;color:#fc8d6b">Congratulations ,Validation completed!</p>
+                        <p style="font-size: 24px;color:#fc8d6b">Registration completed. <br>You can start by logging in to Epi-Aging using this email address. </p>
                     </div>
-                    <div style="width: 100%;height: 10%;text-align: center">
-                        <p style="font-size: 17px;color:#000">Tips:You can use this email to log in now.</p>
-                    </div>
+
                 </div>
             </div>
         </div>

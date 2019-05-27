@@ -24,8 +24,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div style="width: 30%;height: 100px;float: left;"></div>
 			</div>
 			<div style="width: 100%;height: 400px;overflow: hidden;">
-				<div style="width: 100%;height: 40px;text-align: center;line-height: 40px;font-family: arial;font-size: 18px;color: #666666;">GZ Tel: +86 020-34077737</div>
-				<div style="width: 100%;height: 40px;text-align: center;line-height: 40px;color: #666666;">Email Address: <i>info@hkgepitherapeutics.com</i></div>
+				<div style="width: 100%;height: 40px;text-align: center;line-height: 40px;font-family: arial;font-size: 18px;color: #666666;">(+852) 2354 8297</div>
+				<div style="width: 100%;height: 40px;text-align: center;line-height: 40px;color: #666666;">
+					<p> <i>info@hkgepitherapeutics.com</i></p>
+					<p> https://www.hkgepitherapeutics.com</p>
+					<p>HKG epitherapeutics Limited Unit 613, Biotech Centre 2,Hong Kong Science Park,Sha Tin,N.T.,Hong Kong</p>
+				</div>
 			</div>
 		</div>
 	</body>

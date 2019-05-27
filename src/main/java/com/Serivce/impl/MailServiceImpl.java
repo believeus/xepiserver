@@ -61,7 +61,7 @@ public class MailServiceImpl implements MailService {
             //设置发件人
             msg.setFrom(new InternetAddress(fromuser));
             msg.setRecipient(Message.RecipientType.TO, new InternetAddress(toMail));//一个收件人
-            msg.setSubject("[DO NOT REPLY] Epi-Aging verification email");
+            msg.setSubject("[DO NOT REPLY] Please verify your registration on Epi-Aging");
             //设置邮件消息
             //msg.setText(message);
             msg.setContent(message , "text/html;charset = utf-8");

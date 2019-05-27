@@ -87,8 +87,23 @@ public class UserServiceImpl implements IUserSerivce {
 
         //如果是邮箱用户，发送点击验证
         if (userCreat.getType().equals("Mail")){
-            String message = "<html><body>" + "<a href='https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + userCreat.getMail() + "&code=" + uuid + "'>https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + userCreat.getMail() + "&code=" + uuid + "</a>" + "</body></html>";
-            System.out.println(message);
+           // String message = "<html><body>" + "<a href='https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + userCreat.getMail() + "&code=" + uuid + "'>https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + userCreat.getMail() + "&code=" + uuid + "</a>" + "</body></html>";
+            String message = "<!DOCTYPE html>" +
+                    "<html>" +
+                    "<head>" +
+                    "<meta charset=\"UTF-8\">" +
+                    "<title></title>" +
+                    "</head>" +
+                    "<body>" +
+                    "<div style='width: 100%;height: auto;'>" +
+                    "<div style='width: 100%;height: 60px;'></div>" +
+                    "<p>Dear user</p><p>Thank you for your registration on Epi-Aging. <br />Please click on the following link to complete your registration:</p>" +
+                    "<a href='https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + userCreat.getMail() + "&code=" + uuid + "'>https://app.beijingepidial.com/App/CheckMail.jhtml?mail=" + userCreat.getMail() + "&code=" + uuid + "</a>" +
+                    "<p>HKG epitherapeutics Limited<br />https://www.hkgepitherapeutics.com</p>" +
+                    "<p>(+852) 2354 8297<br />info@hkgepitherapeutics.com</p><p>2019 All rights reserved</p>" +
+                    "</div>" +
+                    "</body>" +
+                    "</html>";
             mailService.sendMail(message,userCreat.getMail());
         }
 

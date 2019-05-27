@@ -254,7 +254,7 @@
                                                 name:"min",
                                                 type : 'value',
                                                 axisLabel : {
-                                                    formatter : '{value} level'
+                                                    formatter : '{value} min'
                                                 }
                                             } ],
                                             series : [ {

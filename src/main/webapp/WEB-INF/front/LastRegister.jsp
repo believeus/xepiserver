@@ -61,18 +61,9 @@
             <div style=" width: 80%;
                 margin: 0 auto;
                 text-align: left; ">
-                <div style="width: 100%;text-align: center"> <p style="font-size: 26px">Thanks your register!</p></div>
-                <p style="font-size: 20px">We have sent a verification email to you.</p>
-                <p style="font-size: 20px">Complete your registration by clicking the link on the email.</p>
-
-                <div id="CodeSignIn" style="display:block;height: auto;">
-
-                    <div class="other_login" style="margin-top: 40px;">
-                        <button class="login_btn" onclick="ToLogin()" style="margin-top: 0px;">Verify success . Log in.</button>
-                    </div>
-
-                </div>
-                </form>
+                <div style="width: 100%;text-align: center"> <p style="font-size: 26px">Thank you for your registration.</p></div>
+                <p style="font-size: 20px">We have sent to you a verification email.</p>
+                <p style="font-size: 20px">Please complete your registration by following the instruction in the email.</p>
             </div>
         </div>
 
