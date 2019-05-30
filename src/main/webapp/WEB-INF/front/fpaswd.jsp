@@ -63,7 +63,7 @@
                         var email=$("input[name=email]").val();
                          var data={};
                          data.email=email;
-                        $.post("/App/sendpaswd.jhtml",data,function(msg){
+                        $.post("/user/sendpaswd.jhtml",data,function(msg){
                             var data="";
                             $("div[name=message]").css("display","block");
                             if(msg=="success"){

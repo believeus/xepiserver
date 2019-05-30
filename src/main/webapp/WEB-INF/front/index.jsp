@@ -36,6 +36,7 @@ div[id=blue-dot]:before {
 </style>
 </head>
 
+
 <body style="padding: 0;margin: 0;">
 	<div style="width: 100%;height: 100%;">
 		<jsp:include page="header.jsp" />
@@ -72,13 +73,13 @@ div[id=blue-dot]:before {
 					<div style="width: 100%;height: 45%;">
 						<div style="width: 100%;height: 50%; ">
 							<div style="width: 27%;height: 100%;float: left; "></div>
-							<a href="lifestyle/index.jhtml">
+							<a href="user/lifestyle/index.jhtml">
 								<div style="width: 73%;height: 100%;float: left; "></div>
 							</a>
 						</div>
 
 						<div style="width: 100%;height: 50%; ">
-							<a href="bioreport/index.jhtml">
+							<a href="user/bioreport/index.jhtml">
 								<div style="width: 73%;height: 100%;float: left; "></div>
 							</a>
 							<div style="width: 27%;height: 100%;float: left; "></div>

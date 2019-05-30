@@ -1,0 +1,72 @@
+package com.epidial.filter;
+
+import com.epidial.bean.User;
+
+import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Stack;
+
+@WebFilter(filterName = "sysFirwall", urlPatterns = {"/user/*"})
+public class SysFirewall implements Filter {
+    private List<String> nologinCannotAccessUrl = Arrays.asList(new String[]{
+            "/user/bioreport/index.jhtml", "/user/lifestyle/index.jhtml",
+            "/user/pain/index.jhtml", "/user/mood/index.jhtml",
+            "/user/sleep/index.jhtml", "/user/sleep/index.jhtml",
+            "/user/diet/index.jhtml", "/user/cart/index.jhtml",
+            "/user/transaction/postCar.jhtml", "/user/transaction/checkCart.jhtml",
+            "/user/transaction/updatdCart.jhtml", "/user/transaction/deleteCart.jhtml",
+            "/user/transaction/loadOrder.jhtml", "/user/transaction/check.jhtml",
+            "/user/transaction/success.jhtml", "/user/cart/index.jhtml",
+            "/user/cart/check.jhtml", "/user/cart/order.jhtml",
+            "/user/paypal/payment.jhtml", "/user/paypal/paysuccess.jhtml",
+            "/user/paypal/cancelUrl.jhtml", "/user/report/iage.jhtml", "/user/report/getData.jhtml"});
+    private String loginurl = "/login.jhtml";
+    public static Stack<String> urlstack = new Stack<String>();
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    // 设置防火墙，不能从浏览器直接输入其他页面地址只能完成从主页一个入口进入后内部跳转
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse resp = (HttpServletResponse) response;
+        HttpSession session = req.getSession();
+        User user = (User) session.getAttribute("sessionuser");
+        //访问第一个页面是没有refered的！从跳转页开始就有refered
+        String refer = req.getHeader("Referer");
+        String uri = req.getRequestURI();
+        System.out.println(uri);
+        //当用户没有登录,直接跳转到登陆页面
+        if (user != null) {
+            chain.doFilter(request, response);
+        } else if (user == null) {
+            if (!nologinCannotAccessUrl.contains(uri)) {
+                chain.doFilter(request, response);// 放行到下个页面
+            } else {
+                urlstack.push(uri);
+                resp.sendRedirect(loginurl);
+            }
+        } else if (refer == null) { //不允许直接跳转到二级页面
+            // 首页链接直接放行
+            if (!nologinCannotAccessUrl.contains(uri)) {
+                chain.doFilter(request, response);// 放行filter
+            } else {
+                resp.sendRedirect(loginurl);// 打回主页 重定向又被filter拦截
+                urlstack.push(uri);
+            }
+        }
+    }
+
+    public void destroy() {
+
+    }
+}

@@ -32,7 +32,7 @@
             </div>
             <ul>
                 <li>
-                    <div class="shop-info" style="border:4px inset #0480be">
+                    <div class="shop-info">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="1001"  style="border:0px solid #000">
                         <div class="shop-info-img" style="text-align: center;">
                             <a href="aging/index.jhtml">
@@ -192,7 +192,6 @@
                     TotalPrice();
                 }
             } else { //如果选中的商品不等于所有商品
-                console.log("计算单个商品开始")
                 Shops.prop('checked', false); //店铺全选按钮不被选中
                 $("#AllCheck").prop('checked', false); //全选按钮也不被选中
                 // 计算
@@ -296,8 +295,6 @@
 
             s1 += "],"
 
-            console.log("list --->" + s1)
-
             var price = document.getElementById('AllTotal').innerHTML;
             //alert(price)
             s1 += '"total_price":"' + price + '"'
@@ -309,7 +306,7 @@
             console.log(s1)
 
             $.ajax({
-                url: "transaction/PostCar.jhtml",
+                url: "/user/transaction/postCar.jhtml",
                 type: "post",
                 contentType: 'application/json; charset=UTF-8',
                 data: s1,

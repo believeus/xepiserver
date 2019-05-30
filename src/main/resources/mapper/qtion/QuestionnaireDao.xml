@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.Dao.Qtion.QuestionnaireDao">
+<mapper namespace="com.epidial.dao.Qtion.QuestionnaireDao">
 
     <insert id="InsertPain" parameterType="java.util.Map">
         insert into mcgillpainquestionnaire(uuid , fraction , updata_time , week)
@@ -24,7 +24,7 @@
     </insert>
 
 
-    <select id="SelectMood" parameterType="com.Bean.Questionnaire" resultMap="SelectMoodResultMap">
+    <select id="SelectMood" parameterType="com.epidial.bean.Questionnaire" resultMap="SelectMoodResultMap">
         select
           fraction , updata_time
         from moodselfassesment
@@ -32,7 +32,7 @@
           uuid = #{uuid , jdbcType=VARCHAR} and updata_time = #{time , jdbcType=BIGINT}
     </select>
 
-    <resultMap id="SelectMoodResultMap" type="com.Bean.Questionnaire">
+    <resultMap id="SelectMoodResultMap" type="com.epidial.bean.Questionnaire">
         <result property="fraction" column="fraction"/>
         <result property="updata_time" column="updata_time"/>
     </resultMap>
@@ -60,7 +60,7 @@
           uuid = #{uuid , jdbcType=VARCHAR} and updata_time = #{time , jdbcType=BIGINT}
     </select>
 
-    <resultMap id="SelectPainResultMap" type="com.Bean.Questionnaire">
+    <resultMap id="SelectPainResultMap" type="com.epidial.bean.Questionnaire">
         <result property="fraction" column="fraction"/>
         <result property="updata_time" column="updata_time"/>
     </resultMap>
@@ -80,7 +80,7 @@
         limit 0 , 7
     </select>
 
-    <select id="SelectSleep" parameterType="com.Bean.Questionnaire" resultMap="SelectSleepResultMap">
+    <select id="SelectSleep" parameterType="com.epidial.bean.Questionnaire" resultMap="SelectSleepResultMap">
         select
          fraction , updata_time
         from sleepselfassesment
@@ -88,7 +88,7 @@
           uuid = #{uuid , jdbcType=VARCHAR} and updata_time = #{time , jdbcType=BIGINT}
     </select>
 
-    <resultMap id="SelectSleepResultMap" type="com.Bean.Questionnaire">
+    <resultMap id="SelectSleepResultMap" type="com.epidial.bean.Questionnaire">
         <result property="fraction" column="fraction"/>
         <result property="updata_time" column="updata_time"/>
     </resultMap>

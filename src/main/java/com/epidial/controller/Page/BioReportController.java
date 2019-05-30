@@ -1,0 +1,35 @@
+package com.epidial.controller.Page;
+
+import com.epidial.bean.User;
+import com.epidial.serivce.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpSession;
+
+@Controller
+public class BioReportController {
+
+	@Autowired
+	private OrderService orderService;
+
+
+	@RequestMapping("/user/bioreport/index")
+	public ModelAndView  index(HttpSession session){
+		ModelAndView modelView=new ModelAndView();
+		User user = (User)session.getAttribute("sessionuser");
+		//检查是否购买了生物学年龄试剂检测
+		if (!orderService.CheckOrderExist(user.getUuid())){
+			modelView.setViewName("/WEB-INF/front/aging.jsp");
+			modelView.addObject("title","Aging");
+			modelView.addObject("canback",true);
+			return modelView;
+		}
+		modelView.setViewName("/WEB-INF/front/bioreport.jsp");
+		modelView.addObject("title"," biological Age report");
+		modelView.addObject("canback", true);
+		return  modelView;
+	}
+}

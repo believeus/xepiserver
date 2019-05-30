@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.Dao.Info.WaresDao">
+<mapper namespace="com.epidial.dao.Info.WaresDao">
     <select id="selectWares" parameterType="Integer" resultMap="selectWaresResultMap">
         select
           *
@@ -8,7 +8,7 @@
         where
           wares_id = #{wares_id}
     </select>
-    <resultMap id="selectWaresResultMap" type="com.Bean.Wares">
+    <resultMap id="selectWaresResultMap" type="com.epidial.bean.Wares">
         <id column="wares_id" property="wares_id"/>
         <result column="sell_price" property="sell_price"/>
         <result column="wares_info" property="wares_info"/>

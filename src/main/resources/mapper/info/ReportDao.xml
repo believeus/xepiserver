@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.Dao.Info.ReportDao">
+<mapper namespace="com.epidial.dao.Info.ReportDao">
     <select id="GetLifeData" resultMap="GetLifeDataResultMap" parameterType="String">
         select * from life_style
         where uuid = #{uuid}
         order by update_time
     </select>
 
-    <resultMap id="GetLifeDataResultMap" type="com.Bean.Life">
+    <resultMap id="GetLifeDataResultMap" type="com.epidial.bean.Life">
         <result column="update_time" property="update_time"/>
         <result column="week" property="week"/>
         <result column="mediatation" property="mediatation"/>
@@ -41,7 +41,7 @@
         from biological
     </select>
 
-    <resultMap id="GetBioDataResultMap" type="com.Bean.Bio">
+    <resultMap id="GetBioDataResultMap" type="com.epidial.bean.Bio">
         <result property="natural_age" column="natural_age"/>
         <result property="biological_age" column="biological_age"/>
     </resultMap>
@@ -53,7 +53,7 @@
         where bar_code = #{id}
     </select>
 
-    <resultMap id="GetBioDataForPersonResultMap" type="com.Bean.Bio">
+    <resultMap id="GetBioDataForPersonResultMap" type="com.epidial.bean.Bio">
         <result property="natural_age" column="natural_age"/>
         <result property="biological_age" column="biological_age"/>
         <result property="id" column="bar_code"/>
@@ -65,7 +65,7 @@
        limit 0 , 1
     </select>
 
-    <resultMap id="GetBioDataByUUIDResultMap" type="com.Bean.Bio">
+    <resultMap id="GetBioDataByUUIDResultMap" type="com.epidial.bean.Bio">
         <result property="natural_age" column="natural_age"/>
         <result property="biological_age" column="biological_age"/>
         <result property="id" column="bar_code"/>
@@ -81,7 +81,7 @@
         order by update_time desc
     </select>
 
-    <resultMap id="getDateOfLifeResult" type="com.Bean.Life">
+    <resultMap id="getDateOfLifeResult" type="com.epidial.bean.Life">
         <result property="height" column="height"/>
         <result property="weight" column="weight"/>
         <result property="bmi" column="bmi"/>
@@ -119,7 +119,7 @@
         limit 0 , 1
     </select>
 
-    <resultMap id="SelectPainResultMap" type="com.Bean.Questionnaire">
+    <resultMap id="SelectPainResultMap" type="com.epidial.bean.Questionnaire">
         <result property="fraction" column="fraction"/>
     </resultMap>
 
@@ -133,7 +133,7 @@
         limit 0 , 1
     </select>
 
-    <resultMap id="SelectMoodResultMap" type="com.Bean.Questionnaire">
+    <resultMap id="SelectMoodResultMap" type="com.epidial.bean.Questionnaire">
         <result property="fraction" column="fraction"/>
     </resultMap>
 
@@ -147,7 +147,7 @@
         limit 0 , 1
     </select>
 
-    <resultMap id="SelectSleepResultMap" type="com.Bean.Questionnaire">
+    <resultMap id="SelectSleepResultMap" type="com.epidial.bean.Questionnaire">
         <result property="fraction" column="fraction"/>
     </resultMap>
 

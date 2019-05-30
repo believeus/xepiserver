@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.Dao.Info.OrderDao">
+<mapper namespace="com.epidial.dao.Info.OrderDao">
     <insert id="OrderMessCreate" parameterType="java.util.Map">
         insert into ordermess(order_id , goods_id , goods_count )
         values
@@ -10,9 +10,9 @@
     </insert>
 
     <insert id="OrderListCreate" parameterType="java.util.Map">
-        insert into orderlist(order_id, uuid, price, identifier, PayStatus_code, order_time , promo_code)
+        insert into orderlist(order_id, uuid, price, addressId, PayStatus_code, order_time , promo_code)
         values
-        (#{order_id , jdbcType=INTEGER} , #{uuid ,jdbcType=VARCHAR} , #{Total_price , jdbcType=DOUBLE} , #{identifier , jdbcType=INTEGER} , #{PayStatus_code , jdbcType=INTEGER} , #{order_time , jdbcType=BIGINT} , #{promo_code , jdbcType=VARCHAR})
+        (#{order_id , jdbcType=INTEGER} , #{uuid ,jdbcType=VARCHAR} , #{Total_price , jdbcType=DOUBLE} , #{addressId , jdbcType=INTEGER} , #{PayStatus_code , jdbcType=INTEGER} , #{order_time , jdbcType=BIGINT} , #{promo_code , jdbcType=VARCHAR})
     </insert>
 
     <update id="OrderUpdate" parameterType="Map">
@@ -33,25 +33,25 @@
             o.goods_id as wares_id,
             d.order_time,
             d.PayStatus_Code,
-            d.identifier
+            d.addressId
         FROM wares_info w
         INNER JOIN ( SELECT order_id, goods_id, goods_count  FROM ordermess ) o ON w.wares_id = o.goods_id
         INNER JOIN
-        ( SELECT om.order_id, od.order_time, od.price, od.identifier, od.PayStatus_code
+        ( SELECT om.order_id, od.order_time, od.price, od.addressId, od.PayStatus_code
           FROM ordermess om,( SELECT * FROM orderlist WHERE uuid = #{uuid} ) od WHERE om.order_id = od.order_id ) d
         ON d.order_id = o.order_id
     </select>
 
-    <resultMap id="CheckOrderResultMap" type="com.Bean.Order">
+    <resultMap id="CheckOrderResultMap" type="com.epidial.bean.Order">
         <id column="order_id" property="order_id"/>
         <result column="goods_id" property="goods_id"/>
         <result column="order_time" property="order_time"/>
         <result column="PayStatus_Code" property="PayStatus_Code"/>
-        <result column="identifier" property="identifier"/>
+        <result column="addressId" property="addressId"/>
         <collection property="list" resultMap="selectWares_List" />
     </resultMap>
 
-    <resultMap id="selectWares_List" type="com.Bean.Wares">
+    <resultMap id="selectWares_List" type="com.epidial.bean.Wares">
         <id column="wares_id" property="wares_id"/>
         <result column="wares_count" property="wares_count"/>
         <result column="wares_name" property="wares_name"/>
