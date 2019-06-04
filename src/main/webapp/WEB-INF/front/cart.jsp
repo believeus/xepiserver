@@ -41,7 +41,7 @@
                         </div>
                         <div class="shop-info-text">
                             <h4><a href="aging/index.jhtml">Biological age detection 2.0</a></h4>
-                            <div class="shop-brief"><span>Saliva DNA Collection Kit</span></div>
+                            <div class="shop-brief"></div>
                             <div class="shop-price">
                                 <div class="shop-pices">$<b class="price">99</b></div>
                                 <div class="shop-arithmetic">

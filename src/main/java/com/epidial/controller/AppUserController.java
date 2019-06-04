@@ -87,7 +87,7 @@ public class AppUserController {
     public ModelAndView toLastRegister() {
         ModelAndView modelView = new ModelAndView();
         modelView.setViewName("/WEB-INF/front/LastRegister.jsp");
-        modelView.addObject("title", "You will complete the registration.");
+        modelView.addObject("title", "Thank you for your registration.");
         modelView.addObject("canback", false);
         return modelView;
     }

@@ -22,11 +22,11 @@
     <div style="width: 100%;">
         <div style="width:100%;height: 135px">
             <div style="width: 200px;height: 100%;float: left;text-align: center;">
-                <div style="width: 100%;height: 15px"></div>
+                <div style="width: 207px;height: auto"></div>
                 <img src="static/images/top-logo1.png" style="width: 70%;height: auto;"/>
             </div>
             <div style="width: 200px;height: 100%;float: left;text-align: center;">
-                <div style="width: 100%;height: 82px"></div>
+                <div style="width: 270px;height: auto"></div>
                 <img src="static/images/top-logo2.png" style="width: 100%;height: auto;"/>
             </div>
 

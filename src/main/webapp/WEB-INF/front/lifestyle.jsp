@@ -331,7 +331,7 @@
 	</script>
 	<div class="weight" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
 		<div style="width: 100%;height: 30px;"></div>
-		<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Weight(kg)</div>
+		<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Weight & Height</div>
 		<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 			<a href="https://www.cdc.gov/healthyweight/index.html">Source: Centers for Disease Control and Prevention</a>
 		</div>
@@ -344,7 +344,7 @@
 			<p>If your BMI is 30.0 or higher, it falls within the obese range.</p>
 		</div>
 		<div style="width: 100%;height: 20px; "></div>
-
+		<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Weight(kg)</div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div class="lifestyle-weigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 			<div>
@@ -359,7 +359,7 @@
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div class="lifestyle-heigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 			<div>
-				<input class="lifestyle-height-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="50" data-slider-max="250" data-slider-step="50" data-slider-value="50">
+				<input class="lifestyle-height-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="50" data-slider-max="250" data-slider-step="1" data-slider-value="50">
 			</div>
 			<div style="width: 100%;height: 20px;"></div>
 		</div>
@@ -1216,7 +1216,7 @@
 			<div style="width: 100%;height: 20px;"></div>
 			<div class="lifestyle-sleep-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0h</div>
 			<div>
-				<input class="lifestyle-sleep-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
+				<input class="lifestyle-sleep-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="24" data-slider-step="1" data-slider-value="0">
 			</div>
 			<div class="ex23CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-sleep-report'></div>
@@ -1267,7 +1267,7 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value=slideEvt.value;
-                    $(".lifestyle-activesex-val").text(value+" times");
+                    $(".lifestyle-activesex-val").text(value+" years");
                     var data = '{ "column":"SexLife","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -1676,7 +1676,7 @@
 			<div style="width: 100%;height: 20px;"></div>
 			<div class="lifestyle-smoking-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0stick</div>
 			<div>
-				<input class="lifestyle-smoking-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="30" data-slider-step="1" data-slider-value="0">
+				<input class="lifestyle-smoking-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="200" data-slider-step="1" data-slider-value="0">
 			</div>
 			<div class="ex7CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-smoking-report'></div>

@@ -60,10 +60,10 @@
                                    style="width:60%">
                         </div>
                         <div class="choose_box">
-                            <lable style="color:#696969"><a href="/user/forgotPaswd.jhtml">forget password</a></lable>
-                            <div class="other_login" style="margin-top: 40px;">
-                                <span>By clicking the button below, I agree to the User Agreement and Privacy Policy.</span>
-                                <input type="submit" class="login_btn" value="Login"  style="margin-top: 0px;"></input>
+                            <lable style="color:#696969;text-decoration: none;float: right;"><a href="/user/forgotPaswd.jhtml">forget password</a></lable>
+                            <div class="other_login" style="margin-top: 100px;line-height: 22px;">
+                                <span>By clicking the button below, I agree to <a href="concent/index.jhtml" style="text-decoration: none;"><i> the User Agreement and Privacy Policy.</i></a></span>
+                                <input type="submit" class="login_btn" value="Login"  style="margin-top: 0px;text-align: center"></input>
                             </div>
                         </div>
                     </div>

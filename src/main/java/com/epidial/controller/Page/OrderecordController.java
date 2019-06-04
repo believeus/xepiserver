@@ -20,7 +20,7 @@ public class OrderecordController {
 		ModelAndView modelView=new ModelAndView();
 		if (session.getAttribute("userInfo") != null) {
 			modelView.setViewName("/WEB-INF/front/orderecord.jsp");
-			modelView.addObject("title", "Orderecord List");
+			modelView.addObject("title", "Order record");
 			modelView.addObject("canback", true);
 			return modelView;
 		}

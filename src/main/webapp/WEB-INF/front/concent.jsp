@@ -23,7 +23,7 @@
         </div> -->
 		<div style="width: 100%;height: 20px;"></div>
 		<div style="width: 100%;height: 40px;">
-			<div style="width: 80%;height: 40px;margin: 0 auto;border-radius: 50px;background-color: #0071BC;color: #FFFFFF;line-height: 40px; font-family: arial;text-align: center; font-size: 18px;">Epidial Customer Data Consent Form</div>
+			<div style="width: 100%;height: 40px;margin: 0 auto;border-radius: 50px;background-color: #0071BC;color: #FFFFFF;line-height: 40px; font-family: arial;text-align: center; font-size: 16px;">HKG epitherapeutics Customer Data Consent</div>
 		</div>
 		<div style="width: 100%;height: 20px;"></div>
 		<div style="width: 96%;height: auto;margin: 0 auto;">

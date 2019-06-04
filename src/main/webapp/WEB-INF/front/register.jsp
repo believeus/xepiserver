@@ -30,11 +30,7 @@
 <div style="background-image:url('static/images/bg.png');width:100%;height:667px;">
     <div style="width: 90%;height: auto;margin: 0 auto;">
         <div style="width: 100%;height: auto;font-family: arial;font-size: 20px;font-weight: 500;line-height: 80px;font-weight:600;">
-
-            Register your kit
-        </div>
-        <div style="width: 100%;height: auto;font-family: arial;font-size: 16px;color: #666666;">Create an account to
-            register and link your kit.
+            Register
         </div>
         <div style="width: 100%;height: 20px;"></div>
         <form action="App/register.jhtml" method="post">
@@ -281,14 +277,14 @@
             <div style="width: 100%;height: 30px;"></div>
             <div style="width: 90%;height: auto;color: #666666;margin: 0 auto;">
                 <input type="checkbox" name="checkbox" required="required" id="checkbox" value="checkbox"
-                       style="width:17px;height:auto">I have
-                read and agree to the <a href="index.html" style="text-decoration: none;"><i style="color: #E6BF73;">Terms
-                of Service </i></a>and <a><i style="color: #E6BF73;"> Privacy Statement</i></a>.
+                       style="width:15px;height: 12px;">I have
+                read and agree to the <a href="concent/index.jhtml" style="text-decoration: none;"><i style="color: #E6BF73;">Terms
+                of Service and Privacy Statement</i></a>.
             </div>
             <div style="width: 100%;height: 5px;"></div>
             <div style="width: 90%;height: 50px;margin: 0 auto;">
                 <div class="other_login" style="height: 40px;margin: 0 auto;">
-                    <input type="submit" class="login_btn" value="Register" style="margin: 0">Register</input>
+                    <input type="submit" class="login_btn" value="Register" style="margin: 0"></input>
                 </div>
             </div>
         </form>
