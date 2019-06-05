@@ -6,7 +6,7 @@ public class User {
     private String nickname;
     private String password;
     private String mail;
-    private int status;
+    private int valid; //1：验证通过 0：未验证通过
     private String country;
     private String province;
     private int naturally;//自然年龄
@@ -15,6 +15,7 @@ public class User {
     private long lastLogin;//上次登录时间
     private byte pay; //是否已经付款 1 已经付款 0 未付款
     private String state;//实验状态 pending doing done
+
 
     public String getState() {
         return state;
@@ -72,12 +73,12 @@ public class User {
         this.mail = mail;
     }
 
-    public int getStatus() {
-        return status;
+    public int getValid() {
+        return valid;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setValid(int valid) {
+        this.valid = valid;
     }
 
     public String getCountry() {
@@ -130,13 +131,13 @@ public class User {
 
     @Override
     public String toString() {
-        return "User[" +
+        return "User{" +
                 "id=" + id +
                 ", uuid='" + uuid + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", password='" + password + '\'' +
                 ", mail='" + mail + '\'' +
-                ", status=" + status +
+                ", valid=" + valid +
                 ", country='" + country + '\'' +
                 ", province='" + province + '\'' +
                 ", naturally=" + naturally +
@@ -145,6 +146,6 @@ public class User {
                 ", lastLogin=" + lastLogin +
                 ", pay=" + pay +
                 ", state='" + state + '\'' +
-                ']';
+                '}';
     }
 }

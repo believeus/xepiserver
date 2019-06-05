@@ -25,7 +25,8 @@ public class SysFirewall implements Filter {
             "/user/transaction/success.jhtml", "/user/cart/index.jhtml",
             "/user/cart/check.jhtml", "/user/cart/order.jhtml",
             "/user/paypal/payment.jhtml", "/user/paypal/paysuccess.jhtml",
-            "/user/paypal/cancelUrl.jhtml", "/user/report/iage.jhtml", "/user/report/getData.jhtml"});
+            "/user/paypal/cancelUrl.jhtml", "/user/report/iage.jhtml",
+            "/user/report/getData.jhtml","/user/transaction/delAddr.jhtml"});
     private String loginurl = "/login.jhtml";
     public static Stack<String> urlstack = new Stack<String>();
 

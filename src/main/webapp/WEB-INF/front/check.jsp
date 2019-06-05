@@ -1,19 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2019/3/18
-  Time: 10:09
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="util" uri="http://epidial.com/jstl/stringUtil" %>
 <%@ page isELIgnored="false" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html>
-<!-- saved from url=(0065)http://www.17sucai.com/preview/1149930/2018-04-11/login/demo.html -->
 <html>
 <head>
     <base href="<%=basePath%>">
@@ -28,10 +21,7 @@
     <link type="text/css" rel="stylesheet" href="static/css/module.css"/>
 
 </head>
-
-
 <body>
-
 <!--头部开始-->
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
@@ -39,34 +29,103 @@
         <div style="background-color:#ffffff;padding-bottom: 70px">
 
             <div style="width: 100%;height: 10px;"></div>
-            <div style="width:100%;height:auto;">
-                <c:forEach var="item" items="${sessionScope.Cart.waresBox}">
-                    <div style='width:100%;display: flex;flex-direction: row;justify-content: center;'>
-                        <div style="width: 90%">
-                            <div style="width:40%;height:auto;float: left;text-align: center">
-                                <image src='${item.wares_img}' style="width:70%;height:auto"></image>
-                            </div>
-                            <div style="float: left;width: 15%;height: 100%;">
-                            </div>
-                            <div style="float: left;width: 40%;height: 100%;">
-                                <div style="width:100%;height:10%"></div>
-                                <div style="width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${item.wares_name}</div>
-                                <div style="width:100%;height:15%"></div>
-                                <div class="shop-price" style="width:100%;height:40%;;text-align: center">
-                                    <div class="shop-pices" style="float:left;width: 40%;height: 100%">$<b
-                                            class="price">${item.sell_price}</b>
-                                    </div>
-                                    <div class="shop-arithmetic"
-                                         style="float: right;width: 60%;height: 100%;text-align: center">
-                                        X ${item.wares_count}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="width: 100%;height: 10px;border-bottom:1px solid #e2e2e2;"></div>
-                </c:forEach>
+            <div name="cartbox" style="width:100%;height:auto;">
+                <script>
+                    $(function () {
+                        $.post("/user/cart/list.jhtml", function (data) {
+                            data.forEach(function (v) {
+                                var div = "<div name='cart'><div style='width:80%;display: flex;flex-direction: row;justify-content: center;float: left;'>\n" +
+                                    "                        <div style=\"width: 90%\">\n" +
+                                    "                            <div style=\"width:40%;height:auto;float: left;text-align: center\">\n" +
+                                    "                                <image src=" + v.imgpath + " style=\"width:70%;height:auto\"></image>\n" +
+                                    "                            </div>\n" +
+                                    "                            <div style=\"float: left;width: 15%;height: 100%;\">\n" +
+                                    "                            </div>\n" +
+                                    "                            <div style=\"float: left;width: 40%;height: 100%;\">\n" +
+                                    "                                <div style=\"width:100%;height:10%\"></div>\n" +
+                                    "                                <div style=\"width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">" + v.name +
+                                    "</div>\n" +
+                                    "                                <div style=\"width:100%;height:15%\"></div>\n" +
+                                    "                                <div class=\"shop-price\" style=\"width:100%;height:40%;;text-align: center\">\n" +
+                                    "                                    <div class=\"shop-pices\" style=\"float:left;width: 40%;height: 100%\">$<b\n" +
+                                    "                                            class=\"price\"> " + v.price + "</b>\n" +
+                                    "                                    </div>\n" +
+                                    "                                    <div class=\"shop-arithmetic\"\n" +
+                                    "                                         style=\"float: right;width: 60%;height: 100%;text-align: center\">\n" +
+                                    "                                        X " + v.count +
+                                    "                                    </div>\n" +
+                                    "                                </div>\n" +
+                                    "                            </div>\n" +
+                                    "                        </div>\n" +
+                                    "                    </div><div name='cartdel' id='" + v.id + "' style='float: left;background-color:saddlebrown;color: white;width: 18%;height: 100%;cursor: pointer'>delete</div></div>" +
+                                    "                    <div style=\"width: 100%;height: 10px;border-bottom:1px solid #e2e2e2;clear: both;\"></div>";
+                                $("div[name=cartbox]").append(div);
+
+                            });
+                            //删除购物车
+                            $("body").on("click", "div[name=cartdel]", function (event) {
+                                if (window.confirm("are you sure delete?")) {
+                                    var data = {};
+                                    var _oThis = $(event.currentTarget);
+                                    data.id = _oThis.attr("id");
+                                    $.post("/user/cart/del.jhtml", data, function (data) {
+                                        _oThis.parents("div[name=cart]").remove();
+                                        $.post("/user/cart/price.jhtml", function (data) {
+                                            $("[name=total_price]").text(data);
+                                        });
+                                    });
+                                }
+                            });
+                        });
+                    });
+                </script>
             </div>
+
+            <div style="font-weight: bold">Used addresses:</div>
+            <div name="addressbox">
+                <script>
+                    $(function () {
+                        $.post("/user/address/list.jhtml", function (data) {
+                            data.forEach(function (v) {
+                                console.info(v);
+                                var div = " <div name=\"iaddress\"  data-id='"+v.id+"'  style=\"border: 1px solid grey;width: 90%;height: auto;margin: 0 auto;border: 1px dashed orange;cursor: pointer;\">\n" +
+                                    "                    <div  style=\"width: 100%;height: 50px;\">\n" +
+                                    "                        <div name=\"item\" data-id='"+v.id+"' style=\"float: left;width: 80%;height:  50px;\">\n" +
+                                    "                            <div>" + v.recipient + "&nbsp;" + v.phone + "</div>\n" +
+                                    "                            <div>" + v.detail + "&nbsp;" + v.city + "&nbsp;" + v.country + "</div>\n" +
+                                    "                        </div>\n" +
+                                    "                        <div name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: darkorange;color: white;float: left;height:  50px;line-height:  50px;text-align: center\">delete</div>\n" +
+                                    "                       \n" +
+                                    "                    </div>\n" +
+                                    "                </div>\n" +
+                                    "                <div style=\"width: 100%;height: 5px\"></div>"
+                                $("div[name=addressbox]").append(div);
+                            });
+                        });
+                        //删除地址
+                        $("body").on("click", "[name=delAddr]", function (event) {
+                            if(!window.confirm("Are you sure delete?"))return;
+                            var data = {};
+                            var _oThis = $(event.currentTarget);
+                            data.id = _oThis.attr("id");
+                            $.post("/user/address/del.jhtml", data, function (data) {
+                                _oThis.parents("div[name=iaddress]").remove();
+
+                            });
+                        });
+                        //点击地址跳转到确认购买页面
+                        $("body").on("click", "[name=item]", function (event) {
+                            var data = {};
+                            var _oThis = $(event.currentTarget);
+                            window.location.href = "/user/cart/watchagain.jhtml?addrid="+_oThis.attr("data-id");
+
+                        });
+
+                    });
+
+                </script>
+            </div>
+
 
             <div style="width: 100%;height: 10px;"></div>
 
@@ -96,12 +155,40 @@
                     </div>
                     <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
 
+
+                    <div style='height:15px'></div>
+                    <div style="width: 100%;height: 120px;border: 1px dashed grey;">
+                        <text>&nbsp;</text>
+                        <div style="width: 100%;height: 35px">
+                            <text style="font-size: 12px;">Addr.line1</text>
+                            <input
+                                    style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'
+                                    type="text" required="required" name="detail-1"/>
+                        </div>
+
+                        <div style="width: 100%;height: 35px;">
+                            <div>
+                                <text style="font-size: 12px;">Addr. line2</text>
+                                <input
+                                        style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'
+                                        type="text" name="detail-2"/></div>
+                        </div>
+                        <div style="width: 100%;height: 35px">
+                            <text style="font-size: 12px;">Addr.line3</text>
+                            <input
+                                    style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'
+                                    type="text" name="detail-3"/>
+                        </div>
+
+                    </div>
+                    <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
+
                     <div style='height:15px'></div>
                     <div>
                         <text>Town/City</text>
                         <input
                                 style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'
-                                type="text" id="address" required="required" name="address"></input>
+                                type="text" id="city" required="required" name="city"></input>
                     </div>
                     <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
                     <div style='height:15px'></div>
@@ -112,12 +199,14 @@
                                 type="text" id="country" required="required" name="country"></input>
                     </div>
                     <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
+
+
                     <div style='height:15px'></div>
                     <div>
                         <text>Postalcode/ZIP</text>
                         <input
                                 style='border:0.5px solid #e2e2e2;width:68%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'
-                                type="text" id="postalcode"  name="postalcode"></input>
+                                type="text" id="postalcode" name="postalcode"></input>
                     </div>
                     <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
 
@@ -126,18 +215,6 @@
 
             <div class='br'></div>
 
-            <div style="width:100%;display:flex;flex-direction: row;justify-content: center;">
-                <div class='part1' style='width:90%'>
-                    <div style='height:20px'></div>
-                    <div class='context'>
-                        Promo Code
-                        <input
-                                style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'
-                                placeholder=" Promo Code" type="text" id="promo_code" name="promo_code"></input>
-                    </div>
-                    <div style='height:20px'></div>
-                </div>
-            </div>
 
             <div class='br'></div>
 
@@ -147,13 +224,22 @@
             <div style="text-align: center;height: 100%;background-color: #37475d;width: 60%;color: #f4f6f8;float: left;">
                 <div style="height: 100%;font-size: 21px;line-height: 40px">
                     <div class="shop-total">
+                        <script>
+                            $(function () {
+                                $.post("/user/cart/price.jhtml", function (data) {
+                                    $("[name=total_price]").text(data);
+                                });
+                            });
+                        </script>
                         <strong>Total：<i class="total" id="AllTotal"
-                                         name="total_price">${sessionScope.Cart.total}</i></strong>
+                                         name="total_price"></i></strong>
                     </div>
                 </div>
             </div>
             <div style="width: 40%;background-color: #0071b1;height: 100%;text-align: center;color: #f4f6f8;float:right;">
-                <input type="submit" style="height:100%;font-size: 21px;color: white;background-color: #0071b1;border: none;" value="BUY"/>
+                <input type="submit"
+                       style="height:100%;font-size: 21px;color: white;background-color: #0071b1;border: none;"
+                       value="BUY"/>
             </div>
 
         </div>
@@ -163,39 +249,18 @@
 
 </html>
 
-
 <script>
-
-
     $(function () {
         $("form").submit(function (e) {
-            var recipient = document.getElementById("recipient").value;
-            var phone = document.getElementById("phone").value;
-            var postalcode = document.getElementById("postalcode").value;
-            var country = document.getElementById("country").value;
-            var address = document.getElementById("address").value;
-            var promo_code = document.getElementById("promo_code").value;
-
-            var data = '{"addr" : {' + '"recipient": "' + recipient + '",' +
-                '"phone": "' + phone + '",' +
-                '"postalcode": "' + postalcode + '",' +
-                '"country": "' + country + '",' +
-                '"address": "' + address + '"},' +
-                '"promo_code": "' + promo_code + '"}'
-
-            console.log(data)
-
-            $.ajax({
-                url: "/user/transaction/loadOrder.jhtml",
-                type: "post",
-                contentType: 'application/json; charset=UTF-8',
-                data: data,
-                success: function (data) {
-                    window.location.href = '/user/cart/order.jhtml';
-                },
-                error: function () {
-                    alert("发送未知错误！ 无法发送验证码！")
-                }
+            var data = {};
+            data.recipient = $("#recipient").val();
+            data.phone = $("#phone").val();
+            data.postalcode = $("#postalcode").val();
+            data.country = $("#country").val();
+            data.city = $("#city").val();
+            data.detail = $("[name=detail-1]").val() + $("[name=detail-2]").val() + $("[name=detail-3]").val();
+            $.post("/user/address/save.jhtml", data, function (data) {
+                window.location.href = "/user/cart/watchagain.jhtml?addrid="+data.id;
             });
             return false;
         });

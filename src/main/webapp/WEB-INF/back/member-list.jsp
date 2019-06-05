@@ -61,7 +61,7 @@
 					<td>${user.mail}</td>
 					<td>${user.state}</td>
 					<c:choose>
-						<c:when test="${user.status==0}">
+						<c:when test="${user.valid==0}">
 							<td class="td-status"><span class="label label-error radius">inactivated</span></td>
 						</c:when>
 						<c:otherwise>
@@ -71,7 +71,7 @@
 					<td>${user.naturally}</td>
 					<td>${user.biological}</td>
 					<td><date:date value="${user.register}" pattern="yyyy-MM-dd:hh:mm:ss"></date:date></td>
-					<td>${user.lastLogin}</td>
+					<td><date:date value="${user.lastLogin}" pattern="yyyy-MM-dd:hh:mm:ss"></date:date></td>
 					<c:choose>
 						<c:when test="${user.pay==1}">
 							<td class="td-status"><span class="label label-success radius">payment</span></td>

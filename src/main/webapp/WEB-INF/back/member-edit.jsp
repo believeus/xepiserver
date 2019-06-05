@@ -30,15 +30,13 @@
 <!--/meta 作为公共模版分离出去-->
 
 <title>Add User</title>
-<meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-<meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
 <article class="page-container">
 	<form action="/admin/user/update.jhtml" method="post" class="form form-horizontal" id="form-member-add">
 		<input type="hidden" name="id" value="${user.id}">
 		<input type="hidden" name="uuid" value="${user.uuid}"/>
-		<input type="hidden" name="status" value="${user.status}"/>
+		<input type="hidden" name="status" value="${user.valid}"/>
 		<input type="hidden" name="password" value="${user.password}"/>
 		<input type="hidden" name="province" value="${user.province}"/>
 		<input type="hidden" name="register" value="${user.register}"/>

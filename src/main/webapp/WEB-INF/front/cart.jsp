@@ -142,15 +142,16 @@
                     </div>
                 </li>
             </ul>
-            <div class="shopPrice">TOTAL：$<span class="shop-total-amount ShopTotal">0.00</span></div>
+            <div class="shopPrice"> Invite code:<input type="text" id="invite" name="nvite" style="height: 25px;border: 1px solid blue;"> &nbsp;&nbsp;TOTAL：$<span class="shop-total-amount ShopTotal">0.00</span></div>
         </div>
     </div>
     <div class="payment-bar" style="height: 82px">
-        <div class="all-checkbox" style="float: left;height: 100%"><input type="checkbox" class="check goods-check" id="AllCheck" style="top:30%;border:0px solid #000"></div>
-        <div class="shop-total" style="float: left">
-            <strong>TOTAL：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
+        <div class="all-checkbox" style="float: left;height: 100%;width: 5%;"><input type="checkbox" class="check goods-check" id="AllCheck" style="top:30%;border:0px solid #000"></div>
+        <div class="shop-total" style="float: left;width: 30%">
+           <strong>TOTAL：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
         </div>
-        <a class="settlement" onclick="show()" href="javascript:;" style="float: right">Next</a>
+        <div class="settlement" onclick="window.location.href='/user/cart/check.jhtml'"  style="float: left;background-color: #0e90d2;width: 20%;cursor: pointer;">MyCart</div>
+        <div class="settlement" onclick="show()" href="javascript:;" style="float: left;width: 20%;cursor: pointer;">Next</div>
     </div>
 </body>
 
@@ -262,14 +263,7 @@
         for (k = 0; k < obj.length; k++) {
             if (obj[k].checked) {
                 count = count + 1;
-                //var wares = {}
-                //wares.push(obj[k].value);
-                //wares.wares_id = obj[k].value
                 console.log($("#count_" + obj[k].value + "").text())
-                // wares.wares_count = $("#count_" + obj[k].value + "").text()
-                //console.log(wares)
-                //var goods = '{"wares_id":' + obj[k].value + ',"wares_count":' + $("#count_" + obj[k].value + "").text()
-                //+ '}'
                 var d1 = {}
                 d1.wares_id = obj[k].value
                 d1.wares_count = $("#count_" + obj[k].value + "").text()
@@ -297,9 +291,10 @@
 
             var price = document.getElementById('AllTotal').innerHTML;
             //alert(price)
-            s1 += '"total_price":"' + price + '"'
-
+            s1 += '"total_price":"' + price + '",';
+            s1 += '"invite":"' + $("#invite").val() + '"';
             data.total_price = $("#AllTotal").text();
+
 
             s1 += '}'
 

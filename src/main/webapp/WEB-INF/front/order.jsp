@@ -5,7 +5,6 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +13,9 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Order</title>
-
     <script type="text/javascript" src="static/js/jquery-2.1.1.min.js"></script>
-
     <link type="text/css" rel="stylesheet" href="static/css/base.css"/>
     <link type="text/css" rel="stylesheet" href="static/css/module.css"/>
-
 </head>
 
 
@@ -33,92 +29,84 @@
     </div>
 
     <div style="background-color:#ffffff;padding-bottom: 70px">
-        <c:forEach var="item" items="${sessionScope.Cart.waresBox}">
-            <div style="width: 100%;height: 10px;"></div>
-            <div style="width:100%;height:auto;">
-                <div style='width:100%;display: flex;flex-direction: row;justify-content: center;'>
-                    <div style="width: 90%">
-                        <div style="width:40%;height:auto;float: left;text-align: center">
-                            <image src='${item.wares_img}' style="width:70%;height:auto"></image>
-                        </div>
-                        <div style="float: left;width: 15%;height: 100%;">
-                        </div>
-                        <div style="float: left;width: 40%;height: 100%;">
-                            <div style="width:100%;height:10%"></div>
-                            <div style="width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${item.wares_name}</div>
-                            <div style="width:100%;height:15%"></div>
-                            <div class="shop-price" style="width:100%;height:40%;;text-align: center">
-                                <div class="shop-pices" style="float:left;width: 40%;height: 100%">$<b
-                                        class="price">${item.sell_price}</b>
-                                </div>
-                                <div class="shop-arithmetic"
-                                     style="float: right;width: 60%;height: 100%;text-align: center">
-                                    X ${item.wares_count}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="width: 100%;height: 10px;border-bottom:1px solid #e2e2e2;"></div>
-            </div>
-        </c:forEach>
+        <div style="width: 100%;height: 10px;"></div>
+        <div name="cartbox" style="width:100%;height:auto;">
+            <script>
+                $(function () {
+                    $.post("/user/cart/list.jhtml", function (data) {
+                        data.forEach(function (v) {
+                            var div = "<div name='cart'><div style='width:80%;display: flex;flex-direction: row;justify-content: center;float: left;'>\n" +
+                                "                        <div style=\"width: 90%\">\n" +
+                                "                            <div style=\"width:40%;height:auto;float: left;text-align: center\">\n" +
+                                "                                <image src=" + v.imgpath + " style=\"width:70%;height:auto\"></image>\n" +
+                                "                            </div>\n" +
+                                "                            <div style=\"float: left;width: 15%;height: 100%;\">\n" +
+                                "                            </div>\n" +
+                                "                            <div style=\"float: left;width: 40%;height: 100%;\">\n" +
+                                "                                <div style=\"width:100%;height:10%\"></div>\n" +
+                                "                                <div style=\"width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">" + v.name +
+                                "</div>\n" +
+                                "                                <div style=\"width:100%;height:15%\"></div>\n" +
+                                "                                <div class=\"shop-price\" style=\"width:100%;height:40%;;text-align: center\">\n" +
+                                "                                    <div class=\"shop-pices\" style=\"float:left;width: 40%;height: 100%\">$<b\n" +
+                                "                                            class=\"price\"> " + v.price + "</b>\n" +
+                                "                                    </div>\n" +
+                                "                                    <div class=\"shop-arithmetic\"\n" +
+                                "                                         style=\"float: right;width: 60%;height: 100%;text-align: center\">\n" +
+                                "                                        X " + v.count +
+                                "                                    </div>\n" +
+                                "                                </div>\n" +
+                                "                            </div>\n" +
+                                "                        </div>\n" +
+                                "                    </div><div name='cartdel' id='" + v.id + "' style='float: left;background-color:saddlebrown;color: white;width: 18%;height: 100%;cursor: pointer'>delete</div></div>" +
+                                "                    <div style=\"width: 100%;height: 10px;border-bottom:1px solid #e2e2e2;clear: both;\"></div>";
+                            $("div[name=cartbox]").append(div);
+
+                        });
+                        //删除购物车
+                        $("body").on("click", "div[name=cartdel]", function (event) {
+                            if (window.confirm("are you sure delete?")) {
+                                var data = {};
+                                var _oThis = $(event.currentTarget);
+                                data.id = _oThis.attr("id");
+                                $.post("/user/cart/del.jhtml", data, function (data) {
+                                    _oThis.parents("div[name=cart]").remove();
+                                    $.post("/user/cart/price.jhtml", function (data) {
+                                        $("[name=total_price]").text(data);
+                                    });
+                                });
+                            }
+                        });
+                    });
+                });
+            </script>
+        </div>
 
         <div style="width: 100%;height: 10px;"></div>
 
-        <div style="width: 100%;height: 10px;background-color: #f4f6f8;"></div>
+        <div name="addressbox">
+            <script>
+                $(function () {
+                    $.post("/user/address/addrValid.jhtml", function (v) {
+                            console.info(v);
+                            var div = " <div data-id='"+v.id+"' name=\"iaddress\" style=\"border: 1px solid grey;width: 90%;height: auto;margin: 0 auto;border: 1px dashed orange;cursor: pointer;\">\n" +
+                                "                    <div style=\"width: 100%;height: 50px;\">" +
+                                "                        <div style=\"float: left;width: 80%;height:  50px;\">" +
+                                "                            <div>" + v.recipient + "&nbsp;" + v.phone + "</div>\n" +
+                                "                            <div>" + v.detail + "&nbsp;" + v.city + "&nbsp;" + v.country + "</div>" +
+                                "                        </div>" +
+                                "                        <div  onclick='window.location.href=\"/user/cart/check.jhtml\"' name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: darkorange;color: white;float: left;height:  50px;line-height:  50px;text-align: center\">edit</div>\n" +
+                                "                    </div>" +
+                                "                </div>" +
+                                "                <div style=\"width: 100%;height: 5px\"></div>"
+                            $("div[name=addressbox]").append(div);
+                    });
 
-        <div style="width:100%;display:flex;flex-direction: row;justify-content: center;">
-            <div class='part1' style='width:90%'>
-                <div style='height:15px'></div>
-                <div>
-                    <text>recipient</text>
-                    <text style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'>${sessionScope.ORDER.addr.recipient}</text>
-                </div>
-                <div style='height:20px;border-bottom:1px solid #e2e2e2;'>
-                </div>
-                <div style='height:15px'></div>
-                <div>
-                    <text>phone</text>
-                    <text style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'>${sessionScope.ORDER.addr.phone}</text>
-                </div>
-                <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
-                <div style='height:15px'></div>
-                <div>
-                    <text>country</text>
-                    <text style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'>${sessionScope.ORDER.addr.country}</text>
-                </div>
-                <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
-                <div style='height:15px'></div>
-                <div>
-                    <text>address</text>
-                    <text style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'>${sessionScope.ORDER.addr.address}</text>
-                </div>
-                <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
-                <div style='height:15px'></div>
-                <div>
-                    <text>postalcode</text>
-                    <text style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'>${sessionScope.ORDER.addr.postalcode}</text>
-                </div>
-                <div style='height:20px;border-bottom:1px solid #e2e2e2;'></div>
 
-            </div>
+                });
+
+            </script>
         </div>
-
-        <div class='br'></div>
-
-        <div style="width:100%;display:flex;flex-direction: row;justify-content: center;">
-            <div class='part1' style='width:90%'>
-                <div style='height:20px'></div>
-                <div class='context'>
-                    Promo Code
-                    <text style='border:0.5px solid #e2e2e2;width:75%;display:inline-block;float: right;height:30px;transform: translateY(-5px)'>${sessionScope.ORDER.promo_code}</text>
-                </div>
-                <div style='height:20px'></div>
-            </div>
-        </div>
-
-        <div class='br'></div>
-
 
         <div style="width: 100%;height: 10px;background-color: #f4f6f8;"></div>
     </div>
@@ -134,7 +122,7 @@
             </div>
         </div>
         <div style="width: 40%;background-color: #0071b1;height: 100%;text-align: center;color: #f4f6f8;float:right;">
-            <div style="height:100%;font-size: 21px;line-height: 40px" onclick="ToPay()">To Pay</div>
+            <div name="paypal" style="height:100%;font-size: 21px;line-height: 40px" >To Pay</div>
         </div>
     </div>
 
@@ -145,27 +133,16 @@
 
 
 <script>
-    function bodyScroll(event) {
-        event.preventDefault();
-    }
+    $(function(){
+        $("div[name=paypal]").click(function(){
+            var pop = document.getElementById("popDiv");
+            document.body.addEventListener('touchmove', function(event){
+                event.preventDefault();
+            }, false);
+            $('body').css({'position': 'fixed', "width": "100%"});
+            pop.style.display = "block";
+            window.location.href = '/user/paypal/payment.jhtml';
+        });
+    });
 
-    function ToPay() {
-        var pop = document.getElementById("popDiv");
-        document.body.addEventListener('touchmove', bodyScroll, false);
-        $('body').css({'position': 'fixed', "width": "100%"});
-        pop.style.display = "block";
-
-        window.location.href = '/user/paypal/payment.jhtml';
-        // $.ajax({
-        //     header:{"Access-Control-Allow-Origin":"https://localhost:8080"},
-        //     type : "post",
-        //     url : "http://localhost:8080/paypal/payment.jhtml",
-        //     success: function (data) {
-        //        // window.location.href = 'paypal/payment.jhtml';
-        //     },
-        //     error: function () {
-        //         alert("生成支付订单失败！")
-        //     }
-        // })
-    }
 </script>

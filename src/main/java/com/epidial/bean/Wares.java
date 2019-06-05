@@ -1,89 +1,66 @@
 package com.epidial.bean;
 
 public class Wares {
-    private int wares_id;
-    private int wares_count;
-    private String uuid;
-    private String wares_name;
-    private String wares_info;
-    private Double sell_price;
-    private Double discount;
-    private String wares_img;
-
-    public int getWares_id() {
-        return wares_id;
+    private int id;
+    private int stock;
+    private String name;
+    private String describe;
+    private int price;
+    private String imgpath;
+    private int type; //0:kit 1:nutrition
+    public int getId() {
+        return id;
     }
 
-    public void setWares_id(int wares_id) {
-        this.wares_id = wares_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getWares_count() {
-        return wares_count;
+    public int getStock() {
+        return stock;
     }
 
-    public void setWares_count(int wares_count) {
-        this.wares_count = wares_count;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
-    public String getUuid() {
-        return uuid;
+    public String getName() {
+        return name;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getWares_name() {
-        return wares_name;
+    public String getDescribe() {
+        return describe;
     }
 
-    public void setWares_name(String wares_name) {
-        this.wares_name = wares_name;
+    public void setDescribe(String describe) {
+        this.describe = describe;
     }
 
-    public String getWares_info() {
-        return wares_info;
+    public int getPrice() {
+        return price;
     }
 
-    public void setWares_info(String wares_info) {
-        this.wares_info = wares_info;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public Double getSell_price() {
-        return sell_price;
+    public String getImgpath() {
+        return imgpath;
     }
 
-    public void setSell_price(Double sell_price) {
-        this.sell_price = sell_price;
+    public void setImgpath(String imgpath) {
+        this.imgpath = imgpath;
     }
 
-    public Double getDiscount() {
-        return discount;
+    public int getType() {
+        return type;
     }
 
-    public void setDiscount(Double discount) {
-        this.discount = discount;
-    }
-
-    @Override
-    public String toString() {
-        return "Cart{" +
-                "wares_id=" + wares_id +
-                ", wares_count=" + wares_count +
-                ", uuid='" + uuid + '\'' +
-                ", wares_name='" + wares_name + '\'' +
-                ", wares_info='" + wares_info + '\'' +
-                ", sell_price=" + sell_price +
-                ", discount=" + discount +
-                '}';
-    }
-
-    public String getWares_img() {
-        return wares_img;
-    }
-
-    public void setWares_img(String wares_img) {
-        this.wares_img = wares_img;
+    public void setType(int type) {
+        this.type = type;
     }
 }

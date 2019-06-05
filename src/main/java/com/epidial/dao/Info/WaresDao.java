@@ -2,17 +2,16 @@ package com.epidial.dao.Info;
 
 import com.epidial.bean.Wares;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-/**
- * @ CreateDate : Create in 14:23 2019/3/9
- * @ Explain :
- * @ UpdateDate : Update in
- * @ Author : Eestill
- */
 @Mapper
 public interface WaresDao {
+
+    @Select("select * from wares where ${column}=#{v}")
+    public List<Wares> find(@Param("column")String column,@Param("v") String v);
 
     //用于返回商品详细信息
     public Wares selectWares(Integer wares_id);

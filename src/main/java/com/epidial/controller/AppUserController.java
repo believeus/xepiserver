@@ -28,11 +28,11 @@ public class AppUserController {
     @RequestMapping(value = "/user/login")
     public @ResponseBody
     String login(String email, String password,HttpSession session) {
-        User user = userDao.findUserByMail(email);
+        User user = userDao.findUser("mail",email);
         if (user == null) {
             return "ERROR:Mailbox not registered";
         } else {
-            if (user.getStatus() == 0) {
+            if (user.getValid() == 0) {
                 return "ERROR:Mailbox inactivated";
             } else if (!user.getPassword().equals(password)) {
                 return "ERROR:Password error";
@@ -47,7 +47,7 @@ public class AppUserController {
     @RequestMapping(value = "/user/register")
     public @ResponseBody
     String register(User u, HttpSession session) {
-        User user = userDao.findUserByMail(u.getMail());
+        User user = userDao.findUser("mail",u.getMail());
         if (user != null) {
             return "the " + u.getMail() + " Mailbox has been registered!";
         } else {
@@ -61,10 +61,10 @@ public class AppUserController {
                     "</head>" +
                     "<body>" +
                     "<div style='width: 100%;height: auto;'>" +
-                    "<div style='width: 100%;height: 60px;'></div>" +
+                    "<div style='width: 100%;height: 60px;'></div>" + //
                     "<p>Dear user</p><p>Thank you for your registration on Epi-Aging. <br />Please click on the following link to complete your registration:</p>" +
-                    "<a href='https://app.beijingepidial.com/user/authMail.jhtml?mail=" + u.getMail() + "&code=" + uuid + "'>https://app.beijingepidial.com/user/authMail.jhtml?mail=" + u.getMail() + "&code=" + uuid + "</a>" +
-                    "<p>HKG epitherapeutics Limited<br />https://www.hkgepitherapeutics.com</p>" +
+                    "<a href='https://app.beijingepidial.com/user/authMail.jhtml?mail=" + u.getMail()+ "'>https://app.beijingepidial.com/user/authMail.jhtml?mail=" + u.getMail()+ "</a>" +
+                    "<p style='color:red'>Please copy the following links to the browser to open (some mailboxes have the problem of automatically adding request headers, so it is not very good to support clicking directly to open the link)</p><p>HKG epitherapeutics Limited<br />https://www.hkgepitherapeutics.com</p>" +
                     "<p>(+852) 2354 8297<br/>info@hkgepitherapeutics.com</p><p>2019 All rights reserved</p>" +
                     "</div>" +
                     "</body>" +
@@ -74,7 +74,7 @@ public class AppUserController {
                 u.setRegister(System.currentTimeMillis());
                 u.setUuid(uuid);
                 userDao.save(u);
-                user = userDao.findUserByMail(u.getMail());
+                user = userDao.findUser("mail",u.getMail());
                 session.setAttribute("sessionuser", user);
                 return "success";
             }else {
@@ -93,15 +93,13 @@ public class AppUserController {
     }
 
     @RequestMapping(value = "/user/authMail")
-    public ModelAndView CheckMail(@Param("mail") String mail, @Param("code") String code) {
+    public ModelAndView authMail(@Param("mail") String mail) {
         ModelAndView modelView = new ModelAndView();
-        if (userDao.authMail(code, mail)) {
-            modelView.setViewName("/WEB-INF/front/verify_success.jsp");
-            return modelView;
-        } else {
-            modelView.setViewName("/WEB-INF/front/verify_error.jsp");
-            return modelView;
-        }
+        User user = userDao.findUser("mail", mail);
+        user.setValid(1);//验证通过
+        String view=userDao.update(user)?"/WEB-INF/front/verify_success.jsp":"/WEB-INF/front/verify_error.jsp";
+        modelView.setViewName(view);
+        return modelView;
     }
 
     @RequestMapping(value = "/toSuccess")
@@ -125,7 +123,7 @@ public class AppUserController {
     @RequestMapping("/user/sendpaswd")
     public @ResponseBody
     String sendpaswd(String email) {
-        User user = userDao.findUserByMail(email);
+        User user = userDao.findUser("mail",email);
         if (user != null) {
             String title = "[DO NOT REPLY] Please checkout your password";
             String message = "Dear User:your password is:" + user.getPassword();

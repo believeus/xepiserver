@@ -1,8 +1,8 @@
 package com.epidial.controller;
 
 import com.epidial.bean.User;
+import com.epidial.dao.Info.TaskDao;
 import com.epidial.dao.Info.UserDao;
-import com.epidial.serivce.OrderService;
 import com.epidial.serivce.ReportService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,7 +23,7 @@ public class ReportController {
     private ReportService reportService;
 
     @Resource
-    private OrderService orderService;
+    private TaskDao cartDao;
 
     @Resource
     private UserDao userDao;
@@ -35,9 +35,9 @@ public class ReportController {
         List<User> ntrGtBioUsers = userDao.findNtrGtBio();//查找自然年龄大于生物学年龄的用户
         List<User> ntrLtBioUsers = userDao.findNtrLtBio();//查找自然年龄小于生物学年龄的用户
         //自然年龄>生物学年龄分为一组
-        String ntrGtBioData = redata(ntrGtBioUsers, new String[2][ntrGtBioUsers.size()]);
+        String ntrGtBioData = redata(ntrGtBioUsers);
         //自然年龄<生物学年龄分为一组
-        String ntrLtBioData = redata(ntrLtBioUsers, new String[2][ntrLtBioUsers.size()]);
+        String ntrLtBioData = redata(ntrLtBioUsers);
         //return reportService.GetDataForReport(user.getUuid());
         String data=ntrGtBioData+"@"+ntrLtBioData+"@"+user.getNaturally()+"-"+user.getBiological();
         System.out.println(data);
@@ -47,7 +47,7 @@ public class ReportController {
 //        return reportService.GetDataForReport(uuid);
     }
 
-    private  String redata(List<User> list, String[][] box) {
+    private  String redata(List<User> list) {
 
         String data="";
         if(list!=null&&!list.isEmpty()){
@@ -63,7 +63,7 @@ public class ReportController {
     public ModelAndView index(HttpSession session){
         User user = (User)session.getAttribute("sessionuser");
         ModelAndView modelView=new ModelAndView();
-        if (!orderService.CheckOrderExist(user.getUuid())){
+        if (cartDao.findDNA(user.getUuid()).isEmpty()){
             modelView.setViewName("/WEB-INF/front/aging.jsp");
             modelView.addObject("title","Aging");
             modelView.addObject("canback",true);
@@ -80,7 +80,7 @@ public class ReportController {
     public User getDataForOne(HttpSession session){
     //public List getDataForOne(){
       String mail = ((User)session.getAttribute("sessionuser")).getMail();
-        return  userDao.findUserByMail(mail);
+        return  userDao.findUser("mail",mail);
         //return reportService.GetDataForPersonById(user.getUuid());
     }
 
@@ -88,6 +88,6 @@ public class ReportController {
     @ResponseBody
     public String state(HttpSession session){
         User user = (User)session.getAttribute("sessionuser");
-        return userDao.findUserByMail(user.getMail()).getState();
+        return userDao.findUser("mail",user.getMail()).getState();
     }
 }

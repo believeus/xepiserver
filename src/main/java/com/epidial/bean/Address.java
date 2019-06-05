@@ -6,9 +6,10 @@ public class Address {
     private String recipient;
     private String phone;
     private String country;
-    private String address;
+    private String detail;
+    private String city;
     private String postalcode;
-    private Integer address_id;
+    private int valid;//0:地址未使用 1:地址使用中
 
     public int getId() {
         return id;
@@ -50,12 +51,12 @@ public class Address {
         this.country = country;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCity() {
+        return city;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getPostalcode() {
@@ -66,12 +67,20 @@ public class Address {
         this.postalcode = postalcode;
     }
 
-    public Integer getAddress_id() {
-        return address_id;
+    public String getDetail() {
+        return detail;
     }
 
-    public void setAddress_id(Integer address_id) {
-        this.address_id = address_id;
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public int getValid() {
+        return valid;
+    }
+
+    public void setValid(int valid) {
+        this.valid = valid;
     }
 
     @Override
@@ -82,9 +91,10 @@ public class Address {
                 ", recipient='" + recipient + '\'' +
                 ", phone='" + phone + '\'' +
                 ", country='" + country + '\'' +
-                ", address='" + address + '\'' +
+                ", detail='" + detail + '\'' +
+                ", city='" + city + '\'' +
                 ", postalcode='" + postalcode + '\'' +
-                ", address_id=" + address_id +
+                ", valid=" + valid +
                 '}';
     }
 }
