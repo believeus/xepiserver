@@ -64,7 +64,7 @@ public class AppUserController {
                     "<div style='width: 100%;height: 60px;'></div>" + //
                     "<p>Dear user</p><p>Thank you for your registration on Epi-Aging. <br />Please click on the following link to complete your registration:</p>" +
                     "<a href='https://app.beijingepidial.com/user/authMail.jhtml?mail=" + u.getMail()+ "'>https://app.beijingepidial.com/user/authMail.jhtml?mail=" + u.getMail()+ "</a>" +
-                    "<p style='color:red'>Please copy the following links to the browser to open (some mailboxes have the problem of automatically adding request headers, so it is not very good to support clicking directly to open the link)</p><p>HKG epitherapeutics Limited<br />https://www.hkgepitherapeutics.com</p>" +
+                    "<p style='color:red'>If you're unable to click on any of the links above, copy and paste the URL into a new browser window instead</p><p>HKG epitherapeutics Limited<br />https://www.hkgepitherapeutics.com</p>" +
                     "<p>(+852) 2354 8297<br/>info@hkgepitherapeutics.com</p><p>2019 All rights reserved</p>" +
                     "</div>" +
                     "</body>" +

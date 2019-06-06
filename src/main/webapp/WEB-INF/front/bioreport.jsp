@@ -30,11 +30,11 @@
 <div style="width: 100%;height: auto;">
     <jsp:include page="header.jsp"/>
 
-    <script >
+    <script>
         //定义两个全局变量存放生物学年龄数据
         window.ntrGtBioData = [];
-        window.ntrLtBioData=[];
-        window.ready=false;
+        window.ntrLtBioData = [];
+        window.ready = false;
     </script>
     <div style="width: 100%;height: 40px;"></div>
     <div style="width: 100%;" name="pending">
@@ -54,15 +54,17 @@
                             var div = "<div style='width: 100%;height:auto;margin: 0 auto;'>";
                             data.forEach(function (v) {
                                 console.info(v)
-                                div += "<div style='border: 1px dashed grey;border-radius: 5px;padding: 5px;height: 40px;'>";
+                                div += "<div style='border: 1px dashed grey;border-radius: 5px;padding: 5px;height:80px;width: 100%'>";
                                 div += "<form  action=''>" +
-                                    "<div style='float: left;height: 30px;line-height: 30px;font-size: 16px;font-weight: bold'>barcode:</div>" +
-                                    "<div style='width: 35%;float: left;height: 30px;'><input name='barcode'  style='width: 100%;height: 100%;border: 1px solid blue;' value='" + v.barcode + "' /></div>" +
-                                    "<div style='width: 5px;float: left;height:30px; '></div>" +
-                                    "<div style='width: 20%;float: left;height: 30px;'><input  id=" + v.id + " name='bind' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;' value='bind'/></div>" +
-                                    "<div style='width: 5px;float: left;height:30px; '></div>" +
-                                    "<div style='width: 19%;float: left;height: 30px;'><input id=" + v.id + " name='report' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;' value='report'/></div>" +
-                                    "</form>";
+                                            "<div style='float: left;height: 30px;line-height: 30px;font-size: 16px;font-weight: bold;width: 22%;text-align: center;'>barcode:</div>" +
+                                            "<div style='width: 78%;height: 30px;float: left'><input name='barcode'  style='width: 100%;height: 100%;border: 1px solid blue;' value='" + v.barcode + "' /></div>" +
+                                            "<div style='width: 100%;height:5px;clear: both; '></div>" +
+                                            "<div style='width: 100%;height: 30px;'>" +
+                                                "<div style='width: 59%;float: left;height: 30px;'><input  id=" + v.id + " name='bind' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;font-size: 14px' value='Link/Upload Your Barcode'/></div>" +
+                                                 "<div style='width: 1%;height: 30px;float: left'></div>"+
+                                                "<div style='width: 40%;float: left;height: 30px;'><input id=" + v.id + " name='report' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;font-size: 14px' value='Get Your Report'/></div>" +
+                                            "</div>"
+                                        "</form>";
                                 div += "</div>";
                                 div += "<div style='width: 100%;height: 10px'></div>";
                             });
@@ -72,8 +74,8 @@
                     });
                     $("body").on("click", "input[name=bind]", function (event) {
                         var _oThis = $(event.currentTarget);
-                        if (_oThis.val() == "unbind") {
-                            _oThis.val("bind");
+                        if (_oThis.val() == "edit the barcode") {
+                            _oThis.val("Link/Upload Your Barcode");
                             _oThis.parents("form").find("input[name=barcode]").removeAttr("readonly");
                         } else {
                             var data = {};
@@ -85,9 +87,8 @@
                                 return;
                             }
                             $.post("/user/report/bind.jhtml", data, function (data) {
-                                window.alert("Thanks for working with us. Your unique barcode has \nbeen recorded.Now it's time to find out your true age!\n Please follow the instructions on the kit.");
                                 _oThis.parents("form").find("input[name=barcode]").attr("readonly", "readonly");
-                                _oThis.val("unbind");
+                                _oThis.val("edit the barcode");
                             });
                         }
                     });
@@ -103,24 +104,25 @@
                         }
                         //显示对应的div
                         $.post("/user/report/status.jhtml", data, function (status) {
-                            if(status=="pending"||status=="processing"){alert("The assignment has been accepted. \nPlease wait a few days.\n you will see the report on this page")}
-                            else if (status=="finished"){
-                                $.post("/user/report/getData.jhtml",data, function (value) {
+                            if (status == "pending" || status == "processing") {
+                                alert("The assignment has been accepted. \nPlease wait a few days.\n you will see the report on this page")
+                            } else if (status == "finished") {
+                                $.post("/user/report/getData.jhtml", data, function (value) {
                                     console.info(value);
                                     value.split("@")[0].split("#").forEach(function (v) {
-                                        window.ntrGtBioData.push([window.parseInt(v.split("-")[0]),window.parseInt(v.split("-")[1])]);
+                                        window.ntrGtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])]);
                                     });
                                     value.split("@")[1].split("#").forEach(function (v) {
-                                        window.ntrLtBioData.push([window.parseInt(v.split("-")[0]),window.parseInt(v.split("-")[1])]);
+                                        window.ntrLtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])]);
                                     });
                                     window.xx = parseInt(value.split("@")[2].split("-")[0]);//自然年龄
                                     window.yy = parseInt(value.split("@")[2].split("-")[1]);//生物学年龄
-                                    window.ready=true;
+                                    window.ready = true;
 
                                 });
                             }
                             $("div[name=" + status + "]").css("display", "block");
-                           ;
+                            ;
 
                         });
                     });
@@ -193,8 +195,8 @@
 
                     <script>
                         $(function () {
-                            var timer=window.setInterval(function(){
-                                if(window.ready==true){
+                            var timer = window.setInterval(function () {
+                                if (window.ready == true) {
                                     $("div[id=chroage]").text(window.xx);
                                     $("div[id=bioage]").text(window.yy);
                                     window.clearInterval(timer);
@@ -319,7 +321,7 @@
                                             chart.setOption(option);
                                         });
                                 }
-                            },1000);
+                            }, 1000);
 
                         });
                     </script>
