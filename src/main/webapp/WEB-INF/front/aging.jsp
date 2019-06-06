@@ -58,7 +58,7 @@
                     </a>
                 </div>
             </div>
-            <div style="width: 100%;height: 30px;"></div>
+            <div style="width: 100%;height: 90px;"></div>
             <div style="width: 96%;height: auto;font-family: arial;color: #000000;font-size: 22px;font-weight: bold;  margin: 0 auto;text-align: center;">
                 Standard Edition 2.0 for DNA Methylation epiAging test
             </div>

@@ -148,7 +148,6 @@ border-image: linear-gradient( #666666 , #666666) 30 30;
 				<img src="static/images/hm-same.png" style="width: 100%;height: auto;">
 			</div>
 
-		<div class="vertical-line"style="height: 100px;"></div>
 		</div>
 		</div>
 		<div style="width: 100%;height: 100px;"></div>

@@ -164,7 +164,7 @@
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 90%;height: auto;font-family: arial;font-weight: 500;color: #FFFFFF; line-height: 20px; margin: 0 auto;">
 
-				<div style="width: 100%;height: auto;">
+				<div style="width: 100%;height: 60px;">
 					<a href="https://www.sciencedirect.com/science/article/pii/S0898656817301183">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> IRE1α links Nck1 deficiency to attenuated PTP1B expression in HepG2 cells.
 							Cellular Signaling. 2017;
@@ -172,10 +172,9 @@
 					</a>
 
 				</div>
-				<div style="width: 100%;height: 80px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4236421/">
-						<div style="width: 1-0%;height: auto;float: left;color:#FFFFFF">Nck1 depletion induces activation of the PI3K/Akt pathway by attenuating
+						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Nck1 depletion induces activation of the PI3K/Akt pathway by attenuating
 							PTP1B protein expression. Cell Communication and Signaling. 2014;
 						</div>
 					</a>

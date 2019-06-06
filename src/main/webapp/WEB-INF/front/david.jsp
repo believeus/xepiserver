@@ -234,13 +234,13 @@
 				<div style="width: 100%;height: 80px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="http://www.greenmedinfo.com/article/methyl-donor-s-adenosylmethionine-sam-supplementation-attenuates-breast-cancer">
-						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> Methyl donor S-adenosylmethionine (SAM) supplementation attenuates
+						<div style="width: 100%;height: 100px;float: left;color:#FFFFFF"> Methyl donor S-adenosylmethionine (SAM) supplementation attenuates
 							breast cancer growth, invasion, and metastasis in vivo; therapeutic and chemopreventive applications. Oncotarget. 2017;
 						</div>
 					</a>
 
 				</div>
-				<div style="width: 100%;height: 120px;"></div>
+				<div style="width: 100%;height: 80px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="https://academic.oup.com/nar/article/45/22/12681/4259028">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> Epigenetic mechanisms underlie the crosstalk between growth factors and a
@@ -249,7 +249,7 @@
 					</a>
 
 				</div>
-				<div style="width: 100%;height: 120px;"></div>
+				<div style="width: 100%;height: 100px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.researchgate.net/publication/316689941_DNA_methylation_controls_unmethylated_transcription_start_sites_in_the_genome_in_trans">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> DNA methylation controls unmethylated transcription start sites in the genome
