@@ -3,7 +3,7 @@ package com.epidial.serivce.impl;
 import com.epidial.bean.Life;
 import com.epidial.bean.Time;
 import com.epidial.bean.User;
-import com.epidial.dao.Qtion.ILifeDao;
+import com.epidial.dao.qtion.ILifeDao;
 import com.epidial.serivce.ILifeService;
 import com.epidial.utils.DealWithArray;
 import org.springframework.beans.factory.annotation.Autowired;

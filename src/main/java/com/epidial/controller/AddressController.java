@@ -2,7 +2,7 @@ package com.epidial.controller;
 
 import com.epidial.bean.Address;
 import com.epidial.bean.User;
-import com.epidial.dao.Info.AddressDao;
+import com.epidial.dao.epi.AddressDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

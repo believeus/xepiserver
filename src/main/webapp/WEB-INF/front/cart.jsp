@@ -150,9 +150,25 @@
         <div class="shop-total" style="float: left;width: 30%">
            <strong>TOTAL：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
         </div>
-        <div class="settlement" onclick="window.location.href='/user/cart/check.jhtml'"  style="float: left;background-color: #0e90d2;width: 20%;cursor: pointer;">MyCart</div>
+        <div class="settlement" name="mycart"   style="float: left;background-color: #0e90d2;width: 20%;cursor: pointer;">MyCart</div>
         <div class="settlement" onclick="show()" href="javascript:;" style="float: left;width: 20%;cursor: pointer;">Next</div>
     </div>
+        <script>
+            //当用户没有购买任何产品时,不允许跳转到商品确定页面
+            $(function(){
+                $("div[name=mycart]").click(function(){
+                    $.post("/user/cart/list.jhtml", function (msg) {
+                        if(msg.length!=0){
+                            window.location.href="/user/cart/check.jhtml";
+                        }else{
+                            window.alert("Please buy goods");
+                        }
+
+                    });
+                });
+
+            });
+        </script>
 </body>
 
 </html>
@@ -290,7 +306,7 @@
             s1 += "],"
 
             var price = document.getElementById('AllTotal').innerHTML;
-            //alert(price)
+            //alert(sumprice)
             s1 += '"total_price":"' + price + '",';
             s1 += '"invite":"' + $("#invite").val() + '"';
             data.total_price = $("#AllTotal").text();
@@ -305,7 +321,6 @@
                 type: "post",
                 contentType: 'application/json; charset=UTF-8',
                 data: s1,
-                async: true,
                 success : function(data){
                     window.location.href = data;
                 }

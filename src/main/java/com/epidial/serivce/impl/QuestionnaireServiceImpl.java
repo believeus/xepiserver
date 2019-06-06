@@ -1,9 +1,9 @@
 package com.epidial.serivce.impl;
 
 import com.epidial.bean.*;
-import com.epidial.dao.Info.CancerDao;
-import com.epidial.dao.Info.ReportDao;
-import com.epidial.dao.Qtion.QuestionnaireDao;
+import com.epidial.dao.epi.CancerDao;
+import com.epidial.dao.epi.ReportDao;
+import com.epidial.dao.qtion.QuestionnaireDao;
 import com.epidial.serivce.QuestionnaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

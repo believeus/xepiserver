@@ -47,9 +47,9 @@
                                 "                                <div style=\"width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">" + v.name +
                                 "</div>\n" +
                                 "                                <div style=\"width:100%;height:15%\"></div>\n" +
-                                "                                <div class=\"shop-price\" style=\"width:100%;height:40%;;text-align: center\">\n" +
+                                "                                <div class=\"shop-sumprice\" style=\"width:100%;height:40%;;text-align: center\">\n" +
                                 "                                    <div class=\"shop-pices\" style=\"float:left;width: 40%;height: 100%\">$<b\n" +
-                                "                                            class=\"price\"> " + v.price + "</b>\n" +
+                                "                                            class=\"sumprice\"> " + v.price + "</b>\n" +
                                 "                                    </div>\n" +
                                 "                                    <div class=\"shop-arithmetic\"\n" +
                                 "                                         style=\"float: right;width: 60%;height: 100%;text-align: center\">\n" +
@@ -71,7 +71,7 @@
                                 data.id = _oThis.attr("id");
                                 $.post("/user/cart/del.jhtml", data, function (data) {
                                     _oThis.parents("div[name=cart]").remove();
-                                    $.post("/user/cart/price.jhtml", function (data) {
+                                    $.post("/user/cart/sumprice.jhtml", function (data) {
                                         $("[name=total_price]").text(data);
                                     });
                                 });
@@ -101,8 +101,6 @@
                                 "                <div style=\"width: 100%;height: 5px\"></div>"
                             $("div[name=addressbox]").append(div);
                     });
-
-
                 });
 
             </script>
@@ -116,13 +114,20 @@
         <div style="text-align: center;height: 100%;background-color: #37475d;width: 60%;color: #f4f6f8;float: left;">
             <div style="height: 100%;font-size: 21px;line-height: 40px">
                 <div class="shop-total">
-                    <strong>Total：<i class="total" id="AllTotal"
-                                     name="total_price">${sessionScope.Cart.total}</i></strong>
+                    <strong>Total：<i class="total" id="AllTotal" name="total_price"></i></strong>
                 </div>
+                <script>
+                    $(function(){
+                        $.post("/user/cart/sumprice.jhtml", function (data) {
+                            console.info(data);
+                            $("[id=AllTotal]").text(data);
+                        });
+                    });
+                </script>
             </div>
         </div>
         <div style="width: 40%;background-color: #0071b1;height: 100%;text-align: center;color: #f4f6f8;float:right;">
-            <div name="paypal" style="height:100%;font-size: 21px;line-height: 40px" >To Pay</div>
+            <div name="paypal" style="height:100%;font-size: 21px;line-height: 40px;cursor: pointer;" >To Pay</div>
         </div>
     </div>
 

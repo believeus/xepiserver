@@ -25,7 +25,7 @@ public class PrimaryDataBaseConfig {
     /**
      * dao层的包路径
      */
-    static final String PACKAGE = "com.epidial.dao.Info";
+    static final String PACKAGE = "com.epidial.dao.epi";
     /**
      * mapper文件的相对路径
      */

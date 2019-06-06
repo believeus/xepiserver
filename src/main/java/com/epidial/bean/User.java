@@ -13,10 +13,7 @@ public class User {
     private int biological;//生物学年龄
     private long register;//注册时间
     private long lastLogin;//上次登录时间
-    private byte pay; //是否已经付款 1 已经付款 0 未付款
-    private String state;//实验状态 pending doing done
-
-
+    private String state;// pending doing
     public String getState() {
         return state;
     }
@@ -25,13 +22,6 @@ public class User {
         this.state = state;
     }
 
-    public byte getPay() {
-        return pay;
-    }
-
-    public void setPay(byte pay) {
-        this.pay = pay;
-    }
 
     public int getId() {
         return id;
@@ -129,23 +119,4 @@ public class User {
         this.lastLogin = lastLogin;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", uuid='" + uuid + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", password='" + password + '\'' +
-                ", mail='" + mail + '\'' +
-                ", valid=" + valid +
-                ", country='" + country + '\'' +
-                ", province='" + province + '\'' +
-                ", naturally=" + naturally +
-                ", biological=" + biological +
-                ", register=" + register +
-                ", lastLogin=" + lastLogin +
-                ", pay=" + pay +
-                ", state='" + state + '\'' +
-                '}';
-    }
 }

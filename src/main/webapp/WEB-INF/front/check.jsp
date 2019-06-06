@@ -46,9 +46,9 @@
                                     "                                <div style=\"width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">" + v.name +
                                     "</div>\n" +
                                     "                                <div style=\"width:100%;height:15%\"></div>\n" +
-                                    "                                <div class=\"shop-price\" style=\"width:100%;height:40%;;text-align: center\">\n" +
+                                    "                                <div class=\"shop-sumprice\" style=\"width:100%;height:40%;;text-align: center\">\n" +
                                     "                                    <div class=\"shop-pices\" style=\"float:left;width: 40%;height: 100%\">$<b\n" +
-                                    "                                            class=\"price\"> " + v.price + "</b>\n" +
+                                    "                                            class=\"sumprice\"> " + v.price + "</b>\n" +
                                     "                                    </div>\n" +
                                     "                                    <div class=\"shop-arithmetic\"\n" +
                                     "                                         style=\"float: right;width: 60%;height: 100%;text-align: center\">\n" +
@@ -70,8 +70,9 @@
                                     data.id = _oThis.attr("id");
                                     $.post("/user/cart/del.jhtml", data, function (data) {
                                         _oThis.parents("div[name=cart]").remove();
-                                        $.post("/user/cart/price.jhtml", function (data) {
-                                            $("[name=total_price]").text(data);
+                                        $.post("/user/cart/sumprice.jhtml", function (data) {
+                                            console.info(data);
+                                            $("[name=sumprice]").text(data);
                                         });
                                     });
                                 }
@@ -108,16 +109,26 @@
                             var data = {};
                             var _oThis = $(event.currentTarget);
                             data.id = _oThis.attr("id");
-                            $.post("/user/address/del.jhtml", data, function (data) {
+                            $.post("/user/address/del.jhtml", data, function () {
                                 _oThis.parents("div[name=iaddress]").remove();
-
                             });
                         });
                         //点击地址跳转到确认购买页面
                         $("body").on("click", "[name=item]", function (event) {
-                            var data = {};
-                            var _oThis = $(event.currentTarget);
-                            window.location.href = "/user/cart/watchagain.jhtml?addrid="+_oThis.attr("data-id");
+
+                            $.post("/user/cart/list.jhtml", function (msg) {
+                                if(msg.length!=0){
+                                    var data = {};
+                                    var _oThis = $(event.currentTarget);
+                                    window.location.href = "/user/cart/watchagain.jhtml?addrid="+_oThis.attr("data-id");
+                                }else{
+                                    window.alert("Please buy goods");
+                                    window.location.href = "/user/cart/index.jhtml";
+                                }
+
+                            });
+
+
 
                         });
 
@@ -213,8 +224,6 @@
                 </div>
             </div>
 
-            <div class='br'></div>
-
 
             <div class='br'></div>
 
@@ -226,13 +235,14 @@
                     <div class="shop-total">
                         <script>
                             $(function () {
-                                $.post("/user/cart/price.jhtml", function (data) {
-                                    $("[name=total_price]").text(data);
+                                $.post("/user/cart/sumprice.jhtml", function (data) {
+                                    console.info(data);
+                                    $("[name=sumprice]").text(data);
                                 });
                             });
                         </script>
                         <strong>Total：<i class="total" id="AllTotal"
-                                         name="total_price"></i></strong>
+                                         name="sumprice"></i></strong>
                     </div>
                 </div>
             </div>
@@ -252,16 +262,25 @@
 <script>
     $(function () {
         $("form").submit(function (e) {
-            var data = {};
-            data.recipient = $("#recipient").val();
-            data.phone = $("#phone").val();
-            data.postalcode = $("#postalcode").val();
-            data.country = $("#country").val();
-            data.city = $("#city").val();
-            data.detail = $("[name=detail-1]").val() + $("[name=detail-2]").val() + $("[name=detail-3]").val();
-            $.post("/user/address/save.jhtml", data, function (data) {
-                window.location.href = "/user/cart/watchagain.jhtml?addrid="+data.id;
+            $.post("/user/cart/list.jhtml", function (msg) {
+                console.info(msg.length);
+                if(msg.length!=0){
+                    var data = {};
+                    data.recipient = $("#recipient").val();
+                    data.phone = $("#phone").val();
+                    data.postalcode = $("#postalcode").val();
+                    data.country = $("#country").val();
+                    data.city = $("#city").val();
+                    data.detail = $("[name=detail-1]").val() + $("[name=detail-2]").val() + $("[name=detail-3]").val();
+                    $.post("/user/address/save.jhtml", data, function (data) {
+                        window.location.href = "/user/cart/watchagain.jhtml?addrid="+data.id;
+                    });
+                }else {
+                    window.alert("Please buy goods");
+                    window.location.href = "/user/cart/index.jhtml";
+                }
             });
+
             return false;
         });
     });

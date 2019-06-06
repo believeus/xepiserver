@@ -1,7 +1,7 @@
 package com.epidial.serivce.impl;
 
 import com.epidial.bean.Wares;
-import com.epidial.dao.Info.WaresDao;
+import com.epidial.dao.epi.WaresDao;
 import com.epidial.serivce.WaresService;
 import org.springframework.stereotype.Service;
 

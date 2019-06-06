@@ -1,7 +1,7 @@
 package com.epidial.serivce;
 
-import com.epidial.bean.Bio;
-import com.epidial.dao.Info.ReportDao;
+import com.epidial.bean.Udata;
+import com.epidial.dao.epi.ReportDao;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,11 +22,11 @@ public class ReportService {
     private ReportDao reportDao;
 
     public List GetDataForReport(String uuid, HttpSession session) {
-        List<Bio> list = new LinkedList<Bio>();
+        List<Udata> list = new LinkedList<Udata>();
 
         //当用户已经进行一次查询之后，直接从session中获取数据在没有数据更新的情况下不在需要查询数据库
         if (session.getAttribute("BioReport") != null){
-            list = (List<Bio>)session.getAttribute("BioReport");
+            list = (List<Udata>)session.getAttribute("BioReport");
 
         }
         else {
@@ -37,8 +37,8 @@ public class ReportService {
 
         //把数据先从list中取出，存放入一个二维数组
         for (int i = 0 ; i < list.size() ; i++) {
-            data[i][0] = list.get(i).getNatural_age().toString();
-            data[i][1] = list.get(i).getBiological_age().toString();
+            data[i][0] = list.get(i).getNaturally()+"";
+            data[i][1] = list.get(i).getBiological()+"";
         }
 
         //把二维数组转换成list
@@ -56,7 +56,7 @@ public class ReportService {
         list1.add(dataListLt);
         list1.add(dataListGt);
 
-//        Bio bio = reportDao.GetBioDataForPerson(id);
+//        Udata bio = reportDao.GetBioDataForPerson(id);
 //
 //        List Person = new LinkedList();
 //        Person.add(bio.getId());
@@ -67,13 +67,13 @@ public class ReportService {
         //list1.add(GetDataForPersonById(id));
 
         //获得该用户的数据
-        Bio bio = reportDao.GetBioDataForPersonByUuid(uuid);
+        Udata bio = reportDao.GetBioDataForPersonByUuid(uuid);
 
         List Person = new LinkedList();
         Person.add(bio.getId());
-        Person.add(bio.getName());
-        Person.add(bio.getNatural_age());
-        Person.add(bio.getBiological_age());
+        Person.add(bio.getUsername());
+        Person.add(bio.getNaturally());
+        Person.add(bio.getBiological());
 
         list1.add(Person);
 
@@ -90,17 +90,17 @@ public class ReportService {
 
     //根据条码id查询个人信息
     public List GetDataForPerson( HttpSession session ,String id) {
-        List<Bio> list = new LinkedList<Bio>();
+        List<Udata> list = new LinkedList<Udata>();
 
-        Bio bio = reportDao.GetBioDataForPerson(id);
+        Udata bio = reportDao.GetBioDataForPerson(id);
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
 
         List Person = new LinkedList();
         Person.add(bio.getId());
-        Person.add(bio.getName());
-        Person.add(bio.getNatural_age());
-        Person.add(bio.getBiological_age());
+        Person.add(bio.getUsername());
+        Person.add(bio.getNaturally());
+        Person.add(bio.getBiological());
         Person.add(simpleDateFormat.format(System.currentTimeMillis()));
 
         return Person;
@@ -109,15 +109,15 @@ public class ReportService {
     //根据用户id查询生物学年龄信息
     public List GetDataForPersonById(String uuid) {
 
-        Bio bio = reportDao.GetBioDataForPersonByUuid(uuid);
+        Udata bio = reportDao.GetBioDataForPersonByUuid(uuid);
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
 
         List personLink = new LinkedList();
         personLink.add(bio.getId());
-        personLink.add(bio.getName());
-        personLink.add(bio.getNatural_age());
-        personLink.add(bio.getBiological_age());
+        personLink.add(bio.getUsername());
+        personLink.add(bio.getNaturally());
+        personLink.add(bio.getBiological());
         personLink.add(simpleDateFormat.format(System.currentTimeMillis()));
 
         return personLink;

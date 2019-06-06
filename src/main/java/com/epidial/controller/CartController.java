@@ -2,9 +2,11 @@ package com.epidial.controller;
 
 import com.epidial.bean.Address;
 import com.epidial.bean.Task;
+import com.epidial.bean.Udata;
 import com.epidial.bean.User;
-import com.epidial.dao.Info.AddressDao;
-import com.epidial.dao.Info.TaskDao;
+import com.epidial.dao.epi.AddressDao;
+import com.epidial.dao.epi.TaskDao;
+import com.epidial.dao.epi.UdataDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,7 +21,9 @@ public class CartController {
     @Resource
     private AddressDao addressDao;
     @Resource
-    private TaskDao cartDao;
+    private TaskDao taskDao;
+    @Resource
+    private UdataDao udataDao;
 
     @RequestMapping("/user/cart/index")
     public ModelAndView index() {
@@ -42,16 +46,17 @@ public class CartController {
     @ResponseBody
     @RequestMapping("/user/cart/del")
     public String del(String id) {
-        if (cartDao.delete("id", id)) {
-            return "success";
-        } else return "error";
+        taskDao.delete("id", id);
+        return  "success";
     }
 
+    //计算用户购买商品总价
     @ResponseBody
-    @RequestMapping("/user/cart/price")
-    public float price(HttpSession session){
+    @RequestMapping("/user/cart/sumprice")
+    public String sumprice(HttpSession session){
         User user=(User)session.getAttribute("sessionuser");
-        return cartDao.price(user.getId());
+        String sumprice = taskDao.sumprice(user.getId());
+        return sumprice==null?"0":sumprice;
     }
 
     @RequestMapping("/user/cart/watchagain")
@@ -74,7 +79,14 @@ public class CartController {
     @RequestMapping("/user/cart/list")
     public List<Task> list(HttpSession session) {
         User user = (User) session.getAttribute("sessionuser");
-        List<Task> tasks = cartDao.find(user.getId());
+        List<Task> tasks = taskDao.findUnPayDNAKit(user.getId());
         return tasks;
+    }
+    @ResponseBody
+    @RequestMapping("/user/cart/paydnakit")
+    public List<Udata> payDNAKit(HttpSession session){
+        User user = (User) session.getAttribute("sessionuser");
+        List<Udata> box = udataDao.findBy("uid", user.getId());
+        return box;
     }
 }

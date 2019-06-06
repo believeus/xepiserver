@@ -1,4 +1,4 @@
-package com.epidial.dao.Qtion;
+package com.epidial.dao.qtion;
 
 import com.epidial.bean.Life;
 import org.apache.ibatis.annotations.Mapper;

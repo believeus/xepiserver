@@ -1,7 +1,7 @@
 package com.epidial.controller.admin;
 
 import com.epidial.bean.User;
-import com.epidial.dao.Info.UserDao;
+import com.epidial.dao.epi.UserDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

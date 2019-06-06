@@ -1,8 +1,10 @@
 package com.epidial.controller;
 
+import com.epidial.bean.Udata;
 import com.epidial.bean.User;
-import com.epidial.dao.Info.TaskDao;
-import com.epidial.dao.Info.UserDao;
+import com.epidial.dao.epi.TaskDao;
+import com.epidial.dao.epi.UdataDao;
+import com.epidial.dao.epi.UserDao;
 import com.epidial.serivce.ReportService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,71 +25,83 @@ public class ReportController {
     private ReportService reportService;
 
     @Resource
-    private TaskDao cartDao;
+    private TaskDao taskDao;
 
     @Resource
     private UserDao userDao;
+    @Resource
+    private UdataDao udataDao;
 
     @RequestMapping(value = "/user/report/getData")
     @ResponseBody
-    public String getData(HttpSession session){
-        User user = (User)session.getAttribute("sessionuser");
-        List<User> ntrGtBioUsers = userDao.findNtrGtBio();//查找自然年龄大于生物学年龄的用户
-        List<User> ntrLtBioUsers = userDao.findNtrLtBio();//查找自然年龄小于生物学年龄的用户
+    public String getData(HttpSession session,String id) {
+        User user = (User) session.getAttribute("sessionuser");
+        Udata udata = udataDao.findBy("id", id).get(0);
+        List<Udata> ntrGtBioUsers = udataDao.findNtrGtBio();//查找自然年龄大于生物学年龄的用户
+        List<Udata> ntrLtBioUsers = udataDao.findNtrLtBio();//查找自然年龄小于生物学年龄的用户
         //自然年龄>生物学年龄分为一组
         String ntrGtBioData = redata(ntrGtBioUsers);
         //自然年龄<生物学年龄分为一组
         String ntrLtBioData = redata(ntrLtBioUsers);
         //return reportService.GetDataForReport(user.getUuid());
-        String data=ntrGtBioData+"@"+ntrLtBioData+"@"+user.getNaturally()+"-"+user.getBiological();
+        String data = ntrGtBioData + "@" + ntrLtBioData + "@" + udata.getNaturally() + "-" + udata.getBiological();
         System.out.println(data);
-        return  data;
-
-//        String uuid = jsonObject.getString("uuid");
-//        return reportService.GetDataForReport(uuid);
+        return data;
     }
 
-    private  String redata(List<User> list) {
-
-        String data="";
-        if(list!=null&&!list.isEmpty()){
-            for (int i=0;i<list.size();i++){
-                data+=list.get(i).getNaturally()+"-"+list.get(i).getBiological()+"#";
+    private String redata(List<Udata> list) {
+        String data = "";
+        if (list != null && !list.isEmpty()) {
+            for (int i = 0; i < list.size(); i++) {
+                data += list.get(i).getNaturally() + "-" + list.get(i).getBiological() + "#";
             }
-            data = data.substring(0,data.lastIndexOf("#"));
+            data = data.substring(0, data.lastIndexOf("#"));
         }
         return data;
     }
 
-    @RequestMapping(value = "/user/report/view")
-    public ModelAndView index(HttpSession session){
-        User user = (User)session.getAttribute("sessionuser");
-        ModelAndView modelView=new ModelAndView();
-        if (cartDao.findDNA(user.getUuid()).isEmpty()){
+    @RequestMapping(value = "/user/bioreport/index")
+    public ModelAndView index(HttpSession session) {
+        User user = (User) session.getAttribute("sessionuser");
+        ModelAndView modelView = new ModelAndView();
+        modelView.addObject("canback", true);
+        if (taskDao.findPayDNAKit(user.getId()).isEmpty()) {
             modelView.setViewName("/WEB-INF/front/aging.jsp");
-            modelView.addObject("title","Aging");
-            modelView.addObject("canback",true);
-            return modelView;
+            modelView.addObject("title", "Aging");
+        } else {
+            modelView.setViewName("/WEB-INF/front/bioreport.jsp");
+            modelView.addObject("title", "Your Biological Age Report");
         }
-        modelView.setViewName("/WEB-INF/front/bioreport.jsp");
-        modelView.addObject("title","Your Biological Age Report");
-        modelView.addObject("canback",true);
         return modelView;
-    }
-
-    @RequestMapping(value = "/user/report/iage")
-    @ResponseBody
-    public User getDataForOne(HttpSession session){
-    //public List getDataForOne(){
-      String mail = ((User)session.getAttribute("sessionuser")).getMail();
-        return  userDao.findUser("mail",mail);
-        //return reportService.GetDataForPersonById(user.getUuid());
     }
 
     @RequestMapping(value = "/user/report/state")
     @ResponseBody
-    public String state(HttpSession session){
-        User user = (User)session.getAttribute("sessionuser");
-        return userDao.findUser("mail",user.getMail()).getState();
+    public String state(HttpSession session) {
+        User user = (User) session.getAttribute("sessionuser");
+        //如果已经购买了生物学产品
+        if (!udataDao.find("uid", user.getId(), "status", "pending").isEmpty()) {
+            return "pending";
+        } else if (!udataDao.find("uid", user.getId(), "status", "processing").isEmpty()) {
+            return "processing";
+        } else {
+            return "finished";
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping("/user/report/bind")
+    public String bind(String barcode, String id) {
+        Udata data = udataDao.findBy("id", id).get(0);
+        data.setBarcode(barcode);
+        udataDao.update(data);
+        return "success";
+    }
+
+    @ResponseBody
+    @RequestMapping("/user/report/status")
+    public String xx(String id){
+        Udata data = udataDao.findBy("id", id).get(0);
+        return data.getStatus();
     }
 }

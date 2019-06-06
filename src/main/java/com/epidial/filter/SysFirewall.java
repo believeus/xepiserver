@@ -23,7 +23,7 @@ public class SysFirewall implements Filter {
             "/user/transaction/updatdCart.jhtml", "/user/transaction/deleteCart.jhtml",
             "/user/transaction/loadOrder.jhtml", "/user/transaction/check.jhtml",
             "/user/transaction/success.jhtml", "/user/cart/index.jhtml",
-            "/user/cart/check.jhtml", "/user/cart/order.jhtml",
+            "/user/cart/check.jhtml", "/user/cart/order.jhtml","/user/cart/sumprice.jhtml","/user/cart/watchagain.jhtml","/user/cart/del.jhtml",
             "/user/paypal/payment.jhtml", "/user/paypal/paysuccess.jhtml",
             "/user/paypal/cancelUrl.jhtml", "/user/report/iage.jhtml",
             "/user/report/getData.jhtml","/user/transaction/delAddr.jhtml"});

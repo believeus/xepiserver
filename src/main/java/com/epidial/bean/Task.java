@@ -13,6 +13,7 @@ public class Task {
     private int type;
     private String invite;//邀请码
     private  int valid; //0:订单未消费 1 订单已消费
+    private float total;//总价格
 
     public int getType() {
         return type;
@@ -109,21 +110,13 @@ public class Task {
         this.valid = valid;
     }
 
-    @Override
-    public String toString() {
-        return "Task{" +
-                "id=" + id +
-                ", uid=" + uid +
-                ", gid=" + gid +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", imgpath='" + imgpath + '\'' +
-                ", pay=" + pay +
-                ", count=" + count +
-                ", orderno='" + orderno + '\'' +
-                ", type=" + type +
-                ", invite='" + invite + '\'' +
-                ", valid=" + valid +
-                '}';
+    public float getTotal() {
+        return total;
     }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+
+
 }

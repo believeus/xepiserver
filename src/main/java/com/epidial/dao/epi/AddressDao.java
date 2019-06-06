@@ -1,4 +1,4 @@
-package com.epidial.dao.Info;
+package com.epidial.dao.epi;
 
 import com.epidial.bean.Address;
 import org.apache.ibatis.annotations.*;

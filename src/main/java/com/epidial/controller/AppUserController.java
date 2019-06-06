@@ -1,7 +1,7 @@
 package com.epidial.controller;
 
 import com.epidial.bean.User;
-import com.epidial.dao.Info.UserDao;
+import com.epidial.dao.epi.UserDao;
 import com.epidial.filter.SysFirewall;
 import com.epidial.serivce.MailService;
 import com.epidial.utils.UserCreate;

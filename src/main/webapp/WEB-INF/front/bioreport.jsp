@@ -29,21 +29,104 @@
 <body style="padding: 0px;margin: 0px;background-color: #ffffff;">
 <div style="width: 100%;height: auto;">
     <jsp:include page="header.jsp"/>
-    <script>
-        $(function () {
-            $.post("/user/report/state.jhtml", function (state) {
-                $("div[name="+state+"]").css("display","block");
-            });
-        });
+
+    <script >
+        //定义两个全局变量存放生物学年龄数据
+        window.ntrGtBioData = [];
+        window.ntrLtBioData=[];
+        window.ready=false;
     </script>
-    <div style="width: 100%;height: 100px;"></div>
-    <div style="width: 100%;display: none" name="pending">
-        <div style="font-size: 24px;width: 95%;margin: 0 auto;">
+    <div style="width: 100%;height: 40px;"></div>
+    <div style="width: 100%;" name="pending">
+        <div name="barcode" style="font-size: 18px;width: 95%;margin: 0 auto;">
             Your order has been accepted. We will send the saliva collection box to your order address. When you
-            receive the saliva collection box, please collect 1ML saliva in the saliva collection tube and seal
-            it
-            properly and send it back to our laboratory in the form of pay-on-demand. After the test report is
-            issued, we will remind you by mail and send it to you. The report is updated on this page.
+            receive the saliva collection kit, please collect 1ML saliva in the saliva collection tube and seal
+            it properly and send it back to our laboratory in the form of pay-on-demand. After the test report is
+            issued, The report will be updated on this page.<br>
+            <div style="width: 100%;height: 15px;"></div>
+            <p><strong>enter the barcode on the saliva collection tube.</strong></p>
+            <div style="width: 100%;height: 10px;"></div>
+            <script>
+                $(function () {
+                    //获得已经购买的DNA套件
+                    $.post("/user/cart/paydnakit.jhtml", function (data) {
+                        if (data.length != 0) {
+                            var div = "<div style='width: 100%;height:auto;margin: 0 auto;'>";
+                            data.forEach(function (v) {
+                                console.info(v)
+                                div += "<div style='border: 1px dashed grey;border-radius: 5px;padding: 5px;height: 40px;'>";
+                                div += "<form  action=''>" +
+                                    "<div style='float: left;height: 30px;line-height: 30px;font-size: 16px;font-weight: bold'>barcode:</div>" +
+                                    "<div style='width: 35%;float: left;height: 30px;'><input name='barcode'  style='width: 100%;height: 100%;border: 1px solid blue;' value='" + v.barcode + "' /></div>" +
+                                    "<div style='width: 5px;float: left;height:30px; '></div>" +
+                                    "<div style='width: 20%;float: left;height: 30px;'><input  id=" + v.id + " name='bind' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;' value='bind'/></div>" +
+                                    "<div style='width: 5px;float: left;height:30px; '></div>" +
+                                    "<div style='width: 19%;float: left;height: 30px;'><input id=" + v.id + " name='report' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;' value='report'/></div>" +
+                                    "</form>";
+                                div += "</div>";
+                                div += "<div style='width: 100%;height: 10px'></div>";
+                            });
+                            div += "</div>";
+                            $("div[name=barcode]").append(div);
+                        }
+                    });
+                    $("body").on("click", "input[name=bind]", function (event) {
+                        var _oThis = $(event.currentTarget);
+                        if (_oThis.val() == "unbind") {
+                            _oThis.val("bind");
+                            _oThis.parents("form").find("input[name=barcode]").removeAttr("readonly");
+                        } else {
+                            var data = {};
+                            data.id = _oThis.attr("id");
+                            data.barcode = _oThis.parents("form").find("input[name=barcode]").val();
+                            console.info(data.barcode);
+                            if (data.barcode == "") {
+                                alert("please enter the barcode!");
+                                return;
+                            }
+                            $.post("/user/report/bind.jhtml", data, function (data) {
+                                window.alert("Thanks for working with us. Your unique barcode has \nbeen recorded.Now it's time to find out your true age!\n Please follow the instructions on the kit.");
+                                _oThis.parents("form").find("input[name=barcode]").attr("readonly", "readonly");
+                                _oThis.val("unbind");
+                            });
+                        }
+                    });
+
+                    $("body").on("click", "input[name=report]", function (event) {
+                        var _oThis = $(event.currentTarget);
+                        var data = {};
+                        data.id = _oThis.attr("id");
+                        data.barcode = _oThis.parents("form").find("input[name=barcode]").val();
+                        if (data.barcode == "") {
+                            alert("please enter the barcode!");
+                            return;
+                        }
+                        //显示对应的div
+                        $.post("/user/report/status.jhtml", data, function (status) {
+                            if(status=="pending"||status=="processing"){alert("The assignment has been accepted. \nPlease wait a few days.\n you will see the report on this page")}
+                            else if (status=="finished"){
+                                $.post("/user/report/getData.jhtml",data, function (value) {
+                                    console.info(value);
+                                    value.split("@")[0].split("#").forEach(function (v) {
+                                        window.ntrGtBioData.push([window.parseInt(v.split("-")[0]),window.parseInt(v.split("-")[1])]);
+                                    });
+                                    value.split("@")[1].split("#").forEach(function (v) {
+                                        window.ntrLtBioData.push([window.parseInt(v.split("-")[0]),window.parseInt(v.split("-")[1])]);
+                                    });
+                                    window.xx = parseInt(value.split("@")[2].split("-")[0]);//自然年龄
+                                    window.yy = parseInt(value.split("@")[2].split("-")[1]);//生物学年龄
+                                    window.ready=true;
+
+                                });
+                            }
+                            $("div[name=" + status + "]").css("display", "block");
+                           ;
+
+                        });
+                    });
+                });
+            </script>
+
         </div>
     </div>
     <div style="font-size: 24px;width: 95%;margin: 0 auto;display: none" name="processing">
@@ -107,161 +190,137 @@
                         <div style="width: 100%;height: 300px;float: left;margin: 0 auto;"
                              id="biological-age-report"></div>
                     </div>
-                    <script>
-                        $(function () {
-                            $.ajax({
-                                type: "post",
-                                url: "user/report/iage.jhtml",
-                                dataType: "json",
-                                contentType: "application/json",
-                                success: function (data) {
-                                    $("div[id=id]").text(data.uuid);
-                                    $("div[id=name]").text(data.nickname);
-                                    $("div[id=chroage]").text(data.naturally);
-                                    $("div[id=bioage]").text(data.biological);
-                                    $("div[id=data]").text(data[4]);
-                                }
-                            });
-                        });
-                    </script>
-                    <script>
-                        $(function () {
-                            require(
-                                ['echarts', 'echarts/chart/scatter'],
-                                function (ec) {
-                                    // 基于准备好的dom，初始化echarts图表
-                                    var chart = ec.init(document.getElementById('biological-age-report'));
-                                    $.post("/user/report/getData.jhtml", function (data) {
-                                        var ntrGtBioData = [];
 
-                                        data.split("@")[0].split("#").forEach(function (v) {
-                                            ntrGtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])])
-                                        });
-                                        var ntrLtBioData = [];
-                                        data.split("@")[1].split("#").forEach(function (v) {
-                                            ntrLtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])])
-                                        });
-                                        var x = parseInt(data.split("@")[2].split("-")[0]);//自然年龄
-                                        var y = parseInt(data.split("@")[2].split("-")[1]);//生物学年龄
-                                        var option = {
-                                            tooltip: {
-                                                trigger: 'axis',
-                                                showDelay: 0,
-                                                formatter: function (params) {
-                                                    if (params.value.length > 1) {
-                                                        return params.seriesName + ' :<br/>' + params.value[0] + 'age   ' + params.value[1] + ' Age ';
-                                                    } else {
-                                                        return params.seriesName + ' :<br/>' + params.name + ' : ' + params.value + ' Age';
-                                                    }
-                                                },
-                                                axisPointer: {
-                                                    show: true,
-                                                    type: 'cross',
-                                                    lineStyle: {
-                                                        type: 'dashed',
-                                                        width: 1
-                                                    }
-                                                }
-                                            },
-                                            legend: {
-                                                data: ['Chronological Age<Biological Age', 'Chronological Age>Biological Age']
-                                            },
-                                            xAxis: [{
-                                                name: '',
-                                                type: 'value',
-                                                nameLocation: 'end',
-                                                scale: true,
-                                                axisLabel: {
-                                                    formatter: '{value}'
-                                                }
-                                            }],
-                                            yAxis: [{
-                                                name: ' ',
-                                                nameLocation: 'end',
-                                                position: 'left',
-                                                nameGap: 60,
-                                                nameRotate: 90,
-                                                type: 'value',
-                                                scale: true,
-                                                axisLabel: {
-                                                    formatter: '{value}'
-                                                }
-                                            }],
-                                            series: [{
-                                                name: 'Chronological Age<Biological Age',
-                                                type: 'scatter',
-                                                itemStyle: {
-                                                    normal: {
-                                                        color: 'red'
-                                                    }
-                                                },
-                                                data: ntrLtBioData,//自然年龄<生物学年龄
-                                                markPoint: {
-                                                    itemStyle: {
-                                                        normal: {
-                                                            color: 'blue'
+                    <script>
+                        $(function () {
+                            var timer=window.setInterval(function(){
+                                if(window.ready==true){
+                                    $("div[id=chroage]").text(window.xx);
+                                    $("div[id=bioage]").text(window.yy);
+                                    window.clearInterval(timer);
+                                    require(
+                                        ['echarts', 'echarts/chart/scatter'],
+                                        function (ec) {
+                                            // 基于准备好的dom，初始化echarts图表
+                                            var chart = ec.init(document.getElementById('biological-age-report'));
+                                            var option = {
+                                                tooltip: {
+                                                    trigger: 'axis',
+                                                    showDelay: 0,
+                                                    formatter: function (params) {
+                                                        if (params.value.length > 1) {
+                                                            return params.seriesName + ' :<br/>' + params.value[0] + 'age   ' + params.value[1] + ' Age ';
+                                                        } else {
+                                                            return params.seriesName + ' :<br/>' + params.name + ' : ' + params.value + ' Age';
                                                         }
                                                     },
-                                                    data: [{
-                                                        name: 'Biological Age',
-                                                        value: y,
-                                                        xAxis: x,
-                                                        yAxis: y
-                                                    }] //x:自然年龄,y生物学年龄
+                                                    axisPointer: {
+                                                        show: true,
+                                                        type: 'cross',
+                                                        lineStyle: {
+                                                            type: 'dashed',
+                                                            width: 1
+                                                        }
+                                                    }
                                                 },
-                                                markLine: {
-                                                    data: []
-                                                }
-                                            },
-                                                {
-                                                    name: 'Chronological Age>Biological Age',
+                                                legend: {
+                                                    data: ['Chronological Age<Biological Age', 'Chronological Age>Biological Age']
+                                                },
+                                                xAxis: [{
+                                                    name: '',
+                                                    type: 'value',
+                                                    nameLocation: 'end',
+                                                    scale: true,
+                                                    axisLabel: {
+                                                        formatter: '{value}'
+                                                    }
+                                                }],
+                                                yAxis: [{
+                                                    name: ' ',
+                                                    nameLocation: 'end',
+                                                    position: 'left',
+                                                    nameGap: 60,
+                                                    nameRotate: 90,
+                                                    type: 'value',
+                                                    scale: true,
+                                                    axisLabel: {
+                                                        formatter: '{value}'
+                                                    }
+                                                }],
+                                                series: [{
+                                                    name: 'Chronological Age<Biological Age',
                                                     type: 'scatter',
-                                                    data: ntrGtBioData,//自然年龄>生物学年龄
                                                     itemStyle: {
                                                         normal: {
-                                                            color: 'green'
+                                                            color: 'red'
                                                         }
                                                     },
+                                                    data: window.ntrLtBioData,//自然年龄<生物学年龄
                                                     markPoint: {
-                                                        data: [{
-                                                            itemStyle: {
-                                                                normal: {
-                                                                    color: 'blue'
-                                                                }
-                                                            },
-                                                            name: 'Biological Age',
-                                                            value: y,
-                                                            xAxis: x,
-                                                            yAxis: y
-                                                        }]
-                                                    },
-                                                    markLine: {
                                                         itemStyle: {
                                                             normal: {
-                                                                color: 'black'
+                                                                color: 'blue'
                                                             }
                                                         },
-                                                        data: [[{
-                                                            name: '标线1起点',
-                                                            xAxis: 0,
-                                                            yAxis: 21,
-                                                            symbol: 'circle'
-                                                        }, {
-                                                            name: '标线1终点',
-                                                            xAxis: 100,
-                                                            yAxis: 100,
-                                                            symbol: 'circle'
-                                                        },],],
+                                                        data: [{
+                                                            name: 'Biological Age',
+                                                            value: window.yy,
+                                                            xAxis: window.xx,
+                                                            yAxis: window.yy
+                                                        }] //x:自然年龄,y生物学年龄
+                                                    },
+                                                    markLine: {
+                                                        data: []
                                                     }
-                                                }]
-                                        };
+                                                },
+                                                    {
+                                                        name: 'Chronological Age>Biological Age',
+                                                        type: 'scatter',
+                                                        data: window.ntrGtBioData,//自然年龄>生物学年龄
+                                                        itemStyle: {
+                                                            normal: {
+                                                                color: 'green'
+                                                            }
+                                                        },
+                                                        markPoint: {
+                                                            data: [{
+                                                                itemStyle: {
+                                                                    normal: {
+                                                                        color: 'blue'
+                                                                    }
+                                                                },
+                                                                name: 'Biological Age',
+                                                                value: window.yy,
+                                                                xAxis: window.xx,
+                                                                yAxis: window.yy
+                                                            }]
+                                                        },
+                                                        markLine: {
+                                                            itemStyle: {
+                                                                normal: {
+                                                                    color: 'black'
+                                                                }
+                                                            },
+                                                            data: [[{
+                                                                name: '标线1起点',
+                                                                xAxis: 0,
+                                                                yAxis: 21,
+                                                                symbol: 'circle'
+                                                            }, {
+                                                                name: '标线1终点',
+                                                                xAxis: 100,
+                                                                yAxis: 100,
+                                                                symbol: 'circle'
+                                                            },],],
+                                                        }
+                                                    }]
+                                            };
+                                            // 为echarts对象加载数据
+                                            chart.setOption(option);
+                                        });
+                                }
+                            },1000);
 
-                                        // 为echarts对象加载数据
-                                        chart.setOption(option);
-                                    });
-
-
-                                });
                         });
                     </script>
                 </div>

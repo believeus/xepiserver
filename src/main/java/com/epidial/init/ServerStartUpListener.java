@@ -1,7 +1,7 @@
 package com.epidial.init;
 
 import com.epidial.bean.Admin;
-import com.epidial.dao.Info.AdminDao;
+import com.epidial.dao.epi.AdminDao;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;

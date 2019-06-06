@@ -1,4 +1,4 @@
-package com.epidial.dao.Info;
+package com.epidial.dao.epi;
 
 import com.epidial.bean.Colorectal_cancer;
 import com.epidial.bean.Prevent_cancer;

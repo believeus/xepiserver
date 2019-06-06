@@ -1,6 +1,6 @@
-package com.epidial.dao.Info;
+package com.epidial.dao.epi;
 
-import com.epidial.bean.Bio;
+import com.epidial.bean.Udata;
 import com.epidial.bean.Life;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -14,12 +14,12 @@ public interface ReportDao {
     public List<Life> GetLifeData(@Param("uuid") String uuid);
 
     //获取所有的生物学年龄的数据---》用于渲染散点图
-    public List<Bio> GetBioData();
+    public List<Udata> GetBioData();
 
-    public Bio GetBioDataForPerson(@Param("id") String id);
+    public Udata GetBioDataForPerson(@Param("id") String id);
 
     //根据用户id查询 返回生物学年龄数据
-    public Bio GetBioDataForPersonByUuid(@Param("uuid")String uuid);
+    public Udata GetBioDataForPersonByUuid(@Param("uuid")String uuid);
 
     //根据用户id查询，返回生活习惯数据
     public Life GetLifeDataForPersonByUuid(@Param("id")String id);
