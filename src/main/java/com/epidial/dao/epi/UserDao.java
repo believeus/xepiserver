@@ -33,7 +33,7 @@ public interface UserDao {
                     "country=#{country}," +
                     "province=#{province}," +
                     "naturally=#{naturally}," +
-                    "biological=#{biological},register=#{register},lastLogin=#{lastLogin},pay=#{pay},state=#{state} where mail=#{mail}")
+                    "biological=#{biological},register=#{register},lastLogin=#{lastLogin},state=#{state} where mail=#{mail}")
     public boolean  update(User user);
 
     //根据邮箱查找用户信息

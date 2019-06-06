@@ -34,7 +34,7 @@ public class ReportController {
 
     @RequestMapping(value = "/user/report/getData")
     @ResponseBody
-    public String getData(HttpSession session,String id) {
+    public String getData(HttpSession session, String id) {
         User user = (User) session.getAttribute("sessionuser");
         Udata udata = udataDao.findBy("id", id).get(0);
         List<Udata> ntrGtBioUsers = udataDao.findNtrGtBio();//查找自然年龄大于生物学年龄的用户
@@ -65,12 +65,17 @@ public class ReportController {
         User user = (User) session.getAttribute("sessionuser");
         ModelAndView modelView = new ModelAndView();
         modelView.addObject("canback", true);
-        if (taskDao.findPayDNAKit(user.getId()).isEmpty()) {
-            modelView.setViewName("/WEB-INF/front/aging.jsp");
-            modelView.addObject("title", "Aging");
-        } else {
+        //已经在购物车没有购买
+        if (!taskDao.findUnPayDNAKit(user.getId()).isEmpty()) {
+            return new ModelAndView("redirect:/user/cart/check.jhtml");
+        //如果产品已经购买了
+        } else if (!taskDao.findPayDNAKit(user.getId()).isEmpty()) {
             modelView.setViewName("/WEB-INF/front/bioreport.jsp");
             modelView.addObject("title", "Your Biological Age Report");
+         //购物车中没有产品也没有购买任何产品，跳转到产品介绍页面
+        } else {
+            modelView.setViewName("/WEB-INF/front/aging.jsp");
+            modelView.addObject("title", "Aging");
         }
         return modelView;
     }
@@ -100,7 +105,7 @@ public class ReportController {
 
     @ResponseBody
     @RequestMapping("/user/report/status")
-    public String xx(String id){
+    public String xx(String id) {
         Udata data = udataDao.findBy("id", id).get(0);
         return data.getStatus();
     }

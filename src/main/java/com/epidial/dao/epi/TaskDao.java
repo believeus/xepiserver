@@ -16,8 +16,11 @@ public interface TaskDao {
     public int save(Task task);
 
     //查询已经放入购物车还未购买订单
-    @Select("select * from task where uid=#{uid} and pay=0 and valid=0")
+    @Select("select * from task where uid=#{uid} and pay=0 and valid=0 and type=0")
     public List<Task> findUnPayDNAKit(@Param("uid") Object uid);
+
+    @Select("select * from task where uid=#{uid} and pay=0 and valid=0")
+    public List<Task> findUnPayGoods(@Param("uid") Object uid);
 
     //查询总价钱
     @Select("select sum(sumprice) from task where uid=#{uid} and pay=0 and valid=0")

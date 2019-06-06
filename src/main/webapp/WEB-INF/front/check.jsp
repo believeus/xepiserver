@@ -241,7 +241,7 @@
                                 });
                             });
                         </script>
-                        <strong>Total：<i class="total" id="AllTotal"
+                        <strong>Total：$<i class="total" id="AllTotal"
                                          name="sumprice"></i></strong>
                     </div>
                 </div>

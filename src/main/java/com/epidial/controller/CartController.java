@@ -79,7 +79,7 @@ public class CartController {
     @RequestMapping("/user/cart/list")
     public List<Task> list(HttpSession session) {
         User user = (User) session.getAttribute("sessionuser");
-        List<Task> tasks = taskDao.findUnPayDNAKit(user.getId());
+        List<Task> tasks = taskDao.findUnPayGoods(user.getId());
         return tasks;
     }
     @ResponseBody
