@@ -21,8 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div style="width: 100%;height: 30px;"></div>
 		<div style="width: 100%;height: auto;">
 			<div style="width: 8%;height: 100px;float: left;"></div>
-			<div style="width: 15%;height: auto;float: left;"><img src="${sessionScope.userInfo.avatarUrls}"style="width: 100%;height: auto;"/></div>
-			<div style="width: 30%;height: auto;float:left;margin: 20px 0 0 20px;color:#ffffff">${sessionScope.userInfo.uuid}</div>
+			<div style="width: 30%;height: auto;float:left;margin: 20px 0 0 20px;color:#ffffff">${sessionuser.uuid}</div>
 
 		</div>
 		<div style="width: 100%;height: 60px;"></div>
@@ -41,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<hr size="1"/>
 
 			<div style="width: 70%;height: auto;margin: 0 auto;">
-				<div style="width: 100%;height: auto;line-height: 50px;"><a href="report/report.jhtml"> My Report</a></div>
+				<div style="width: 100%;height: auto;line-height: 50px;"><a href="user/bioreport/index.jhtml"> My Report</a></div>
 			</div>
 			<hr size="1"/>
 
@@ -61,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<hr size="1"/>
 
 			<div style="width: 70%;height: auto;margin: 0 auto;">
-				<div style="width: 100%;height: auto;line-height: 50px;"><a href="App/logout.jhtml"> Log out</a></div>
+				<div style="width: 100%;height: auto;line-height: 50px;"><a href="user/logout.jhtml"> Log out</a></div>
 			</div>
 			<hr size="1"/>
 		</div>
