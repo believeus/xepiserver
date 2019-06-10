@@ -23,14 +23,10 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping
 public class PayPalController {
-
-
 	@Resource
 	private UserDao userDao;
-
 	@Resource
 	private AddressDao addressDao;
-
 	@Resource
 	private TaskDao taskDao;
 	@Resource
@@ -104,9 +100,13 @@ public class PayPalController {
 			 PaymentExecution paymentExecute = new PaymentExecution(); 
 			 paymentExecute.setPayerId(payerId); 
 			 Payment execute = payment.execute(apiContext, paymentExecute);
-
-			 //购买成功
-			taskDao.buySuccess("uid",user.getId());
+			List<Task> unPayGoods = taskDao.findUnPayGoods(user.getId());
+			for (Task task:unPayGoods){
+				//购买成功
+				task.setPay(1);
+				task.setPayTime(System.currentTimeMillis());
+				taskDao.update(task);
+			}
 			//生物学年龄
 			List<Task> taskbox = taskDao.findPayDNAKit(user.getId());
 			for (Task task :taskbox) {

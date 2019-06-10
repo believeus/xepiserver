@@ -9,19 +9,8 @@ public class User {
     private int valid; //1：验证通过 0：未验证通过
     private String country;
     private String province;
-    private int naturally;//自然年龄
-    private int biological;//生物学年龄
     private long register;//注册时间
     private long lastLogin;//上次登录时间
-    private String state;// pending doing
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
 
     public int getId() {
         return id;
@@ -85,22 +74,6 @@ public class User {
 
     public void setProvince(String province) {
         this.province = province;
-    }
-
-    public int getNaturally() {
-        return naturally;
-    }
-
-    public void setNaturally(int naturally) {
-        this.naturally = naturally;
-    }
-
-    public int getBiological() {
-        return biological;
-    }
-
-    public void setBiological(int biological) {
-        this.biological = biological;
     }
 
     public long getRegister() {

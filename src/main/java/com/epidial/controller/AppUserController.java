@@ -133,4 +133,9 @@ public class AppUserController {
             return "null";
         }
     }
+    @RequestMapping("/user/logout")
+    public  ModelAndView logout(HttpSession session){
+        session.invalidate();
+        return new ModelAndView("redirect:/index.jhtml");
+    }
 }

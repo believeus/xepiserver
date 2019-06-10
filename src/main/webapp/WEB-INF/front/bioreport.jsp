@@ -105,7 +105,7 @@
                         //显示对应的div
                         $.post("/user/report/status.jhtml", data, function (status) {
                             if (status == "pending" || status == "processing") {
-                                alert("The assignment has been accepted. \nPlease wait a few days.\n you will see the report on this page")
+                                alert("Thanks for choosing our  \n epiAging product.Your report will be \n available in 21 working days.")
                             } else if (status == "finished") {
                                 $.post("/user/report/getData.jhtml", data, function (value) {
                                     console.info(value);

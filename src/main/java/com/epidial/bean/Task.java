@@ -14,6 +14,26 @@ public class Task {
     private String invite;//邀请码
     private  int valid; //0:订单未消费 1 订单已消费
     private float total;//总价格
+    private long createTime;//下单时间
+    private long payTime;//付款时间
+    private int addrid;//收货地址
+    private String delivery;//0:未发货 1:已经发货
+
+    public String getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(String delivery) {
+        this.delivery = delivery;
+    }
+
+    public int getAddrid() {
+        return addrid;
+    }
+
+    public void setAddrid(int addrid) {
+        this.addrid = addrid;
+    }
 
     public int getType() {
         return type;
@@ -118,5 +138,19 @@ public class Task {
         this.total = total;
     }
 
+    public long getCreateTime() {
+        return createTime;
+    }
 
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
+    }
+
+    public long getPayTime() {
+        return payTime;
+    }
+
+    public void setPayTime(long payTime) {
+        this.payTime = payTime;
+    }
 }

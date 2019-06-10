@@ -13,11 +13,6 @@ public interface UserDao {
     @Select("select * from user limit #{idx},#{size}")
     public List<User> pagingUser(@Param("idx") int idx,@Param("size")int size);
 
-    @Select("select * from user where naturally > biological limit 0,50")
-    public List<User> findNtrGtBio();
-
-    @Select("select * from user where naturally < biological limit 0,50")
-    public List<User> findNtrLtBio();
     /**功能描述: 用户注册*/
     @Insert("insert into user" +
                 "(uuid,nickname,password,mail,valid,country,province,register) " +
@@ -32,8 +27,7 @@ public interface UserDao {
                     "valid=#{valid}," +
                     "country=#{country}," +
                     "province=#{province}," +
-                    "naturally=#{naturally}," +
-                    "biological=#{biological},register=#{register},lastLogin=#{lastLogin},state=#{state} where mail=#{mail}")
+                    "register=#{register},lastLogin=#{lastLogin} where mail=#{mail}")
     public boolean  update(User user);
 
     //根据邮箱查找用户信息

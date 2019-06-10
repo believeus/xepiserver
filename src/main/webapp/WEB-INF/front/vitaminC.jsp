@@ -27,7 +27,7 @@
 		<div style="width: 100%;height: 100%;">
 		<jsp:include page="header.jsp"></jsp:include>
 			<div style="width:100%;height: auto;">
-				<a href="cart/index.jhtml"><img src="static/images/vc1.png"style="width: 100%;height: auto;"/></a>
+				<a href="user/cart/index.jhtml"><img src="static/images/vc1.png"style="width: 100%;height: auto;"/></a>
 			</div>
 		
 			<div id="overview"style="width: 100%;height: auto;">

@@ -64,7 +64,7 @@ div[id=blue-dot]:before {
 				<div class="left" style="width: 30%;height: 100%;float: left; ">
 					<a href="aboutus/index.jhtml">
 						<div style="width: 100%;height: 50%;"></div>
-					</a> <a href="cart/index.jhtml">
+					</a> <a href="user/cart/index.jhtml">
 						<div style="width: 100%;height: 50%;"></div>
 					</a>
 				</div>
@@ -113,7 +113,7 @@ div[id=blue-dot]:before {
 					<div style="width: 80%;height: auto;margin: 0 auto;line-height: 55px;">$99</div>
 				</div>
 				<div style="width: 23%;height: 61px;float: right; ">
-					<a href="cart/index.jhtml"> <a href="aging/index.jhtml"><div style="width: 78%;height: 40px;color: white; background-color: #93278F;margin: 0 auto ;margin-top: 9px;text-align: center; line-height: 40px; font-size: large; border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">More</div></a>
+					<a href="/user/cart/index.jhtml"> <a href="aging/index.jhtml"><div style="width: 78%;height: 40px;color: white; background-color: #93278F;margin: 0 auto ;margin-top: 9px;text-align: center; line-height: 40px; font-size: large; border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">More</div></a>
 					</a>
 				</div>
 			</div>
@@ -255,7 +255,7 @@ div[id=blue-dot]:before {
 			<div id="fun-list" style="width: 100%;height: auto;">
 				<div class="rep-style" style="width: 100%;height: auto;">
 					<div style="width: 92%;height: auto;margin: 0 auto;">
-						<a href="report/report.jhtml"><img src="static/images/hm14.png" style="width: 100%;height: auto;" />
+						<a href="user/bioreport/index.jhtml"><img src="static/images/hm14.png" style="width: 100%;height: auto;" />
 						</a>
 					</div>
 				</div>

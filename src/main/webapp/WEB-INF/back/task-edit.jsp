@@ -34,38 +34,22 @@
 <body>
 <article class="page-container">
 	<form action="/admin/user/update.jhtml" method="post" class="form form-horizontal" id="form-member-add">
-		<input type="hidden" name="id" value="${user.id}">
-		<input type="hidden" name="uuid" value="${user.uuid}"/>
-		<input type="hidden" name="status" value="${user.valid}"/>
-		<input type="hidden" name="password" value="${user.password}"/>
-		<input type="hidden" name="province" value="${user.province}"/>
-		<input type="hidden" name="register" value="${user.register}"/>
-		<input type="hidden" name="lastLogin" value="${user.lastLogin}"/>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>username：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" readonly="readonly"  value="${user.nickname}"  id="nickname" name="nickname">
-			</div>
+		<div style="width: 100%;height: 200px;">
+			<style>table tr td{font-size: 16px;padding: 5px;border: 1px solid grey;}</style>
+			<table style="border: 1px dashed grey;font-size: 14px;">
+				<thead>Receiving address</thead>
+				<tbody>
+                    <tr><td>username:</td><td>${address.recipient}</td></tr>
+                    <tr><td>phone:</td><td>${address.phone}</td></tr>
+                    <tr><td>postalcode:</td><td>${address.postalcode}</td></tr>
+                    <tr><td>Address detail:</td><td>${address.detail}</td></tr>
+                    <tr><td>city:</td><td>${address.city}</td></tr>
+                    <tr><td>country:</td><td>${address.country}</td></tr>
+                </tbody>
+			</table>
+
 		</div>
 
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>Email：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" readonly="readonly" class="input-text" value="${user.mail}"  id="mail" name="mail">
-			</div>
-		</div>
-
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>country：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" readonly="readonly" class="input-text"  value="${user.country}" name="country" id="country">
-			</div>
-		</div>
-		<div class="row cl">
-			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
-			</div>
-		</div>
 	</form>
 </article>
 
@@ -75,7 +59,7 @@
 <script type="text/javascript" src="static/h-ui.admin/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 
-<!--请在下方写此页面业务相关的脚本--> 
+<!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="static/h-ui.admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
@@ -87,7 +71,7 @@ $(function(){
 		radioClass: 'iradio-blue',
 		increaseArea: '20%'
 	});
-	
+
 	$("#form-member-add").validate({
 		rules:{
 			username:{
@@ -109,7 +93,7 @@ $(function(){
 			uploadfile:{
 				required:true,
 			},
-			
+
 		},
 		onkeyup:false,
 		focusCleanup:true,
@@ -122,7 +106,7 @@ $(function(){
 		}
 	});
 });
-</script> 
+</script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>

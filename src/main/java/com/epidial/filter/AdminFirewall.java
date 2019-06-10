@@ -31,6 +31,10 @@ public class AdminFirewall implements Filter {
         String refer = req.getHeader("Referer");
         String uri = req.getRequestURI();
         System.out.println(uri);
+        if (admin!=null){
+            chain.doFilter(request, response);// 放行到下个页面
+            return;
+        }
         //当用户没有登录,直接跳转到登陆页面
         if (admin == null) {
             if (accessurl.contains(uri)) {
@@ -38,7 +42,9 @@ public class AdminFirewall implements Filter {
             } else {
                 resp.sendRedirect(indexurl);
             }
-        } else if (refer == null) {
+            return;
+        }
+        if (refer == null) {
             // 首页链接直接放行
             if (accessurl.contains(uri)) {
                 chain.doFilter(request, response);// 放行filter

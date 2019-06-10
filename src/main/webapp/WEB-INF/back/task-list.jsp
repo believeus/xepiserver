@@ -14,7 +14,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <!--[if lt IE 9]>
+	<script type="text/javascript" src="static/h-ui.admin/lib/jquery/1.9.1/jquery.min.js"></script>
+
+	<!--[if lt IE 9]>
 <script type="text/javascript" src="static/h-ui.admin/lib/html5shiv.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/lib/respond.min.js"></script>
 	<![endif]--><link rel="stylesheet" type="text/css" href="static/h-ui.admin/static/h-ui/css/H-ui.min.css" />
@@ -32,41 +34,68 @@
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> user manager <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 	<div class="text-c">
-		<input type="text" class="input-text" style="width:250px" placeholder="user email" id="" name="">
-		<button type="submit" class="btn btn-success radius" ><i class="Hui-iconfont">&#xe665;</i> search user</button>
+		<input type="text" class="input-text" style="width:250px" placeholder="order no" id="" name="">
+		<button type="submit" class="btn btn-success radius" ><i class="Hui-iconfont">&#xe665;</i>order no</button>
 	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"></span> <span class="r">data total：<strong>88</strong> items</span> </div>
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
 			<tr class="text-c">
-				<th width="80">ID</th>
-				<th width="100">username</th>
-				<th width="40">email</th>
-				<th width="70">mail status</th>
-				<th width="100">register time</th>
-				<th width="100">last Login time</th>
-				<%--<th width="100">operation</th>--%>
+				<th width="100">orderNo</th>
+				<th width="120">goods-name</th>
+				<th width="20">price</th>
+				<th width="50">image</th>
+				<th width="20">pay</th>
+				<th width="20">count</th>
+				<th width="30">invite</th>
+				<th width="20">valid</th>
+				<th width="20">total</th>
+				<th width="50">createTime</th>
+				<th width="50">payTime</th>
+				<th width="100">address</th>
+				<th width="100">is deliver</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${users}" var="user">
+			<c:forEach items="${taskbox}" var="task">
 				<tr class="text-c">
-					<td>${user.uuid}</td>
-					<td><u style="cursor:pointer" class="text-primary" onclick="member_show('${user.nickname}','member-show.html','${user.mail}','360','400')">${user.nickname}</u></td>
-					<td>${user.mail}</td>
+					<td>${task.orderno}</td>
+					<td>${task.name}</td>
+					<td>${task.price}</td>
+					<td><img src="${task.imgpath}" width="50px" height="50px"></td>
 					<c:choose>
-						<c:when test="${user.valid==0}">
-							<td class="td-status"><span class="label label-error radius">inactivated</span></td>
-						</c:when>
-						<c:otherwise>
-							<td class="td-status"><span class="label label-success radius">activation</span></td>
-						</c:otherwise>
+						<c:when test="${task.pay ==1}">	<td class="td-status"><span class="label label-success radius">pay</span></td></c:when>
+						<c:otherwise><td class="td-status"><span class="label label-error radius">un-pay</span></td></c:otherwise>
 					</c:choose>
 
-					<td><date:date value="${user.register}" pattern="yyyy-MM-dd:hh:mm:ss"></date:date></td>
-					<td><date:date value="${user.lastLogin}" pattern="yyyy-MM-dd:hh:mm:ss"></date:date></td>
-					<%--<td class="td-manage"><a title="edit" href="javascript:;" onclick="member_edit('edit','/admin/user/edit.jhtml?mail=${user.mail}','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>  </td>--%>
+					<td>${task.count}</td>
+					<td>${task.invite}</td>
+					<td>${task.valid}</td>
+					<td>${task.total}</td>
+					<td><date:date value="${task.createTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td>
+					<td><date:date value="${task.payTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td>
+					<td class="td-manage"><a title="edit" href="javascript:;" onclick="member_edit('edit','/admin/task/edit.jhtml?id=${task.addrid}','4','','510')" class="ml-5" style="text-decoration:none">check</a>  </td>
+					<td>
+						<select>
+							<c:choose>
+								<c:when test="${task.delivery eq 'Unfilled'}">
+									<option task-id="${task.id}" selected="selected" value="Unfilled" >Unfilled</option>
+									<option  task-id="${task.id}"  value="deliveried">deliveried</option>
+								</c:when>
+								<c:otherwise>
+									<option task-id="${task.id}"  value="Unfilled" >Unfilled</option>
+									<option  task-id="${task.id}" selected="selected" value="deliveried">deliveried</option>
+								</c:otherwise>
+							</c:choose>
+
+						</select>
+					</td>
+					<%--<script>
+						$(function(){
+							$("select").find("option[value=${task.delivery}]").attr("selected",true);
+						});
+					</script>--%>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -74,7 +103,7 @@
 	</div>
 </div>
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="static/h-ui.admin/lib/jquery/1.9.1/jquery.min.js"></script>
+
 <script type="text/javascript" src="static/h-ui.admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
@@ -83,6 +112,18 @@
 <script type="text/javascript" src="static/h-ui.admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <%--<script type="text/javascript" src="static/h-ui.admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>--%>
 <script type="text/javascript" src="static/h-ui.admin/lib/laypage/1.2/laypage.js"></script>
+<script>
+	$(function(){
+		$("select").change(function(event){
+			var id=$(this).find("option:selected").attr("task-id");
+			var status=$(this).find("option:selected").text();
+			var data={};
+			data.id=id;
+			data.status=status;
+			$.post("/admin/task/update.jhtml",data);
+		});
+	});
+</script>
 <script type="text/javascript">
 /*$(function(){
 	$('.table-sort').dataTable({
@@ -95,6 +136,7 @@
 	});
 
 });*/
+
 /*用户-添加*/
 function member_add(title,url,w,h){
 	layer_show(title,url,w,h);

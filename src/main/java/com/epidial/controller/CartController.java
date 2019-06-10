@@ -67,6 +67,12 @@ public class CartController {
         addressDao.update("valid",1,"id",addrid);//将当前地址为正在使用的地址
         //查找当前正在使用的地址
         Address address = addressDao.findValidAddress("uuid", user.getUuid(), "valid", "1");
+        //设置商品收货地址
+        List<Task> unPayGoods = taskDao.findUnPayGoods(user.getId());
+        for (Task task:unPayGoods) {
+            task.setAddrid(address.getId());
+            taskDao.update(task);
+        }
         ModelAndView modelView = new ModelAndView();
         modelView.setViewName("/WEB-INF/front/order.jsp");
         modelView.addObject("title", " Order display");

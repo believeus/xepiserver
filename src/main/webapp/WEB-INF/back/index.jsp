@@ -92,6 +92,7 @@
             <dd>
                 <ul>
                     <li><a data-href="/admin/user/view.jhtml?idx=0&size=20" data-title="User Manager" href="javascript:void(0)">User Manager</a></li>
+                    <li><a data-href="/admin/task/view.jhtml?idx=0&size=20" data-title="Task Manager" href="javascript:void(0)">Task Manager</a></li>
                 </ul>
             </dd>
         </dl>

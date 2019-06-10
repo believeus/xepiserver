@@ -15,7 +15,7 @@ public interface AddressDao {
     public int save(Address address);
 
     @Select("select * from address where ${c}=#{v}")
-    public List<Address> find(@Param("c") String c,@Param("v") String v);
+    public List<Address> find(@Param("c") String c,@Param("v") Object v);
 
     @Delete("delete from address where  ${c}=#{v}")
     public boolean delete(@Param("c") String c,@Param("v") String v);

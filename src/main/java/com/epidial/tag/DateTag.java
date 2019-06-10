@@ -13,7 +13,7 @@ public class DateTag extends TagSupport {
 
     @Override
     public int doStartTag() throws JspException {
-        String vv = "" + value;
+        String vv = (value==null||"".equals(value))?"0":value;
         long time = Long.valueOf(vv);
         Calendar c = Calendar.getInstance();
         c.setTimeInMillis(time);

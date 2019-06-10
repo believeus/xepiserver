@@ -15,7 +15,7 @@ import java.util.Stack;
 @WebFilter(filterName = "sysFirwall", urlPatterns = {"/user/*"})
 public class SysFirewall implements Filter {
     private List<String> nologinCannotAccessUrl = Arrays.asList(new String[]{
-            "/user/bioreport/index.jhtml", "/user/lifestyle/index.jhtml",
+            "/user/bioreport/index.jhtml", "/user/lifestyle/index.jhtml", "/mycenter/index.jhtml",
             "/user/pain/index.jhtml", "/user/mood/index.jhtml",
             "/user/sleep/index.jhtml", "/user/sleep/index.jhtml",
             "/user/diet/index.jhtml", "/user/cart/index.jhtml",
@@ -23,10 +23,10 @@ public class SysFirewall implements Filter {
             "/user/transaction/updatdCart.jhtml", "/user/transaction/deleteCart.jhtml",
             "/user/transaction/loadOrder.jhtml", "/user/transaction/check.jhtml",
             "/user/transaction/success.jhtml", "/user/cart/index.jhtml",
-            "/user/cart/check.jhtml", "/user/cart/order.jhtml","/user/cart/sumprice.jhtml","/user/cart/watchagain.jhtml","/user/cart/del.jhtml",
+            "/user/cart/check.jhtml", "/user/cart/order.jhtml", "/user/cart/sumprice.jhtml", "/user/cart/watchagain.jhtml", "/user/cart/del.jhtml",
             "/user/paypal/payment.jhtml", "/user/paypal/paysuccess.jhtml",
             "/user/paypal/cancelUrl.jhtml", "/user/report/iage.jhtml",
-            "/user/report/getData.jhtml","/user/transaction/delAddr.jhtml"});
+            "/user/report/getData.jhtml", "/user/transaction/delAddr.jhtml"});
     private String loginurl = "/login.jhtml";
     public static Stack<String> urlstack = new Stack<String>();
 
@@ -45,25 +45,36 @@ public class SysFirewall implements Filter {
         //访问第一个页面是没有refered的！从跳转页开始就有refered
         String refer = req.getHeader("Referer");
         String uri = req.getRequestURI();
-        System.out.println(uri);
-        //当用户没有登录,直接跳转到登陆页面
+
+        //当用户登录,直接跳转到下级页面
         if (user != null) {
+            if (uri.equals("/user/login.jhtml")){
+                urlstack.push("/index.jhtml");
+            }
             chain.doFilter(request, response);
-        } else if (user == null) {
+            return;
+        }
+        //当用户没有登陆
+        if (user == null) {
             if (!nologinCannotAccessUrl.contains(uri)) {
                 chain.doFilter(request, response);// 放行到下个页面
             } else {
-                urlstack.push(uri);
                 resp.sendRedirect(loginurl);
             }
-        } else if (refer == null) { //不允许直接跳转到二级页面
+            return;
+        }
+        //一级页面
+        if (refer == null) { //不允许直接跳转到二级页面
             // 首页链接直接放行
             if (!nologinCannotAccessUrl.contains(uri)) {
                 chain.doFilter(request, response);// 放行filter
             } else {
+                if (uri.equals("/user/login.jhtml")){
+                    urlstack.push("/index.jhtml");
+                }
                 resp.sendRedirect(loginurl);// 打回主页 重定向又被filter拦截
-                urlstack.push(uri);
             }
+            return;
         }
     }
 

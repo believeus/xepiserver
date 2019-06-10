@@ -49,10 +49,11 @@
 						<ul class="nav navbar-nav">
 							<li class="menuItem"><a href="index.jhtml">Home</a></li>
 							<li class="menuItem"><a href="aboutus/index.jhtml">About Us</a></li>
-							<li class="menuItem"><a href="report/index.jhtml">MYReport</a></li>
-							<li class="menuItem"><a href="cart/index.jhtml">Health Market</a></li>
+							<li class="menuItem"><a href="user/bioreport/index.jhtml">MYReport</a></li>
+							<li class="menuItem"><a href="user/cart/index.jhtml">Health Market</a></li>
 							<li class="menuItem"><a href="scienceteam/index.jhtml">Science team</a></li>
 							<li class="menuItem"><a href="mycenter/index.jhtml">User Center</a></li>
+							<li class="menuItem"><a href="user/logout.jhtml">logout</a></li>
 						</ul>
 					</div>
 				</div>

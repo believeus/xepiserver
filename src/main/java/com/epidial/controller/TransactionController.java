@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.epidial.bean.Task;
 import com.epidial.bean.User;
 import com.epidial.bean.Wares;
-import com.epidial.dao.epi.AddressDao;
 import com.epidial.dao.epi.TaskDao;
 import com.epidial.dao.epi.WaresDao;
 import com.epidial.serivce.WaresService;
@@ -28,9 +27,6 @@ public class TransactionController {
     private WaresService waresService;
 
     @Resource
-    private AddressDao addressDao;
-
-    @Resource
     private TaskDao taskDao;
 
     @Resource
@@ -43,7 +39,7 @@ public class TransactionController {
     @ResponseBody
     public String postCar(@RequestBody JSONObject data, HttpSession session) {
         User user = (User) session.getAttribute("sessionuser");
-        String orderNo = String.valueOf(System.currentTimeMillis());
+        long time =System.currentTimeMillis();
         JSONArray waresbox = data.getJSONArray("wares");
         String invite = data.getString("invite");//获得邀请码
         for (int i = 0; i < waresbox.size(); i++) {
@@ -55,7 +51,7 @@ public class TransactionController {
             task.setGid(Integer.parseInt(waresId));
             task.setImgpath(wares.getImgpath());
             task.setInvite(invite);
-            task.setOrderno(orderNo);
+            task.setOrderno("HKG:"+time);
             task.setPay(0);//未付款
             task.setName(wares.getName());
             task.setPrice(wares.getPrice());
@@ -65,12 +61,12 @@ public class TransactionController {
             task.setUid(user.getId());
             task.setType(wares.getType());
             task.setValid(0);//0：订单有效
+            task.setCreateTime(time);//订单创建时间
+            task.setDelivery("Unfilled");
             taskDao.save(task);
         }
         return "/user/cart/check.jhtml";
     }
-
-
 
     @RequestMapping(value = "/user/transaction/success.jhtml")
     public ModelAndView paySuccess() {
