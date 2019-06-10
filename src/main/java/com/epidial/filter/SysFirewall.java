@@ -45,17 +45,27 @@ public class SysFirewall implements Filter {
         //访问第一个页面是没有refered的！从跳转页开始就有refered
         String refer = req.getHeader("Referer");
         String uri = req.getRequestURI();
-
+        if (uri.equals("/user/logout.jhtml")){
+            chain.doFilter(request,response);
+            return;
+        }
         //当用户登录,直接跳转到下级页面
         if (user != null) {
-            if (uri.equals("/user/login.jhtml")){
-                urlstack.push("/index.jhtml");
+            if (urlstack.isEmpty()) {
+                if (uri.equals("/user/login.jhtml")) {
+                    urlstack.push("/index.jhtml");
+                } else {
+                    urlstack.push(uri);
+                }
             }
             chain.doFilter(request, response);
             return;
         }
         //当用户没有登陆
         if (user == null) {
+            if (urlstack.isEmpty()) {
+                urlstack.push(uri);
+            }
             if (!nologinCannotAccessUrl.contains(uri)) {
                 chain.doFilter(request, response);// 放行到下个页面
             } else {
@@ -65,13 +75,17 @@ public class SysFirewall implements Filter {
         }
         //一级页面
         if (refer == null) { //不允许直接跳转到二级页面
+            if (urlstack.isEmpty()) {
+                if (uri.equals("/user/login.jhtml")) {
+                    urlstack.push("/index.jhtml");
+                } else {
+                    urlstack.push(uri);
+                }
+            }
             // 首页链接直接放行
             if (!nologinCannotAccessUrl.contains(uri)) {
                 chain.doFilter(request, response);// 放行filter
             } else {
-                if (uri.equals("/user/login.jhtml")){
-                    urlstack.push("/index.jhtml");
-                }
                 resp.sendRedirect(loginurl);// 打回主页 重定向又被filter拦截
             }
             return;
