@@ -22,6 +22,9 @@ public interface TaskDao {
     @Select("select * from task where uid=#{uid} and pay=0 and valid=0")
     public List<Task> findUnPayGoods(@Param("uid") Object uid);
 
+    @Select("select * from task where uid=#{uid} and pay=1")
+    public List<Task> findPayGoods(@Param("uid")Object uid);
+
     //查询总价钱
     @Select("select sum(sumprice) from task where uid=#{uid} and pay=0 and valid=0")
     public float getPrice(@Param("uid") Object uid);

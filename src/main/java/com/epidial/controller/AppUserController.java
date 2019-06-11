@@ -2,7 +2,6 @@ package com.epidial.controller;
 
 import com.epidial.bean.User;
 import com.epidial.dao.epi.UserDao;
-import com.epidial.filter.SysFirewall;
 import com.epidial.serivce.MailService;
 import com.epidial.utils.UserCreate;
 import org.apache.ibatis.annotations.Param;
@@ -25,6 +24,14 @@ public class AppUserController {
     @Resource
     private MailService mailService;
 
+    @RequestMapping(value = "/user/loginview")
+    public ModelAndView Tologin(){
+        ModelAndView modelView = new ModelAndView();
+        modelView.setViewName("/WEB-INF/front/login.jsp");
+        modelView.addObject("title","Login");
+        modelView.addObject("canback", true);
+        return  modelView;
+    }
     @RequestMapping(value = "/user/login")
     public @ResponseBody
     String login(String email, String password,HttpSession session) {
@@ -39,7 +46,9 @@ public class AppUserController {
             }else {
                 session.setAttribute("sessionuser",user);
                 user.setLastLogin(System.currentTimeMillis());
-                return SysFirewall.urlstack.pop();
+                String refurl = (String) session.getAttribute("refurl");
+                session.removeAttribute("refurl");
+                return refurl;
             }
         }
     }

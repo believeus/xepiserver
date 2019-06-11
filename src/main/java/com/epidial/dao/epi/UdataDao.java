@@ -30,4 +30,7 @@ public interface UdataDao {
 
     @Select("select * from udata where naturally < biological and naturally>0 and biological>0  limit 0,50")
     public List<Udata> findNtrLtBio();
+
+    @Select("select * from udata limit #{idx},#{sz}")
+    public List<Udata> findAll(@Param("idx") int idx, @Param("sz") int sz);
 }

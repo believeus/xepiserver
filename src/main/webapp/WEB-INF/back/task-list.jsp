@@ -28,16 +28,12 @@
 	<script type="text/javascript" src="static/h-ui.admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>user manager</title>
+<title>Order manager</title>
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> user manager <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-	<div class="text-c">
-		<input type="text" class="input-text" style="width:250px" placeholder="order no" id="" name="">
-		<button type="submit" class="btn btn-success radius" ><i class="Hui-iconfont">&#xe665;</i>order no</button>
-	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"></span> <span class="r">data total：<strong>88</strong> items</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"></span> <span class="r"></span> </div>
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
@@ -74,7 +70,12 @@
 					<td>${task.valid}</td>
 					<td>${task.total}</td>
 					<td><date:date value="${task.createTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td>
-					<td><date:date value="${task.payTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td>
+					<c:choose>
+						<c:when test="${task.payTime eq 0}"><td></td></c:when>
+						<c:otherwise><td><date:date value="${task.payTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td></c:otherwise>
+					</c:choose>
+
+
 					<td class="td-manage"><a title="edit" href="javascript:;" onclick="member_edit('edit','/admin/task/edit.jhtml?id=${task.addrid}','4','','510')" class="ml-5" style="text-decoration:none">check</a>  </td>
 					<td>
 						<select>

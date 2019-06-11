@@ -9,6 +9,24 @@ public class Udata {
     private double biological;
     private String barcode;
     private String status;//状态：pending processing finished
+    private long createTime;//创建时间
+    private long uploadTime;//上传barcode时间
+
+    public long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
+    }
+
+    public long getUploadTime() {
+        return uploadTime;
+    }
+
+    public void setUploadTime(long uploadTime) {
+        this.uploadTime = uploadTime;
+    }
 
     public String getId() {
         return id;

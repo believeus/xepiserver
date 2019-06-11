@@ -14,7 +14,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <!--[if lt IE 9]>
+	<script type="text/javascript" src="static/h-ui.admin/lib/jquery/1.9.1/jquery.min.js"></script>
+
+	<!--[if lt IE 9]>
 <script type="text/javascript" src="static/h-ui.admin/lib/html5shiv.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/lib/respond.min.js"></script>
 	<![endif]--><link rel="stylesheet" type="text/css" href="static/h-ui.admin/static/h-ui/css/H-ui.min.css" />
@@ -26,52 +28,98 @@
 	<script type="text/javascript" src="static/h-ui.admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>user manager</title>
+<title>Age manager</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> user manager <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> Age center <span class="c-gray en">&gt;</span> Age manager <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"></span> <span class="r">data total：<strong></strong> </span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"></span> <span class="r"></span> </div>
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
 			<tr class="text-c">
-				<th width="80">ID</th>
 				<th width="100">username</th>
-				<th width="40">email</th>
-				<th width="70">mail status</th>
-				<th width="100">register time</th>
-				<th width="100">last Login time</th>
-				<%--<th width="100">operation</th>--%>
+				<th width="60">naturally</th>
+				<th width="60">biological</th>
+				<th width="100">barcode</th>
+				<th width="20">status</th>
+				<th width="20">createTime</th>
+				<th width="30">uploadTime</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${users}" var="user">
-				<tr class="text-c">
-					<td>${user.uuid}</td>
-					<td><u style="cursor:pointer" class="text-primary" onclick="member_show('${user.nickname}','member-show.html','${user.mail}','360','400')">${user.nickname}</u></td>
-					<td>${user.mail}</td>
+			<c:forEach items="${databox}" var="task">
+				<tr  class="text-c">
+					<td>${task.username}</td>
+					<td><input name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
+					<td><input name="biological" data-id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
+					<td>${task.barcode}</td>
+					<td>
+						<select  data-id="${task.id}">
+							<c:choose>
+								<c:when test="${task.status eq 'pending'}">
+									<option data-id="${task.id}" selected="selected" value="pending" >pending</option>
+									<option  data-id="${task.id}"  value="processing">processing</option>
+									<option  data-id="${task.id}"  value="finished">finished</option>
+								</c:when>
+								<c:when test="${task.status eq 'processing'}">
+									<option data-id="${task.id}"  value="pending" >pending</option>
+									<option  data-id="${task.id}" selected="selected"  value="processing">processing</option>
+									<option  data-id="${task.id}"  value="finished">finished</option>
+								</c:when>
+								<c:otherwise>
+									<option data-id="${task.id}"  value="pending" >pending</option>
+									<option  data-id="${task.id}"   value="processing">processing</option>
+									<option  data-id="${task.id}" selected="selected"  value="finished">finished</option>
+								</c:otherwise>
+							</c:choose>
+						</select>
+					</td>
+					<td><date:date value="${task.createTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td>
 					<c:choose>
-						<c:when test="${user.valid==0}">
-							<td class="td-status"><span class="label label-error radius">inactivated</span></td>
-						</c:when>
-						<c:otherwise>
-							<td class="td-status"><span class="label label-success radius">activation</span></td>
-						</c:otherwise>
+						<c:when test="${task.uploadTime eq 0}"><td></td></c:when>
+						<c:otherwise><td><date:date value="${task.uploadTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td></c:otherwise>
 					</c:choose>
-
-					<td><date:date value="${user.register}" pattern="yyyy-MM-dd:hh:mm:ss"></date:date></td>
-					<td><date:date value="${user.lastLogin}" pattern="yyyy-MM-dd:hh:mm:ss"></date:date></td>
-					<%--<td class="td-manage"><a title="edit" href="javascript:;" onclick="member_edit('edit','/admin/user/edit.jhtml?mail=${user.mail}','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>  </td>--%>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+		<script>
+			$(function(){
+                $("body").on("keydown dblclick change","input,select",function(event){
+                    console.info(event);
+                    var _oThis = $(event.currentTarget);
+                    switch (event.type) {
+                        case "dblclick":
+                            _oThis.removeAttr("readonly");
+                            _oThis.css("border","1px solid blue");
+                            break;
+                        default:
+                            //只监听enter按键
+                            if(event.which == "13"||event.type=="change") {
+                                var naturally = _oThis.parents("tr").find("[name=naturally]").val();
+                                var biological = _oThis.parents("tr").find("[name=biological]").val();
+                                var status = _oThis.parents("tr").find("option:selected").text();
+                                var data = {};
+                                data.id = _oThis.attr("data-id");
+                                data.v = naturally + "@" + biological+"@"+status;
+                                 $.post("/admin/age/update.jhtml", data, function () {
+                                     _oThis.attr("readonly", "readonly")
+                                     _oThis.css("border", "none");
+                                 });
+                            }
+                            break;
+                    }
+
+                });
+
+
+			});
+		</script>
 	</div>
 </div>
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="static/h-ui.admin/lib/jquery/1.9.1/jquery.min.js"></script>
+
 <script type="text/javascript" src="static/h-ui.admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
@@ -92,6 +140,7 @@
 	});
 
 });*/
+
 /*用户-添加*/
 function member_add(title,url,w,h){
 	layer_show(title,url,w,h);

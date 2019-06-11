@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Stack;
 
 @WebFilter(filterName = "sysFirwall", urlPatterns = {"/user/*"})
 public class SysFirewall implements Filter {
@@ -23,12 +22,15 @@ public class SysFirewall implements Filter {
             "/user/transaction/updatdCart.jhtml", "/user/transaction/deleteCart.jhtml",
             "/user/transaction/loadOrder.jhtml", "/user/transaction/check.jhtml",
             "/user/transaction/success.jhtml", "/user/cart/index.jhtml",
-            "/user/cart/check.jhtml", "/user/cart/order.jhtml", "/user/cart/sumprice.jhtml", "/user/cart/watchagain.jhtml", "/user/cart/del.jhtml",
+            "/user/cart/check.jhtml", "/user/cart/order.jhtml", "/user/cart/sumprice.jhtml",
+            "/user/cart/watchagain.jhtml", "/user/cart/del.jhtml",
             "/user/paypal/payment.jhtml", "/user/paypal/paysuccess.jhtml",
             "/user/paypal/cancelUrl.jhtml", "/user/report/iage.jhtml",
-            "/user/report/getData.jhtml", "/user/transaction/delAddr.jhtml"});
-    private String loginurl = "/login.jhtml";
-    public static Stack<String> urlstack = new Stack<String>();
+            "/user/report/getData.jhtml", "/user/transaction/delAddr.jhtml", "/user/mycenter/index.jhtml",
+            "/user/taskrecord/index.jhtml"});
+
+    private List<String> nologinCanAccessUrl = Arrays.asList(new String[]{"/user/logout.jhtml", "/user/loginview.jhtml"});
+    private String loginurl = "/user/loginview.jhtml";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -43,54 +45,34 @@ public class SysFirewall implements Filter {
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("sessionuser");
         //访问第一个页面是没有refered的！从跳转页开始就有refered
-        String refer = req.getHeader("Referer");
-        String uri = req.getRequestURI();
-        if (uri.equals("/user/logout.jhtml")){
-            chain.doFilter(request,response);
-            return;
-        }
+        String refer = req.getHeader("Referer");//获取前一个链接地址
+        String uri = req.getRequestURI();//获取当前链接地址
         //当用户登录,直接跳转到下级页面
         if (user != null) {
-            if (urlstack.isEmpty()) {
-                if (uri.equals("/user/login.jhtml")) {
-                    urlstack.push("/index.jhtml");
-                } else {
-                    urlstack.push(uri);
-                }
-            }
             chain.doFilter(request, response);
             return;
         }
-        //当用户没有登陆
-        if (user == null) {
-            if (urlstack.isEmpty()) {
-                urlstack.push(uri);
+        if (nologinCanAccessUrl.contains(uri) || user == null || refer == null) {
+            //直接访问/login.jhtml页面
+            if (refer == null && uri.equals("/user/loginview.jhtml")) {
+                session.setAttribute("refurl", "/index.jhtml");
+                //从其他页面跳转到登陆页面
+            } else if (refer != null && uri.equals("/user/loginview.jhtml")) {
+                if (session.getAttribute("refurl") == null)
+                    session.setAttribute("refurl", refer);
             }
             if (!nologinCannotAccessUrl.contains(uri)) {
                 chain.doFilter(request, response);// 放行到下个页面
             } else {
+                session.setAttribute("refurl", uri);
                 resp.sendRedirect(loginurl);
             }
             return;
         }
-        //一级页面
-        if (refer == null) { //不允许直接跳转到二级页面
-            if (urlstack.isEmpty()) {
-                if (uri.equals("/user/login.jhtml")) {
-                    urlstack.push("/index.jhtml");
-                } else {
-                    urlstack.push(uri);
-                }
-            }
-            // 首页链接直接放行
-            if (!nologinCannotAccessUrl.contains(uri)) {
-                chain.doFilter(request, response);// 放行filter
-            } else {
-                resp.sendRedirect(loginurl);// 打回主页 重定向又被filter拦截
-            }
-            return;
-        }
+
+        return;
     }
+
 
     public void destroy() {
 

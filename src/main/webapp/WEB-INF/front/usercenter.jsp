@@ -21,7 +21,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div style="width: 100%;height: 30px;"></div>
 		<div style="width: 100%;height: auto;">
 			<div style="width: 8%;height: 100px;float: left;"></div>
-			<div style="width: 30%;height: auto;float:left;margin: 20px 0 0 20px;color:#ffffff">${sessionuser.uuid}</div>
+            <c:choose>
+                <c:when test="${sessionuser==null}">
+                    <div style="width: 100%;height: auto;margin: 20px 0 0 20px;color:#ffffff">
+                        <a href="login.jhtml" style="font-size: 18px;font-weight: bold;color: white;">login</a>
+                        <span>&nbsp;|&nbsp;</span>
+                        <a style="font-size: 18px;font-weight: bold;color: white;">register</a></div>
+                </c:when>
+                <c:otherwise>
+                    <div style="width: 100%;height: auto;color:#ffffff;font-size: 18px;color: white">USER ID:${sessionuser.uuid}</div>
+                </c:otherwise>
+            </c:choose>
+
 
 		</div>
 		<div style="width: 100%;height: 60px;"></div>
@@ -45,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<hr size="1"/>
 
 			<div style="width: 70%;height: auto;margin: 0 auto;">
-				<div style="width: 100%;height: auto;line-height: 50px;"><a href="orderecord/index.jhtml"> Order List</a></div>
+				<div style="width: 100%;height: auto;line-height: 50px;"><a href="user/taskrecord/index.jhtml">Order Record</a></div>
 			</div>
 			<hr size="1"/>
 

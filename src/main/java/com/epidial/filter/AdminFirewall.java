@@ -36,21 +36,13 @@ public class AdminFirewall implements Filter {
             return;
         }
         //当用户没有登录,直接跳转到登陆页面
-        if (admin == null) {
+        if (admin == null||refer == null) {
             if (accessurl.contains(uri)) {
                 chain.doFilter(request, response);// 放行到下个页面
             } else {
                 resp.sendRedirect(indexurl);
             }
             return;
-        }
-        if (refer == null) {
-            // 首页链接直接放行
-            if (accessurl.contains(uri)) {
-                chain.doFilter(request, response);// 放行filter
-            } else {
-                resp.sendRedirect(indexurl);// 打回主页 重定向又被filter拦截
-            }
         } else {
             chain.doFilter(request, response);
         }

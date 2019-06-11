@@ -33,7 +33,7 @@
         <div name="cartbox" style="width:100%;height:auto;">
             <script>
                 $(function () {
-                    $.post("/user/cart/list.jhtml", function (data) {
+                    $.post("/user/cart/unPayGoodslist.jhtml", function (data) {
                         data.forEach(function (v) {
                             var div = "<div name='cart'><div style='width:80%;display: flex;flex-direction: row;justify-content: center;float: left;'>\n" +
                                 "                        <div style=\"width: 90%\">\n" +
@@ -140,13 +140,22 @@
 <script>
     $(function(){
         $("div[name=paypal]").click(function(){
-            var pop = document.getElementById("popDiv");
-            document.body.addEventListener('touchmove', function(event){
-                event.preventDefault();
-            }, false);
-            $('body').css({'position': 'fixed', "width": "100%"});
-            pop.style.display = "block";
-            window.location.href = '/user/paypal/payment.jhtml';
+            $.post("/user/cart/unPayGoodslist.jhtml", function (msg) {
+                if(msg.length!=0){
+                    var pop = document.getElementById("popDiv");
+                    document.body.addEventListener('touchmove', function(event){
+                        event.preventDefault();
+                    }, false);
+                    $('body').css({'position': 'fixed', "width": "100%"});
+                    pop.style.display = "block";
+                    window.location.href = '/user/paypal/payment.jhtml';
+                }else{
+                    window.alert("Please buy goods");
+                    window.location.href = "/user/cart/index.jhtml";
+                }
+
+            });
+
         });
     });
 

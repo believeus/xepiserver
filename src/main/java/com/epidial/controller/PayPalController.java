@@ -118,6 +118,7 @@ public class PayPalController {
 					data.setUsername(user.getNickname());
 					data.setUid(user.getId());
 					data.setBarcode("");
+					data.setCreateTime(System.currentTimeMillis());
 					udataDao.save(data);
 				}
 			}

@@ -142,7 +142,7 @@
                     </div>
                 </li>
             </ul>
-            <div class="shopPrice"> Invite code:<input type="text" id="invite" name="nvite" style="height: 25px;border: 1px solid blue;"> &nbsp;&nbsp;TOTAL：$<span class="shop-total-amount ShopTotal">0.00</span></div>
+            <div class="shopPrice">Invitation Code:<input type="text" id="invite" name="nvite" style="height: 25px;border: 1px solid blue;"> &nbsp;&nbsp;TOTAL：$<span class="shop-total-amount ShopTotal">0.00</span></div>
         </div>
     </div>
     <div class="payment-bar" style="height: 82px">

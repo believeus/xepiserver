@@ -25,6 +25,21 @@ public class CartController {
     @Resource
     private UdataDao udataDao;
 
+    @RequestMapping("user/taskrecord/index.jhtml")
+    public ModelAndView tasklisk(){
+        ModelAndView modelView = new ModelAndView("/WEB-INF/front/taskrecord.jsp");
+        modelView.addObject("title","Order recode");
+        modelView.addObject("canback",true);
+        return modelView;
+    }
+    @ResponseBody
+    @RequestMapping("/user/cart/paygoodslist")
+    public List<Task> paygoodslist(HttpSession session){
+        User user = (User) session.getAttribute("sessionuser");
+        List<Task> taskbox = taskDao.findPayGoods(user.getId());
+        return taskbox;
+    }
+
     @RequestMapping("/user/cart/index")
     public ModelAndView index() {
         ModelAndView modelView = new ModelAndView();
@@ -82,7 +97,7 @@ public class CartController {
     }
 
     @ResponseBody
-    @RequestMapping("/user/cart/list")
+    @RequestMapping("/user/cart/unPayGoodslist")
     public List<Task> list(HttpSession session) {
         User user = (User) session.getAttribute("sessionuser");
         List<Task> tasks = taskDao.findUnPayGoods(user.getId());

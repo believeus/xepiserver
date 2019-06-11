@@ -12,7 +12,7 @@ public class UsercenterController {
 	@Autowired
 	private HttpServletRequest request;
 
-	@RequestMapping("/mycenter/index")
+	@RequestMapping("/user/mycenter/index")
 	public ModelAndView mycenter(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/usercenter.jsp");

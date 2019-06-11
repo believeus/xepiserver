@@ -52,8 +52,11 @@
 							<li class="menuItem"><a href="user/bioreport/index.jhtml">MYReport</a></li>
 							<li class="menuItem"><a href="user/cart/index.jhtml">Health Market</a></li>
 							<li class="menuItem"><a href="scienceteam/index.jhtml">Science team</a></li>
-							<li class="menuItem"><a href="mycenter/index.jhtml">User Center</a></li>
-							<li class="menuItem"><a href="user/logout.jhtml">logout</a></li>
+							<li class="menuItem"><a href="user/mycenter/index.jhtml">User Center</a></li>
+							<c:if test="${sessionuser!=null}">
+								<li class="menuItem"><a href="user/logout.jhtml">logout</a></li>
+							</c:if>
+
 						</ul>
 					</div>
 				</div>

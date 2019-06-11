@@ -99,6 +99,7 @@ public class ReportController {
     public String bind(String barcode, String id) {
         Udata data = udataDao.findBy("id", id).get(0);
         data.setBarcode(barcode);
+        data.setUploadTime(System.currentTimeMillis());
         udataDao.update(data);
         return "success";
     }

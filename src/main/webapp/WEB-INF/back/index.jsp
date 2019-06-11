@@ -33,26 +33,12 @@
 <body>
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
-        <div class="container-fluid cl"><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">H-ui.admin</a>
-            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a>
+        <div class="container-fluid cl"><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">hkgepitherapeutics</a>
+            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">HKG</a>
             <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span>
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
             <nav class="nav navbar-nav">
-                <ul class="cl">
-                    <li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i
-                            class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
-                        <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i
-                                    class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
-                            <li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i
-                                    class="Hui-iconfont">&#xe613;</i> 图片</a></li>
-                            <li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i
-                                    class="Hui-iconfont">&#xe620;</i> 产品</a></li>
-                            <li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i
-                                    class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
-                        </ul>
-                    </li>
-                </ul>
+
             </nav>
             <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
                 <ul class="cl">
@@ -92,7 +78,8 @@
             <dd>
                 <ul>
                     <li><a data-href="/admin/user/view.jhtml?idx=0&size=20" data-title="User Manager" href="javascript:void(0)">User Manager</a></li>
-                    <li><a data-href="/admin/task/view.jhtml?idx=0&size=20" data-title="Task Manager" href="javascript:void(0)">Task Manager</a></li>
+                    <li><a data-href="/admin/task/view.jhtml?idx=0&size=20" data-title="Order Manager" href="javascript:void(0)">Order Manager</a></li>
+                    <li><a data-href="/admin/age/view.jhtml?idx=0&size=20" data-title="Age Manager" href="javascript:void(0)">Age Manager</a></li>
                 </ul>
             </dd>
         </dl>
@@ -110,7 +97,7 @@
         <div class="Hui-tabNav-wp">
             <ul id="min_title_list" class="acrossTab cl">
                 <li class="active">
-                    <span title="我的桌面" data-href="welcome.html">我的桌面</span>
+                    <span title="我的桌面" data-href="welcome.html">desktop</span>
                     <em></em></li>
             </ul>
         </div>
@@ -122,7 +109,7 @@
     <div id="iframe_box" class="Hui-article">
         <div class="show_iframe">
             <div style="display:none" class="loading"></div>
-            <iframe scrolling="yes" frameborder="0" src="/admin/user/view.jhtml"></iframe>
+            <iframe scrolling="yes" frameborder="0" src="/admin/task/view.jhtml?idx=0&size=20"></iframe>
         </div>
     </div>
 </section>
