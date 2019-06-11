@@ -53,18 +53,29 @@ public class SysFirewall implements Filter {
             return;
         }
         if (nologinCanAccessUrl.contains(uri) || user == null || refer == null) {
-            //直接访问/login.jhtml页面
-            if (refer == null && uri.equals("/user/loginview.jhtml")) {
-                session.setAttribute("refurl", "/index.jhtml");
+            //直接访问/login.jhtml页面 user/mycenter/index.jhtml
+            if (refer == null) {
+                if (uri.equals("/user/loginview.jhtml")) {
+                    if (session.getAttribute("refurl") == null) {
+                        session.setAttribute("refurl", "/index.jhtml");
+                    }
+                } else {
+                    if (session.getAttribute("refurl") == null) {
+                        session.setAttribute("refurl", uri);
+                    }
+                }
                 //从其他页面跳转到登陆页面
             } else if (refer != null && uri.equals("/user/loginview.jhtml")) {
-                if (session.getAttribute("refurl") == null)
+                if (session.getAttribute("refurl") == null) {
                     session.setAttribute("refurl", refer);
+                }
             }
             if (!nologinCannotAccessUrl.contains(uri)) {
                 chain.doFilter(request, response);// 放行到下个页面
             } else {
-                session.setAttribute("refurl", uri);
+                if (session.getAttribute("refurl") == null) {
+                    session.setAttribute("refurl", uri);
+                }
                 resp.sendRedirect(loginurl);
             }
             return;
