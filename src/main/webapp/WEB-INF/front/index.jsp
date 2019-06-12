@@ -129,7 +129,7 @@ div[id=blue-dot]:before {
 			<div class="bio-pic" style="width: 100%;height: auto;background-color: #F0F0F0;">
 				<div style="width: 90%;height: auto;margin: 0 auto;">
 
-					<img src="static/images/hm4.png" style="width: 100%;height: auto;" />
+					<img src="static/images/hm4.jpg" style="width: 100%;height: auto;" />
 				</div>
 				<div style="width: 100%;height: 50px;background-color: #F0F0F0;"></div>
 			</div>

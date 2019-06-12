@@ -49,12 +49,12 @@
 						<ul class="nav navbar-nav">
 							<li class="menuItem"><a href="index.jhtml">Home</a></li>
 							<li class="menuItem"><a href="aboutus/index.jhtml">About Us</a></li>
-							<li class="menuItem"><a href="user/bioreport/index.jhtml">MYReport</a></li>
+							<li class="menuItem"><a href="user/bioreport/index.jhtml">My Report</a></li>
 							<li class="menuItem"><a href="user/cart/index.jhtml">Health Market</a></li>
-							<li class="menuItem"><a href="scienceteam/index.jhtml">Science team</a></li>
-							<li class="menuItem"><a href="user/mycenter/index.jhtml">User Center</a></li>
+							<li class="menuItem"><a href="scienceteam/index.jhtml">Science Team</a></li>
+							<li class="menuItem"><a href="user/mycenter/index.jhtml">Epi Center</a></li>
 							<c:if test="${sessionuser!=null}">
-								<li class="menuItem"><a href="user/logout.jhtml">logout</a></li>
+								<li class="menuItem"><a href="user/logout.jhtml">Log Out</a></li>
 							</c:if>
 
 						</ul>

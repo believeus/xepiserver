@@ -145,7 +145,7 @@
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div class="lifestyle-food-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 			<div>
-				<input id="food" class="lifestyle-food-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="10000" data-slider-step="1" data-slider-value="0" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)">
+				<input id="food" class="lifestyle-food-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="4000" data-slider-step="1" data-slider-value="0" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)">
 			</div>
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-food-report'></div>
@@ -344,11 +344,11 @@
 			<p>If your BMI is 30.0 or higher, it falls within the obese range.</p>
 		</div>
 		<div style="width: 100%;height: 20px; "></div>
-		<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Weight(kg)</div>
+		<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Weight(lb)</div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div class="lifestyle-weigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 			<div>
-				<input class="lifestyle-weight-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="20" data-slider-max="150" data-slider-step="1" data-slider-value="20">
+				<input class="lifestyle-weight-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #92D050 30%,#92D050 70%, #92D050 100%)" type="text" data-slider-min="20" data-slider-max="300" data-slider-step="1" data-slider-value="20">
 			</div>
 			<div class="ex11CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 20px;"></div>
@@ -359,7 +359,7 @@
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div class="lifestyle-heigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 			<div>
-				<input class="lifestyle-height-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="50" data-slider-max="250" data-slider-step="1" data-slider-value="50">
+				<input class="lifestyle-height-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #92D050 30%,#92D050 70%, #92D050 100%)" type="text" data-slider-min="50" data-slider-max="450" data-slider-step="1" data-slider-value="50">
 			</div>
 			<div style="width: 100%;height: 20px;"></div>
 		</div>
