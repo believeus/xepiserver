@@ -9,8 +9,6 @@
 <head>
     <base href="<%=basePath%>">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <meta name="TTUNION_verify" content="b846c3c2b85efabc496d2a2b8399cd62">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -20,12 +18,8 @@
     <title>Login</title>
 
     <link rel="stylesheet" type="text/css" href="static/css/login.css">
-    <link rel="stylesheet" type="text/css" href="static/css/login2.css">
     <script src="static/js/jquery-2.1.1.min.js"></script>
-    <link rel="stylesheet" href="static/js/build/css/demo.css">
-    <script src="static/js/build/js/intlTelInput.js"></script>
 
-    <script src="static/js/bootstrap.min.js"></script>
 </head>
 <body style="margin: 0;padding: 0">
 <!--头部开始-->
@@ -35,7 +29,7 @@
 
 <div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
     <div style="width:100%;height:100%;">
-        <c:if test="${sessionuser ==null}"><div id="zhuce" style="cursor: pointer" onclick="window.location.href = 'register.jhtml'">Register</div></c:if>
+        <c:if test="${sessionuser ==null}"><div id="zhuce" style="cursor: pointer" onclick="window.location.href = '/concent/index.jhtml'">Register</div></c:if>
         <div id="login"></div>
         <form action="App/login.jhtml" method="post">
             <div class="login_bg">
