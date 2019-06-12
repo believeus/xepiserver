@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2019/4/19
-  Time: 16:07
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%
     String path = request.getContextPath();
@@ -29,13 +22,13 @@
     <div style="width: 100%;height: 42%;display: flex">
         <div style="width: 10%;height: 100%;"></div>
         <div style="width: 79.5%;height: 100%;">
-            <div style="width:100%;height: 20%;border: 1px solid #026eb8;color: #026eb8;text-align: center;line-height: 53px;font-size: 20px;font-weight: 700" onclick="toregister()">Register</div>
+            <div style="width:100%;height: 20%;border: 1px solid #026eb8;color: #026eb8;text-align: center;line-height: 53px;font-size: 20px;font-weight: 700" onclick=" window.location.href = 'register.jhtml'">Register</div>
             <div style="width:100%;height: 20%;color: #b2b2b2;text-align: center;line-height: 53px;font-size: 20px">OR</div>
-            <div style="width:100%;height: 20%;background-color: #026eb8;color: #fff;text-align: center;line-height: 53px;font-size: 20px;font-weight: 700" onclick="tologin()">Sign In</div>
+            <div style="width:100%;height: 20%;background-color: #026eb8;color: #fff;text-align: center;line-height: 53px;font-size: 20px;font-weight: 700" onclick="window.location.href = '/user/loginview.jhtml'">Sign In</div>
             <div style="width:100%;height: 40%;">
                 <div style="display: flex;height: 104px;width: 100%;margin-top:30px">
-                <div style="width: 49.5%;height: 40px;border-right: 1px solid #000;text-align: center;line-height: 40px;font-size: 16px;" onclick="toBuy()">BUY A KIT</div>
-                <div style="width: 49.5%;height: 40px;text-align: center;line-height: 40px;font-size: 16px;" onclick="toindex()">HOME</div>
+                <div style="width: 49.5%;height: 40px;border-right: 1px solid #000;text-align: center;line-height: 40px;font-size: 16px;" onclick=" window.location.href ='/user/cart/index.jhtml'">BUY A KIT</div>
+                <div style="width: 49.5%;height: 40px;text-align: center;line-height: 40px;font-size: 16px;" onclick="window.location.href = 'index.jhtml'">HOME</div>
                 </div>
             </div>
 
@@ -48,21 +41,3 @@
 </div>
 </body>
 </html>
-<script>
-    function tologin() {
-        window.location.href = "login.jhtml"
-    }
-
-    function toregister() {
-        window.location.href = "register.jhtml"
-    }
-
-    function toindex() {
-        window.location.href = "index.jhtml"
-    }
-
-    function toBuy() {
-        window.location.href = "cart/index.jhtml"
-    }
-
-</script>

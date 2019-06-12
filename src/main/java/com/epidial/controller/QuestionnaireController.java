@@ -1,25 +1,18 @@
 package com.epidial.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.epidial.bean.Question;
 import com.epidial.bean.Questionnaire;
 import com.epidial.bean.User;
 import com.epidial.serivce.QuestionnaireService;
-import com.alibaba.fastjson.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.*;
-
-/**
- * @ CreateDate : Create in 19:32 2019/3/9
- * @ Explain :
- * @ UpdateDate : Update in
- * @ Author : Eestill
- */
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 @RestController
 @CrossOrigin
 @RequestMapping(value = "/Questionnaire")
@@ -28,13 +21,10 @@ public class QuestionnaireController {
     @Resource
     private QuestionnaireService questionnaireService;
 
-    @Autowired
-    private HttpServletRequest request;
-
 
     @RequestMapping(value = "/Input")
     @ResponseBody
-    public Map<String , Object> InputData(@RequestBody JSONObject jsonObject){
+    public Map<String , Object> InputData(@RequestBody JSONObject jsonObject,HttpSession session){
         /*
         * {
         *   "type" : //问卷调查表的类型
@@ -46,8 +36,7 @@ public class QuestionnaireController {
         * */
         //获取问卷调查表的类型
         String type = jsonObject.getString("type");
-        HttpSession session = request.getSession();
-        User userInfo = (User)session.getAttribute("userInfo");
+        User userInfo = (User)session.getAttribute("sessionuser");
         //System.out.println(type);
 
         //userInfo.setUuid("HKEPI201937192024320");
@@ -80,7 +69,7 @@ public class QuestionnaireController {
 
     @RequestMapping(value = "/GetData")
     //@RequestBody JSONObject jsonObject
-    public List GetData(@RequestBody JSONObject jsonObject, HttpServletResponse response){
+    public List GetData(@RequestBody JSONObject jsonObject, HttpServletResponse response,HttpSession session){
 
         response.setHeader("Access-Control-Allow-Origin", "*");
         //System.out.println("------>" + data);
@@ -89,8 +78,7 @@ public class QuestionnaireController {
         String type = jsonObject.getString("type");
         List list = new LinkedList();
 
-        HttpSession session = request.getSession();
-        User userInfo = (User)session.getAttribute("userInfo");
+        User userInfo = (User)session.getAttribute("sessionuser");
         String uuid = userInfo.getUuid();
 
         Questionnaire questionnaire = new Questionnaire();

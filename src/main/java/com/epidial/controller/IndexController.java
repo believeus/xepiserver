@@ -23,7 +23,7 @@ public class IndexController {
 		ModelAndView modelView = new ModelAndView();
 		if (session.getAttribute("sessionuser") == null){
 
-			modelView.setViewName("/WEB-INF/front/welcome.jsp");
+			modelView.setViewName("/welcome.jsp");
 			return modelView;
 		}
 		else{

@@ -6,7 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DietController {
-	@RequestMapping("/diet/index")
+	@RequestMapping("/user/diet/index")
 	public ModelAndView diet(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/diet.jsp");
