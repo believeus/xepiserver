@@ -76,6 +76,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -211,6 +212,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -347,6 +349,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -481,6 +484,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -615,6 +619,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -749,6 +754,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -883,6 +889,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -1017,6 +1024,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -1151,6 +1159,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -1283,6 +1292,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -1417,6 +1427,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -1553,6 +1564,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 xAxis : [ {
                                     type : 'category',
@@ -1684,6 +1696,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -1817,6 +1830,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -1953,6 +1967,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {
@@ -2087,6 +2102,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
                                 xAxis : [ {

@@ -79,8 +79,10 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
-                            var option = {
-                                xAxis : [ {
+							if (data==""){return;}
+							var option = {
+								noDataLoadingOption: { text: 'You have not filled  the data yet \n Please fill in the data in app \n in order to give you a more \n accurate biological age report', effect: 'whirling', effectOption: { effect: { n: 0 } } },
+								xAxis : [ {
                                     name:'data',
                                     type : 'category',
                                     boundaryGap : false,
@@ -100,7 +102,10 @@
                                 }, ]
                             };
                             // 为echarts对象加载数据
-                            chart.setOption(option);
+							console.info("data:"+data);
+							if (data!=""){delete option.noDataLoadingOption; }
+							console.info(option);
+							chart.setOption(option);
                         }
                     });
                     var slider = new Slider(".sleep-ex1-bar");
@@ -115,6 +120,7 @@
                             contentType : "application/json",
                             data : data,
                             success : function(data) {
+
                                 var data = "{\"type\" :\"Sleep\",\"number\" : \"1\"" + "}";
                                 $.ajax({
                                     type : "post",
@@ -188,6 +194,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 xAxis : [ {
                                     name:'data',
@@ -311,6 +318,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 xAxis : [ {
                                     name:"data",
@@ -439,6 +447,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 xAxis : [ {
                                     name:"data",
@@ -586,6 +595,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 xAxis : [ {
                                     name:"data",
@@ -731,6 +741,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 xAxis : [ {
                                     name:"data",
@@ -877,6 +888,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 xAxis : [ {
                                     name:"data",
@@ -1019,6 +1031,7 @@
                         dataType : "json",
                         contentType : "application/json",
                         success : function(data) {
+							if (data==""){return;}
                             var option = {
                                 xAxis : [ {
                                     name:"data",
