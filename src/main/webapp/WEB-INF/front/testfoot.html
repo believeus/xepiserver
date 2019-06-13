@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>底部tabbar切换</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        .foot {
+            width: 100%;
+            height: 60px;
+            background: #FFFFFF;
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .foot li {
+            height: 100%;
+        }
+
+        .foot li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .foot li a img {
+            display: block;
+            width: 38px;
+            height: 38px;
+        }
+
+        .foot li a p {
+            font-size: 12px;
+            width: 100%;
+            text-align: center;
+        }
+
+        p.actives {
+            color: #35bed1;
+        }
+    </style>
+</head>
+
+<body>
+
+<!--img为未选中图片   data-img为选中图片-->
+<ul class="foot">
+    <li class="Imgbox" img="images/home-icon.png" data-img="static/images/au-1.png">
+        <a href="##">
+            <img src="static/images/chifat-1.png" />
+            <p class="actives">HOME</p>
+        </a>
+    </li>
+    <li class="Imgbox" img="images/study-icon.png" data-img="static/images/au-2.png">
+        <a href="##">
+            <img src="static/images/au-2.png" />
+            <p>ABOUT</p>
+        </a>
+    </li>
+    <li class="Imgbox" img="images/my-icon.png" data-img="static/images/au-3.png">
+        <a href="##">
+            <img src="static/images/au-3.png" />
+            <p>SHOP</p>
+        </a>
+    </li>
+    <li class="Imgbox" img="images/my-icon.png" data-img="static/images/au-3.png">
+        <a href="##">
+            <img src="static/images/au-3.png" />
+            <p>EPICENTER</p>
+        </a>
+    </li>
+</ul>
+</body>
+<script src="static/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+    $('.foot li').click(function() {
+        $(this).find("p").addClass('actives');
+        $(this).siblings(".Imgbox").find("p").removeClass('actives');
+
+        var click = $(this).data('img');
+        $(this).find('img').attr('src', click);
+
+        $(this).siblings('.Imgbox').each(function() {
+            var noclick = $(this).attr('img');
+            $(this).find('img').attr('src', noclick);
+        })
+    })
+</script>
+</html>

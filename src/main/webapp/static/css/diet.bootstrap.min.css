@@ -555,7 +555,7 @@ h4 small,
 ul,
 ol {
 	margin-top: 0;
-	margin-bottom: 10px
+	/*margin-bottom: 10px*/
 }
 
 ul ul,
@@ -5778,7 +5778,7 @@ body.modal-open,
 
 .tooltip-inner {
 	max-width: 200px;
-	/*padding: 3px 8px;*/
+	padding: 3px 8px;
 	color: #fff;
 	text-align: center;
 	text-decoration: none;

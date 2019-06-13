@@ -58,7 +58,7 @@ div[id=blue-dot]:before {
 				</div>
 			</div>
 		</div>
-
+<div style="height: 30px;width: 100%;clear: both;"></div>
 		<div style="width: 100%;height: auto;">
 			<div style="width: 96%;height: 300px;margin: 0 auto; background-image: url(/static/images/taiji.png);background-position: fixed center; background-size: 100% 100%; background-repeat: no-repeat; ">
 				<div class="left" style="width: 30%;height: 100%;float: left; ">
@@ -95,7 +95,7 @@ div[id=blue-dot]:before {
 				</div>
 			</div>
 		</div>
-		          
+		   <div style="height: 10px;width: 100%;clear: both;"></div>       
 		<div style="width: 100%;height: 200px">
 			<div style=" margin: 0 auto;width: 95%;height: 100%;">
 				<video id="my-video" class="video-js" controls preload="auto" style="width: 100%;height: 100%;" poster="static/images/ted.png" data-setup="{}">
