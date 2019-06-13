@@ -353,6 +353,7 @@
         </div>
         <div style="width: 100%;height: 60px;"></div>
     </form>
+    <jsp:include page="footnav.jsp"></jsp:include>
 </div>
 </body>
 </html>

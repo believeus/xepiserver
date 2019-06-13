@@ -277,7 +277,8 @@
             <div style="width: 90%;height: auto;color: #666666;margin: 0 auto;">
                 <input type="checkbox" name="checkbox" required="required" id="checkbox" value="checkbox"
                        style="width:15px;height: 12px;">I have
-                read and agree to the <a href="concent/index.jhtml" style="text-decoration: none;"><i style="color: #E6BF73;">Terms
+                read and agree to the <a href="concent/index.jhtml" style="text-decoration: none;"><i
+                    style="color: #E6BF73;">Terms
                 of Service and Privacy Statement</i></a>.
             </div>
             <div style="width: 100%;height: 5px;"></div>
@@ -290,12 +291,13 @@
     </div>
 
     <div id="all-right" style="width: 90%;height: auto;font-family: arial;margin: 0 auto;">
-        <div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;">
+        <div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-bottom: 50px;">
             @2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved
         </div>
     </div>
 </div>
 </div>
+<jsp:include page="footnav.jsp"></jsp:include>
 </div>
 </body>
 

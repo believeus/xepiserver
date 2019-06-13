@@ -89,9 +89,9 @@
                         $.post("/user/address/list.jhtml", function (data) {
                             data.forEach(function (v) {
                                 console.info(v);
-                                var div = " <div name=\"iaddress\"  data-id='"+v.id+"'  style=\"border: 1px solid grey;width: 90%;height: auto;margin: 0 auto;border: 1px dashed orange;cursor: pointer;\">\n" +
+                                var div = " <div name=\"iaddress\"  data-id='" + v.id + "'  style=\"border: 1px solid grey;width: 90%;height: auto;margin: 0 auto;border: 1px dashed orange;cursor: pointer;\">\n" +
                                     "                    <div  style=\"width: 100%;height: 50px;\">\n" +
-                                    "                        <div name=\"item\" data-id='"+v.id+"' style=\"float: left;width: 80%;height:  50px;\">\n" +
+                                    "                        <div name=\"item\" data-id='" + v.id + "' style=\"float: left;width: 80%;height:  50px;\">\n" +
                                     "                            <div>" + v.recipient + "&nbsp;" + v.phone + "</div>\n" +
                                     "                            <div>" + v.detail + "&nbsp;" + v.city + "&nbsp;" + v.country + "</div>\n" +
                                     "                        </div>\n" +
@@ -105,7 +105,7 @@
                         });
                         //删除地址
                         $("body").on("click", "[name=delAddr]", function (event) {
-                            if(!window.confirm("Are you sure delete?"))return;
+                            if (!window.confirm("Are you sure delete?")) return;
                             var data = {};
                             var _oThis = $(event.currentTarget);
                             data.id = _oThis.attr("id");
@@ -117,16 +117,15 @@
                         $("body").on("click", "[name=item]", function (event) {
 
                             $.post("/user/cart/unPayGoodslist.jhtml", function (msg) {
-                                if(msg.length!=0){
+                                if (msg.length != 0) {
                                     var data = {};
                                     var _oThis = $(event.currentTarget);
-                                    window.location.href = "/user/cart/watchagain.jhtml?addrid="+_oThis.attr("data-id");
-                                }else{
+                                    window.location.href = "/user/cart/watchagain.jhtml?addrid=" + _oThis.attr("data-id");
+                                } else {
                                     window.alert("Please buy goods");
                                     window.location.href = "/user/cart/index.jhtml";
                                 }
                             });
-
 
 
                         });
@@ -228,9 +227,9 @@
 
             <div style="width: 100%;height: 10px;background-color: #f4f6f8;"></div>
         </div>
-        <div style="clear:both;overflow:hidden;width:100%;height:9%;position:fixed;bottom:0;border-top:1px solid #e0e0e0;background:#fff;">
+        <div style="clear:both;overflow:hidden;width:100%;height:60px;position:fixed;bottom:60px;border-top:1px solid #e0e0e0;background:#fff;">
             <div style="text-align: center;height: 100%;background-color: #37475d;width: 60%;color: #f4f6f8;float: left;">
-                <div style="height: 100%;font-size: 21px;line-height: 40px">
+                <div style="height: 100%;font-size: 21px;line-height: 60px">
                     <div class="shop-total">
                         <script>
                             $(function () {
@@ -241,7 +240,7 @@
                             });
                         </script>
                         <strong>Total：$<i class="total" id="AllTotal"
-                                         name="sumprice"></i></strong>
+                                          name="sumprice"></i></strong>
                     </div>
                 </div>
             </div>
@@ -253,6 +252,7 @@
 
         </div>
     </form>
+    <jsp:include page="footnav.jsp"></jsp:include>
 </div>
 </body>
 
@@ -263,7 +263,7 @@
         $("form").submit(function (e) {
             $.post("/user/cart/unPayGoodslist.jhtml", function (msg) {
                 console.info(msg.length);
-                if(msg.length!=0){
+                if (msg.length != 0) {
                     var data = {};
                     data.recipient = $("#recipient").val();
                     data.phone = $("#phone").val();
@@ -272,9 +272,9 @@
                     data.city = $("#city").val();
                     data.detail = $("[name=detail-1]").val() + $("[name=detail-2]").val() + $("[name=detail-3]").val();
                     $.post("/user/address/save.jhtml", data, function (data) {
-                        window.location.href = "/user/cart/watchagain.jhtml?addrid="+data.id;
+                        window.location.href = "/user/cart/watchagain.jhtml?addrid=" + data.id;
                     });
-                }else {
+                } else {
                     window.alert("Please buy goods");
                     window.location.href = "/user/cart/index.jhtml";
                 }

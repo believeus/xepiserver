@@ -72,6 +72,7 @@
 				<a href="/user/diet/index.jhtml"><img src="static/images/iQ6.png" style="width: 100%;height: auto;"></a>
 			</div>
 		</div>
+		<jsp:include page="footnav.jsp"></jsp:include>
 	</div>
 </body>
 </html>

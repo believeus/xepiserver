@@ -20,7 +20,7 @@
     <link type="text/css" rel="stylesheet" href="static/css/base.css"/>
     <link type="text/css" rel="stylesheet" href="static/css/module.css"/>
     <script>
-        $(function(){
+        $(function () {
             //删除购物车
             $("body").on("click", "div[name=cartdel]", function (event) {
                 if (window.confirm("are you sure delete?")) {
@@ -68,7 +68,7 @@
                                     "            </div>" +
                                     "   </div>" +
                                     "   <div style='float: left;width: 20%;height: 100%'>" +
-                                    "         <div style='width: 100%;height: 5px;clear: both;'></div>"+
+                                    "         <div style='width: 100%;height: 5px;clear: both;'></div>" +
                                     "         <div name='cartdel' id='" + v.id + "' style='background-color:#37475d;color: white;width: 100%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;'>delete</div>" +
                                     "    </div>"
                                 "      </div>" +
@@ -103,7 +103,7 @@
                                     "            </div>" +
                                     "   </div>" +
                                     "   <div style='float: left;width: 20%;height: 100%'>" +
-                                    "         <div style='width: 100%;height: 5px;clear: both;'></div>"+
+                                    "         <div style='width: 100%;height: 5px;clear: both;'></div>" +
                                     "         <div name='cartdel' id='" + v.id + "' style='background-color:#37475d;color: white;width: 100%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;'>delete</div>" +
                                     "    </div>"
                                 "      </div>" +
@@ -289,6 +289,7 @@
 
         </div>
     </form>
+    <jsp:include page="footnav.jsp"></jsp:include>
 </div>
 </body>
 

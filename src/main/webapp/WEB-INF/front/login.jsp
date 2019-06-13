@@ -29,7 +29,10 @@
 
 <div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
     <div style="width:100%;height:100%;">
-        <c:if test="${sessionuser ==null}"><div id="zhuce" style="cursor: pointer" onclick="window.location.href = '/concent/index.jhtml'">Register</div></c:if>
+        <c:if test="${sessionuser ==null}">
+            <div id="zhuce" style="cursor: pointer" onclick="window.location.href = '/concent/index.jhtml'">Register
+            </div>
+        </c:if>
         <div id="login"></div>
         <form action="App/login.jhtml" method="post">
             <div class="login_bg">
@@ -54,10 +57,13 @@
                                    style="width:60%">
                         </div>
                         <div class="choose_box">
-                            <lable style="color:#696969;text-decoration: none;float: right;"><a href="/user/forgotPaswd.jhtml">forget password</a></lable>
+                            <lable style="color:#696969;text-decoration: none;float: right;"><a
+                                    href="/user/forgotPaswd.jhtml">forget password</a></lable>
                             <div class="other_login" style="margin-top: 100px;line-height: 22px;">
-                                <span>By clicking the button below, I agree to <a href="concent/index.jhtml" style="text-decoration: none;"><i> the User Agreement and Privacy Policy.</i></a></span>
-                                <input type="submit" class="login_btn" value="Login"  style="margin-top: 0px;text-align: center"></input>
+                                <span>By clicking the button below, I agree to <a href="concent/index.jhtml"
+                                                                                  style="text-decoration: none;"><i> the User Agreement and Privacy Policy.</i></a></span>
+                                <input type="submit" class="login_btn" value="Login"
+                                       style="margin-top: 0px;text-align: center"></input>
                             </div>
                         </div>
                     </div>
@@ -65,6 +71,7 @@
             </div>
         </form>
     </div>
+    <jsp:include page="footnav.jsp"></jsp:include>
 </div>
 
 </body>
@@ -72,13 +79,13 @@
 </html>
 
 <script>
-    $(function(){
+    $(function () {
         $("form").submit(function (e) {
             var data = {};
             data.email = $("#email").val();
             data.password = $("#password").val();
             $.post("/user/login.jhtml", data, function (data) {
-                if (data.indexOf("ERROR")!=-1) {
+                if (data.indexOf("ERROR") != -1) {
                     alert(data);
                 } else {
                     window.location.href = data;

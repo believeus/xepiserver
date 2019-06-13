@@ -334,7 +334,7 @@
         </div>
     </div>
 
-
+    <jsp:include page="footnav.jsp"></jsp:include>
 </div>
 </body>
 </html>

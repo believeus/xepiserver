@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html>
 <html>
@@ -45,57 +45,59 @@
 <div style="width: 100%;height: 50px;">
     <jsp:include page="header.jsp"></jsp:include>
 </div>
-    <div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
-<div style="width:100%;height:100%;">
-    <div id="zhuce"><a href="/login.jhtml">Login</a>|<a href="/index.jhtml">home</a></div>
-    <div id="login"></div>
-    <div class="login_bg">
-        <div id="logo">
-            <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%"/>
-        </div>
-        <div style="    width: 80%;
+<div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
+    <div style="width:100%;height:100%;">
+        <div id="zhuce"><a href="/login.jhtml">Login</a>|<a href="/index.jhtml">home</a></div>
+        <div id="login"></div>
+        <div class="login_bg">
+            <div id="logo">
+                <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%"/>
+            </div>
+            <div style="    width: 80%;
             margin: 0 auto;
             text-align: left;">
 
-            <script>
-                $(function(){
-                    $("[name=sendmail]").click(function () {
-                        var email=$("input[name=email]").val();
-                         var data={};
-                         data.email=email;
-                        $.post("/user/sendpaswd.jhtml",data,function(msg){
-                            var data="";
-                            $("div[name=message]").css("display","block");
-                            if(msg=="success"){
-                                data="The password has been sent to the mailbox!<a href='login.jhtml'>login</a> the system!"
-                                $("div[name=btnsend]").css("display","none");
-                            }else {
-                                data="The mailbox is not registered,Please check that the mailbox is filled in correctly.";
-                            }
-                            $("div[name=message]").html(data);
+                <script>
+                    $(function () {
+                        $("[name=sendmail]").click(function () {
+                            var email = $("input[name=email]").val();
+                            var data = {};
+                            data.email = email;
+                            $.post("/user/sendpaswd.jhtml", data, function (msg) {
+                                var data = "";
+                                $("div[name=message]").css("display", "block");
+                                if (msg == "success") {
+                                    data = "The password has been sent to the mailbox!<a href='login.jhtml'>login</a> the system!"
+                                    $("div[name=btnsend]").css("display", "none");
+                                } else {
+                                    data = "The mailbox is not registered,Please check that the mailbox is filled in correctly.";
+                                }
+                                $("div[name=message]").html(data);
+                            });
                         });
                     });
-                });
-            </script>
-            <div id="PWDSignIn" style="display:block">
-                <div class="userName">
-                    <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
-                    <input type="text" name="email" id="email" placeholder="Email" style="width: 60%" >
+                </script>
+                <div id="PWDSignIn" style="display:block">
+                    <div class="userName">
+                        <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
+                        <input type="text" name="email" id="email" placeholder="Email" style="width: 60%">
+                    </div>
+
+                    <div name="btnsend" class="other_login" style="margin-top: 40px;">
+                        <span>By clicking the button below,your password will send to your email</span>
+                        <button class="login_btn" name="sendmail" style="margin-top: 0px;">password send to email
+                        </button>
+                    </div>
+                    <div style="clear: both"></div>
+                    <div style="display: none;font-size: 14px;" name="message"></div>
                 </div>
 
-                <div name="btnsend" class="other_login" style="margin-top: 40px;">
-                    <span>By clicking the button below,your password will send to your email</span>
-                    <button class="login_btn" name="sendmail" style="margin-top: 0px;">password send to email</button>
-                </div>
-                <div style="clear: both"></div>
-                <div style="display: none;font-size: 14px;" name="message"></div>
+
             </div>
-
-
         </div>
     </div>
+    <jsp:include page="footnav.jsp"></jsp:include>
 </div>
-    </div>
 </body>
 
 </html>

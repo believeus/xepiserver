@@ -76,6 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<hr size="1"/>
 		</div>
 	</div>
+	<jsp:include page="footnav.jsp"></jsp:include>
 </div>
 </body>
 </html>

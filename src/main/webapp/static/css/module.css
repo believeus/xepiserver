@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 /*购物车*/
-.shopping{clear:both;overflow:hidden;height:auto;padding-bottom: 60px;}
+.shopping{clear:both;overflow:hidden;height:auto;padding-bottom: 100px;}
 .shop-group-item{margin-bottom:5px;}
 .shop-group-item ul li{border-bottom:1px solid #fff;}
 .shop-group-item ul li:last-child{border-bottom:none;}
@@ -29,13 +29,13 @@
 .shop-info .shop-info-text .shop-arithmetic .failed{color:#d1d1d1;}
 .shop-info .shop-info-text .shop-arithmetic .plus{border-left:1px solid #e0e0e0;}
 .shop-info .shop-info-text .shop-arithmetic .num{width:32px;text-align:center;border:none;display: inline-block;height:100%;box-sizing:border-box;vertical-align:top;margin:0 -6px;}
-.shopPrice{background:#fff;height:35px;line-height:35px;padding:0 15px;text-align:right;}
+.shopPrice{background:#fff;height:35px;line-height:45px;padding:0 15px;text-align:left;}
 .shopPrice span{color:#f00;}
 
 
 
 
-.payment-bar{clear:both;overflow:hidden;width:100%;height:49px;position:fixed;bottom:0;border-top:1px solid #e0e0e0;background:#fff;}
+.payment-bar{clear:both;overflow:hidden;width:100%;height:49px;position:fixed;bottom:0;margin-bottom: 52px; border-top:1px solid #e0e0e0;background:#fff;}
 .payment-bar .all-checkbox{float:left;line-height:49px;padding-left:40px;}
 .payment-bar .shop-total{float:left;-webkit-box-flex:1.0;box-flex:1.0;margin:15px 20px 9px 35px;}
 .payment-bar .shop-total strong{display:block;font-size:16px;}

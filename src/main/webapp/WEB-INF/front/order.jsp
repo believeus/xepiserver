@@ -28,7 +28,7 @@
         <img src="static/images/loading.gif" style="width: 80px;height: 80px;margin-top: 50%"/>
     </div>
 
-    <div style="background-color:#ffffff;padding-bottom: 70px">
+    <div style="background-color:#ffffff;padding-bottom: 100px">
         <div style="width: 100%;height: 10px;"></div>
         <div name="cartbox" style="width:100%;height:auto;">
             <script>
@@ -88,18 +88,18 @@
             <script>
                 $(function () {
                     $.post("/user/address/addrValid.jhtml", function (v) {
-                            console.info(v);
-                            var div = " <div data-id='"+v.id+"' name=\"iaddress\" style=\"border: 1px solid grey;width: 90%;height: auto;margin: 0 auto;border: 1px dashed orange;cursor: pointer;\">\n" +
-                                "                    <div style=\"width: 100%;height: 50px;\">" +
-                                "                        <div style=\"float: left;width: 80%;height:  50px;\">" +
-                                "                            <div>" + v.recipient + "&nbsp;" + v.phone + "</div>\n" +
-                                "                            <div>" + v.detail + "&nbsp;" + v.city + "&nbsp;" + v.country + "</div>" +
-                                "                        </div>" +
-                                "                        <div  onclick='window.location.href=\"/user/cart/check.jhtml\"' name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: darkorange;color: white;float: left;height:  50px;line-height:  50px;text-align: center\">edit</div>\n" +
-                                "                    </div>" +
-                                "                </div>" +
-                                "                <div style=\"width: 100%;height: 5px\"></div>"
-                            $("div[name=addressbox]").append(div);
+                        console.info(v);
+                        var div = " <div data-id='" + v.id + "' name=\"iaddress\" style=\"border: 1px solid grey;width: 90%;height: auto;margin: 0 auto;border: 1px dashed orange;cursor: pointer;\">\n" +
+                            "                    <div style=\"width: 100%;height: 50px;\">" +
+                            "                        <div style=\"float: left;width: 80%;height:  50px;\">" +
+                            "                            <div>" + v.recipient + "&nbsp;" + v.phone + "</div>\n" +
+                            "                            <div>" + v.detail + "&nbsp;" + v.city + "&nbsp;" + v.country + "</div>" +
+                            "                        </div>" +
+                            "                        <div  onclick='window.location.href=\"/user/cart/check.jhtml\"' name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: darkorange;color: white;float: left;height:  50px;line-height:  50px;text-align: center\">edit</div>\n" +
+                            "                    </div>" +
+                            "                </div>" +
+                            "                <div style=\"width: 100%;height: 5px\"></div>"
+                        $("div[name=addressbox]").append(div);
                     });
                 });
 
@@ -109,15 +109,14 @@
         <div style="width: 100%;height: 10px;background-color: #f4f6f8;"></div>
     </div>
 
-    <div
-            style="clear:both;overflow:hidden;width:100%;height:9%;position:fixed;bottom:0;border-top:1px solid #e0e0e0;background:#fff;">
-        <div style="text-align: center;height: 100%;background-color: #37475d;width: 60%;color: #f4f6f8;float: left;">
-            <div style="height: 100%;font-size: 21px;line-height: 40px">
+    <div style="clear:both;overflow:hidden;width:100%;height:120px;position:fixed;bottom:0;border-top:1px solid #e0e0e0;background:#fff;">
+        <div style="text-align: center;height: 60px;background-color: #37475d;width: 60%;color: #f4f6f8;float: left;">
+            <div style="height: 100%;font-size: 21px;line-height: 60px">
                 <div class="shop-total">
                     <strong>Total：$<i class="total" id="AllTotal" name="total_price"></i></strong>
                 </div>
                 <script>
-                    $(function(){
+                    $(function () {
                         $.post("/user/cart/sumprice.jhtml", function (data) {
                             console.info(data);
                             $("[id=AllTotal]").text(data);
@@ -127,10 +126,10 @@
             </div>
         </div>
         <div style="width: 40%;background-color: #0071b1;height: 100%;text-align: center;color: #f4f6f8;float:right;">
-            <div name="paypal" style="height:100%;font-size: 21px;line-height: 40px;cursor: pointer;" >To Pay</div>
+            <div name="paypal" style="height:100%;font-size: 21px;line-height: 60px;cursor: pointer;">To Pay</div>
         </div>
     </div>
-
+    <jsp:include page="footnav.jsp"></jsp:include>
 </div>
 </body>
 
@@ -138,18 +137,18 @@
 
 
 <script>
-    $(function(){
-        $("div[name=paypal]").click(function(){
+    $(function () {
+        $("div[name=paypal]").click(function () {
             $.post("/user/cart/unPayGoodslist.jhtml", function (msg) {
-                if(msg.length!=0){
+                if (msg.length != 0) {
                     var pop = document.getElementById("popDiv");
-                    document.body.addEventListener('touchmove', function(event){
+                    document.body.addEventListener('touchmove', function (event) {
                         event.preventDefault();
                     }, false);
                     $('body').css({'position': 'fixed', "width": "100%"});
                     pop.style.display = "block";
                     window.location.href = '/user/paypal/payment.jhtml';
-                }else{
+                } else {
                     window.alert("Please buy goods");
                     window.location.href = "/user/cart/index.jhtml";
                 }

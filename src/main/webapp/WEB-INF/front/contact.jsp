@@ -31,6 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<p>HKG epitherapeutics Limited Unit 613, Biotech Centre 2,Hong Kong Science Park,Sha Tin,N.T.,Hong Kong</p>
 				</div>
 			</div>
+			<jsp:include page="footnav.jsp"></jsp:include>
 		</div>
 	</body>
 </html>

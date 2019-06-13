@@ -99,7 +99,7 @@
 
                 <div style="width: 100%;height: auto;" id="paid"></div>
             </div>
-
+            <jsp:include page="footnav.jsp"></jsp:include>
         </div>
 </body>
 </html>
