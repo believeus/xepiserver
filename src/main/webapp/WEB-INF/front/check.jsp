@@ -261,7 +261,7 @@
 <script>
     $(function () {
         $("form").submit(function (e) {
-            $.post("/user/cart/list.jhtml", function (msg) {
+            $.post("/user/cart/unPayGoodslist.jhtml", function (msg) {
                 console.info(msg.length);
                 if(msg.length!=0){
                     var data = {};
