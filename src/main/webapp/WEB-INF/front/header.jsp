@@ -15,7 +15,7 @@
 <script src="static/js/stickUp.min.js"></script>
 <link href="static/css/diet.bootstrap.min.css" rel="stylesheet" />
 <link href="static/css/diet.bootstrap-select.min.css" rel="stylesheet" />
-<script src="/static/js/diet.bootstrap-select.js"></script>
+<script src="static/js/diet.bootstrap-select.js"></script>
 <script type="text/javascript">
 	jQuery(function($) {
 		$(document).ready(function() { //enabling stickUp on the '.navbar-wrapper' class
@@ -50,6 +50,8 @@
 							<li class="menuItem"><a href="index.jhtml">Home</a></li>
 							<li class="menuItem"><a href="aboutus/index.jhtml">About Us</a></li>
 							<li class="menuItem"><a href="user/bioreport/index.jhtml">My Report</a></li>
+							<li class="menuItem"><a href="user/cart/check.jhtml">My Cart</a></li>
+							<li class="menuItem"><a href="user/taskrecord/index.jhtml">Order List</a></li>
 							<li class="menuItem"><a href="user/cart/index.jhtml">Health Market</a></li>
 							<li class="menuItem"><a href="scienceteam/index.jhtml">Science Team</a></li>
 							<li class="menuItem"><a href="user/mycenter/index.jhtml">Epi Center</a></li>
