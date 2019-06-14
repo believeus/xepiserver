@@ -15,7 +15,7 @@
 <script src="static/js/stickUp.min.js"></script>
 <link href="static/css/diet.bootstrap.min.css" rel="stylesheet" />
 <link href="static/css/diet.bootstrap-select.min.css" rel="stylesheet" />
-<script src="static/js/diet.bootstrap-select.js"></script>
+<script src="/static/js/diet.bootstrap-select.js"></script>
 <script type="text/javascript">
 	jQuery(function($) {
 		$(document).ready(function() { //enabling stickUp on the '.navbar-wrapper' class

@@ -36,6 +36,40 @@
         window.ntrLtBioData = [];
         window.ready = false;
     </script>
+        <div id="illu-pic" style="width: 100%;height: auto;">
+            <img src="static/images/ic1.png" style="width: 100%;height: auto;"/>
+        </div>
+        <div id="version-2.0" style="width: 100%;height: auto;">
+            <div style="width: 100%;height: auto;margin-bottom: 10px;">
+                <div style="width: 90%;height: auto;font-family: arial;color: #000000;font-size: 18px;  margin: 0 auto;ont-weight: bold;margin-top: 30px;">Dear User:</div>
+                <div style="width: 90%;height: auto;font-family: arial;color: #000000;font-size: 18px;  margin: 0 auto;">You can click the "Repurchase" button below to buy again.</div>
+                <div id="coupon"
+                     style="width: 100%;height: auto;font-size: 16px;font-family:arial; color: #FF6B03; ">
+                    <div style="width: 90%;height: auto;margin: 0 auto;">
+				<span
+                        style="text-decoration: line-through;font-family: arial; font-size: 18px;color: #7F7F7F;">$120/kit
+					for original price<br/>
+				</span>
+                        <p></p>
+                        <span style="font-size: 18px;font-family: arial"><strong
+                                style="font-weight: 600 ;font-size: 18px; font-family: arial; ">$99</strong>
+					per kit for purchase <strong
+                                    style="font-family: arial;font-size: 18px;"> 1</strong> kit<br/>
+				</span>
+                        <p></p>
+                    </div>
+                </div>
+                <div id="add-cart" style="width: 100%;height: auto;margin-top: 20px;">
+                    <div style="width: 90%;height: auto;margin: 0 auto;">
+                        <div style="width: 40%;height: 40px;font-family: arial;font-size: 18px;text-align: center;line-height: 40px; color:#FFFFFF ;float: left;">
+                        </div>
+                        <a href="/user/cart/index.jhtml">
+                            <div style="width: 40%;height: 40px;font-family: arial;font-size: 18px;text-align: center;line-height: 40px; color:#FFFFFF ;float: right;background-color: #0365D2; border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
+                                Repurchase
+                            </div>
+                        </a>
+                    </div>
+                </div>
     <div style="width: 100%;height: 40px;"></div>
     <div style="width: 100%;" name="pending">
         <div name="barcode" style="font-size: 18px;width: 95%;margin: 0 auto;">

@@ -29,8 +29,8 @@
     </div>
     <div id="version-2.0" style="width: 100%;height: auto;">
         <div style="width: 100%;height: auto;margin-bottom: 10px;">
-            <div style="width: 96%;height: auto;font-family: arial;color: #000000;font-size: 18px;  margin: 0 auto;ont-weight: bold;">Dear User:</div>
-            <div style="width: 96%;height: auto;font-family: arial;color: #000000;font-size: 18px;  margin: 0 auto;">You haven't purchased DNA Methylation epiAging test yet. Please read the following product information in detail and click the Buy button to purchase the product.</div>
+            <div style="width: 90%;height: auto;font-family: arial;color: #000000;font-size: 18px;  margin: 0 auto;ont-weight: bold;margin-top: 30px;">Dear User:</div>
+            <div style="width: 90%;height: auto;font-family: arial;color: #000000;font-size: 18px;  margin: 0 auto;">You haven't purchased DNA Methylation epiAging test yet. Please read the following product information in detail and click the Buy button to purchase the product.</div>
             <div id="coupon"
                  style="width: 100%;height: auto;font-size: 16px;font-family:arial; color: #FF6B03; ">
                 <div style="width: 90%;height: auto;margin: 0 auto;">
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div style="width: 100%;height: 90px;"></div>
-            <div style="width: 96%;height: auto;font-family: arial;color: #000000;font-size: 22px;font-weight: bold;  margin: 0 auto;text-align: center;">
+            <div style="width: 96%;height: auto;font-family: arial;color: #000000;font-size: 22px;font-weight: bold;  margin: 0 auto; text-align: center;">
                 Standard Edition 2.0 for DNA Methylation epiAging test
             </div>
         </div>

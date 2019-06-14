@@ -77,7 +77,7 @@
                 var slider = new Slider(".lifestyle-food-bar");
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
-                    $(".lifestyle-food-val").text(slideEvt.value+" calories");
+                    $(".lifestyle-food-val").text(slideEvt.value+" calories/day");
                     var data = '{ "column":"Food","type" :"lunch" ,"value1" :" ' + slideEvt.value + '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -106,7 +106,7 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name : "calories",
+                                            name : "calories/day",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value}'
@@ -144,7 +144,7 @@
 		</div>
 		<div style="width: 100%;height: 20px; "></div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-			<div class="lifestyle-food-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+			<div class="lifestyle-food-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 calories/day</div>
 			<div>
 				<input id="food" class="lifestyle-food-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="4000" data-slider-step="1" data-slider-value="0" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)">
 			</div>
@@ -158,6 +158,7 @@
             require([ 'echarts', 'echarts/chart/line' ], function(ec) {
                 var chart = ec.init(document.getElementById('lifestyle-bmi-report'));
                 //初始化报表数据
+
                 var data = '{"column" : "Body","uuid" : "HKEPI201937192024320"}';
                 $.ajax({
                     type : "post",
@@ -196,6 +197,7 @@
                 //$(".lifestyle-heigth-val");
                 var _weightSlider = new Slider(".lifestyle-weight-bar");
                 //拖动发送
+
                 _weightSlider.on("slide", function(slideEvt) {
                     $(".lifestyle-weigth-val").text(slideEvt.value);
                     var _wValue = $(".lifestyle-weigth-val").text();
@@ -217,6 +219,7 @@
                             //console.info("_heightSlider---_hValue-->"+_hValue+"--_wValue--->"+_wValue);
                             //再次查询
                             //var idata = '{"column": "Body","value1": "' + _wValue + '","value2" : "'+_hValue+'","uuid" : "HKEPI201937192024320"}'
+
                             var _sdata = '{"column" : "Body","uuid" : "HKEPI201937192024320"}';
                             console.info("_weightSlider---->" + _sdata);
                             $.ajax({
@@ -238,14 +241,14 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name : "bmi",
+                                            name : "BMI",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value}'
                                             }
                                         } ],
                                         series : [ {
-                                            name : 'bmi status',
+                                            name : 'BMI status',
                                             type : 'line',
                                             data : data[1],
                                         }, ]
@@ -305,14 +308,14 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name : "bmi",
+                                            name : "BMI",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value}'
                                             }
                                         } ],
                                         series : [ {
-                                            name : 'bmi status',
+                                            name : 'BMI status',
                                             type : 'line',
                                             data : data[1],
                                         }, ]
@@ -346,11 +349,11 @@
 			<p>If your BMI is 30.0 or higher, it falls within the obese range.</p>
 		</div>
 		<div style="width: 100%;height: 20px; "></div>
-		<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Weight(lb)</div>
+		<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Weight(kg)</div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-			<div class="lifestyle-weigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+			<div class="lifestyle-weigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 kg</div>
 			<div>
-				<input class="lifestyle-weight-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #92D050 30%,#92D050 70%, #92D050 100%)" type="text" data-slider-min="20" data-slider-max="300" data-slider-step="1" data-slider-value="20">
+				<input class="lifestyle-weight-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 20%,#92D050 80%, red 100%)" type="text" data-slider-min="20" data-slider-max="150" data-slider-step="1" data-slider-value="20">
 			</div>
 			<div class="ex11CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 20px;"></div>
@@ -359,9 +362,9 @@
 	<div class="height" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
 		<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Height(cm)</div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-			<div class="lifestyle-heigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+			<div class="lifestyle-heigth-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 cm</div>
 			<div>
-				<input class="lifestyle-height-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #92D050 30%,#92D050 70%, #92D050 100%)" type="text" data-slider-min="50" data-slider-max="450" data-slider-step="1" data-slider-value="50">
+				<input class="lifestyle-height-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 20%,#92D050 80%, red 100%)" type="text" data-slider-min="50" data-slider-max="306" data-slider-step="1" data-slider-value="50">
 			</div>
 			<div style="width: 100%;height: 20px;"></div>
 		</div>
@@ -431,6 +434,7 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value=slideEvt.value;
+					$(".lifestyle-heartrate-val").text(value+"beats/minutes");
                     var data = '{ "column":"HeartRate","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -459,7 +463,7 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name:"beat",
+                                            name:"beats/minutes",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value} '
@@ -497,9 +501,9 @@
 		</div>
 		<div style="width: 100%;height: 20px; "></div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-			<div class="lifestyle-heartrate-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
+			<div class="lifestyle-heartrate-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 beats/minutes</div>
 			<div>
-				<input class="lifestyle-heartrate-bar"   style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#92D050 70%, red 100%)"   type="text" data-slider-min="40" data-slider-max="180" data-slider-step="1" data-slider-value="40">
+				<input class="lifestyle-heartrate-bar"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #92D050 18%,#FFC000 70%, red 100%)"   type="text" data-slider-min="40" data-slider-max="300" data-slider-step="1" data-slider-value="40">
 			</div>
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-heartrate-report'></div>
@@ -724,7 +728,7 @@
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div class="lifestyle-systolic-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 			<div>
-				<input class="lifestyle-systolic-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"     type="text" data-slider-min="60" data-slider-max="180" data-slider-step="1" data-slider-value="60">
+				<input class="lifestyle-systolic-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"     type="text" data-slider-min="60" data-slider-max="270" data-slider-step="1" data-slider-value="60">
 			</div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-systolic-report'></div>
 			<div style="width: 100%;height: 20px;"></div>
@@ -734,7 +738,7 @@
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div class="lifestyle-diastolic-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0</div>
 			<div>
-				<input class="lifestyle-diastolic-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  type="text" data-slider-min="60" data-slider-max="130" data-slider-step="1" data-slider-value="60">
+				<input class="lifestyle-diastolic-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  type="text" data-slider-min="60" data-slider-max="180" data-slider-step="1" data-slider-value="60">
 			</div>
 			<div class="ex16CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-diastolic-report'></div>
@@ -786,6 +790,7 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value=slideEvt.value;
+					$(".lifestyle-cholesterol-val").text(value+"mg/dL");
                     var data = '{ "column":"Cholesterol","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -814,7 +819,7 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name:"mmol/L",
+                                            name:"mg/dL",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value} '
@@ -844,7 +849,7 @@
 	</script>
 	<div class="cholesterol" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
 		<div style="width: 100%;height: 30px;"></div>
-		<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Cholesterol (mmol/L)</div>
+		<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Cholesterol (mg/dL)</div>
 
 		<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
 			<a href="https://www.heart.org/en/health-topics/cholesterol/about-cholesterol/what-your-cholesterol-levels-mean">Source: American Heart Association</a>
@@ -855,9 +860,9 @@
 		</div>
 		<div style="width: 100%;height: 20px; "></div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-			<div class="lifestyle-cholesterol-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;"></div>
+			<div class="lifestyle-cholesterol-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 mg/dL</div>
 			<div>
-				<input class="lifestyle-cholesterol-bar"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="100" data-slider-max="300" data-slider-step="1" data-slider-value="0">
+				<input class="lifestyle-cholesterol-bar"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #92D050 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="100" data-slider-max="360" data-slider-step="1" data-slider-value="0">
 			</div>
 			<div class="ex17CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-cholesterol-report'></div>
@@ -910,7 +915,7 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value=slideEvt.value;
-                    $(".lifestyle-meditation-value").text(value+"h");
+                    $(".lifestyle-meditation-value").text(value+"h/day");
                     var data = '{ "column":"Meditation","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -976,9 +981,9 @@
 		</div>
 		<div style="width: 100%;height: 20px; "></div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
-			<div class="lifestyle-meditation-value" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0h</div>
+			<div class="lifestyle-meditation-value" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 h/day</div>
 			<div>
-				<input class="lifestyle-meditation-bar"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  type="text" data-slider-min="0" data-slider-max="24" data-slider-step="1" data-slider-value="0">
+				<input class="lifestyle-meditation-bar"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #92D050 30%,#92D050 70%, #92D050 100%)"  type="text" data-slider-min="0" data-slider-max="24" data-slider-step="0.5" data-slider-value="0">
 			</div>
 			<div class="ex18CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-meditation-report'></div>
@@ -1012,7 +1017,7 @@
                                 data : data[0]
                             } ],
                             yAxis : [ {
-                                name:"min",
+                                name:"minutes/week",
                                 type : 'value',
                                 axisLabel : {
                                     formatter : '{value} '
@@ -1032,7 +1037,7 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value=slideEvt.value;
-                    $(".liftstyle-vascular-val").text(value+"min");
+                    $(".liftstyle-vascular-val").text(value+"minutes/week");
                     var data = '{ "column":"Sport","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -1062,7 +1067,7 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name:"min",
+                                            name:"minutes/week",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value} '
@@ -1099,9 +1104,9 @@
 		</div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: 20px;"></div>
-			<div class="liftstyle-vascular-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0min</div>
+			<div class="liftstyle-vascular-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 minutes/week</div>
 			<div>
-				<input class="liftstyle-vascular-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="240" data-slider-step="1" data-slider-value="0">
+				<input class="liftstyle-vascular-bar"  style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="200" data-slider-step="1" data-slider-value="0">
 			</div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-vascular-report'></div>
 			<div style="width: 100%;height: 20px;"></div>
@@ -1135,7 +1140,7 @@
                                 data : data[0]
                             } ],
                             yAxis : [ {
-                                name:"min",
+                                name:"hours",
                                 type : 'value',
                                 axisLabel : {
                                     formatter : '{value} '
@@ -1155,7 +1160,7 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value=slideEvt.value;
-                    $(".liftstyle-sleep-val").text(value+"min");
+                    $(".liftstyle-sleep-val").text(value+"hours/day");
                     var data = '{ "column":"Sleep","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -1185,7 +1190,7 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name:"min",
+                                            name:"hours",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value} '
@@ -1222,9 +1227,9 @@
 		</div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: 20px;"></div>
-			<div class="lifestyle-sleep-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0h</div>
+			<div class="lifestyle-sleep-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 hours/day</div>
 			<div>
-				<input class="lifestyle-sleep-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="24" data-slider-step="1" data-slider-value="0">
+				<input class="lifestyle-sleep-bar"  style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 20%, #92D050 40%,red 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="24" data-slider-step="1" data-slider-value="0">
 			</div>
 			<div class="ex23CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-sleep-report'></div>
@@ -1256,14 +1261,14 @@
                                 data : data[0]
                             } ],
                             yAxis : [ {
-                                name:"min",
+                                name:"years",
                                 type : 'value',
                                 axisLabel : {
                                     formatter : '{value} '
                                 }
                             } ],
                             series : [ {
-                                name : 'sleep status',
+                                name : 'SexLife status',
                                 type : 'line',
                                 data : data[1],
                             }, ]
@@ -1306,7 +1311,7 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name:"times",
+                                            name:"years",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value} '
@@ -1355,14 +1360,14 @@
                                 data : data[0]
                             } ],
                             yAxis : [ {
-                                name:"min",
+                                name:"level",
                                 type : 'value',
                                 axisLabel : {
                                     formatter : '{value} '
                                 }
                             } ],
                             series : [ {
-                                name : 'sleep status',
+                                name : 'SexLife status',
                                 type : 'line',
                                 data : data[1],
                             }, ]
@@ -1375,7 +1380,21 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value=slideEvt.value;
-                    $(".lifestyle-hsexlife-val").text("level "+value);
+                    switch (value) {
+						case 1:
+							$(".lifestyle-hsexlife-val").text("dissatisfied");
+							break;
+						case 2:
+							$(".lifestyle-hsexlife-val").text("okey");
+							break;
+						case 3:
+							$(".lifestyle-hsexlife-val").text("satisfied");
+							break;
+						case 4:
+							$(".lifestyle-hsexlife-val").text("superb");
+							break;
+					}
+
                     var data = '{ "column":"SexLife","value2" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -1404,7 +1423,7 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name:"times",
+                                            name:"level",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value} '
@@ -1436,7 +1455,7 @@
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: 20px;text-align: center;">Years of active sex life</div>
-			<div class="lifestyle-activesex-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 times</div>
+			<div class="lifestyle-activesex-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 years</div>
 			<div><input class="lifestyle-activesex-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%,  #92D050 100%)" type="text" data-slider-min="0" data-slider-max="60" data-slider-step="1" data-slider-value="0"></div>
 			<div class="ex4CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-activesex-report'></div>
@@ -1445,7 +1464,7 @@
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: 20px;text-align: center;">How is your sex life</div>
-			<div class="lifestyle-hsexlife-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">level 1</div>
+			<div class="lifestyle-hsexlife-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">dissatisfied</div>
 			<div>
 				<input class="lifestyle-hsexlife-bar" style-gradient="-webkit-linear-gradient(left, red 0%,  #FFFC00 50%,#92D050 100%)"   type="text" data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="0">
 			</div>
@@ -1478,14 +1497,14 @@
                                 data : data[0]
                             } ],
                             yAxis : [ {
-                                name:"gram",
+                                name:"gram/day",
                                 type : 'value',
                                 axisLabel : {
                                     formatter : '{value} '
                                 }
                             } ],
                             series : [ {
-                                name : 'sleep status',
+                                name : 'alcohol status',
                                 type : 'line',
                                 data : data[1],
                             }, ]
@@ -1498,7 +1517,7 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value=slideEvt.value;
-                    $(".lifestyle-alcohol-val").text(value+"gram");
+                    $(".lifestyle-alcohol-val").text(value+"gram/day");
                     var data = '{ "column":"Alcohol","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -1528,7 +1547,7 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name:"gram",
+                                            name:"gram/day",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value} '
@@ -1567,9 +1586,9 @@
 		</div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: 20px;"></div>
-			<div class="lifestyle-alcohol-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0gram</div>
+			<div class="lifestyle-alcohol-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 gram/day</div>
 			<div>
-				<input class="lifestyle-alcohol-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0">
+				<input class="lifestyle-alcohol-bar"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0">
 			</div>
 			<div class="ex6CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-alcohol-report'></div>
@@ -1601,14 +1620,14 @@
                                 data : data[0]
                             } ],
                             yAxis : [ {
-                                name:"gram",
+                                name:"sticks/day",
                                 type : 'value',
                                 axisLabel : {
                                     formatter : '{value} '
                                 }
                             } ],
                             series : [ {
-                                name : 'sleep status',
+                                name : 'smoking status',
                                 type : 'line',
                                 data : data[1],
                             }, ]
@@ -1621,7 +1640,7 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value=slideEvt.value;
-                    $(".lifestyle-smoking-val").text(value+"stick");
+                    $(".lifestyle-smoking-val").text(value+"stick/day");
                     var data = '{ "column":"Smoking","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -1651,7 +1670,7 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name:"stick",
+                                            name:"sticks/day",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value} '
@@ -1686,9 +1705,9 @@
 		</div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: 20px;"></div>
-			<div class="lifestyle-smoking-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0stick</div>
+			<div class="lifestyle-smoking-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 sticks/day</div>
 			<div>
-				<input class="lifestyle-smoking-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="200" data-slider-step="1" data-slider-value="0">
+				<input class="lifestyle-smoking-bar" style-gradient="-webkit-linear-gradient(left, red 0%, red 30%,red 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="200" data-slider-step="1" data-slider-value="0">
 			</div>
 			<div class="ex7CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-smoking-report'></div>
@@ -1721,14 +1740,14 @@
                                 data : data[0]
                             } ],
                             yAxis : [ {
-                                name:"gram",
+                                name:"IU/day",
                                 type : 'value',
                                 axisLabel : {
                                     formatter : '{value} '
                                 }
                             } ],
                             series : [ {
-                                name : 'sleep status',
+                                name : 'vitaminD status',
                                 type : 'line',
                                 data : data[1],
                             }, ]
@@ -1741,7 +1760,7 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value=slideEvt.value;
-                    $(".lifestyle-vitamind-val").text(value+"IU");
+                    $(".lifestyle-vitamind-val").text(value+"IU/day");
                     var data = '{ "column":"Vitamin_D","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -1772,14 +1791,14 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name:"IU",
+                                            name:"IU/day",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value} '
                                             }
                                         } ],
                                         series : [ {
-                                            name : 'vitamind status',
+                                            name : 'vitamin status',
                                             type : 'line',
                                             data : data[1],
                                         }, ]
@@ -1812,9 +1831,9 @@
 		</div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: 20px;"></div>
-			<div class="lifestyle-vitamind-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0IU</div>
+			<div class="lifestyle-vitamind-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 IU/day</div>
 			<div>
-				<input class="lifestyle-vitamind-bar"  style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="6000" data-slider-step="1" data-slider-value="0">
+				<input class="lifestyle-vitamind-bar"  style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 10%, #92D050 60%, red 100%)" type="text" data-slider-min="0" data-slider-max="6000" data-slider-step="1" data-slider-value="0">
 			</div>
 			<div class="ex8CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-vitamind-report'></div>
@@ -1846,7 +1865,7 @@
                                 data : data[0]
                             } ],
                             yAxis : [ {
-                                name:"gram",
+                                name:"mg/day",
                                 type : 'value',
                                 axisLabel : {
                                     formatter : '{value} '
@@ -1866,7 +1885,7 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value=slideEvt.value;
-                    $(".lifestyle-vitaminc-val").text(value+"mg");
+                    $(".lifestyle-vitaminc-val").text(value+"mg/day");
                     var data = '{ "column":"Vitamin_C","value1" :" ' +value+ '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -1886,7 +1905,7 @@
                                     console.info(data);
                                     var option = {
                                         legend : {
-                                            data : [ 'vitaminc status' ]
+                                            data : [ 'vitaminC status' ]
                                         },
                                         calculable : true,
                                         xAxis : [ {
@@ -1903,7 +1922,7 @@
                                             }
                                         } ],
                                         series : [ {
-                                            name : 'vitaminc status',
+                                            name : 'vitaminC status',
                                             type : 'line',
                                             data : data[1],
                                         }, ]
@@ -1935,9 +1954,9 @@
 		</div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: 20px;"></div>
-			<div class="lifestyle-vitaminc-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0mg</div>
+			<div class="lifestyle-vitaminc-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 mg/day</div>
 			<div>
-				<input class="lifestyle-vitaminc-bar"   style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 70%, red 100%)"  type="text" data-slider-min="0" data-slider-max="5000" data-slider-step="1" data-slider-value="0">
+				<input class="lifestyle-vitaminc-bar"   style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 5%, #92D050 65%, red 100%)"  type="text" data-slider-min="0" data-slider-max="3000" data-slider-step="1" data-slider-value="0">
 			</div>
 			<div class="ex9CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-vitaminc-report'></div>
@@ -1970,14 +1989,14 @@
                                 data : data[0]
                             } ],
                             yAxis : [ {
-                                name : "mg/day",
+                                name : "mcg/day",
                                 type : 'value',
                                 axisLabel : {
                                     formatter : '{value} '
                                 }
                             } ],
                             series : [ {
-                                name : 'vitamina status',
+                                name : 'vitaminA status',
                                 type : 'line',
                                 data : data[1],
                             }, ]
@@ -1990,7 +2009,7 @@
                 //拖动发送
                 slider.on("slide", function(slideEvt) {
                     var value = slideEvt.value;
-                    $(".lifestyle-vitamina-val").text(value + "mg");
+                    $(".lifestyle-vitamina-val").text(value + "mcg/day");
                     var data = '{ "column":"Vitamin_A","value1" :" ' + value + '","uuid" :"HKEPI201937192024320"}';
                     $.ajax({
                         type : "post",
@@ -2010,7 +2029,7 @@
                                     console.info(data);
                                     var option = {
                                         legend : {
-                                            data : [ 'vitamina status' ]
+                                            data : [ 'vitaminA status' ]
                                         },
                                         calculable : true,
                                         xAxis : [ {
@@ -2020,14 +2039,14 @@
                                             data : data[0]
                                         } ],
                                         yAxis : [ {
-                                            name : "mg/day",
+                                            name : "mcg/day",
                                             type : 'value',
                                             axisLabel : {
                                                 formatter : '{value} '
                                             }
                                         } ],
                                         series : [ {
-                                            name : 'vitamina status',
+                                            name : 'vitaminA status',
                                             type : 'line',
                                             data : data[1],
                                         }, ]
@@ -2057,9 +2076,9 @@
 		</div>
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: 20px;"></div>
-			<div class="lifestyle-vitamina-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0mg</div>
+			<div class="lifestyle-vitamina-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 mcg/day</div>
 			<div>
-				<input class="lifestyle-vitamina-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 70%, red 100%)" type="text" data-slider-min="0" data-slider-max="5000" data-slider-step="1" data-slider-value="0">
+				<input class="lifestyle-vitamina-bar" style-gradient="-webkit-linear-gradient(left, red 0%, #92D050 13%, #92D050 58%, red 100%)" type="text" data-slider-min="0" data-slider-max="5000" data-slider-step="1" data-slider-value="0">
 			</div>
 			<div class="ex10CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-vitamina-report'></div>

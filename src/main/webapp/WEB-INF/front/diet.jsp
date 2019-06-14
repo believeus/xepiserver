@@ -35,8 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div style="width: 100%;height: auto;font-size: 16px;font-family: arial;color: #666666;">
 				<div style="width: 90%;height: 40px;font-size: 12px;margin: 0 auto;">* 1 cup = ~250 milliliters, 1 table spoon = 14.2 gram</div>
 				<div style="width: 90%;height: auto;margin: 0 auto;font-weight: 700;">Breakfast</div>
-	<select class="form-control selectpicker" data-live-search="true" multiple style="width: 300px;height: 400px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 210px;" >
-        <optgroup label="Fruit">
+	<select class="form-control selectpicker" data-live-search="true" multiple style="ime-mode:disabled; width: 300px;height: 400px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 210px;" >
+        <optgroup label="Fruit" style="ime-mode:disabled" >
                 <option value="f1">Apple</option>
                 <option value="f2">Banana</option>
                 <option value="f3">Grapes</option>
