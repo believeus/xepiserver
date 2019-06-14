@@ -2278,9 +2278,9 @@
         }
       });
 
-      function setFocus () {
+        function setFocus () {
         if (that.options.liveSearch) {
-          that.$searchbox.trigger('focus');
+         // that.$searchbox.trigger('focus');
         } else {
           that.$menuInner.trigger('focus');
         }
@@ -2418,7 +2418,7 @@
           if (!that.multiple || (that.multiple && that.options.maxOptions === 1)) {
             that.$button.trigger('focus');
           } else if (that.options.liveSearch) {
-            that.$searchbox.trigger('focus');
+            //that.$searchbox.trigger('focus');
           }
 
           // Trigger select 'change'
@@ -2438,7 +2438,7 @@
           e.preventDefault();
           e.stopPropagation();
           if (that.options.liveSearch && !$(e.target).hasClass('close')) {
-            that.$searchbox.trigger('focus');
+            //that.$searchbox.trigger('focus');
           } else {
             that.$button.trigger('focus');
           }
@@ -2449,7 +2449,7 @@
         e.preventDefault();
         e.stopPropagation();
         if (that.options.liveSearch) {
-          that.$searchbox.trigger('focus');
+         // that.$searchbox.trigger('focus');
         } else {
           that.$button.trigger('focus');
         }
@@ -2465,7 +2465,7 @@
 
       this.$menu.on('click', '.actions-btn', function (e) {
         if (that.options.liveSearch) {
-          that.$searchbox.trigger('focus');
+         // that.$searchbox.trigger('focus');
         } else {
           that.$button.trigger('focus');
         }
@@ -2684,7 +2684,7 @@
         that.$button.trigger('click.bs.dropdown.data-api');
 
         if (that.options.liveSearch) {
-          that.$searchbox.trigger('focus');
+          //that.$searchbox.trigger('focus');
           return;
         }
       }
@@ -2769,7 +2769,7 @@
         if (updateScroll) that.$menuInner[0].scrollTop = offset;
 
         if (that.options.liveSearch) {
-          that.$searchbox.trigger('focus');
+          //that.$searchbox.trigger('focus');
         } else {
           $this.trigger('focus');
         }
