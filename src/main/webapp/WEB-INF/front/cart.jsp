@@ -190,7 +190,7 @@
         //当用户没有购买任何产品时,不允许跳转到商品确定页面
         $(function () {
             $("div[name=mycart]").click(function () {
-                $.post("/user/cart/list.jhtml", function (msg) {
+                $.post("/user/cart/unPayGoodslist.jhtml", function (msg) {
                     if (msg.length != 0) {
                         window.location.href = "/user/cart/check.jhtml";
                     } else {
