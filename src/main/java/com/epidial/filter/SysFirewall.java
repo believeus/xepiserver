@@ -8,8 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @WebFilter(filterName = "sysFirwall", urlPatterns = {"/user/*"})
 public class SysFirewall implements Filter {
@@ -21,7 +20,7 @@ public class SysFirewall implements Filter {
             "/user/transaction/postCar.jhtml", "/user/transaction/checkCart.jhtml",
             "/user/transaction/updatdCart.jhtml", "/user/transaction/deleteCart.jhtml",
             "/user/transaction/loadOrder.jhtml", "/user/transaction/check.jhtml",
-            "/user/transaction/success.jhtml", "/user/cart/index.jhtml",
+            "/user/transaction/success.jhtml",
             "/user/cart/check.jhtml", "/user/cart/order.jhtml", "/user/cart/sumprice.jhtml",
             "/user/cart/watchagain.jhtml", "/user/cart/del.jhtml",
             "/user/paypal/payment.jhtml", "/user/paypal/paysuccess.jhtml",
@@ -29,8 +28,8 @@ public class SysFirewall implements Filter {
             "/user/report/getData.jhtml", "/user/transaction/delAddr.jhtml", "/user/mycenter/index.jhtml",
             "/user/taskrecord/index.jhtml"});
 
-    private List<String> nologinCanAccessUrl = Arrays.asList(new String[]{"/user/logout.jhtml", "/user/loginview.jhtml"});
-    private String loginurl = "/user/loginview.jhtml";
+    private List<String> nologinCanAccessUrl = Arrays.asList(new String[]{"/user/logout.jhtml", "/user/loginview.jhtml", "/user/cart/index.jhtml",});
+    private String loginurl = "/user/login.jhtml";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -47,41 +46,21 @@ public class SysFirewall implements Filter {
         //访问第一个页面是没有refered的！从跳转页开始就有refered
         String refer = req.getHeader("Referer");//获取前一个链接地址
         String uri = req.getRequestURI();//获取当前链接地址
-        //当用户登录,直接跳转到下级页面
-        if (user != null) {
+
+        if (nologinCanAccessUrl.contains(uri)) {
             chain.doFilter(request, response);
             return;
         }
-        if (nologinCanAccessUrl.contains(uri) || user == null || refer == null) {
-            //直接访问/login.jhtml页面 user/mycenter/index.jhtml
-            if (refer == null) {
-                if (uri.equals("/user/loginview.jhtml")) {
-                    if (session.getAttribute("refurl") == null) {
-                        session.setAttribute("refurl", "/index.jhtml");
-                    }
-                } else {
-                    if (session.getAttribute("refurl") == null) {
-                        session.setAttribute("refurl", uri);
-                    }
-                }
-                //从其他页面跳转到登陆页面
-            } else if (refer != null && uri.equals("/user/loginview.jhtml")) {
-                if (session.getAttribute("refurl") == null) {
-                    session.setAttribute("refurl", refer);
-                }
-            }
-            if (!nologinCannotAccessUrl.contains(uri)) {
-                chain.doFilter(request, response);// 放行到下个页面
+        if (nologinCannotAccessUrl.contains(uri)) {
+            if (user != null) {
+                chain.doFilter(request, response);
             } else {
-                if (session.getAttribute("refurl") == null) {
-                    session.setAttribute("refurl", uri);
-                }
-                resp.sendRedirect(loginurl);
+                resp.sendRedirect("/user/loginview.jhtml");
             }
             return;
+        } else {
+            chain.doFilter(request, response);
         }
-
-        return;
     }
 
 

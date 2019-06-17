@@ -16,9 +16,11 @@
 
 </head>
 
-<body style="padding: 0;margin: 0;font-size: 0;">
+<body style="padding: 0;margin: 0;">
 <div id="container" style="width: 100%;height: 100%;">
-    <jsp:include page="header.jsp"></jsp:include>
+    <div style="width: 100%;height: 50px;">
+        <jsp:include page="header.jsp"></jsp:include>
+    </div>
 
     <div style="width: 100%;height: auto;">
 

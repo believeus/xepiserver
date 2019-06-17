@@ -165,8 +165,9 @@
                 </li>--%>
             </ul>
             <div class="shopPrice">Invitation Code:<input type="text" id="invite" name="nvite"
-                                                          style="height: 25px;width: 40%;border: 1px solid blue;"> TOTAL：$<span
-                    class="shop-total-amount ShopTotal">0.00</span></div>
+                                                          style="height: 25px;width: 40%;border: 1px solid blue;">
+                TOTAL：$<span
+                        class="shop-total-amount ShopTotal">0.00</span></div>
         </div>
     </div>
     <div class="payment-bar" style="height: 82px">
@@ -190,6 +191,12 @@
         //当用户没有购买任何产品时,不允许跳转到商品确定页面
         $(function () {
             $("div[name=mycart]").click(function () {
+                if ("${sessionuser==null}" == "true") {
+                    if (window.confirm("user no login!please login")) {
+                        window.location.href = "/user/loginview.jhtml";
+                    }
+                    return;
+                }
                 $.post("/user/cart/unPayGoodslist.jhtml", function (msg) {
                     if (msg.length != 0) {
                         window.location.href = "/user/cart/check.jhtml";
@@ -304,6 +311,12 @@
 
 <script>
     function show() {
+     if ("${sessionuser==null}" == "true") {
+            if (window.confirm("user no login!please login")) {
+                window.location.href = "/user/loginview.jhtml";
+            }
+            return;
+        }
         var data = {}
         obj = document.getElementsByName("checkbox");
         var list = []
@@ -351,7 +364,6 @@
             s1 += '}'
 
             console.log(s1)
-
             $.ajax({
                 url: "/user/transaction/postCar.jhtml",
                 type: "post",
@@ -361,8 +373,10 @@
                     window.location.href = data;
                 }
             });
-        } else
+        }
+        else {
             alert("Please Choice Some Thing!")
+        }
     }
 </script>
 

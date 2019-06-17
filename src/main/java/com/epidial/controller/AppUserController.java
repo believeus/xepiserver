@@ -44,11 +44,10 @@ public class AppUserController {
             } else if (!user.getPassword().equals(password)) {
                 return "ERROR:Password error";
             }else {
-                session.setAttribute("sessionuser",user);
                 user.setLastLogin(System.currentTimeMillis());
-                String refurl = (String) session.getAttribute("refurl");
-                session.removeAttribute("refurl");
-                return refurl;
+                userDao.update(user);
+                session.setAttribute("sessionuser",user);
+                return "/index.jhtml";
             }
         }
     }
