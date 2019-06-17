@@ -85,7 +85,7 @@
 
                     </div>
                 </li>
-                <li>
+                <%--<li>
                     <div class="shop-info">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3001"
                                style="border:0px solid #000">
@@ -162,7 +162,7 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li>--%>
             </ul>
             <div class="shopPrice">Invitation Code:<input type="text" id="invite" name="nvite"
                                                           style="height: 25px;width: 40%;border: 1px solid blue;"> TOTAL：$<span

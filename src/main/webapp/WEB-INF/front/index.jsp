@@ -223,7 +223,7 @@ div[id=blue-dot]:before {
 			</div>
 			<div id="vitamine" style="width: 100%;height: auto;">
 				<div class="blank" style="width: 100%height: 20px;"></div>
-				<div class="vit-con" style="width: 100%;height:auto ;">
+				<%--<div class="vit-con" style="width: 100%;height:auto ;">
 					<div style="width: 100%;height: 50px;"></div>
 					<div style="width: 96%;height: auto; font-family: arial;font-size: large; font-weight: 700;margin: 0 auto;">Vitamins</div>
 					<div style="width: 100%;height: 20px;"></div>
@@ -250,7 +250,7 @@ div[id=blue-dot]:before {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>--%>
 			<div style="width: 100%;height: 90px;"></div>
 			<div id="fun-list" style="width: 100%;height: auto;">
 				<div class="rep-style" style="width: 100%;height: auto;">
@@ -291,7 +291,7 @@ div[id=blue-dot]:before {
 
 				<div class="rep-style" style="width: 100%;height: auto;">
 					<div style="width: 92%;height: auto;margin: 0 auto;">
-						<a href="illumina/index.jhtml"> <img src="static/images/hm18.png" style="width: 100%;height: auto;" />
+						<a href="faqlist/index.jhtml"> <img src="static/images/hm18.png" style="width: 100%;height: auto;" />
 						</a>
 					</div>
 				</div>

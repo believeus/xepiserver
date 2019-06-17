@@ -23,7 +23,7 @@
         $(function () {
             //删除购物车
             $("body").on("click", "div[name=cartdel]", function (event) {
-                if (window.confirm("are you sure delete?")) {
+                if (window.confirm("Are you sure you want to delete it?")) {
                     var data = {};
                     var _oThis = $(event.currentTarget);
                     data.id = _oThis.attr("id");
@@ -89,7 +89,7 @@
                         $.post("/user/cart/paygoodslist.jhtml", function (data) {
                             data.forEach(function (v) {
                                 var div = "<div style='clear: both' name='cart'>" +
-                                    "<div  style='background-color:green;color: white;width: 20%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;'>pay</div>" +
+                                    "<div  style='background-color:green;color: white;width: 20%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;'>paid</div>" +
                                     "<div style='width:100%;display: flex;flex-direction: row;justify-content: center;float: left;'>" +
                                     "<div style='width: 100%;float: left;height: 60px;'>" +
                                     "   <div style='width:30%;height:auto;float: left;text-align: center'><image src=" + v.imgpath + " style='width:50%;height:auto'></image></div>" +

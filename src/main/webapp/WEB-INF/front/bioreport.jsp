@@ -117,13 +117,13 @@
                             data.barcode = _oThis.parents("form").find("input[name=barcode]").val();
                             console.info(data.barcode);
                             if (data.barcode == "") {
-                                alert("please enter the barcode!");
+                               alert("please enter the barcode!");
                                 return;
                             }
                             $.post("/user/report/bind.jhtml", data, function (data) {
                                 _oThis.parents("form").find("input[name=barcode]").attr("readonly", "readonly");
                                 _oThis.val("edit the barcode");
-                            });
+                             });
                         }
                     });
 
