@@ -237,7 +237,6 @@
                                         if (window.ready == true) {
                                             $("div[id=chroage]").text(window.xx);
                                             $("div[id=bioage]").text(window.yy);
-                                            window.clearInterval(timer);
                                             require(
                                                 ['echarts', 'echarts/chart/scatter'],
                                                 function (ec) {
