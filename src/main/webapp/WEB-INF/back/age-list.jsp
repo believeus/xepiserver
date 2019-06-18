@@ -39,12 +39,12 @@
 		<thead>
 			<tr class="text-c">
 				<th width="100">username</th>
-				<th width="60">naturally</th>
-				<th width="60">biological</th>
+				<th width="40">naturally</th>
+				<th width="40">biological</th>
 				<th width="100">barcode</th>
 				<th width="20">status</th>
-				<th width="20">createTime</th>
-				<th width="30">uploadTime</th>
+				<th width="100">createTime</th>
+				<th width="100">uploadTime</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -75,7 +75,10 @@
 							</c:choose>
 						</select>
 					</td>
-					<td><date:date value="${task.createTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td>
+					<c:choose>
+						<c:when test="${task.createTime eq 0}"><td></td></c:when>
+						<c:otherwise><td><date:date value="${task.createTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td></c:otherwise>
+					</c:choose>
 					<c:choose>
 						<c:when test="${task.uploadTime eq 0}"><td></td></c:when>
 						<c:otherwise><td><date:date value="${task.uploadTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td></c:otherwise>

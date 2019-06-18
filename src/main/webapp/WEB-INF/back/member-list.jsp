@@ -60,9 +60,14 @@
 							<td class="td-status"><span class="label label-success radius">activation</span></td>
 						</c:otherwise>
 					</c:choose>
-
-					<td><date:date value="${user.register}" pattern="yyyy-MM-dd:hh:mm:ss"></date:date></td>
-					<td><date:date value="${user.lastLogin}" pattern="yyyy-MM-dd:hh:mm:ss"></date:date></td>
+					<c:choose>
+						<c:when test="${user.register eq 0}"><td></td></c:when>
+						<c:otherwise><td><date:date value="${user.register}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td></c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${user.lastLogin eq 0}"><td></td></c:when>
+						<c:otherwise><td><date:date value="${user.lastLogin}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td></c:otherwise>
+					</c:choose>
 					<%--<td class="td-manage"><a title="edit" href="javascript:;" onclick="member_edit('edit','/admin/user/edit.jhtml?mail=${user.mail}','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>  </td>--%>
 				</tr>
 			</c:forEach>

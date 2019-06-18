@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2019/3/24
-  Time: 20:23
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
@@ -63,9 +56,9 @@
             success: function(data) {
                 //console.log(data)
                 for (var i = 0; i < data.length; i++) {
-					paid += '\t\t\t\t<div style="width: 100%;height: auto; background-color: #FFFFFF;border-top: 1px solid #efefef;">\n' +
-                        '\t\t\t\t\t<div style="width: 94%;height: auto;margin: 0 auto;line-height: 60px;color: #F36602;">Paid</div>\n' +
-                        '\t\t\t\t</div>'
+					paid += '<div style="width: 100%;height: auto; background-color: #FFFFFF;border-top: 1px solid #efefef;">' +
+                        '<div style="width: 94%;height: auto;margin: 0 auto;line-height: 60px;color: #F36602;">Paid</div>' +
+                        '</div>'
                     paid += '<div style="width: 100%;height: 30px;background-color: #F4F4F4"><div style=" width:90%;margin:0 auto; line-height: 30px;font-size: 16px;font-weight: 600;">Order NO.-' +
                         data[i].order_id + "</div></div>"
 

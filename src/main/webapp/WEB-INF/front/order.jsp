@@ -35,37 +35,33 @@
                 $(function () {
                     $.post("/user/cart/unPayGoodslist.jhtml", function (data) {
                         data.forEach(function (v) {
-                            var div = "<div name='cart'><div style='width:80%;display: flex;flex-direction: row;justify-content: center;float: left;'>\n" +
-                                "                        <div style=\"width: 90%\">\n" +
-                                "                            <div style=\"width:40%;height:auto;float: left;text-align: center\">\n" +
-                                "                                <image src=" + v.imgpath + " style=\"width:70%;height:auto\"></image>\n" +
-                                "                            </div>\n" +
-                                "                            <div style=\"float: left;width: 15%;height: 100%;\">\n" +
-                                "                            </div>\n" +
-                                "                            <div style=\"float: left;width: 40%;height: 100%;\">\n" +
-                                "                                <div style=\"width:100%;height:10%\"></div>\n" +
-                                "                                <div style=\"width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">" + v.name +
-                                "</div>\n" +
-                                "                                <div style=\"width:100%;height:15%\"></div>\n" +
-                                "                                <div class=\"shop-sumprice\" style=\"width:100%;height:40%;;text-align: center\">\n" +
-                                "                                    <div class=\"shop-pices\" style=\"float:left;width: 40%;height: 100%\">$<b\n" +
-                                "                                            class=\"sumprice\"> " + v.price + "</b>\n" +
-                                "                                    </div>\n" +
-                                "                                    <div class=\"shop-arithmetic\"\n" +
-                                "                                         style=\"float: right;width: 60%;height: 100%;text-align: center\">\n" +
-                                "                                        X " + v.count +
-                                "                                    </div>\n" +
-                                "                                </div>\n" +
-                                "                            </div>\n" +
-                                "                        </div>\n" +
-                                "                    </div><div name='cartdel' id='" + v.id + "' style='float: left;background-color:saddlebrown;color: white;width: 18%;height: 100%;cursor: pointer'>delete</div></div>" +
-                                "                    <div style=\"width: 100%;height: 10px;border-bottom:1px solid #e2e2e2;clear: both;\"></div>";
+                            var div = "<div style='clear: both' name='cart'>" +
+                                "<div style='width:100%;display: flex;flex-direction: row;justify-content: center;float: left;'>" +
+                                "<div style='width: 100%;float: left;height: 90px;'>" +
+                                "   <div style='width:30%;height:auto;float: left;text-align: center'><image src=" + v.imgpath + " style='width:70%;height:auto'></image></div>" +
+                                "   <div style='float: left;width: 2%;height: 100%;'></div>" +
+                                "   <div style='float: left;width: 30%;height: 100%;'>" +
+                                "          <div style='width:100%;height:10%'></div>" +
+                                "           <div style='width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size: 14px'>" + v.name + "</div>" +
+                                "            <div class='shop-sumprice' style='width:100%;height:40%;;text-align: center'>" +
+                                "                <div class='shop-pices' style='float:left;width: 40%;height: 100%'>$<b>" + v.price + "</b></div>" +
+                                "                <div class='shop-arithmetic' style='float: right;width: 60%;height: 100%;text-align: center'>X" + v.count + "</div>" +
+                                "            </div>" +
+                                "   </div>" +
+                                "   <div style='float: left;width: 32%;height: 100%;'>" +
+                                "         <div style='width: 100%;height: 5px;clear: both;'></div>" +
+                                "         <div name='cartdel' id='" + v.id + "' style='background-color:#37475d;color: white;width: 100%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;'>Remove</div>" +
+                                "         <div style='width: 100%;height: 5px;clear: both;'></div>"+
+                                "    </div>"
+                            "      </div>" +
+                            "   </div>" +
+                            "   <div style='width: 100%;height: 10px;border-bottom:1px solid #e2e2e2;clear: both;'></div>";
                             $("div[name=cartbox]").append(div);
 
                         });
                         //删除购物车
                         $("body").on("click", "div[name=cartdel]", function (event) {
-                            if (window.confirm("are you sure delete?")) {
+                            if (window.confirm("Do you want to delete this item?")) {
                                 var data = {};
                                 var _oThis = $(event.currentTarget);
                                 data.id = _oThis.attr("id");
@@ -82,20 +78,20 @@
             </script>
         </div>
 
-        <div style="width: 100%;height: 10px;"></div>
+        <div style="width: 100%;height: 10px;background-color: #f4f6f8;clear: both"></div>
 
         <div name="addressbox">
             <script>
                 $(function () {
                     $.post("/user/address/addrValid.jhtml", function (v) {
                         console.info(v);
-                        var div = " <div data-id='" + v.id + "' name=\"iaddress\" style=\"border: 1px solid grey;width: 90%;height: auto;margin: 0 auto;border: 1px dashed orange;cursor: pointer;\">\n" +
-                            "                    <div style=\"width: 100%;height: 50px;\">" +
+                        var div = " <div data-id='" + v.id + "' name=\"iaddress\" style=\"border: 1px solid grey;width: 95%;height: auto;margin: 0 auto;border: 1px dashed #0071b1;cursor: pointer;clear: both;\">\n" +
+                            "                    <div style=\"width: 100%;height: 70px;\">" +
                             "                        <div style=\"float: left;width: 80%;height:  50px;\">" +
                             "                            <div>" + v.recipient + "&nbsp;" + v.phone + "</div>\n" +
                             "                            <div>" + v.detail + "&nbsp;" + v.city + "&nbsp;" + v.country + "</div>" +
                             "                        </div>" +
-                            "                        <div  onclick='window.location.href=\"/user/cart/check.jhtml\"' name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: darkorange;color: white;float: left;height:  50px;line-height:  50px;text-align: center\">edit</div>\n" +
+                            "                        <div  onclick='window.location.href=\"/user/cart/check.jhtml\"' name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: #0071b1;color: white;float: left;height:  25px;line-height:  25px;text-align: center;border-radius: 5px;\">edit</div>\n" +
                             "                    </div>" +
                             "                </div>" +
                             "                <div style=\"width: 100%;height: 5px\"></div>"
@@ -106,11 +102,10 @@
             </script>
         </div>
 
-        <div style="width: 100%;height: 10px;background-color: #f4f6f8;"></div>
     </div>
 
     <div style="clear:both;overflow:hidden;width:100%;height:120px;position:fixed;bottom:0;border-top:1px solid #e0e0e0;background:#fff;">
-        <div style="text-align: center;height: 60px;background-color: #37475d;width: 60%;color: #f4f6f8;float: left;">
+        <div style="text-align: center;height: 60px;background-color: #37475d;width: 40%;color: #f4f6f8;float: left;">
             <div style="height: 100%;font-size: 21px;line-height: 60px">
                 <div class="shop-total">
                     <strong>Total：$<i class="total" id="AllTotal" name="total_price"></i></strong>
@@ -125,8 +120,8 @@
                 </script>
             </div>
         </div>
-        <div style="width: 40%;background-color: #0071b1;height: 100%;text-align: center;color: #f4f6f8;float:right;">
-            <div name="paypal" style="height:100%;font-size: 21px;line-height: 60px;cursor: pointer;">To Pay</div>
+        <div style="width: 60%;background-color: #0071b1;height: 100%;text-align: center;color: #f4f6f8;float:right;">
+            <div name="paypal" style="height:100%;font-size: 14px;line-height: 60px;cursor: pointer;font-weight: bold">Confirm & proceed to payment</div>
         </div>
     </div>
     <jsp:include page="footnav.jsp"></jsp:include>

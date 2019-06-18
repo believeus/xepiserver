@@ -9,9 +9,9 @@ import java.util.List;
 @Mapper
 public interface UdataDao {
     @Insert("insert into udata" +
-                "(uid,username,naturally,biological,barcode,status)" +
+                "(uid,username,naturally,biological,barcode,status,createTime)" +
             "values" +
-                "(#{uid},#{username},#{naturally},#{biological},#{barcode},#{status})")
+                "(#{uid},#{username},#{naturally},#{biological},#{barcode},#{status},#{createTime})")
     public void  save(Udata udata);
 
     //pending processing finished
@@ -22,7 +22,7 @@ public interface UdataDao {
     public List<Udata> findBy(@Param("c") String c ,@Param("v") Object v);
 
 
-    @Update("update udata set uid=#{uid},username=#{username},naturally=#{naturally},biological=#{biological},barcode=#{barcode},status=#{status} where id=#{id}")
+    @Update("update udata set uid=#{uid},username=#{username},naturally=#{naturally},biological=#{biological},barcode=#{barcode},status=#{status},uploadTime=#{uploadTime} where id=#{id}")
     public void update(Udata data);
 
     @Select("select * from udata where naturally > biological and naturally>0 and biological>0 limit 0,50")

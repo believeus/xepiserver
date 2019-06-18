@@ -122,7 +122,7 @@ public class PayPalController {
 					udataDao.save(data);
 				}
 			}
-			//return  "redirect:https://app.beijingepidial.com/user/transaction/Success.jhtml";
+			//return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml";
 			return  "redirect:http://localhost:8080/user/transaction/success.jhtml";
 		} catch (Exception e) {
 			e.printStackTrace();

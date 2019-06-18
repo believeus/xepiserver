@@ -64,9 +64,6 @@
                             <li class="menuItem"><a href="user/cart/index.jhtml">Health Market</a></li>
                             <li class="menuItem"><a href="scienceteam/index.jhtml">Science Team</a></li>
                             <c:if test="${sessionuser!=null}">
-                                <li class="menuItem"><a href="user/mycenter/index.jhtml">Epi Center</a></li>
-                            </c:if>
-                            <c:if test="${sessionuser!=null}">
                                 <li class="menuItem"><a href="user/logout.jhtml">Log Out</a></li>
                             </c:if>
 

@@ -30,7 +30,7 @@ public class CartController {
     @RequestMapping("user/taskrecord/index.jhtml")
     public ModelAndView tasklisk(){
         ModelAndView modelView = new ModelAndView("/WEB-INF/front/taskrecord.jsp");
-        modelView.addObject("title","Order recode");
+        modelView.addObject("title","Order record ");
         modelView.addObject("canback",true);
         return modelView;
     }

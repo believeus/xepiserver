@@ -57,14 +57,14 @@
                                     "                                </div>\n" +
                                     "                            </div>\n" +
                                     "                        </div>\n" +
-                                    "                    </div><div name='cartdel' id='" + v.id + "' style='float: left;background-color:saddlebrown;color: white;width: 18%;height: 100%;cursor: pointer'>delete</div></div>" +
+                                    "                    </div><div name='cartdel' id='" + v.id + "' style='float: left;background-color:saddlebrown;color: white;width: 18%;height: 100%;cursor: pointer'>Remove</div></div>" +
                                     "                    <div style=\"width: 100%;height: 10px;border-bottom:1px solid #e2e2e2;clear: both;\"></div>";
                                 $("div[name=cartbox]").append(div);
 
                             });
                             //删除购物车
                             $("body").on("click", "div[name=cartdel]", function (event) {
-                                if (window.confirm("are you sure delete?")) {
+                                if (window.confirm("Do you want to delete this item?")) {
                                     var data = {};
                                     var _oThis = $(event.currentTarget);
                                     data.id = _oThis.attr("id");
@@ -95,7 +95,7 @@
                                     "                            <div>" + v.recipient + "&nbsp;" + v.phone + "</div>\n" +
                                     "                            <div>" + v.detail + "&nbsp;" + v.city + "&nbsp;" + v.country + "</div>\n" +
                                     "                        </div>\n" +
-                                    "                        <div name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: darkorange;color: white;float: left;height:  50px;line-height:  50px;text-align: center\">delete</div>\n" +
+                                    "                        <div name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: darkorange;color: white;float: left;height:  50px;line-height:  50px;text-align: center\">Remove</div>\n" +
                                     "                       \n" +
                                     "                    </div>\n" +
                                     "                </div>\n" +
@@ -105,7 +105,7 @@
                         });
                         //删除地址
                         $("body").on("click", "[name=delAddr]", function (event) {
-                            if (!window.confirm("Are you sure delete?")) return;
+                            if (!window.confirm("Do you want to delete this item?")) return;
                             var data = {};
                             var _oThis = $(event.currentTarget);
                             data.id = _oThis.attr("id");

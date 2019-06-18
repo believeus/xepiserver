@@ -30,7 +30,6 @@ public class AdminFirewall implements Filter {
         //访问第一个页面是没有refered的！从跳转页开始就有refered
         String refer = req.getHeader("Referer");
         String uri = req.getRequestURI();
-        System.out.println(uri);
         if (admin!=null){
             chain.doFilter(request, response);// 放行到下个页面
             return;
