@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.UUID;
 
 @Controller
 @CrossOrigin
@@ -81,9 +82,8 @@ public class AppUserController {
             if (data.equals("success")) {
                 u.setRegister(System.currentTimeMillis());
                 u.setUuid(uuid);
+                u.setToken(UUID.randomUUID().toString());
                 userDao.save(u);
-                user = userDao.findUser("mail",u.getMail());
-                session.setAttribute("sessionuser", user);
                 return "success";
             }else {
                 return  data;
@@ -128,17 +128,71 @@ public class AppUserController {
     public  String fpasswd(){
         return "/WEB-INF/front/fpaswd.jsp";
     }
+
     @RequestMapping("/user/sendpaswd")
     public @ResponseBody
     String sendpaswd(String email) {
         User user = userDao.findUser("mail",email);
         if (user != null) {
-            String title = "[DO NOT REPLY] Please checkout your password";
-            String message = "Dear User:your password is:" + user.getPassword();
+            String title = "[DO NOT REPLY] Please reset your password";
+            String message = "<!DOCTYPE html>" +
+                    "<html>" +
+                    "<head>" +
+                    "<meta charset=\"UTF-8\">" +
+                    "<title></title>" +
+                    "</head>" +
+                    "<body>" +
+                    "<div style='width: 100%;height: auto;'>" +
+                    "<div style='width: 100%;height: 60px;'></div>" + //
+                    "<p>Dear user</p><p>Thank you for your registration on Epi-Aging. <br />Please click on the following link to reset your password:</p>" +
+                    "<a href='https://app.beijingepidial.com/user/repasswdview.jhtml?mail="+user.getMail()+"&token="+user.getToken()+"'>https://app.beijingepidial.com/user/repasswdview.jhtml?mail="+user.getMail()+"&token="+user.getToken()+"</a>" +
+                    "<p style='color:red'>If you're unable to click on any of the links above, copy and paste the URL into a new browser window instead</p><p>HKG epitherapeutics Limited<br />https://www.hkgepitherapeutics.com</p>" +
+                    "<p>(+852) 2354 8297<br/>info@hkgepitherapeutics.com</p><p>2019 All rights reserved</p>" +
+                    "</div>" +
+                    "</body>" +
+                    "</html>";
             mailService.sendMail(title, message, email);
+            System.out.println(message);
             return "success";
         } else {
             return "null";
+        }
+    }
+    @RequestMapping("/user/repasswdview")
+    public ModelAndView repasswdview(String mail,String token){
+        ModelAndView modelView=new ModelAndView();
+        User user = userDao.findUser("mail", mail);
+        if (user!=null){
+            if (user.getToken().equals(token)){
+                modelView.setViewName("/WEB-INF/front/resetview.jsp");
+                modelView.addObject("user",user);
+            }else {
+                String message="Token is invalid, please click <strong>[forget password]</strong> again on App ,We will send a link to reset the password to your mailbox again. Please reset your password again via this link.";
+                modelView.addObject("message",message);
+                modelView.setViewName("/WEB-INF/front/mailInvalid.jsp");
+            }
+        }else {
+            String message="Mailbox not registered!";
+            modelView.addObject("message",message);
+            modelView.setViewName("/WEB-INF/front/mailInvalid.jsp");
+        }
+        return  modelView;
+    }
+    @ResponseBody
+    @RequestMapping("/user/repasswd")
+    public String repasswd(User json){
+        User user = userDao.findUser("mail", json.getMail());
+        if (user!=null){
+            if (user.getToken().equals(json.getToken())){
+               user.setPassword(json.getPassword());
+               user.setToken(UUID.randomUUID().toString());
+               userDao.update(user);
+               return "reset password success!";
+            }else {
+                return "Token is invalid, please click \n[forget password] again on App";
+            }
+        }else {
+            return "Mailbox not registered!";
         }
     }
     @RequestMapping("/user/logout")

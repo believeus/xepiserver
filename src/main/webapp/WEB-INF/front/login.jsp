@@ -34,7 +34,7 @@
             </div>
         </c:if>
         <div id="login"></div>
-        <form action="App/login.jhtml" method="post">
+        <form action="/user/login.jhtml" method="post">
             <div class="login_bg">
                 <div id="logo">
                     <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%"/>

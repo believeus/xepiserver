@@ -15,9 +15,9 @@ public interface UserDao {
 
     /**功能描述: 用户注册*/
     @Insert("insert into user" +
-                "(uuid,nickname,password,mail,valid,country,province,register) " +
+                "(uuid,nickname,password,mail,valid,country,province,register,token) " +
             "values" +
-                "(#{uuid},#{nickname},#{password},#{mail},#{valid},#{country},#{province},#{register})")
+                "(#{uuid},#{nickname},#{password},#{mail},#{valid},#{country},#{province},#{register},#{token})")
     public void save(User user);
 
     @Update("update user set " +
@@ -27,7 +27,7 @@ public interface UserDao {
                     "valid=#{valid}," +
                     "country=#{country}," +
                     "province=#{province}," +
-                    "register=#{register},lastLogin=#{lastLogin} where mail=#{mail}")
+                    "register=#{register},lastLogin=#{lastLogin},token=#{token} where mail=#{mail}")
     public boolean  update(User user);
 
     //根据邮箱查找用户信息

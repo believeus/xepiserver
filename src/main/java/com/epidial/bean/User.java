@@ -11,6 +11,7 @@ public class User {
     private String province;
     private long register;//注册时间
     private long lastLogin;//上次登录时间
+    private String token;
 
     public int getId() {
         return id;
@@ -92,4 +93,11 @@ public class User {
         this.lastLogin = lastLogin;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

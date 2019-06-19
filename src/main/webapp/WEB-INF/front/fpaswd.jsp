@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2019/3/15
-  Time: 22:58
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -47,7 +40,7 @@
 </div>
 <div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
     <div style="width:100%;height:100%;">
-        <div id="zhuce"><a href="/login.jhtml">Login</a>|<a href="/index.jhtml">home</a></div>
+        <div id="zhuce"><a href="/user/loginview.jhtml">Login</a>|<a href="/index.jhtml">home</a></div>
         <div id="login"></div>
         <div class="login_bg">
             <div id="logo">
@@ -59,39 +52,39 @@
 
                 <script>
                     $(function () {
-                        $("[name=sendmail]").click(function () {
+                        $("form").submit(function (e) {
                             var email = $("input[name=email]").val();
                             var data = {};
                             data.email = email;
                             $.post("/user/sendpaswd.jhtml", data, function (msg) {
                                 var data = "";
-                                $("div[name=message]").css("display", "block");
                                 if (msg == "success") {
-                                    data = "The password has been sent to the mailbox!<a href='login.jhtml'>login</a> the system!"
+                                    data = "A link to reset your password \nhas been sent to your mailbox.\n Please check it out !"
                                     $("div[name=btnsend]").css("display", "none");
                                 } else {
-                                    data = "The mailbox is not registered,Please check that the mailbox is filled in correctly.";
+                                    data = "The mailbox is not registered,\nPlease check that the mailbox \n is filled in correctly.";
                                 }
-                                $("div[name=message]").html(data);
+                                window.alert(data);
                             });
+                            return false;
                         });
                     });
                 </script>
-                <div id="PWDSignIn" style="display:block">
-                    <div class="userName">
-                        <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
-                        <input type="text" name="email" id="email" placeholder="Email" style="width: 60%">
-                    </div>
+                <form>
+                    <div id="PWDSignIn" style="display:block">
+                        <div class="userName">
+                            <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
+                            <input type="email" required="required" name="email" id="email" placeholder="Email" style="width: 60%">
+                        </div>
 
-                    <div name="btnsend" class="other_login" style="margin-top: 40px;">
-                        <span>By clicking the button below,your password will be reset.</span>
-                        <button class="login_btn" name="sendmail" style="margin-top: 0px;">Reset Password
-                        </button>
+                        <div name="btnsend" class="other_login" style="margin-top: 40px;">
+                            <span>By clicking the button below,A link to reset your password will sent to your email</span>
+                            <input type="submit" class="login_btn" name="sendmail" value="Reset password" style="margin-top: 0px;">
+                            </input>
+                        </div>
+                        <div style="clear: both"></div>
                     </div>
-                    <div style="clear: both"></div>
-                    <div style="display: none;font-size: 14px;" name="message"></div>
-                </div>
-
+                </form>
 
             </div>
         </div>
@@ -106,10 +99,3 @@
 </body>
 
 </html>
-
-
-<script>
-    function ToReg() {
-        window.location.href = 'register.jhtml';
-    }
-</script>
