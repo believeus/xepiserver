@@ -27,8 +27,8 @@
             <h3 style="margin-top: 30px;text-align: center;">
                 EpiAging App User Manual
             </h3>
-            <h4>1.Download the IOS App from Apple Store or Android App from Google Play Store</h4>
-            <h4>2.Register accounts by your e-mail and accept the customer data consent</h4>
+            <h4>1.Download the IOS App from Apple Store or Android App from Google Play Store.</h4>
+            <h4>2.Register accounts by your e-mail and accept the customer data consent.</h4>
         </div>
         <div style="width: 100%;height: auto;">
             <img src="static/images/usermanual/m1.png" style="width: 90%;height: auto;">
@@ -51,7 +51,7 @@
         <div style="width: 100%;height: auto;padding-top: 20px">
             <img src="static/images/usermanual/m7.png" style="width: 90%;height: auto;">
         </div>
-        <h5>3.1 Fill in the receipt information</h5>
+        <h5>3.1 Fill in the receipt information.</h5>
         <div style="width: 100%;height: auto;">
             <img src="static/images/usermanual/m8.png" style="width: 90%;height: auto;">
         </div>
@@ -74,7 +74,7 @@
         <div style="width: 100%;height: auto;;padding-top: 20px;">
             <img src="static/images/usermanual/m92.png" style="width: 90%;height: auto;">
         </div>
-        <h4>5. Fill in the questionnaire (optional)</h4>
+        <h4>5. Fill in the questionnaire (optional).</h4>
         <div style="width: 100%;height: auto;">
             <img src="static/images/usermanual/m93.png" style="width: 90%;height: auto;">
         </div>
@@ -96,7 +96,7 @@
         <div style="width: 100%;height: auto;">
             <img src="static/images/usermanual/m97.png" style="width: 90%;height: auto;">
         </div>
-        <h4>7.Make Lifestyle changes & improve your health</h4>
+        <h4>7.Make Lifestyle changes & improve your health.</h4>
         <h5>7.1 We will also analyze your lifestyle data. You keep making changes in lifestyle and report. You get
             personalized reports on your progress.You can also get free report by fill in the Lifestyle
             questionnaire.</h5>
