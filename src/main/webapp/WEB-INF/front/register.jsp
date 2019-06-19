@@ -126,7 +126,6 @@
                             <option value="GNQ" title="GQ">Equatorial Guinea</option>
                             <option value="EGY" title="EG">Egypt</option>
                             <option value="ERI" title="ER">Eritrea</option>
-                            <option value="ESP" title="ES">Spain</option>
                             <option value="ETH" title="ET">Ethiopia</option>
                             <option value="FIN" title="FI">Finland</option>
                             <option value="FJI" title="FJ">Fiji</option>
@@ -226,6 +225,7 @@
                             <option value="SLB" title="SB">Solomon Islands</option>
                             <option value="SYC" title="SC">Seychelles</option>
                             <option value="SDN" title="SD">Sudan</option>
+                            <option value="ESP" title="ES">Spain</option>
                             <option value="SWE" title="SE">Sweden</option>
                             <option value="SGP" title="SG">Singapore</option>
                             <option value="CHE" title="CH">Switzerland</option>

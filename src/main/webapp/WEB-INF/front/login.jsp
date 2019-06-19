@@ -70,7 +70,13 @@
                 </div>
             </div>
         </form>
+        <div id="all-right"style="width: 100%;height: auto;font-family: arial;padding-top: 268px;">
+            <div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-bottom: 50px;">
+                @2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved
+            </div>
+        </div>
     </div>
+
     <jsp:include page="footnav.jsp"></jsp:include>
 </div>
 

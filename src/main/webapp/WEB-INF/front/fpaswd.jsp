@@ -84,8 +84,8 @@
                     </div>
 
                     <div name="btnsend" class="other_login" style="margin-top: 40px;">
-                        <span>By clicking the button below,your password will send to your email</span>
-                        <button class="login_btn" name="sendmail" style="margin-top: 0px;">password send to email
+                        <span>By clicking the button below,your password will be reset.</span>
+                        <button class="login_btn" name="sendmail" style="margin-top: 0px;">Reset Password
                         </button>
                     </div>
                     <div style="clear: both"></div>
@@ -93,6 +93,11 @@
                 </div>
 
 
+            </div>
+        </div>
+        <div id="all-right"style="width: 100%;height: auto;font-family: arial;padding-top: 380px;">
+            <div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-bottom: 50px;">
+                @2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved
             </div>
         </div>
     </div>
