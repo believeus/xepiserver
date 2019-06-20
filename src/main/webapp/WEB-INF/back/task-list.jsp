@@ -50,6 +50,7 @@
 				<th width="100">createTime</th>
 				<th width="100">payTime</th>
 				<th width="50">address</th>
+				<th width="50">disprice</th>
 				<th width="80">is deliver</th>
 			</tr>
 		</thead>
@@ -77,6 +78,7 @@
 
 
 					<td class="td-manage"><a title="edit" href="javascript:;" onclick="member_edit('edit','/admin/task/edit.jhtml?id=${task.addrid}','4','','510')" class="ml-5" style="text-decoration:none">check</a>  </td>
+					<td>${task.disprice}</td>
 					<td>
 						<select>
 							<c:choose>

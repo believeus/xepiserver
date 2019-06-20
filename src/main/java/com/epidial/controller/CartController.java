@@ -24,7 +24,6 @@ public class CartController {
     private TaskDao taskDao;
     @Resource
     private UdataDao udataDao;
-
     @Resource
     private WaresDao waresDao;
 
@@ -75,8 +74,9 @@ public class CartController {
     @RequestMapping("/user/cart/sumprice")
     public String sumprice(HttpSession session){
         User user=(User)session.getAttribute("sessionuser");
-        String sumprice = taskDao.sumprice(user.getId());
-        return sumprice==null?"0":sumprice;
+        System.out.println(taskDao.sumprice(user.getId()));
+        String total=taskDao.sumprice(user.getId());
+        return String.format("%.2f", Float.parseFloat(total==null?"0":total));
     }
 
     @RequestMapping("/user/cart/watchagain")

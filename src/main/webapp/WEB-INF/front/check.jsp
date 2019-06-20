@@ -34,30 +34,25 @@
                     $(function () {
                         $.post("/user/cart/unPayGoodslist.jhtml", function (data) {
                             data.forEach(function (v) {
-                                var div = "<div name='cart'><div style='width:80%;display: flex;flex-direction: row;justify-content: center;float: left;'>\n" +
-                                    "                        <div style=\"width: 90%\">\n" +
-                                    "                            <div style=\"width:40%;height:auto;float: left;text-align: center\">\n" +
-                                    "                                <image src=" + v.imgpath + " style=\"width:70%;height:auto\"></image>\n" +
+                                var div = "<div name='cart' style='width: 100%;height: 60px;'><div style='width:100%;display: flex;flex-direction: row;justify-content: center;float: left;'>" +
+                                    "                        <div style=\"width: 100%\">" +
+                                    "                            <div style=\"width:40%;height:auto;float: left;text-align: center\">" +
+                                    "                                <image src=" + v.imgpath + " style=\"width:70%;height:auto\"></image>" +
                                     "                            </div>\n" +
-                                    "                            <div style=\"float: left;width: 15%;height: 100%;\">\n" +
-                                    "                            </div>\n" +
-                                    "                            <div style=\"float: left;width: 40%;height: 100%;\">\n" +
-                                    "                                <div style=\"width:100%;height:10%\"></div>\n" +
-                                    "                                <div style=\"width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">" + v.name +
-                                    "</div>\n" +
-                                    "                                <div style=\"width:100%;height:15%\"></div>\n" +
-                                    "                                <div class=\"shop-sumprice\" style=\"width:100%;height:40%;;text-align: center\">\n" +
-                                    "                                    <div class=\"shop-pices\" style=\"float:left;width: 40%;height: 100%\">$<b\n" +
-                                    "                                            class=\"sumprice\"> " + v.price + "</b>\n" +
-                                    "                                    </div>\n" +
-                                    "                                    <div class=\"shop-arithmetic\"\n" +
-                                    "                                         style=\"float: right;width: 60%;height: 100%;text-align: center\">\n" +
-                                    "                                        X " + v.count +
-                                    "                                    </div>\n" +
-                                    "                                </div>\n" +
-                                    "                            </div>\n" +
-                                    "                        </div>\n" +
-                                    "                    </div><div name='cartdel' id='" + v.id + "' style='float: left;background-color:saddlebrown;color: white;width: 18%;height: 100%;cursor: pointer'>Remove</div></div>" +
+                                    "                            <div style=\"float: left;width: 50%;height: 100%;\">" +
+                                    "                                <div style=\"width:100%;height:10%\"></div>" +
+                                    "                                <div style=\"width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">" + v.name + "</div>" +
+                                    "                                <div class=\"shop-sumprice\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
+                                                                        "<div style='float: left'>total:</div>"+
+                                    "                                    <div class=\"shop-pices\" style=\"float:left;width: 35%;height: 100%\">&nbsp;&nbsp;$<b>" + v.price + "</b>&nbsp;&nbsp;&nbsp;&nbsp;X"+v.count+"</div>" +
+                                    "                                </div>" +
+                                                                    "<div class=\"shop-sumprice\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
+                                                                        "<div style='float: left;color: red;'>discount:</div>"+
+                                                                        "<div class=\"shop-pices\" style=\"float:left;width: 35%;height: 100%\">&nbsp;&nbsp;$<b>" + v.disprice + "</b>&nbsp;&nbsp;&nbsp;&nbsp;X"+v.count+"</div>" +
+                                                                    "</div>" +
+                                    "                            </div>" +
+                                    "                        </div>" +
+                                    "                    </div><div name='cartdel' id='" + v.id + "' style='clear:both;float: left;background-color:#0071bc;color: white;width: 18%;height: 20px;cursor: pointer;border-radius:5px;text-align: center;font-weight: bold; '>Remove</div></div>" +
                                     "                    <div style=\"width: 100%;height: 10px;border-bottom:1px solid #e2e2e2;clear: both;\"></div>";
                                 $("div[name=cartbox]").append(div);
 
@@ -89,13 +84,13 @@
                         $.post("/user/address/list.jhtml", function (data) {
                             data.forEach(function (v) {
                                 console.info(v);
-                                var div = " <div name=\"iaddress\"  data-id='" + v.id + "'  style=\"border: 1px solid grey;width: 90%;height: auto;margin: 0 auto;border: 1px dashed orange;cursor: pointer;\">\n" +
+                                var div = " <div name=\"iaddress\"  data-id='" + v.id + "'  style=\"border: 1px solid grey;width: 90%;height: auto;margin: 0 auto;border: 1px dashed grey;cursor: pointer;border-radius: 5px;\">\n" +
                                     "                    <div  style=\"width: 100%;height: 50px;\">\n" +
                                     "                        <div name=\"item\" data-id='" + v.id + "' style=\"float: left;width: 80%;height:  50px;\">\n" +
                                     "                            <div>" + v.recipient + "&nbsp;" + v.phone + "</div>\n" +
                                     "                            <div>" + v.detail + "&nbsp;" + v.city + "&nbsp;" + v.country + "</div>\n" +
                                     "                        </div>\n" +
-                                    "                        <div name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: darkorange;color: white;float: left;height:  50px;line-height:  50px;text-align: center\">Remove</div>\n" +
+                                    "                        <div name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: #0071bc;color: white;float: left;height:  50px;line-height:  50px;text-align: center\">Remove</div>\n" +
                                     "                       \n" +
                                     "                    </div>\n" +
                                     "                </div>\n" +
@@ -127,9 +122,7 @@
                                 }
                             });
 
-
                         });
-
                     });
 
                 </script>

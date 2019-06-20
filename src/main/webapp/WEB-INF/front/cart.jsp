@@ -34,7 +34,7 @@
                 <c:forEach items="${waresbox}" var="wares">
                     <li>
                         <div class="shop-info">
-                            <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="1001"
+                            <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="${wares.id}"
                                    style="border:0px solid #000">
                             <div class="shop-info-img" style="text-align: center;">
                                 <a href="aging/index.jhtml">
@@ -50,7 +50,7 @@
                                     <div class="shop-arithmetic">
                                         <a href="javascript:;" class="minus"
                                            style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
-                                        <span class="num" name="count" id="count_1001">1</span>
+                                        <span class="num" name="count" id="count_${wares.id}">1</span>
                                         <a href="javascript:;" class="plus"
                                            style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
                                     </div>
@@ -59,88 +59,7 @@
                             </a>
                         </div>
                     </li>
-
-
                 </c:forEach>
-
-                <%--<li>
-                    <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3001"
-                               style="border:0px solid #000">
-                        <div class="shop-info-img" style="text-align: center;">
-                            <a href="vitaminA/index.jhtml">
-                                <img src="static/images/VitaminA.png" style="width: 60%;height:auto;"/></a></div>
-                        <div class="shop-info-text">
-                            <h4><a href="vitaminA/index.jhtml">Vitamin A</a></h4>
-                            <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum Strength,<br>Strawberry,5000
-                                mcg ,
-                                100 Tablets
-                            </div>
-                            <div class="shop-price">
-                                <div class="shop-pices">$<b class="price">30</b></div>
-                                <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus"
-                                       style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
-                                    <span class="num" name="count" id="count_3001">1</span>
-                                    <a href="javascript:;" class="plus"
-                                       style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3002"
-                               style="border:0px solid #000">
-                        <div class="shop-info-img" style="text-align: center;">
-                            <a href="vitaminC/index.jhtml">
-                                <img src="static/images/VitaminC.png" style="width: 60%;height:auto;"/></a></div>
-                        <div class="shop-info-text">
-                            <h4><a href="vitaminC/index.jhtml">Vitamin C</a></h4>
-                            <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum Strength,<br>Strawberry,5000
-                                mcg ,
-                                100 Tablets
-                            </div>
-                            <div class="shop-price">
-                                <div class="shop-pices">$<b class="price">30</b></div>
-                                <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus"
-                                       style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
-                                    <span class="num" name="count" id="count_3002">1</span>
-                                    <a href="javascript:;" class="plus"
-                                       style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3003"
-                               style="border:0px solid #000">
-                        <div class="shop-info-img" style="text-align: center;">
-                            <a href="vitaminD/index.jhtml">
-                                <img src="static/images/VitaminD.png" style="width: 60%;height:auto;"/></a></div>
-                        <div class="shop-info-text">
-                            <h4><a href="vitaminD/index.jhtml">Vitamin D</a></h4>
-                            <div class="shop-brief" style="line-height: 12px;">Fast Dissolve , Maximum Strength,<br>Strawberry,5000
-                                mcg ,
-                                100 Tablets
-                            </div>
-                            <div class="shop-price">
-                                <div class="shop-pices">$<b class="price">30</b></div>
-                                <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus"
-                                       style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
-                                    <span class="num" name="count" id="count_3003">1</span>
-                                    <a href="javascript:;" class="plus"
-                                       style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>--%>
             </ul>
             <div class="shopPrice">Invitation Code:<input type="text" id="invite" name="nvite"
                                                           style="height: 25px;width: 40%;border: 1px solid blue;">
@@ -160,7 +79,7 @@
         <div class="settlement" name="mycart" style="float: left;background-color: #0e90d2;width: 20%;cursor: pointer;">
             MyCart
         </div>
-        <div class="settlement" onclick="show()" href="javascript:;" style="float: left;width: 20%;cursor: pointer;">
+        <div class="settlement" name="next"   style="float: left;width: 20%;cursor: pointer;">
             Next
         </div>
     </div>
@@ -170,7 +89,7 @@
         $(function () {
             $("div[name=mycart]").click(function () {
                 if ("${sessionuser==null}" == "true") {
-                    if (window.confirm("You are not logged in yet. Please log in first.")) {
+                    if (window.confirm("You are not logged in yet. \nPlease log in first.")) {
                         window.location.href = "/user/loginview.jhtml";
                     }
                     return;
@@ -288,73 +207,73 @@
 </script>
 
 <script>
-    function show() {
-     if ("${sessionuser==null}" == "true") {
-            if (window.confirm("You are not logged in yet. Please log in first.")) {
-                window.location.href = "/user/loginview.jhtml";
+    $(function(){
+        $("div[name=next]").click(function() {
+            if ("${sessionuser==null}" == "true") {
+                if (window.confirm("You are not logged in yet.\n Please log in first.")) {
+                    window.location.href = "/user/loginview.jhtml";
+                }
+                return;
             }
-            return;
-        }
-        var data = {}
-        obj = document.getElementsByName("checkbox");
-        var list = []
-        var s1 = '{ "wares" : ['
+            var data = {}
+            obj = document.getElementsByName("checkbox");
+            var list = []
+            var s1 = '{ "wares" : ['
+            var count = 0
+            console.log(obj)
+            for (k = 0; k < obj.length; k++) {
+                if (obj[k].checked) {
+                    count = count + 1;
+                    console.log($("#count_" + obj[k].value + "").text())
+                    var d1 = {}
+                    d1.wares_id = obj[k].value
+                    d1.wares_count = $("#count_" + obj[k].value + "").text()
 
-        var count = 0
-        console.log(obj)
-        console.log(obj.length)
-        for (k = 0; k < obj.length; k++) {
-            if (obj[k].checked) {
-                count = count + 1;
-                console.log($("#count_" + obj[k].value + "").text())
-                var d1 = {}
-                d1.wares_id = obj[k].value
-                d1.wares_count = $("#count_" + obj[k].value + "").text()
+                    var str = '{"wares_id":' + obj[k].value + ',"wares_count":' + $("#count_" + obj[k].value + "").text() + '}'
+                    list.push(str)
+                }
 
-                //list.push(d1)
-                var str = '{"wares_id":' + obj[k].value + ',"wares_count":' + $("#count_" + obj[k].value + "").text() + '}'
-                list.push(str)
             }
+            console.log(list)
+            data.wares = list
 
-        }
-        console.log(list)
-        data.wares = list
-
-        if (count > 0) {
-            for (i = 0; i < list.length; i++) {
-                s1 += list[i];
-                if (list.length > 1) {
-                    if ((i + 1) != list.length) {
-                        s1 += ","
+            if (count > 0) {
+                for (i = 0; i < list.length; i++) {
+                    s1 += list[i];
+                    if (list.length > 1) {
+                        if ((i + 1) != list.length) {
+                            s1 += ","
+                        }
                     }
                 }
+
+                s1 += "],"
+
+                var price = document.getElementById('AllTotal').innerHTML;
+                //alert(sumprice)
+                s1 += '"total_price":"' + price + '",';
+                s1 += '"invite":"' + $("#invite").val() + '"';
+                data.total_price = $("#AllTotal").text();
+
+
+                s1 += '}'
+
+                console.log(s1)
+                $.ajax({
+                    url: "/user/transaction/postCar.jhtml",
+                    type: "post",
+                    contentType: 'application/json; charset=UTF-8',
+                    data: s1,
+                    success: function (data) {
+                        window.location.href = data;
+                    }
+                });
             }
+            else {
+                alert("Please select a product.")
+            }
+        });
+    });
 
-            s1 += "],"
-
-            var price = document.getElementById('AllTotal').innerHTML;
-            //alert(sumprice)
-            s1 += '"total_price":"' + price + '",';
-            s1 += '"invite":"' + $("#invite").val() + '"';
-            data.total_price = $("#AllTotal").text();
-
-
-            s1 += '}'
-
-            console.log(s1)
-            $.ajax({
-                url: "/user/transaction/postCar.jhtml",
-                type: "post",
-                contentType: 'application/json; charset=UTF-8',
-                data: s1,
-                success: function (data) {
-                    window.location.href = data;
-                }
-            });
-        }
-        else {
-            alert("Please select a product.")
-        }
-    }
 </script>
 

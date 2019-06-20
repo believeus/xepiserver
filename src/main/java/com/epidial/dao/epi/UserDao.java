@@ -29,7 +29,7 @@ public interface UserDao {
                     "valid=#{valid}," +
                     "country=#{country}," +
                     "province=#{province}," +
-                    "register=#{register},lastLogin=#{lastLogin},token=#{token} where mail=#{mail}")
+                    "register=#{register},lastLogin=#{lastLogin},token=#{token},times=#{times} where mail=#{mail}")
     public boolean  update(User user);
 
     //根据邮箱查找用户信息

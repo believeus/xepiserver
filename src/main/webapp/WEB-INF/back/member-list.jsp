@@ -39,13 +39,13 @@
 			<tr class="text-c">
 				<th width="80">ID</th>
 				<th width="100">username</th>
-				<th width="40">email</th>
+				<th width="100">email</th>
 				<th width="70">mail status</th>
 				<th width="100">register time</th>
 				<th width="100">last Login time</th>
-				<th width="100">discount</th>
-				<th width="100">invite</th>
-
+				<th width="50">discount</th>
+				<th width="50">invite</th>
+				<th width="50">times</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -72,6 +72,7 @@
 					</c:choose>
 					<td><input name="discount"  value="${user.discount}" style="border: none" readonly="readonly"></td>
 					<td><input name="invite"  value="${user.invite}" style="border: none" readonly="readonly"></td>
+					<td><input name="times"  value="${user.times}" style="border: none" readonly="readonly"></td>
 					<%--<td class="td-manage"><a title="edit" href="javascript:;" onclick="member_edit('edit','/admin/user/edit.jhtml?mail=${user.mail}','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>  </td>--%>
 				</tr>
 			</c:forEach>
@@ -99,6 +100,7 @@
 				data.id=_oThis.attr("data-id");
 				data.discount=_oThis.find("[name=discount]").val();
 				data.invite=_oThis.find("[name=invite]").val();
+				data.times=_oThis.find("[name=times]").val();
 				$.post("/admin/user/update.jhtml",data,function(){
 					$(event.currentTarget).attr("readonly","readonly").css("border","none");
 				});

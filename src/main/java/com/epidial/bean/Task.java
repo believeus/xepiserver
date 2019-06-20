@@ -17,6 +17,7 @@ public class Task {
     private long createTime;//下单时间
     private long payTime;//付款时间
     private int addrid;//收货地址
+    private float disprice;//打折之后的价钱
     private String delivery;//0:未发货 1:已经发货
 
     public String getDelivery() {
@@ -152,5 +153,13 @@ public class Task {
 
     public void setPayTime(long payTime) {
         this.payTime = payTime;
+    }
+
+    public float getDisprice() {
+        return disprice;
+    }
+
+    public void setDisprice(float disprice) {
+        this.disprice = disprice;
     }
 }

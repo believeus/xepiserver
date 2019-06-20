@@ -14,6 +14,15 @@ public class User {
     private String token;
     private float discount;
     private String invite;//邀请码
+    private int times;//折扣码有效次数0~999999
+
+    public int getTimes() {
+        return times;
+    }
+
+    public void setTimes(int times) {
+        this.times = times;
+    }
 
     public int getId() {
         return id;

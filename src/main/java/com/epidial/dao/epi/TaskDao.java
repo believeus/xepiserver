@@ -10,9 +10,9 @@ public interface TaskDao {
 
     //添加产品进入购物车
     @Insert("insert into task" +
-                "(uid ,gid,name,price,imgpath,pay,count,orderno,type,invite,valid,total,createTime,addrid,delivery) " +
+                "(uid ,gid,name,price,imgpath,pay,count,orderno,type,invite,valid,total,createTime,addrid,delivery,disprice) " +
             "values " +
-                "(#{uid},#{gid},#{name},#{price},#{imgpath},#{pay},#{count},#{orderno},#{type},#{invite},#{valid},#{total},#{createTime},#{addrid},#{delivery})")
+                "(#{uid},#{gid},#{name},#{price},#{imgpath},#{pay},#{count},#{orderno},#{type},#{invite},#{valid},#{total},#{createTime},#{addrid},#{delivery},#{disprice})")
     public int save(Task task);
 
     //查询已经放入购物车还未购买订单

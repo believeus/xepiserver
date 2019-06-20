@@ -39,6 +39,7 @@ public class UManagerController {
         User u = userDao.findUser("id", json.getId());
         u.setDiscount(json.getDiscount());
         u.setInvite(json.getInvite());
+        u.setTimes(json.getTimes());
         userDao.update(u);
         return "success";
     }
