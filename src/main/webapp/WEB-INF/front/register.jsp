@@ -56,14 +56,14 @@
             <div style="width: 100%;height: 15px;"></div>
             <div style="width: 90%;height: 40px;margin: 0 auto;">
                 <input type="password" required="required" placeholder="Confirm password"
-                       onblur="if(this.value!=$('#password').val()){alert('Confirm password and password different')}"
+                       onblur="if(this.value!=$('#password').val()){alert('The password is different. Please confirm the password.')}"
                        style="width: 90%;height: 40px;margin: 0 auto; border: 1px solid #C0C0C0;border-radius: 3px;font-size: 16px;font-family: arial;font-weight: 500; padding-left: 12px;"/>
             </div>
             <div style="width: 100%;height: 15px;"></div>
             <div style="width: 90%;height: 50px;margin: 0 auto;">
                 <div style="padding:3% 0 3% 3%;height: 50px;">
                     <div style="float:left;width: 20%;height: 100%">
-                        Your region:
+                        Your Region:
                     </div>
                     <div style="float:left;width: 60%">
                         <select name="country" class="fastbannerform__country" style="width: 100%;height: 35px;"

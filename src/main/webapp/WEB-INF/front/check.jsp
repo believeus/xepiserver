@@ -275,7 +275,7 @@
                         window.location.href = "/user/cart/watchagain.jhtml?addrid=" + data.id;
                     });
                 } else {
-                    window.alert("Please buy goods");
+                    window.alert("Please select a product.");
                     window.location.href = "/user/cart/index.jhtml";
                 }
             });

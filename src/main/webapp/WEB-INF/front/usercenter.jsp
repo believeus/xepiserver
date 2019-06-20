@@ -41,47 +41,108 @@
     </div>
     <div style="width: 100%;height: 10px;background-color: #F4F4F4;"></div>
     <div style="width: 100%;height: auto;">
-        <div style="width: 94%;height: auto;margin: 0 auto;background-color: #FFFFFF;color: #000000;overflow: hidden;">
-            <div style="width: 70%;height: auto;margin: 0 auto;">
-                <h5 style="width: 100%;line-height: 50px;font-weight: 800;">
-                    User Information
-                </h5>
-            </div>
-                <hr size="1"/>
+        <div style="width: 80%;height: auto;margin: 0 auto;background-color: #FFFFFF;color: #000000;overflow: hidden;">
+            <div style="width: 100%;height: 92px;margin: 0 auto;border-bottom: 1px solid #E0E0E0;">
+                <div style="width: 12%;height: 60px;float: left; margin-top: 26px;">
+                    <img src="static/images/userlogo/uc8.png"
+                         style="width: 100%;height: auto;">
+                </div>
+                <div style="width: 70%;height: 92px;float: left;text-align: left;margin-left: 20px;">
+                    <div style="width: 100%;height: 92px;font-weight: 600;line-height: 93px">
+                        <a href="#" style="text-decoration: none">User Information </a>
 
-            <div style="width: 70%;height: auto;margin: 0 auto;">
-                <h5 style="width: 100%;height: auto;line-height: 50px;"><a href="queslist/index.jhtml">
-                    Questionnaire</a></h5>
+                    </div>
+                </div>
+                <div style="width: 8%;height: 92px;float: left;text-align: left;line-height: 92px">
+                    &gt;
+                </div>
             </div>
-            <hr size="1"/>
+            <div style="width: 100%;height: 92px;margin: 0 auto;border-bottom: 1px solid #E0E0E0;">
+                <div style="width: 12%;height: 60px;float: left;margin-top: 26px;">
+                    <img src="static/images/userlogo/uc3.png"
+                         style="width: 100%;height: auto; display:inline-block;vertical-align:middle;">
+                </div>
+                <div style="width: 70%;height: 92px;float: left;text-align: left;margin-left: 20px;">
+                    <div style="width: 100%;height: 92px;font-weight: 600;line-height: 93px">
+                        <a href="queslist/index.jhtml" style="text-decoration: none"> Questionnaire</a>
+                    </div>
+                </div>
+                <div style="width: 8%;height: 92px;float: left;text-align: left;line-height: 92px">
+                    &gt;
+                </div>
+            </div>
+            <div style="width: 100%;height: 92px;margin: 0 auto;border-bottom: 1px solid #E0E0E0;">
+                <div style="width: 12%;height: 60px;float: left;    margin-top: 26px;">
+                    <img src="static/images/userlogo/uc4.png"
+                         style="width: 100%;height: auto;">
+                </div>
+                <div style="width: 70%;height: 92px;float: left;text-align: left;margin-left: 20px;">
+                    <div style="width: 100%;height: 92px;font-weight: 600;line-height: 93px">
+                        <a href="user/bioreport/index.jhtml" style="text-decoration: none">My Report </a>
+                    </div>
+                </div>
+                <div style="width: 8%;height: 92px;float: left;text-align: left;line-height: 92px">
+                    &gt;
+                </div>
+            </div>
+            <div style="width: 100%;height: 92px;margin: 0 auto;border-bottom: 1px solid #E0E0E0;">
+                <div style="width: 12%;height: 60px;float: left;    margin-top: 26px;">
+                    <img src="static/images/userlogo/uc5.png"
+                         style="width: 100%;height: auto;">
+                </div>
+                <div style="width: 70%;height: 92px;float: left;text-align: left;margin-left: 20px;">
+                    <div style="width: 100%;height: 92px;font-weight: 600;line-height: 93px">
+                        <a href="user/taskrecord/index.jhtml" style="text-decoration: none">Order
+                            Record </a>
+                    </div>
+                </div>
+                <div style="width: 8%;height: 92px;float: left;text-align: left;line-height: 92px">
+                    &gt;
+                </div>
+            </div>
+            <div style="width: 100%;height: 92px;margin: 0 auto;border-bottom: 1px solid #E0E0E0;">
+                <div style="width: 12%;height: 60px;float: left;    margin-top: 26px;">
+                    <img src="static/images/userlogo/uc1.png"
+                         style="width: 100%;height: auto;">
+                </div>
+                <div style="width: 70%;height: 92px;float: left;text-align: left;margin-left: 20px;">
+                    <div style="width: 100%;height: 92px;font-weight: 600;line-height: 93px">
+                        <a href="faqlist/index.jhtml" style="text-decoration: none"> Q&A</a>
+                    </div>
+                </div>
+                <div style="width: 8%;height: 92px;float: left;text-align: left;line-height: 92px">
+                    &gt;
+                </div>
+            </div>
+            <div style="width: 100%;height: 92px;margin: 0 auto;border-bottom: 1px solid #E0E0E0;">
+                <div style="width: 12%;height: 60px;float: left;    margin-top: 26px;">
+                    <img src="static/images/userlogo/uc6.png"
+                         style="width: 100%;height: auto;">
+                </div>
+                <div style="width: 70%;height: 92px;float: left;text-align: left;margin-left: 20px;">
+                    <div style="width: 100%;height: 92px;font-weight: 600;line-height: 93px">
+                        <a href="contact/index.jhtml" style="text-decoration: none"> Contact Us </a>
+                    </div>
+                </div>
+                <div style="width: 8%;height: 92px;float: left;text-align: left;line-height: 92px">
+                    &gt;
+                </div>
+            </div>
+            <div style="width: 100%;height: 92px;margin: 0 auto;border-bottom: 1px solid #E0E0E0;">
+                <div style="width: 12%;height: 92px;float: left;margin-top: 26px;">
+                    <img src="static/images/userlogo/uc7.png"
+                         style="width: 100%;height: auto; display:inline-block;vertical-align:middle;">
+                </div>
+                <div style="width: 70%;height: 92px;float: left;text-align: left;margin-left: 20px;">
+                    <div style="width: 100%;height: 92px;font-weight: 600;line-height: 93px">
+                        <a href="user/logout.jhtml" style="text-decoration: none"> Log Out</a>
+                    </div>
+                </div>
+                <div style="width: 8%;height: 92px;float: left;text-align: left;line-height: 92px">
+                    &gt;
+                </div>
+            </div>
 
-            <div style="width: 70%;height: auto;margin: 0 auto;">
-                <h5 style="width: 100%;height: auto;line-height: 50px;"><a href="user/bioreport/index.jhtml"> My
-                    Report</a></h5>
-            </div>
-            <hr size="1"/>
-
-            <div style="width: 70%;height: auto;margin: 0 auto;">
-                <h5 style="width: 100%;height: auto;line-height: 50px;"><a href="user/taskrecord/index.jhtml">Order
-                    Record</a></h5>
-            </div>
-            <hr size="1"/>
-
-            <div style="width: 70%;height: auto;margin: 0 auto;">
-                <h5 style="width: 100%;height: auto;line-height: 50px;"><a href="faqlist/index.jhtml"> Q&A</a></h5>
-            </div>
-            <hr size="1"/>
-
-            <div style="width: 70%;height: auto;margin: 0 auto;">
-                <h5 style="width: 100%;height: auto;line-height: 50px;"><a href="contact/index.jhtml"> Contact Us</a>
-                </h5>
-            </div>
-            <hr size="1"/>
-
-            <div style="width: 70%;height: auto;margin: 0 auto;">
-                <h5 style="width: 100%;height: auto;line-height: 50px;"><a href="user/logout.jhtml"> Log out</a></h5>
-            </div>
-            <hr size="1"/>
         </div>
     </div>
     <div id="all-right" style="width: 100%;height: auto;font-family: arial;">

@@ -144,7 +144,7 @@
                     pop.style.display = "block";
                     window.location.href = '/user/paypal/payment.jhtml';
                 } else {
-                    window.alert("Please buy goods");
+                    window.alert("Please select a product.");
                     window.location.href = "/user/cart/index.jhtml";
                 }
 

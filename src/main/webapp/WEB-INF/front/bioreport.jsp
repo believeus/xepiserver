@@ -169,9 +169,7 @@
                 </div>
             </div>
             <div style="font-size: 24px;width: 95%;margin: 0 auto;display: none" name="processing">
-                Our research team is analyzing your biological age, which requires at least 5-10 working days. When the
-                test is
-                completed, you will see your biological age test report on this page.
+                Thanks for choosing our epiAging product. Your report will be available in 21 working days on this page.
             </div>
             <div style="width: 90%;height: auto;margin: 0 auto;display: none" name="finished">
                 <div style="width: 100%;height: 20px;"></div>

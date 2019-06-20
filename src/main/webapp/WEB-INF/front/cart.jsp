@@ -192,7 +192,7 @@
         $(function () {
             $("div[name=mycart]").click(function () {
                 if ("${sessionuser==null}" == "true") {
-                    if (window.confirm("user no login!please login")) {
+                    if (window.confirm("You are not logged in yet. Please log in first.")) {
                         window.location.href = "/user/loginview.jhtml";
                     }
                     return;
@@ -201,7 +201,7 @@
                     if (msg.length != 0) {
                         window.location.href = "/user/cart/check.jhtml";
                     } else {
-                        window.alert("Please buy goods");
+                        window.alert("Please select a product.");
                     }
 
                 });
@@ -312,7 +312,7 @@
 <script>
     function show() {
      if ("${sessionuser==null}" == "true") {
-            if (window.confirm("user no login!please login")) {
+            if (window.confirm("You are not logged in yet. Please log in first.")) {
                 window.location.href = "/user/loginview.jhtml";
             }
             return;
@@ -375,7 +375,7 @@
             });
         }
         else {
-            alert("Please Choice Some Thing!")
+            alert("Please select a product.")
         }
     }
 </script>

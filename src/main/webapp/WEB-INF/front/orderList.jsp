@@ -65,7 +65,7 @@
 
                                 </div>
                                 <div style="float: left; width: 70%;text-align: left;">
-                                    <a class="navbar-brand" href="javascript:(void);" style="font-size: 12px;font-weight: bold;">Orderecord List</a>
+                                    <a class="navbar-brand" href="javascript:(void);" style="font-size: 12px;font-weight: bold;">Order record List</a>
                                 </div>
                             </div>
                         </div>
