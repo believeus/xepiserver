@@ -19,9 +19,16 @@
 <div id="container" style="width: 100%;height: auto;">
     <jsp:include page="header.jsp"></jsp:include>
     <div style="width: 100%;height: auto;background-color: #0071BC;overflow: hidden;">
-        <div style="width: 100%;height: 30px;"></div>
-        <div style="width: 100%;height: auto;">
-            <div style="width: 8%;height: 100px;float: left;"></div>
+        <div style="height: 20px;width: 100%;"></div>
+        <div style="width: 100%;height: 70px;">
+            <div style="width: 10%;height: 70px;float: left;"></div>
+            <div style="width: 16%;height: 70px;float: left;">
+                <img src="static/images/userlogo/uc4.png" alt="" style="width: 100%;height: auto">
+            </div>
+            <div style="width: 30%;height: 70px;float: left;"></div>
+        </div>
+        <div style="width: 100%;height: auto;text-align: center;">
+           <%-- <div style="width: 8%;height: 50px;float: left;"></div>--%>
             <c:choose>
                 <c:when test="${sessionuser==null}">
                     <div style="width: 100%;height: auto;margin: 20px 0 0 20px;color:#ffffff">
@@ -37,7 +44,7 @@
 
 
         </div>
-        <div style="width: 100%;height: 60px;"></div>
+        <div style="width: 100%;height: 50px;"></div>
     </div>
     <div style="width: 100%;height: 10px;background-color: #F4F4F4;"></div>
     <div style="width: 100%;height: auto;">
