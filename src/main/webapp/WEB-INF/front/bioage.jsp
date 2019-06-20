@@ -203,7 +203,7 @@
 			</div>
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="line-height: 22px;">
-				<i>epiAging uses</i> a method called DNA methylation to determine your true age — which might,
+				<i>epiAging </i>uses a method called DNA methylation to determine your true age — which might,
 				as science is thinking at this time and age, reveal some important information on your true health, and possibly the quality and even span of your life.
 			</div>
 			<div style="width: 100%;height: 20px;"></div>

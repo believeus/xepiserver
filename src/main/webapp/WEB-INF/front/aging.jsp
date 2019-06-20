@@ -36,7 +36,7 @@
                 <div style="width: 90%;height: auto;margin: 0 auto;">
 				<span
                         style="text-decoration: line-through;font-family: arial; font-size: 18px;color: #7F7F7F;">$120/kit
-					for original price<br/>
+					for the original price<br/>
 				</span>
                     <p></p>
                     <span style="font-size: 18px;font-family: arial"><strong
