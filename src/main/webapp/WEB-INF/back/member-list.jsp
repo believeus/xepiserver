@@ -43,12 +43,14 @@
 				<th width="70">mail status</th>
 				<th width="100">register time</th>
 				<th width="100">last Login time</th>
-				<%--<th width="100">operation</th>--%>
+				<th width="100">discount</th>
+				<th width="100">invite</th>
+
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${users}" var="user">
-				<tr class="text-c">
+				<tr name="item" data-id="${user.id}" class="text-c">
 					<td>${user.uuid}</td>
 					<td><u style="cursor:pointer" class="text-primary" onclick="member_show('${user.nickname}','member-show.html','${user.mail}','360','400')">${user.nickname}</u></td>
 					<td>${user.mail}</td>
@@ -68,11 +70,14 @@
 						<c:when test="${user.lastLogin eq 0}"><td></td></c:when>
 						<c:otherwise><td><date:date value="${user.lastLogin}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td></c:otherwise>
 					</c:choose>
+					<td><input name="discount"  value="${user.discount}" style="border: none" readonly="readonly"></td>
+					<td><input name="invite"  value="${user.invite}" style="border: none" readonly="readonly"></td>
 					<%--<td class="td-manage"><a title="edit" href="javascript:;" onclick="member_edit('edit','/admin/user/edit.jhtml?mail=${user.mail}','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>  </td>--%>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+
 	</div>
 </div>
 <!--_footer 作为公共模版分离出去-->
@@ -85,6 +90,23 @@
 <script type="text/javascript" src="static/h-ui.admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <%--<script type="text/javascript" src="static/h-ui.admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>--%>
 <script type="text/javascript" src="static/h-ui.admin/lib/laypage/1.2/laypage.js"></script>
+<script>
+	$(function(){
+		$("body").on("keydown dblclick","input",function(event){
+			var _oThis=$(event.currentTarget).removeAttr("readonly").css("border","1px solid blue").parents("tr[name=item]");
+			if(event.which == "13") {
+				var data={};
+				data.id=_oThis.attr("data-id");
+				data.discount=_oThis.find("[name=discount]").val();
+				data.invite=_oThis.find("[name=invite]").val();
+				$.post("/admin/user/update.jhtml",data,function(){
+					$(event.currentTarget).attr("readonly","readonly").css("border","none");
+				});
+			}
+
+		});
+	});
+</script>
 <script type="text/javascript">
 /*$(function(){
 	$('.table-sort').dataTable({

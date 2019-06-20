@@ -83,6 +83,7 @@ public class AppUserController {
                 u.setRegister(System.currentTimeMillis());
                 u.setUuid(uuid);
                 u.setToken(UUID.randomUUID().toString());
+                u.setDiscount(1);
                 userDao.save(u);
                 return "success";
             }else {

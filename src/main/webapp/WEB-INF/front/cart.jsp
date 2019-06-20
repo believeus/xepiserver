@@ -3,7 +3,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
@@ -31,60 +31,38 @@
                 <h4><a href="javascript:;">Select All</a></h4>
             </div>
             <ul>
-                <li>
-                    <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="1001"
-                               style="border:0px solid #000">
-                        <div class="shop-info-img" style="text-align: center;">
-                            <a href="aging/index.jhtml">
-                                <img src="static/images/DNA.png"
-                                     style="width: 90%;height:auto;transform: translateY(10px);"/>
-                            </a>
-                        </div>
-                        <div class="shop-info-text">
-                            <h4><a href="aging/index.jhtml">Biological age detection 2.0</a></h4>
-                            <div class="shop-brief"></div>
-                            <div class="shop-price">
-                                <div class="shop-pices">$<b class="price">99</b></div>
-                                <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus"
-                                       style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
-                                    <span class="num" name="count" id="count_1001">1</span>
-                                    <a href="javascript:;" class="plus"
-                                       style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                <c:forEach items="${waresbox}" var="wares">
+                    <li>
+                        <div class="shop-info">
+                            <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="1001"
+                                   style="border:0px solid #000">
+                            <div class="shop-info-img" style="text-align: center;">
+                                <a href="aging/index.jhtml">
+                                    <img src="${wares.imgpath}"
+                                         style="width: 90%;height:auto;transform: translateY(10px);"/>
+                                </a>
+                            </div>
+                            <div class="shop-info-text">
+                                <h4><a href="aging/index.jhtml">${wares.name}</a></h4>
+                                <div class="shop-brief"></div>
+                                <div class="shop-price">
+                                    <div class="shop-pices">$<b class="price">${wares.price}</b></div>
+                                    <div class="shop-arithmetic">
+                                        <a href="javascript:;" class="minus"
+                                           style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                        <span class="num" name="count" id="count_1001">1</span>
+                                        <a href="javascript:;" class="plus"
+                                           style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="shop-info">
-                        <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="2001"
-                               style="border:0px solid #000">
-                        <div class="shop-info-img" style="text-align: center;">
-                            <a href="same/index.jhtml">
-                                <img src="static/images/SAM-e.png" style="width: 100%;height:auto;"/>
                             </a>
                         </div>
-                        <div class="shop-info-text">
-                            <h4><a href="same/index.jhtml">SAM-e</a></h4>
-                            <div class="shop-brief"><span>S-adenosyl methionine supplement</span></div>
-                            <div class="shop-price">
-                                <div class="shop-pices">$<b class="price">35</b></div>
-                                <div class="shop-arithmetic">
-                                    <a href="javascript:;" class="minus"
-                                       style="background-image:url('static/images/minus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
-                                    <span class="num" name="count" id="count_2001">1</span>
-                                    <a href="javascript:;" class="plus"
-                                       style="background-image:url('static/images/plus.png'); background-repeat: no-repeat;background-size: 100% 100%;"></a>
-                                </div>
-                            </div>
-                        </div>
-                        </a>
+                    </li>
 
-                    </div>
-                </li>
+
+                </c:forEach>
+
                 <%--<li>
                     <div class="shop-info">
                         <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="3001"

@@ -7,7 +7,6 @@ import com.epidial.bean.User;
 import com.epidial.bean.Wares;
 import com.epidial.dao.epi.TaskDao;
 import com.epidial.dao.epi.WaresDao;
-import com.epidial.serivce.WaresService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,9 +21,6 @@ import javax.servlet.http.HttpSession;
 @CrossOrigin
 @RequestMapping
 public class TransactionController {
-
-    @Resource
-    private WaresService waresService;
 
     @Resource
     private TaskDao taskDao;

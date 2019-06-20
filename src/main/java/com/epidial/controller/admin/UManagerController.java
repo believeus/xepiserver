@@ -35,8 +35,11 @@ public class UManagerController {
     }
     @RequestMapping("/admin/user/update")
     @ResponseBody
-    public String updata(User user){
-        userDao.update(user);
+    public String updata(User json){
+        User u = userDao.findUser("id", json.getId());
+        u.setDiscount(json.getDiscount());
+        u.setInvite(json.getInvite());
+        userDao.update(u);
         return "success";
     }
 }

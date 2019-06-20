@@ -1,12 +1,10 @@
 package com.epidial.controller;
 
-import com.epidial.bean.Address;
-import com.epidial.bean.Task;
-import com.epidial.bean.Udata;
-import com.epidial.bean.User;
+import com.epidial.bean.*;
 import com.epidial.dao.epi.AddressDao;
 import com.epidial.dao.epi.TaskDao;
 import com.epidial.dao.epi.UdataDao;
+import com.epidial.dao.epi.WaresDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +25,9 @@ public class CartController {
     @Resource
     private UdataDao udataDao;
 
+    @Resource
+    private WaresDao waresDao;
+
     @RequestMapping("user/taskrecord/index.jhtml")
     public ModelAndView tasklisk(){
         ModelAndView modelView = new ModelAndView("/WEB-INF/front/taskrecord.jsp");
@@ -46,8 +47,10 @@ public class CartController {
     public ModelAndView index() {
         ModelAndView modelView = new ModelAndView();
         modelView.setViewName("/WEB-INF/front/cart.jsp");
+        List<Wares> waresbox = waresDao.findAll();
         modelView.addObject("title", " cart");
         modelView.addObject("canback", true);
+        modelView.addObject("waresbox",waresbox);
         return modelView;
     }
 

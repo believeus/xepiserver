@@ -46,9 +46,7 @@
             <div id="logo">
                 <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%"/>
             </div>
-            <div style="    width: 80%;
-            margin: 0 auto;
-            text-align: left;">
+            <div style="width: 80%;margin: 0 auto;text-align: left;">
 
                 <script>
                     $(function () {
@@ -56,31 +54,44 @@
                             var email = $("input[name=email]").val();
                             var data = {};
                             data.email = email;
+                            $("div[name=btnsend]").css("display", "none");
+                            $("div[name=process]").css("display", "block");
                             $.post("/user/sendpaswd.jhtml", data, function (msg) {
                                 var data = "";
                                 if (msg == "success") {
-                                    data = "A link to reset your password \nhas been sent to your mailbox.\n Please check it out !"
-                                    $("div[name=btnsend]").css("display", "none");
+                                    data = "A link to reset your password has been sent to your <strong>["+$("input[name=email]").val()+"]</strong> mailbox.If you have not received the email, please check the junk bin of your email. Please check it out !"
+                                    $("div[name=process]").css("display", "none");
                                 } else {
-                                    data = "The mailbox is not registered,\nPlease check that the mailbox \n is filled in correctly.";
+                                    data = "The mailbox is not registered,Please check that the mailbox is filled in correctly.";
                                 }
-                                window.alert(data);
+                                $("div[name=message]").css("display", "block").html(data);
+                                $("div[name=email]").attr("readonly","readonly");
+
                             });
+                            $("div[name=message]").css("display", "block").html(data);
+                            $("div[name=email]").attr("readonly","readonly");
                             return false;
                         });
                     });
                 </script>
                 <form>
-                    <div id="PWDSignIn" style="display:block">
+                    <div style="width: 100%;height: auto">
                         <div class="userName">
                             <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
-                            <input type="email" required="required" name="email" id="email" placeholder="Email" style="width: 60%">
+                            <input type="email"  required="required" name="email" id="email" placeholder="Email" style="width: 60%">
                         </div>
 
                         <div name="btnsend" class="other_login" style="margin-top: 40px;">
                             <span>By clicking the button below,A link to reset your password will sent to your email</span>
                             <input type="submit" class="login_btn" name="sendmail" value="Reset password" style="margin-top: 0px;">
                             </input>
+                        </div>
+                        <div name="process" style="display: none;margin:0 auto;text-align: center;">
+                            <div style="width: 100%;height: 20px;"></div>
+                            <img src="/static/images/process.gif" style="width: 32px;height: auto;"/>
+                        </div>
+                        <div name="message" style="display: none;margin:0 auto;text-align: left;">
+
                         </div>
                         <div style="clear: both"></div>
                     </div>

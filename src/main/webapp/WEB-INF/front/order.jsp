@@ -19,16 +19,16 @@
 </head>
 
 
-<body>
+<body style="background-color: white;">
 <!--头部开始-->
 <jsp:include page="header.jsp"></jsp:include>
-<div style="width: 100%;height: auto;">
-    <div id="popDiv"
-         style="z-index: 99; display: none;width: 100%;height: 100%; position: absolute;top:0;left: 0; background-color: #efefef;text-align: center;">
-        <img src="static/images/loading.gif" style="width: 80px;height: 80px;margin-top: 50%"/>
+<div style="width: 100%;height: auto;background-color:#ffffff">
+    <div name="waiting" style="display: none;margin:0 auto;text-align: center;background-color:#ffffff">
+        <div style="width: 100%;height: 100px;"></div>
+        <img src="/static/images/process.gif" style="width: 32px;height: auto;"/>
     </div>
 
-    <div style="background-color:#ffffff;padding-bottom: 100px">
+    <div name="shopcart" style="background-color:#ffffff;padding-bottom: 100px">
         <div style="width: 100%;height: 10px;"></div>
         <div name="cartbox" style="width:100%;height:auto;">
             <script>
@@ -136,12 +136,8 @@
         $("div[name=paypal]").click(function () {
             $.post("/user/cart/unPayGoodslist.jhtml", function (msg) {
                 if (msg.length != 0) {
-                    var pop = document.getElementById("popDiv");
-                    document.body.addEventListener('touchmove', function (event) {
-                        event.preventDefault();
-                    }, false);
-                    $('body').css({'position': 'fixed', "width": "100%"});
-                    pop.style.display = "block";
+                    $("div[name=waiting]").css("display","block");
+                    $("div[name=shopcart]").remove();
                     window.location.href = '/user/paypal/payment.jhtml';
                 } else {
                     window.alert("Please select a product.");

@@ -12,6 +12,8 @@ public class User {
     private long register;//注册时间
     private long lastLogin;//上次登录时间
     private String token;
+    private float discount;
+    private String invite;//邀请码
 
     public int getId() {
         return id;
@@ -99,5 +101,21 @@ public class User {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public float getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(float discount) {
+        this.discount = discount;
+    }
+
+    public String getInvite() {
+        return invite;
+    }
+
+    public void setInvite(String invite) {
+        this.invite = invite;
     }
 }

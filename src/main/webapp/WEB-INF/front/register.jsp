@@ -274,18 +274,20 @@
                 </div>
             </div>
             <div style="width: 100%;height: 30px;"></div>
-            <div style="width: 90%;height: auto;color: #666666;margin: 0 auto;">
-                <input type="checkbox" name="checkbox" required="required" id="checkbox" value="checkbox"
-                       style="width:15px;height: 12px;">I have
-                read and agree to the <a href="concent/index.jhtml" style="text-decoration: none;"><i
-                    style="color: #E6BF73;">Terms
-                of Service and Privacy Statement</i></a>.
+            <div name="concent" style="width: 90%;height: auto;color: #666666;margin: 0 auto;">
+                <input type="checkbox" name="checkbox" required="required" id="checkbox" value="checkbox" style="width:15px;height: 12px;">
+                        I have read and agree to the
+                        <a href="concent/index.jhtml" style="text-decoration: none;"><i style="color: #E6BF73;">Terms of Service and Privacy Statement</i></a>.
             </div>
             <div style="width: 100%;height: 5px;"></div>
             <div style="width: 90%;height: 50px;margin: 0 auto;">
                 <div class="other_login" style="height: 40px;margin: 0 auto;">
                     <input type="submit" class="login_btn" value="Register" style="margin: 0"></input>
                 </div>
+            </div>
+            <div name="process" style="width: 90%;height: 50px;margin: 0 auto;display: none;text-align: center;" >
+                <div style="width: 100%;height: 20px;"></div>
+                <img src="/static/images/process.gif" style="width: 32px;height: auto;"/>
             </div>
         </form>
     </div>
@@ -307,7 +309,9 @@
     $("form").submit(function (e) {
         if ($('#checkbox').is(':checked')) {
             $("input").attr("disabled", true);
-            $("input[type=submit]").attr("disabled", "disabled").val("In registration, wait……");
+            $("input[type=submit]").remove();
+            $("div[name=concent]").remove();
+            $("div[name=process]").css("display","block");
             var mail = $("input[name=mail]").val();
             var password = $("input[name=password]").val();
             var nickname = $("#firstname").val() + "." + $("#lastname").val();

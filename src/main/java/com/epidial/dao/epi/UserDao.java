@@ -15,14 +15,16 @@ public interface UserDao {
 
     /**功能描述: 用户注册*/
     @Insert("insert into user" +
-                "(uuid,nickname,password,mail,valid,country,province,register,token) " +
+                "(uuid,nickname,password,mail,valid,country,province,register,token,discount) " +
             "values" +
-                "(#{uuid},#{nickname},#{password},#{mail},#{valid},#{country},#{province},#{register},#{token})")
+                "(#{uuid},#{nickname},#{password},#{mail},#{valid},#{country},#{province},#{register},#{token},#{discount})")
     public void save(User user);
 
     @Update("update user set " +
                     "nickname=#{nickname}," +
                     "password=#{password}," +
+                    "discount=#{discount},"+
+                    "invite=#{invite},"+
                     "mail=#{mail}," +
                     "valid=#{valid}," +
                     "country=#{country}," +
@@ -32,7 +34,7 @@ public interface UserDao {
 
     //根据邮箱查找用户信息
     @Select("select * from user where ${column}=#{value}")
-    public User findUser(@Param("column") String column, @Param("value") String value);
+    public User findUser(@Param("column") String column, @Param("value") Object value);
 
 
 
