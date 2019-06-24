@@ -4,6 +4,8 @@ public class Admin {
     private  int id;
     private  String username;
     private  String password;
+    private String domain;
+    private long createTime;
     public  Admin(){}
     public Admin(String username, String password) {
         this.username = username;
@@ -34,12 +36,19 @@ public class Admin {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "Admin{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
+    public long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
     }
 }

@@ -39,19 +39,19 @@
 		<thead>
 			<tr class="text-c">
 				<th width="100">orderNo</th>
-				<th width="120">goods-name</th>
+				<th width="80">item</th>
 				<th width="20">price</th>
 				<th width="50">image</th>
 				<th width="20">pay</th>
-				<th width="30">count</th>
-				<th width="30">invite</th>
-				<th width="20">valid</th>
+				<th width="45">quantity</th>
+				<th width="60">invite</th>
+				<th width="30">valid</th>
 				<th width="20">total</th>
 				<th width="100">createTime</th>
-				<th width="100">payTime</th>
+				<th width="100">paymentTime</th>
 				<th width="50">address</th>
 				<th width="50">disprice</th>
-				<th width="80">is deliver</th>
+				<th width="80">delivered</th>
 			</tr>
 		</thead>
 		<tbody>

@@ -15,6 +15,8 @@ public class ServerStartUpListener implements CommandLineRunner {
 		Admin admin = adminDao.findByName("admin");
 		if (admin==null){
 			admin=new Admin("admin","admin!@#");
+			admin.setCreateTime(System.currentTimeMillis());
+			admin.setDomain("*");
 			adminDao.save(admin);
 		}
 	}

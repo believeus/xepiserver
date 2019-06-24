@@ -80,6 +80,7 @@
                     <li><a data-href="/admin/user/view.jhtml?idx=0&size=20" data-title="User Manager" href="javascript:void(0)">User Manager</a></li>
                     <li><a data-href="/admin/task/view.jhtml?idx=0&size=20" data-title="Order Manager" href="javascript:void(0)">Order Manager</a></li>
                     <li><a data-href="/admin/age/view.jhtml?idx=0&size=20" data-title="Age Manager" href="javascript:void(0)">Age Manager</a></li>
+                    <li><a data-href="/admin/list.jhtml" data-title="Age Manager" href="javascript:void(0)">Admin Manager</a></li>
                 </ul>
             </dd>
         </dl>

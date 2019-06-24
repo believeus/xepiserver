@@ -4,10 +4,13 @@ import com.epidial.bean.Admin;
 import com.epidial.dao.epi.AdminDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class AdminController {
@@ -34,6 +37,21 @@ public class AdminController {
             }
         }
         return "redirect:/admin/view.jhtml";
+    }
+    @RequestMapping("/admin/list")
+    public ModelAndView list(){
+        ModelAndView modelView=new ModelAndView();
+        List<Admin> admins = adminDao.findAll();
+        modelView.addObject("admins",admins);
+        modelView.setViewName("/WEB-INF/back/admin-list.jsp");
+        return  modelView;
+    }
+    @ResponseBody
+    @RequestMapping("/admin/update")
+    public String update(Admin json){
+        adminDao.update(json);
+        return "success";
+
     }
 
     @RequestMapping("/admin/manager")

@@ -61,10 +61,12 @@
                     </li>
                 </c:forEach>
             </ul>
-            <div class="shopPrice">Invitation Code:<input type="text" id="invite" name="nvite"
-                                                          style="height: 25px;width: 40%;border: 1px solid blue;">
-                TOTAL：$<span
-                        class="shop-total-amount ShopTotal">0.00</span></div>
+            <div class="shopPrice">
+                <span style="color: black">Invitation Code:</span>
+                <input type="text" value="${sessionuser.invite}" id="invite" name="invite" style="height: 25px;width: 40%;border: 1px solid blue;">
+                <span style="color: black">TOTAL：$</span>
+                <span class="shop-total-amount ShopTotal">0.00</span>
+            </div>
         </div>
     </div>
     <div class="payment-bar" style="height: 82px">

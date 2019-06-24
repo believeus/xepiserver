@@ -74,7 +74,6 @@ public class CartController {
     @RequestMapping("/user/cart/sumprice")
     public String sumprice(HttpSession session){
         User user=(User)session.getAttribute("sessionuser");
-        System.out.println(taskDao.sumprice(user.getId()));
         String total=taskDao.sumprice(user.getId());
         return String.format("%.2f", Float.parseFloat(total==null?"0":total));
     }
