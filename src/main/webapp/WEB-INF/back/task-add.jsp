@@ -1,9 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="date" uri="http://epidial.com/jstl/date" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -15,6 +16,7 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="Bookmark" href="/favicon.ico" >
 <link rel="Shortcut Icon" href="/favicon.ico" />
+    <script type="text/javascript" src="static/h-ui.admin/lib/jquery/1.9.1/jquery.min.js"></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="static/h-ui.admin/lib/html5shiv.js"></script>
 	<script type="text/javascript" src="static/h-ui.admin/lib/respond.min.js"></script>
@@ -25,42 +27,55 @@
 	<link rel="stylesheet" type="text/css" href="static/h-ui.admin/static/h-ui.admin/css/style.css" />
 	<!--[if IE 6]>
 	<script type="text/javascript" src="static/h-ui.admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
-<![endif]-->
-<!--/meta 作为公共模版分离出去-->
-
-<title>Add User</title>
+	<script>DD_belatedPNG.fix('*');</script>
+	<![endif]-->
+<title>添加用户 - H-ui.admin v3.1</title>
 </head>
 <body>
 <article class="page-container">
-	<form action="/admin/task/updateAddress.jhtml" method="post" class="form form-horizontal" id="form-address-update">
-		<div style="width: 100%;height: 200px;">
-			<style>table tr td{font-size: 16px;padding: 5px;border: 1px solid grey;}</style>
-			<table  style="border: 1px dashed grey;font-size: 14px;">
-				<thead>Receiving address</thead>
-				<tbody>
-					<input type="hidden" style="width: 100%;height: 25px;" name="id" value="${address.id}">
-					<input type="hidden" style="width: 100%;height: 25px;" name="uuid" value="${address.uuid}">
-                    <tr><td>username:</td><td><input style="width: 100%;height: 25px;" name="recipient"   value="${address.recipient}"></td></tr>
-                    <tr><td>phone:</td><td><input style="width: 100%;height: 25px;" name="phone" value="${address.phone}"></td></tr>
-                    <tr><td>postalcode:</td><td><input style="width: 100%;height: 25px;"  name="postalcode" value="${address.postalcode}"></td></tr>
-                    <tr><td>Address detail:</td><td><input style="width: 100%;height: 25px;"  name="detail" value="${address.detail}"></td></tr>
-                    <tr><td>city:</td><td><input style="width: 100%;height: 25px;"  name="city" value="${address.city}"></td></tr>
-                    <tr><td>country:</td><td><input style="width: 100%;height: 25px;"  name="country" value="${address.country}"></td></tr>
-					<tr><td></td><td><div class="row cl">
-						<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-							<input class="btn btn-primary radius" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
-						</div>
-					</div></td></tr>
-                </tbody>
-			</table>
+	<form action="/admin/task/save.jhtml" method="post" class="form form-horizontal" id="form-member-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>user-email：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="email" class="input-text" placeholder="@"  required="required" name="mail" id="email">
+            </div>
+        </div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>item：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+                <script>
+                    $(function(){
+                        $.post("/admin/goods/list.jhtml",function(data){
+                            for (var i=0;i<data.length;i++){
+                                var option="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                                $("select[name=item]").append(option);
+                            }
+                        });
+                    });
+                </script>
+                <select name="item">
+
+                </select>
+			</div>
 		</div>
 
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>quantity：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="number" min="0" max="10000" class="input-text" placeholder="1~1000"  required="required" name="count" id="count">
+			</div>
+		</div>
+
+
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;submit&nbsp;&nbsp;">
+			</div>
+		</div>
 	</form>
 </article>
 
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="static/h-ui.admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
@@ -77,27 +92,35 @@ $(function(){
 		radioClass: 'iradio-blue',
 		increaseArea: '20%'
 	});
-
-	$("[type=button]").click(function(event){
-		var _oThis=$(event.currentTarget).parents("tbody");
-		var data={};
-		data.id=_oThis.find("[name=id]").val();
-		data.uuid=_oThis.find("[name=uuid]").val();
-		data.recipient=_oThis.find("[name=recipient]").val();
-		data.phone=_oThis.find("[name=phone]").val();
-		data.postalcode=_oThis.find("[name=postalcode]").val();
-		data.detail=_oThis.find("[name=detail]").val();
-		data.city=_oThis.find("[name=city]").val();
-		data.country=_oThis.find("[name=country]").val();
-		console.info(data);
-		$.post("/admin/task/updateAddress.jhtml",data,function(){
+	
+	$("#form-member-add").validate({
+		rules:{
+			username:{
+				required:true,
+				minlength:2,
+				maxlength:16
+			},
+			valid:{
+				required:true,
+			},
+			email:{
+				required:true,
+				email:true,
+			},
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			$(form).ajaxSubmit();
 			var index = parent.layer.getFrameIndex(window.name);
-			parent.$('.btn-refresh').click();
+			//parent.$('#btn-refresh').click();
+            parent.location.reload();
 			parent.layer.close(index);
-		});
+		}
 	});
 });
-</script>
+</script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>

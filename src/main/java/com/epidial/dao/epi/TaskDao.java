@@ -10,9 +10,9 @@ public interface TaskDao {
 
     //添加产品进入购物车
     @Insert("insert into task" +
-                "(uid ,gid,name,price,imgpath,pay,count,orderno,type,invite,valid,total,createTime,addrid,delivery,disprice) " +
+                "(uid ,gid,name,price,imgpath,pay,count,orderno,type,invite,valid,total,createTime,addrid,delivery,disprice,payTime) " +
             "values " +
-                "(#{uid},#{gid},#{name},#{price},#{imgpath},#{pay},#{count},#{orderno},#{type},#{invite},#{valid},#{total},#{createTime},#{addrid},#{delivery},#{disprice})")
+                "(#{uid},#{gid},#{name},#{price},#{imgpath},#{pay},#{count},#{orderno},#{type},#{invite},#{valid},#{total},#{createTime},#{addrid},#{delivery},#{disprice},#{payTime})")
     public int save(Task task);
 
     //查询已经放入购物车还未购买订单
@@ -30,7 +30,7 @@ public interface TaskDao {
     public float getPrice(@Param("uid") Object uid);
 
     @Delete("delete from task where  ${c}=#{v}")
-    public boolean delete(@Param("c") String column,@Param("v") String v);
+    public boolean delete(@Param("c") String column,@Param("v") Object v);
 
     //查询是否购买了生物学试剂，该试剂还在检测中
     @Select("select * from task where uid=#{uid} and pay=1 and valid=0 and type=0")

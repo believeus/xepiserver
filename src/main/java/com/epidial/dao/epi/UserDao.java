@@ -36,6 +36,9 @@ public interface UserDao {
     @Select("select * from user where ${column}=#{value}")
     public User findUser(@Param("column") String column, @Param("value") Object value);
 
+    @Delete("delete from user where id=#{id}")
+    public void delete(@Param("id") int id);
+
 
 
 

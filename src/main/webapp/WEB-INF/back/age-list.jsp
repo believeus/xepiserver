@@ -45,6 +45,7 @@
 				<th width="20">status</th>
 				<th width="100">createTime</th>
 				<th width="100">uploadTime</th>
+				<th width="50">operation</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -83,6 +84,8 @@
 						<c:when test="${task.uploadTime eq 0}"><td></td></c:when>
 						<c:otherwise><td><date:date value="${task.uploadTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td></c:otherwise>
 					</c:choose>
+					<td class="td-manage"><a title="删除" href="javascript:;" onclick="member_del(this,'${task.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -202,17 +205,9 @@ function change_password(title,url,id,w,h){
 /*用户-删除*/
 function member_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
+		$.post("/admin/age/del.jhtml?id="+id,function(msg){
+			$(obj).parents("tr").remove();
+			layer.msg('已删除!',{icon:1,time:1000});
 		});
 	});
 }

@@ -26,4 +26,14 @@ public interface AddressDao {
     @Update("update address set ${c1}=#{v1} where ${c2}=#{v2} ")
     public boolean update(@Param("c1") String c1,@Param("v1") Object v1,@Param("c2") String  c2,@Param("v2") Object v2);
 
+    @Update("update address set " +
+                    "uuid=#{uuid}," +
+                    "recipient=#{recipient}," +
+                    "phone=#{phone}," +
+                    "country=#{country}," +
+                    "detail=#{detail}," +
+                    "city=#{city}," +
+                    "postalcode=#{postalcode},valid=#{valid} where id=#{id}")
+    public void  updateAddress(Address address);
+
 }

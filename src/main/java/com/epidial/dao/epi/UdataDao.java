@@ -33,4 +33,7 @@ public interface UdataDao {
 
     @Select("select * from udata limit #{idx},#{sz}")
     public List<Udata> findAll(@Param("idx") int idx, @Param("sz") int sz);
+
+    @Delete("delete  from udata where ${k}=#{v}")
+    public void  delete(@Param("k") String k,@Param("v") Object v);
 }

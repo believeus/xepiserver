@@ -34,5 +34,11 @@ public class AgeController {
         return "success";
     }
 
+    @ResponseBody
+    @RequestMapping("/admin/age/del")
+    public String del(int id){
+        udataDao.delete("id",id);
+        return "success";
+    }
 
 }

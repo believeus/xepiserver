@@ -83,18 +83,5 @@ public class Address {
         this.valid = valid;
     }
 
-    @Override
-    public String toString() {
-        return "Address{" +
-                "id=" + id +
-                ", uuid='" + uuid + '\'' +
-                ", recipient='" + recipient + '\'' +
-                ", phone='" + phone + '\'' +
-                ", country='" + country + '\'' +
-                ", detail='" + detail + '\'' +
-                ", city='" + city + '\'' +
-                ", postalcode='" + postalcode + '\'' +
-                ", valid=" + valid +
-                '}';
-    }
+
 }

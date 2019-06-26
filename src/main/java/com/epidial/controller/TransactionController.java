@@ -67,7 +67,6 @@ public class TransactionController {
             float disprice = wares.getPrice() * user.getDiscount();//每件商品打折的价钱
             task.setDisprice(discount==true?disprice:wares.getPrice());
             task.setTotal(discount==true?total*user.getDiscount():total);
-            task.setPrice(wares.getPrice());
             task.setUid(user.getId());
             task.setType(wares.getType());
             task.setValid(0);//0：订单有效

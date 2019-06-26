@@ -33,14 +33,16 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> user manager <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"></span> <span class="r"></span> </div>
+
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="member_add('添加用户','/admin/task/addview.jhtml','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Add Order</a></span> </div>
+
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
 			<tr class="text-c">
-				<th width="100">orderNo</th>
+				<th width="40">No</th>
 				<th width="80">item</th>
-				<th width="20">price</th>
+				<th width="40">price</th>
 				<th width="50">image</th>
 				<th width="20">pay</th>
 				<th width="45">quantity</th>
@@ -52,6 +54,7 @@
 				<th width="50">address</th>
 				<th width="50">disprice</th>
 				<th width="80">delivered</th>
+				<th width="50">operation</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -62,13 +65,16 @@
 					<td>${task.price}</td>
 					<td><img src="${task.imgpath}" width="50px" height="50px"></td>
 					<c:choose>
-						<c:when test="${task.pay ==1}">	<td class="td-status"><span class="label label-success radius">pay</span></td></c:when>
+						<c:when test="${task.pay ==1}">	<td class="td-status"><span class="label label-success radius">paid</span></td></c:when>
 						<c:otherwise><td class="td-status"><span class="label label-error radius">un-pay</span></td></c:otherwise>
 					</c:choose>
 
 					<td>${task.count}</td>
 					<td>${task.invite}</td>
-					<td>${task.valid}</td>
+					<c:choose>
+						<c:when test="${task.valid ==0}">	<td class="td-status"><span class="label label-success radius">Unexpired</span></td></c:when>
+						<c:otherwise><td class="td-status"><span class="label label-error radius">expire</span></td></c:otherwise>
+					</c:choose>
 					<td>${task.total}</td>
 					<td><date:date value="${task.createTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td>
 					<c:choose>
@@ -94,11 +100,9 @@
 
 						</select>
 					</td>
-					<%--<script>
-						$(function(){
-							$("select").find("option[value=${task.delivery}]").attr("selected",true);
-						});
-					</script>--%>
+					<td class="td-manage"><a title="删除" href="javascript:;" onclick="member_del(this,'${task.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+
+
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -198,17 +202,9 @@ function change_password(title,url,id,w,h){
 /*用户-删除*/
 function member_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
+		$.post("/admin/task/del.jhtml?id="+id,function(msg){
+			$(obj).parents("tr").remove();
+			layer.msg('已删除!',{icon:1,time:1000});
 		});
 	});
 }

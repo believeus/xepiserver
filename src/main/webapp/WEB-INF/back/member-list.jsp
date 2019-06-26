@@ -29,23 +29,25 @@
 <title>user manager</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> user manager <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> user manager <a id="btn-refresh" class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"></span> <span class="r">data total：<strong></strong> </span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="member_add('添加用户','/admin/user/addview.jhtml','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Add user</a></span> </div>
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
 			<tr class="text-c">
-				<th width="80">ID</th>
+				<th width="120">ID</th>
 				<th width="100">username</th>
-				<th width="100">email</th>
+				<th width="120">email</th>
+				<th width="120">password</th>
 				<th width="70">mail status</th>
-				<th width="100">register time</th>
-				<th width="100">last Login time</th>
+				<th width="120">register time</th>
+				<th width="120">last Login time</th>
 				<th width="50">discount</th>
 				<th width="50">invite</th>
 				<th width="50">times</th>
+				<th width="50">operation</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -54,6 +56,7 @@
 					<td>${user.uuid}</td>
 					<td><u style="cursor:pointer" class="text-primary" onclick="member_show('${user.nickname}','member-show.html','${user.mail}','360','400')">${user.nickname}</u></td>
 					<td>${user.mail}</td>
+					<td><input name="password"  value="${user.password}" style="border: none;width: 100%" readonly="readonly"></td>
 					<c:choose>
 						<c:when test="${user.valid==0}">
 							<td class="td-status"><span class="label label-error radius">inactivated</span></td>
@@ -70,10 +73,12 @@
 						<c:when test="${user.lastLogin eq 0}"><td></td></c:when>
 						<c:otherwise><td><date:date value="${user.lastLogin}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td></c:otherwise>
 					</c:choose>
-					<td><input name="discount"  value="${user.discount}" style="border: none" readonly="readonly"></td>
-					<td><input name="invite"  value="${user.invite}" style="border: none" readonly="readonly"></td>
-					<td><input name="times"  value="${user.times}" style="border: none" readonly="readonly"></td>
-					<%--<td class="td-manage"><a title="edit" href="javascript:;" onclick="member_edit('edit','/admin/user/edit.jhtml?mail=${user.mail}','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>  </td>--%>
+					<td><input name="discount"  value="${user.discount}" style="border: none;width: 100%" readonly="readonly"></td>
+					<td><input name="invite"  value="${user.invite}" style="border: none;width: 100%" readonly="readonly"></td>
+					<td><input name="times"  value="${user.times}" style="border: none;width: 100%" readonly="readonly"></td>
+					<td class="td-manage"><a title="删除" href="javascript:;" onclick="member_del(this,'${user.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+
+				<%--<td class="td-manage"><a title="edit" href="javascript:;" onclick="member_edit('edit','/admin/user/edit.jhtml?mail=${user.mail}','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>  </td>--%>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -101,6 +106,7 @@
 				data.discount=_oThis.find("[name=discount]").val();
 				data.invite=_oThis.find("[name=invite]").val();
 				data.times=_oThis.find("[name=times]").val();
+				data.password=_oThis.find("[name=password]").val();
 				$.post("/admin/user/update.jhtml",data,function(){
 					$(event.currentTarget).attr("readonly","readonly").css("border","none");
 				});
@@ -178,19 +184,13 @@ function change_password(title,url,id,w,h){
 }
 /*用户-删除*/
 function member_del(obj,id){
+	console.info(obj);
 	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
+		$.post("/admin/user/del.jhtml?id="+id,function(msg){
+			$(obj).parents("tr").remove();
+			layer.msg('已删除!',{icon:1,time:1000});
 		});
+
 	});
 }
 </script>
