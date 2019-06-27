@@ -33,12 +33,13 @@
             <div id="zhuce" style="cursor: pointer" onclick="window.location.href = '/concent/index.jhtml'">Register
             </div>
         </c:if>
-        <div id="login"></div>
+        <div id="login" style="width: 100%;height: 20px;"></div>
         <form action="/user/login.jhtml" method="post">
             <div class="login_bg">
-                <div id="logo">
-                    <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%"/>
+                <div id="logo" style="width: 30%; margin: 0 auto;">
+                    <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%;"/>
                 </div>
+                <div style="width: 100%;height: 10px;"></div>
                 <div style="    width: 80%;
             margin: 0 auto;
             text-align: left;">
@@ -56,21 +57,29 @@
                                    required="required"
                                    style="width:60%">
                         </div>
+                        <div style="width: 100%;height: 100px;">
+                            <lable style="color:#696969;text-decoration: none;float: right;">
+                                <a href="/user/forgotPaswd.jhtml">forget password</a>
+                            </lable>
+                        </div>
+
                         <div class="choose_box">
-                            <lable style="color:#696969;text-decoration: none;float: right;"><a
-                                    href="/user/forgotPaswd.jhtml">forget password</a></lable>
-                            <div class="other_login" style="margin-top: 100px;line-height: 22px;">
-                                <span>By clicking the button below, I agree to <a href="concent/index.jhtml"
-                                                                                  style="text-decoration: none;"><i> the User Agreement and Privacy Policy.</i></a></span>
-                                <input type="submit" class="login_btn" value="Login"
-                                       style="margin-top: 0px;text-align: center"></input>
+                            <div class="other_login"
+                                 style="width: 80%;margin: 0 auto;line-height: 12px;overflow: hidden;">
+                                <div style=" width:100%;height: 40px; font-size: 0.8em;color: #909093;">
+                                    <a href="concent/index.jhtml" style="text-decoration: none;">
+                                        <i>By clicking the button below,I agree to
+                                     the User Agreement and Privacy Policy.</i>
+                                    </a>
+                                </div>
+                                <input type="submit" class="login_btn" value="Login" style="margin-top: 0px;text-align: center"></input>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
-        <div id="all-right"style="width: 100%;height: auto;font-family: arial;padding-top: 268px;">
+        <div id="all-right" style="width: 100%;height: auto;font-family: arial;padding-top: 268px;">
             <div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-bottom: 50px;">
                 @2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved
             </div>

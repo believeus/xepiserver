@@ -40,12 +40,14 @@
 </div>
 <div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
     <div style="width:100%;height:100%;">
-        <div id="zhuce"><a href="/user/loginview.jhtml">Login</a>|<a href="/index.jhtml">home</a></div>
-        <div id="login"></div>
+        <div id="zhuce" style="text-decoration: none"><a href="/user/loginview.jhtml">Login &nbsp;</a>|<a href="/index.jhtml">&nbsp; home</a></div>
+        <div id="login" style="width: 100%;height: 60px;"></div>
+
         <div class="login_bg">
-            <div id="logo">
-                <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%"/>
+            <div id="logo" style="width: 30%; margin: 0 auto;">
+                <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%;"/>
             </div>
+            <div style="width: 100%;height: 40px;"></div>
             <div style="width: 80%;margin: 0 auto;text-align: left;">
 
                 <script>
