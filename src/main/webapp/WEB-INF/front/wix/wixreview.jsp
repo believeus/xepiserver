@@ -1,10 +1,9 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +23,7 @@
 <div style="width: 60%;height: auto;margin: 0 auto; background-color:#ffffff">
     <div name="waiting" style="display: none;margin:0 auto;text-align: center;background-color:#ffffff">
         <div style="width: 100%;height: 100px;"></div>
-        <img src="/static/images/process.gif" style="width: 32px;height: auto;"/>
+        <img src="static/images/process.gif" style="width: 32px;height: auto;"/>
     </div>
 
     <div name="shopcart" style="background-color:#ffffff;padding-bottom: 100px">
@@ -90,7 +89,7 @@
                             "                            <div>" + v.recipient + "&nbsp;" + v.phone + "</div>\n" +
                             "                            <div>" + v.detail + "&nbsp;" + v.city + "&nbsp;" + v.country + "</div>" +
                             "                        </div>" +
-                            "                        <div  onclick='window.location.href=\"/user/cart/check.jhtml\"' name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: #0071b1;color: white;float: left;height:  25px;line-height:  25px;text-align: center;border-radius: 5px;\">edit</div>\n" +
+                            "                        <div  onclick='window.location.href=\"/wix/cart/check.jhtml\"' name=\"delAddr\" id='" + v.id + "' style=\"width: 20%;font-weight:bold;background-color: #0071b1;color: white;float: left;height:  25px;line-height:  25px;text-align: center;border-radius: 5px;\">edit</div>\n" +
                             "                    </div>" +
                             "                </div>" +
                             "                <div style=\"width: 100%;height: 5px\"></div>"
@@ -139,7 +138,7 @@
                     window.location.href = '/user/paypal/payment.jhtml';
                 } else {
                     window.alert("Please select a product.");
-                    window.location.href = "/user/cart/index.jhtml";
+                    window.location.href = "/wix/cart/index.jhtml";
                 }
 
             });

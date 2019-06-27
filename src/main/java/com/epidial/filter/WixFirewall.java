@@ -13,12 +13,13 @@ import java.util.List;
 
 @WebFilter(filterName = "wixfirewall",urlPatterns = {"/wix/*"})
 public class WixFirewall implements Filter {
-    private List<String> nologinCanAccessUrl = Arrays.asList(new String[]{"/wix/wixlogin/index.jhtml",
-                                                                "/wix/wixregister/index.jhtml","/wix/wixconsent/index.jhtml"});
-    private List<String> nologinCannotAccessUrl=Arrays.asList(new String[]{"/wix/wixaging/index.jhtml"
-                                                                    ,"/wix/wixcart/index.jhtml","/wix/wixcheck/index.jhtml",
-                                                                    "/wix/wixorder/index.jhtml","/wix/wixsame/index.jhtml"});
-    private String loginurl="/wix/wixlogin/index.jhtml";
+    private List<String> nologinCanAccessUrl = Arrays.asList(new String[]{"/wix/login/index.jhtml",
+                                                                "/wix/register/index.jhtml","/wix/consent/index.jhtml",
+                                                                "/wix/same/index.jhtml","/wix/aging/index.jhtml"});
+    private List<String> nologinCannotAccessUrl=Arrays.asList(new String[]{
+                                                                    "/wix/cart/index.jhtml","/wix/cart/review.jhtml",
+                                                                    "/wix/order/index.jhtml"});
+    private String loginurl="/wix/login/index.jhtml";
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 

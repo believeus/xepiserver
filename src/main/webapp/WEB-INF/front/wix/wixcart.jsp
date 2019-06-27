@@ -92,13 +92,13 @@
             $("div[name=mycart]").click(function () {
                 if ("${sessionuser==null}" == "true") {
                     if (window.confirm("You are not logged in yet. \nPlease log in first.")) {
-                        window.location.href = "/user/loginview.jhtml";
+                        window.location.href = "/wix/login/index.jhtml";
                     }
                     return;
                 }
                 $.post("/user/cart/unPayGoodslist.jhtml", function (msg) {
                     if (msg.length != 0) {
-                        window.location.href = "/user/cart/check.jhtml";
+                        window.location.href = "/wix/check/index.jhtml";
                     } else {
                         window.alert("Please select a product.");
                     }
@@ -212,7 +212,7 @@
         $("div[name=next]").click(function () {
             if ("${sessionuser==null}" == "true") {
                 if (window.confirm("You are not logged in yet.\n Please log in first.")) {
-                    window.location.href = "/user/loginview.jhtml";
+                    window.location.href = "/wix/login/index.jhtml";
                 }
                 return;
             }
@@ -266,7 +266,7 @@
                     contentType: 'application/json; charset=UTF-8',
                     data: s1,
                     success: function (data) {
-                        window.location.href = data;
+                        window.location.href = "/wix/check/index.jhtml";
                     }
                 });
             } else {

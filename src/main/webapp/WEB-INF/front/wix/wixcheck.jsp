@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <base href="<%=basePath%>">
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -64,7 +65,6 @@
                                     $.post("/user/cart/del.jhtml", data, function (data) {
                                         _oThis.parents("div[name=cart]").remove();
                                         $.post("/user/cart/sumprice.jhtml", function (data) {
-                                            console.info(data);
                                             $("[name=sumprice]").text(data);
                                         });
                                     });
@@ -113,10 +113,14 @@
                                 if (msg.length != 0) {
                                     var data = {};
                                     var _oThis = $(event.currentTarget);
-                                    window.location.href = "/user/cart/watchagain.jhtml?addrid=" + _oThis.attr("data-id");
+                                    data.addrid=_oThis.attr("data-id");
+                                    $.post("/user/cart/selectAddr.jhtml",data,function(){
+                                        window.location.href = "/wix/cart/review.jhtml";
+                                    });
+
                                 } else {
                                     window.alert("Please buy goods");
-                                    window.location.href = "/user/cart/index.jhtml";
+                                    window.location.href = "/wix/cart/index.jhtml";
                                 }
                             });
 

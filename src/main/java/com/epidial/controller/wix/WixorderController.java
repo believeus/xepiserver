@@ -5,10 +5,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WixorderController {
-    @RequestMapping("/wix/wixorder/index")
+
+    @RequestMapping("/wix/order/index")
     public ModelAndView wixorder(){
         ModelAndView modelView=new ModelAndView();
-        modelView.setViewName("/WEB-INF/front/wix/wixorder.jsp");
+        modelView.setViewName("/WEB-INF/front/wix/wixreview.jsp");
         modelView.addObject("wixorder","Order recording");
         modelView.addObject("canback",true);
         return modelView;

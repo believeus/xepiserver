@@ -5,7 +5,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WixloginController {
-    @RequestMapping("/wix/wixlogin/index")
+
+    @RequestMapping("/wix/login/index")
     public ModelAndView wixlogin(){
         ModelAndView modelView=new ModelAndView();
         modelView.setViewName("/WEB-INF/front/wix/wixlogin.jsp");

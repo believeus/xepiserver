@@ -5,7 +5,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WixsameController {
-    @RequestMapping("/wix/wixsame/index")
+    @RequestMapping("/wix/same/index")
     public ModelAndView wixsame(){
         ModelAndView modelView=new ModelAndView();
         modelView.setViewName("/WEB-INF/front/wix/wixsame.jsp");

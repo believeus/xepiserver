@@ -87,8 +87,9 @@ public class CartController {
         return String.format("%.2f", Float.parseFloat(total==null?"0":total));
     }
 
-    @RequestMapping("/user/cart/watchagain")
-    public ModelAndView order(String addrid,HttpSession session) {
+    @ResponseBody
+    @RequestMapping("/user/cart/selectAddr")
+    public String watchagain(String addrid,HttpSession session) {
         User user = (User) session.getAttribute("sessionuser");
         //将其他地址状态归置
         addressDao.update("valid",0,"uuid",user.getUuid());
@@ -101,6 +102,14 @@ public class CartController {
             task.setAddrid(address.getId());
             taskDao.update(task);
         }
+       return "success";
+    }
+
+    @RequestMapping("/user/cart/review")
+    public ModelAndView order(HttpSession session){
+        User user = (User) session.getAttribute("sessionuser");
+        //查找当前正在使用的地址
+        Address address = addressDao.findValidAddress("uuid", user.getUuid(), "valid", "1");
         ModelAndView modelView = new ModelAndView();
         modelView.setViewName("/WEB-INF/front/order.jsp");
         modelView.addObject("title", " Order display");

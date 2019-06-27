@@ -110,12 +110,14 @@
                         });
                         //点击地址跳转到确认购买页面
                         $("body").on("click", "[name=item]", function (event) {
-
                             $.post("/user/cart/unPayGoodslist.jhtml", function (msg) {
                                 if (msg.length != 0) {
                                     var data = {};
                                     var _oThis = $(event.currentTarget);
-                                    window.location.href = "/user/cart/watchagain.jhtml?addrid=" + _oThis.attr("data-id");
+                                    data.addrid=_oThis.attr("data-id");
+                                    $.post("/user/cart/selectAddr.jhtml",data,function(){
+                                        window.location.href = "/user/cart/review.jhtml";
+                                    });
                                 } else {
                                     window.alert("Please buy goods");
                                     window.location.href = "/user/cart/index.jhtml";
