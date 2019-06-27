@@ -104,19 +104,19 @@
                     var slider = new Slider(".mood-ex1");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"1\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -190,7 +190,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">1.How often have you had little interest or pleasure in doing things?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 10px;"></div>
-				<div class="mood-ex1SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex1SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex1" type="text"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"   data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -240,19 +240,19 @@
                     var slider = new Slider(".mood-ex2-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"2\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -326,7 +326,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">2. How often have you been bothered by feeling down, depressed or hopeless?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex2-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex2-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex2-bar"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  type="text" data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -377,19 +377,19 @@
                     var slider = new Slider(".mood-ex3");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"3\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -463,7 +463,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">3.How often have you been bothered by trouble falling or staying asleep, or sleeping too much?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex3SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex3SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex3" type="text"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -512,19 +512,19 @@
                     var slider = new Slider(".mood-ex4");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"4\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -597,7 +597,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;;padding: 10px;">4.How often have you been bothered by feeling tired or having little energy?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex4SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex4SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex4" type="text"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -647,19 +647,19 @@
                     var slider = new Slider(".mood-ex5");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"5\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -732,7 +732,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;;padding: 10px;">5.How often have you been bothered by poor appetite or overeating?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex5SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex5SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex5" type="text"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -782,19 +782,19 @@
                     var slider = new Slider(".mood-ex6");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"6\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -867,7 +867,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;;padding: 10px;">6.How often have you been bothered by feeling bad about yourself, or that you are a failure, or have let yourself or your family down?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="ex6SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="ex6SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex6" type="text"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -917,19 +917,19 @@
                     var slider = new Slider(".mood-ex7");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"7\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -1002,7 +1002,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">7.How often have you been bothered by trouble concentrating on things, such as reading the newspaper or watching television?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex7SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex7SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex7" type="text"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -1052,19 +1052,19 @@
                     var slider = new Slider(".mood-ex8");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"8\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -1137,7 +1137,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">8.How often have you been bothered by moving or speaking so slowly that other people could have noticed, or the opposite - being so fidgety or restless that you have been moving around a lot more than usual?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex8SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex8SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex8" type="text"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -1187,19 +1187,19 @@
                     var slider = new Slider(".mood-ex9");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"9\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -1272,7 +1272,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">9.Have you had an anxiety attack (suddenly feeling fear or panic)?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex9SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex9SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex9" type="text"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -1320,19 +1320,19 @@
                     var slider = new Slider(".mood-ex10");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"10\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -1405,7 +1405,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">10.How often have you been bothered by feeling nervous, anxious or on edge?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex10SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex10SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex10" type="text"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -1455,19 +1455,19 @@
                     var slider = new Slider(".mood-ex11");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"11\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -1541,7 +1541,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">11.How often have you been bothered by not being able to stop or control worrying?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex11SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex11SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex11" type="text"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -1591,19 +1591,19 @@
                     var slider = new Slider(".mood-ex12");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"12\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -1676,7 +1676,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">12.How often have you been bothered by worrying too much about different things?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex12SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex12SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex12" type="text"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -1724,19 +1724,19 @@
                     var slider = new Slider(".mood-ex13");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"13\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -1810,7 +1810,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">13.How often have you been bothered by having trouble relaxing?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex13SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex13SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex13" type="text"  style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -1858,19 +1858,19 @@
                     var slider = new Slider(".mood-ex14");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"14\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -1944,7 +1944,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">14.How often have you been bothered by being so restless that it is hard to sit still?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex14SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex14SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex14" type="text"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -1995,19 +1995,19 @@
                     var slider = new Slider(".mood-ex15");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"15\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -2080,7 +2080,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">15.How often have you been bothered by becoming easily annoyed or irritable?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="mood-ex15SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="mood-ex15SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="mood-ex15" type="text"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>
@@ -2130,19 +2130,19 @@
                     var slider = new Slider(".ex16");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "Not at all(1 level)";
+                        var value = "Not at all(level 1)";
                         switch (slideEvt.value) {
                             case 1:
-                                value = "Not at all(1 level)";
+                                value = "Not at all(level 1)";
                                 break;
                             case 2:
-                                value = "Several days(2 level)";
+                                value = "Several days(level 2)";
                                 break;
                             case 3:
-                                value = "More than half the days(3 level)";
+                                value = "More than half the days(level 3)";
                                 break;
                             case 4:
-                                value = "Nearly every day(4 level)";
+                                value = "Nearly every day(level 4)";
                                 break;
                         }
                         var data = "{\"type\" : \"Mood\",\"data\" : {\"id\" : \"16\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -2215,7 +2215,7 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">16.How often have you been bothered by feeling afraid as if something awful might happen?</div>
 			<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 20px;"></div>
-				<div class="ex16SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(1 level)</div>
+				<div class="ex16SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #6950F4;line-height: 40px">Not at all(level 1)</div>
 				<div>
 					<input class="ex16" type="text"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFFF00 30%,#FFC000 70%, red 100%)"  data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1">
 				</div>

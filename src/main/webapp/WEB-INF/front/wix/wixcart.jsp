@@ -15,14 +15,13 @@
 
     <script type="text/javascript" src="static/js/jquery-2.1.1.min.js"></script>
 
-    <link type="text/css" rel="stylesheet" href="static/css/base.css"/>
-    <link type="text/css" rel="stylesheet" href="static/css/module.css"/>
+    <link type="text/css" rel="stylesheet" href="static/css/wixbase.css"/>
+    <link type="text/css" rel="stylesheet" href="static/css/wixmodule.css"/>
 
 </head>
 
 <body>
-<div style="width: 100%;height: 100%;">
-    <jsp:include page="header.jsp"></jsp:include>
+<div style="width: 100%;height: 100%;background-color: #ffffff">
     <div class="shopping">
 
         <div class="shop-group-item">
@@ -63,30 +62,30 @@
                 </c:forEach>
             </ul>
             <div class="shopPrice">
-                <span style="color: #666666;font-weight: 600;">Invitation Code:</span>
+                <span style="color:#666666;font-weight: 700;">Invitation Code:</span>
                 <input type="text" value="${sessionuser.invite}" id="invite" name="invite"
-                       style="height: 25px;width: 40%; border-style: ridge;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
-                <div style="width: 100%;">
-                    <span style="color: #666666;font-weight: 600;">TOTAL：$</span>
-                    <span class="shop-total-amount ShopTotal">0.00</span>
-                </div>
+                       style="height: 25px;width: 40%; border-style: ridge;border-radius: 5px">
+                <span style="color: black">TOTAL：$</span>
+                <span class="shop-total-amount ShopTotal">0.00</span>
             </div>
         </div>
     </div>
-    <div class="payment-bar" style="height: 82px">
-        <div class="all-checkbox" style="float: left;height: 100%;width: 5%;"><input type="checkbox"class="check goods-check" id="AllCheck"  style="top:30%;border:0px solid #000">
-        </div>
+    <div class="payment-bar" style="height: 55px;width: 60%;margin: 0 auto;">
         <div class="shop-total" style="float: left;width: 30%">
             <strong>TOTAL：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
         </div>
-        <div class="settlement" name="mycart" style="float: right;background-color: #0e90d2;width: 20%;cursor: pointer;border-radius: 0 50px 50px 0;">
-            MyCart
-        </div>
-        <div class="settlement" name="next" style="float: right;width: 20%;cursor: pointer;border-radius: 50px 0 0 50px;">
+        <div class="settlement" name="next" style="float: right;border-radius: 0 50px 50px 0; width: 20%;cursor: pointer;margin-top: 5px;">
             Next
         </div>
-    </div>
+        <div class="settlement" name="mycart"
+             style="float: right;border-radius:50px 0 0 50px; background-color: #0e90d2;width: 20%;cursor: pointer;margin-top: 5px;">
+            <img src="static/images/wixcart.png" style="width: 26%;height: auto;">
+        </div>
 
+    </div>
+    <div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-top: 78px;">
+        @2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved
+    </div>
     <script>
         //当用户没有购买任何产品时,不允许跳转到商品确定页面
         $(function () {
@@ -109,7 +108,6 @@
 
         });
     </script>
-    <jsp:include page="footnav.jsp"></jsp:include>
 </div>
 </body>
 

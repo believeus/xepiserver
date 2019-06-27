@@ -1385,7 +1385,7 @@
 							$(".lifestyle-hsexlife-val").text("dissatisfied");
 							break;
 						case 2:
-							$(".lifestyle-hsexlife-val").text("okey");
+							$(".lifestyle-hsexlife-val").text("okay");
 							break;
 						case 3:
 							$(".lifestyle-hsexlife-val").text("satisfied");

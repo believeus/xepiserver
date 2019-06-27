@@ -82,7 +82,7 @@
                         </div>
 
                         <div name="btnsend" class="other_login" style="margin-top: 40px;">
-                            <span>By clicking the button below,A link to reset your password will sent to your email</span>
+                            <span>By clicking the button below, A link to reset your password will be sent to your email</span>
                             <input type="submit" class="login_btn" name="sendmail" value="Reset password" style="margin-top: 0px;">
                             </input>
                         </div>
