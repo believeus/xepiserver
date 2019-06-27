@@ -5,7 +5,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WixorderController {
-    @RequestMapping("/wixorder/index")
+    @RequestMapping("/wix/wixorder/index")
     public ModelAndView wixorder(){
         ModelAndView modelView=new ModelAndView();
         modelView.setViewName("/WEB-INF/front/wix/wixorder.jsp");

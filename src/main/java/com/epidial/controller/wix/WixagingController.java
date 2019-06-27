@@ -5,7 +5,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WixagingController {
-    @RequestMapping("/wixaging/index")
+    @RequestMapping("/wix/wixaging/index")
     public ModelAndView wixaging(){
         ModelAndView modelView=new ModelAndView();
         modelView.setViewName("/WEB-INF/front/wix/wixaging.jsp");

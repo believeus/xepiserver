@@ -29,19 +29,20 @@
 
     <div style="width: 50%;height: auto;margin: 0 auto;">
         <div style="width:100%;height:100%;">
-            <c:if test="${sessionuser ==null}">
-                <div id="zhuce" style="cursor: pointer" onclick="window.location.href = '/concent/index.jhtml'">Register
+                <div style="width: 100%;height: 40px;">
+                    <div  style="cursor: pointer;float: right;font-size: 24px;font-weight: bold">
+                        <a href="/wix/wixorder/index.jhtml" style="text-decoration: none;color: black;">Register</a>
+                        <span>|</span>
+                        <a href="https://www.epi-age.com/" style="text-decoration: none;color: black">Home</a>
+                    </div>
                 </div>
-            </c:if>
             <div id="login"></div>
             <form action="/user/login.jhtml" method="post">
                 <div class="login_bg">
-                    <div style="    width: 80%;
-            margin: 0 auto;
-            text-align: left;">
+                    <div style=" width: 80%; margin: 0 auto;text-align: left;">
                         <div id="PWDSignIn" style="display:block">
                             <div class="userName">
-                                <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</lable>
+                                <lable> <img src="static/images/InOrUp/mail.png" style="width: 16px;height: 16px;"></lable>
                                 <input name="email" id="email" placeholder="Email" type="email" required="required"
                                        style="width: 70%">
                             </div>
@@ -55,20 +56,16 @@
                             </div>
                             <div class="choose_box">
                                 <lable style="color:#696969;text-decoration: none;"><a
-                                        href="/user/forgotPaswd.jhtml" >forget password?</a>
+                                        href="/user/forgotPaswd.jhtml">forget password?</a>
                                 </lable>
                                 <div class="other_login"
                                      style="width:50%;line-height: 27px;float: left; margin: 0 auto;">
                                     <div style="width: 100%;height: 110px;"></div>
-                                    <%--<div style="width: 80%; font-size: 0.8em;color: #909093;line-height: 39px">By
-                                    clicking the button below,
-                                    I agree to<a href="concent/index.jhtml" style="text-decoration: none;"><i>the
-                                        User
-                                        Agreement and Privacy Policy.</i></a>
-                                </div>--%>
-                                    <div name="concent" style="width: 80%;height: auto;font-size: 0.93em; color: #666666;margin: 0 auto;">
+                                    <div name="concent"
+                                         style="width: 80%;height: auto;font-size: 0.93em; color: #666666;margin: 0 auto;">
                                         clicking the button below, I agree to
-                                        <a href="concent/index.jhtml" style="text-decoration: none;"><i style="color: #E6BF73;">the User Agreement and Privacy Policy.</i></a>
+                                        <a href="concent/index.jhtml" style="text-decoration: none;"><i
+                                                style="color: #E6BF73;">the User Agreement and Privacy Policy.</i></a>
                                     </div>
                                     <div style="width: 80%;height: 45px;text-align: center;">
                                         <input type="submit" class="login_btn" value="Login">
@@ -101,7 +98,7 @@
                 if (data.indexOf("ERROR") != -1) {
                     alert(data);
                 } else {
-                    window.location.href = data;
+                    window.location.href = "https://www.epi-age.com/";
                 }
             });
             return false;

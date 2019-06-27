@@ -5,7 +5,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WixconsentController {
-    @RequestMapping("/wixconsent/index")
+    @RequestMapping("/wix/wixconsent/index")
     public ModelAndView wixconsent(){
         ModelAndView modelView=new ModelAndView();
         modelView.setViewName("/WEB-INF/front/wix/wixconsent.jsp");

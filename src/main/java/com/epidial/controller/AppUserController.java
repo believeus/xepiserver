@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.UUID;
 
@@ -35,7 +36,8 @@ public class AppUserController {
     }
     @RequestMapping(value = "/user/login")
     public @ResponseBody
-    String login(String email, String password,HttpSession session) {
+    String login(String email, String password, HttpServletRequest request) {
+        HttpSession session = request.getSession();
         User user = userDao.findUser("mail",email);
         if (user == null) {
             return "ERROR:Mailbox not registered";
@@ -48,6 +50,7 @@ public class AppUserController {
                 user.setLastLogin(System.currentTimeMillis());
                 userDao.update(user);
                 session.setAttribute("sessionuser",user);
+                System.out.println(request.getRequestURI());
                 return "/index.jhtml";
             }
         }
@@ -95,7 +98,7 @@ public class AppUserController {
     @RequestMapping(value = "/user/regsuccess")
     public ModelAndView toLastRegister() {
         ModelAndView modelView = new ModelAndView();
-        modelView.setViewName("/WEB-INF/front/LastRegister.jsp");
+        modelView.setViewName("/WEB-INF/front/regsuccess.jsp");
         modelView.addObject("title", "Thank you for your registration.");
         modelView.addObject("canback", false);
         return modelView;

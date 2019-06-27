@@ -321,15 +321,15 @@
             data.country = country;
             $.post("/user/register.jhtml", data, function (data) {
                 if (data != "success") {
-                    alert(data);
+                    window.alert(data);
                     $("input").attr("disabled", false);
                     $("input[type=submit]").remove("disabled").val("register");
                 } else {
-                    window.location.href = '/user/regsuccess.jhtml';
+                    window.location.href = "/wix/register/success.jhtml";
                 }
             });
         } else {
-            alert("Please accept the user Agreement , before sign in!")
+            window.alert("Please accept the user Agreement , before sign in!")
             return false;
         }
         return false;

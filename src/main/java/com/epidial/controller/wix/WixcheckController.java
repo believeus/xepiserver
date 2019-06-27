@@ -5,7 +5,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WixcheckController {
-    @RequestMapping("/wixcheck/index")
+    @RequestMapping("/wix/wixcheck/index")
     public ModelAndView wixcheck(){
         ModelAndView modelView=new ModelAndView();
         modelView.setViewName("/WEB-INF/front/wix/wixcheck.jsp");
