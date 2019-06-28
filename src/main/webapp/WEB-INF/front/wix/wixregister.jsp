@@ -327,7 +327,7 @@
                     $("input[type=submit]").css("display","block");
                     $("div[name=concent]").css("display","block");
                 } else {
-                    window.location.href = '/user/regsuccess.jhtml';
+                    window.location.href = '/wix/register/success.jhtml';
                 }
             });
         } else {
