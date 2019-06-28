@@ -21,11 +21,11 @@
     <div style="width: 100%;height: auto;background-color: #0071BC;overflow: hidden;">
         <div style="height: 20px;width: 100%;"></div>
         <div style="width: 100%;height: 70px;">
-            <div style="width: 10%;height: 70px;float: left;"></div>
+            <div style="width: 40%;height: 70px;float: left;"></div>
             <div style="width: 16%;height: 70px;float: left;">
-                <img src="static/images/userlogo/uc4.png" alt="" style="width: 100%;height: auto">
+                <img src="static/images/user-logo.png" alt="" style="width: 100%;height: auto">
             </div>
-            <div style="width: 30%;height: 70px;float: left;"></div>
+            <div style="width: 44%;height: 70px;float: left;"></div>
         </div>
         <div style="width: 100%;height: auto;text-align: center;">
            <%-- <div style="width: 8%;height: 50px;float: left;"></div>--%>

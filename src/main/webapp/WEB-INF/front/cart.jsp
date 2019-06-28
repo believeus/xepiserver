@@ -74,16 +74,21 @@
         </div>
     </div>
     <div class="payment-bar" style="height: 82px">
-        <div class="all-checkbox" style="float: left;height: 100%;width: 5%;"><input type="checkbox"class="check goods-check" id="AllCheck"  style="top:30%;border:0px solid #000">
+        <div class="all-checkbox" style="float: left;height: 100%;width: 5%;"><input type="checkbox"
+                                                                                     class="check goods-check"
+                                                                                     id="AllCheck"
+                                                                                     style="top:30%;border:0px solid #000">
         </div>
         <div class="shop-total" style="float: left;width: 30%">
             <strong>TOTAL：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
         </div>
-        <div class="settlement" name="mycart" style="float: right;background-color: #0e90d2;width: 20%;cursor: pointer;border-radius: 0 50px 50px 0;">
-            MyCart
-        </div>
-        <div class="settlement" name="next" style="float: right;width: 20%;cursor: pointer;border-radius: 50px 0 0 50px;">
+        <div class="settlement" name="next"
+             style="float: right;width: 20%;cursor: pointer;border-radius: 0 50px 50px 0;">
             Next
+        </div>
+        <div class="settlement" name="mycart"
+             style="float: right;background-color: #0e90d2;width: 20%;cursor: pointer;border-radius:  50px 0 0 50px;">
+            MyCart
         </div>
     </div>
 
