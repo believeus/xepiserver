@@ -471,7 +471,7 @@
                     data.city = $("#city").val();
                     data.detail = $("[name=detail-1]").val() + $("[name=detail-2]").val() + $("[name=detail-3]").val();
                     $.post("/user/address/save.jhtml", data, function (data) {
-                        window.location.href = "/user/cart/watchagain.jhtml?addrid=" + data.id;
+                        window.location.href = "/user/cart/review.jhtml";
                     });
                 } else {
                     window.alert("Please select a product.");
