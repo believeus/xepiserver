@@ -5,7 +5,7 @@
     color: #696969;
     font-size: 1.2em;
     font-weight: 800;
-    text-decoration-line: underline;
+    text-decoration-line: none;
 }
 img{
     width: 100%;
@@ -50,12 +50,6 @@ img{
     padding: 0 5px;
      color: #b3b3b3;
 
-}
-.choose_box div{
-    float: left;
-}
-.choose_box a{
-    float: right;
 }
 .login_btn{
     width: 100%;

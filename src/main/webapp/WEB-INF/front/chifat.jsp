@@ -86,7 +86,7 @@
 		<div style="clear: both;"></div>
 		<div style="width: 100%;height: auto;text-align: center;font-family: arial;color: #666666;font-weight: 600;line-height: 29px;">
 			<strong>Chi Fat Wong Ph.D.</strong><br />
-			Senior Scientist <br/><i style="font-weight: 600;"> HKG Epitherapeutics, Hong Kong</i>
+			Senior Scientist <br/><i style="font-weight: 600;"> HKG epiTHERAPEUTICS, Hong Kong</i>
 		</div>
 		<div style="width: 100%;height: 20px;"></div>
 	</div>

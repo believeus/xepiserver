@@ -23,7 +23,7 @@
 </head>
 <body >
 <!--头部开始-->
-<div style="width: 60%;height: 100%;margin: 0 auto;">
+<div style="width: 90%;height: 100%;margin: 0 auto;">
     <form action="/user/transaction/loadOrder.jhtml" method="post">
         <div style="background-color:#ffffff;padding-bottom: 10px">
 
@@ -36,7 +36,7 @@
                                 var div = "<div name='cart' style='width: 100%;height: 60px;'><div style='width:100%;display: flex;flex-direction: row;justify-content: center;float: left;'>" +
                                     "                        <div style=\"width: 100%\">" +
                                     "                            <div style=\"width:40%;height:auto;float: left;text-align: center\">" +
-                                    "                                <image src=" + v.imgpath + " style=\"width:70%;height:auto\"></image>" +
+                                    "                                <image src=" + v.imgpath + " style=\"width:39%;height:auto\"></image>" +
                                     "                            </div>\n" +
                                     "                            <div style=\"float: left;width: 50%;height: 100%;\">" +
                                     "                                <div style=\"width:100%;height:10%\"></div>" +

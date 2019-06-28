@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 /*购物车*/
-.shopping{width: 60%;margin: 0 auto; clear:both;overflow:hidden;height:auto;padding-bottom: 100px;}
+.shopping{width: 90%;margin: 0 auto; clear:both;overflow:hidden;height:auto;padding-bottom: 100px;}
 .shop-group-item{margin-bottom:5px;}
 .shop-group-item ul li{border-bottom:1px solid #fff;}
 .shop-group-item ul li:last-child{border-bottom:none;}

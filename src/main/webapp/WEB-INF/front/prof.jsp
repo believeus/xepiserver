@@ -140,7 +140,7 @@
         <div style="clear: both;"></div>
         <div style="width: 100%;height: auto;text-align: center;font-family: arial;color: #666666;font-weight: 600;line-height: 29px;">
             <strong>Moshe Szyf, Prof.</strong><br/>
-            Chairman & CEO<br/> <i style="font-weight: 600;"> HKG Epitherapeutics, Hong Kong</i></div>
+            Chairman & CEO<br/> <i style="font-weight: 600;"> HKG epiTHERAPEUTICS, Hong Kong</i></div>
     </div>
 
     <div id="pro-stem" style="width: 100%;height: auto;background-color: #F7F7F9;margin: 0 auto;">
@@ -157,7 +157,7 @@
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">
-                    Inventor of first patents on DNA methylation and cancer
+                    Inventor of the first patents on DNA methylation and cancer
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">
@@ -169,7 +169,7 @@
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">
-                    Fellow of the Royal society of Canada
+                    Fellow of the Royal Society of Canada
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">
@@ -180,7 +180,7 @@
                     Professor Department of Pharmacology and Therapeutics McGill University Montreal Canada
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
-                <div id="dot">Resident chief scientist of Beijing epidia medical diagnostic technology co., LTD.</div>
+                <div id="dot">Resident chief scientist of Beijing epidial medical diagnostic technology co., LTD.</div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">Director of epigenetic institute, Beijing yizhuang innovation institute</div>
             </div>
@@ -301,7 +301,7 @@
             <div class="wrap">
                 <div class="tabs">
 				<span class="part" style="border-right: 1px solid #666666">
-				<a href="#career" hidefocus="true">Careers</a>
+				<a href="#career" hidefocus="true">Career</a>
 				</span>
                     <span class="part" style="border-right: 1px solid #666666">
 					<a href="#" hidefocus="true">Honors</a>
@@ -330,7 +330,7 @@
                                     <li><strong> 2009--</strong>Radio Canada Annual Scientist Award</li>
                                     <li><strong> 2009--</strong>Carolinska Speech at the Nobel Forum</li>
                                     <li><strong> 2007--</strong>GlaxoSmithKline Pharmacology</li>
-                                    <li><strong>2003--</strong> Honorary Professor James McGill</li>
+                                    <li><strong>2003--</strong> Honorary Professor of James McGill</li>
                                     <li><strong> 2001--</strong>Medical College Teaching Honors List</li>
                                     <li><strong>1999--</strong>Carrie Derek Graduate Teaching Guidance Award</li>
                                     <li><strong>1999--</strong>Israel Cancer Research Foundation "Eliot Osseman
@@ -388,7 +388,7 @@
                 <div style="width: 100%;height: auto;">
                     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2944040/">
                         <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Epigenetic regulation of the
-                            glucocorticoid receptor in human brain associates with childhood abuse.Nat Neurosci. 2009
+                            glucocorticoid receptor in human brain associates with childhood abuse.Nat Neurosci.2009
                             Mar; 12(3): 342–348.
                         </div>
                     </a>
@@ -417,7 +417,7 @@
                 <div style="width: 100%;height: auto;">
                     <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0014739">
                         <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Broad epigenetic signature of
-                            maternal care in the brain of adult rats. PLoS One. 2011 Feb 28
+                            maternal care in the brain of adult rats. PLoS One.2011 Feb 28
                         </div>
                     </a>
                     <div style="width: 20%;height: auto;float: right;">347 Citations</div>
@@ -434,8 +434,8 @@
                 <div style="width: 100%;height: 80px;"></div>
                 <div style="width: 100%;height: auto;">
                     <a href="https://www.annualreviews.org/doi/abs/10.1146/annurev-pharmtox-061008-103102">
-                        <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Epigenetics, DDNA methylation,
-                            and chromatin modifying drugs. Annu Rev Pharmacol Toxicol. 2009;49
+                        <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Epigenetics, DNA methylation,
+                            and chromatin modifying drugs. Annu Rev Pharmacol Toxicol.2009;49
                         </div>
                     </a>
                     <div style="width: 20%;height: auto;float: left;">432 Citations</div>
@@ -445,7 +445,7 @@
                     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1413873/">
                         <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Maternal care effects on the
                             hippocampal transcriptome and anxiety-mediated behaviors in the offspring that are
-                            reversible in adulthood. Proc Natl
+                            reversible in adulthood.Proc Natl
                         </div>
                     </a>
                     <div style="width: 20%;height: auto;float: left;">786 Citations</div>

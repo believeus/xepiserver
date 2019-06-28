@@ -10,7 +10,7 @@ public class ChifatController {
 	public ModelAndView chifat(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/chifat.jsp");
-		modelView.addObject("title","Chifat Introduction");
+		modelView.addObject("title","Chi Fat Introduction");
 		modelView.addObject("canback",true);
 		return modelView;
 	}

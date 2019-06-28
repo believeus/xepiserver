@@ -85,7 +85,7 @@
 		</div>
 		<div style="clear: both;"></div>
 		<div style="width: 100%;height: auto;text-align: center;font-family: arial;color: #666666;font-weight: 600;line-height: 29px;">
-			<strong>Zhiyuan Lv Postdoctoral</strong><br />
+			<strong>Zhiyuan Lv Ph.D.</strong><br />
 			Lab Manager <br/> <i style="font-weight: 600;">Beijing Epidial Medical Diagnostic Technology Co., Ltd.</i>
 		</div>
 		<div style="width: 100%;height: 20px;"></div>
@@ -131,15 +131,15 @@
 											<strong> 2010.09 </strong>State Overseas Studies Fund appointed joint doctoral scholarship
 										</div>
 										<div style="width: 100%;height: 20px;"></div>
-										<div style="font-weight: 800;line-height: 22px;">Ad Hoc Reviewer for Journals totally have reviewed more than 20 research articles</div>
+										<div style="font-weight: 800;line-height: 22px;">Ad Hoc Reviewer for Journals</div>
 										<div style=" width: 100%;height:auto;text-align: left;">
-											<div>Molecular and Cellular Biochemistry</div>
-											<div>Annuals of Clinical Biochemistry</div>
-											<div>Cellular and Molecular Biology</div>
-											<div>Journal of Immunoassay and Immunochemistry</div>
+											<div><i> Molecular and Cellular Biochemistry</i></div>
+											<div><i>Annuals of Clinical Biochemistry</i></div>
+											<div><i>Cellular and Molecular Biology</i></div>
+											<div><i>Journal of Immunoassay and Immunochemistry</i></div>
 										</div>
 										<div style="font-weight: 800;line-height: 40px;">Editorial Board of Journal</div>
-										<div>Journal of Immunoassay and Immunochemistry</div>
+										<div><i>Journal of Immunoassay and Immunochemistry</i></div>
 									</div>
 								</div>
 

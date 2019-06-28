@@ -89,7 +89,7 @@
         <a href="chifat/index.jhtml">
             <div style="width: 98%;height: auto;margin: 0 auto;overflow: hidden;">
                 <div style="width: 34%;height: auto;float: left;">
-                    <img src="static/images/Chi Fat.png" style="width: 100%;height: auto;"/>
+                    <img src="static/images/Chi Fat.png" style="width: 100%;height: auto;border-radius: 10px;"/>
                 </div>
                 <div style="width: 6%;;height: 20px;float: left;"></div>
                 <div style="width: 48%;height: auto;float: left;font-family: arial;">
@@ -109,7 +109,7 @@
         <a href="zhiyuan/index.jhtml">
             <div style="width: 98%;height: auto;margin: 0 auto;overflow: hidden;">
                 <div style="width: 34%;height: auto;float: left;">
-                    <img src="static/images/Zhiyuan Lv.png" style="width: 100%;height: auto;"/>
+                    <img src="static/images/Zhiyuan Lv.png" style="width: 100%;height: auto;border-radius: 10px;"/>
                 </div>
                 <div style="width: 6%;;height: 20px;float: left;"></div>
                 <div style="width: 48%;height: auto;float: left;font-family: arial;">

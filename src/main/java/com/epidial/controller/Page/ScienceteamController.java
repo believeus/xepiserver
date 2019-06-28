@@ -11,7 +11,7 @@ public class ScienceteamController {
 		ModelAndView modelView=new ModelAndView();
 		modelView.addObject("canback",true);
 		modelView.setViewName("/WEB-INF/front/scienceteam.jsp");
-		modelView.addObject("title","Scienceteam introduction");
+		modelView.addObject("title","Our science team");
 		return modelView;
 	}
 	@RequestMapping("/scienceteam/prof")
@@ -19,7 +19,7 @@ public class ScienceteamController {
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/prof.jsp");
 		modelView.addObject("canback",true);
-		modelView.addObject("title","Scienceteam introduction");
+		modelView.addObject("title","Our science team");
 		return modelView;
 	}
 

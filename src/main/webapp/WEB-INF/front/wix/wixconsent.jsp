@@ -13,8 +13,8 @@
     <title>Concent Form</title>
 </head>
 <body style="padding: 0;margin: 0;">
-<div id="container" style="width: 60%;height: auto;margin: 0 auto;">
-    <div style="width: 96%;height: auto;margin: 0 auto;overflow: hidden;">
+<div id="container" style="width: 90%;height: auto;margin: 0 auto;">
+    <div style="width: 100%;height: auto;margin: 0 auto;overflow: hidden;">
 
         <!-- <div id="language" style="width: 100%;height: 20px;overflow: hidden;margin-top: 20px;">
             <div style="width: 20%;height: 20px;text-align: center; border-right:1px solid  #000000 ;float: left;">Chinese</div>
@@ -58,7 +58,7 @@
         <div style="width: 100%;height: 30px"></div>
         <div style="width: 50%;margin: 0 auto; height: 40px;">
             <a href="/wixregister/index.jhtml"style="text-decoration: none;">
-                <div style="width: 26%;height: 40px;border-radius: 10px;border: 1px solid grey;margin: 0 auto;text-align: center;line-height: 40px;font-size:18px ;background-color: #0071BC;font-family: arial;color: #FFFFFF;">Agree</div>
+                <div style="width: 50%;height: 40px;border-radius: 10px;border: 1px solid grey;margin: 0 auto;text-align: center;line-height: 40px;font-size:18px ;background-color: #0071BC;font-family: arial;color: #FFFFFF;">Agree</div>
             </a>
         </div>
     </div>

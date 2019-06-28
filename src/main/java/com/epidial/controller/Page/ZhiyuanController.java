@@ -10,7 +10,7 @@ public class ZhiyuanController {
 	public ModelAndView zhiyuan(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.addObject("canback",true);
-		modelView.addObject("title","Lab Manager");
+		modelView.addObject("title","Zhiyuan Lv Introduction");
 		modelView.setViewName("/WEB-INF/front/zhiyuan.jsp");
 		return modelView;
 	}

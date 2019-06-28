@@ -70,7 +70,7 @@
             </div>
         </div>
     </div>
-    <div class="payment-bar" style="height: 55px;width: 60%;margin: 0 auto;">
+    <div class="payment-bar" style="height: 55px;width: 90%;margin: 0 auto;">
         <div class="shop-total" style="float: left;width: 30%">
             <strong>TOTAL：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
         </div>

@@ -86,7 +86,7 @@
 		<div style="clear: both;"></div>
 		<div style="width: 100%;height: auto;text-align: center;font-family: arial;color: #666666;font-weight: 600;line-height: 29px;">
 			<strong>David Cheishvili Ph.D.</strong><br />
-			Senior Scientific Consultant<br/><i style="font-weight: 600;">  HKG Epitherapeutics, Hong Kong</i>
+			Senior Scientific Consultant<br/><i style="font-weight: 600;">  HKG epiTHERAPEUTICS, Hong Kong</i>
 		</div>
 		<div style="width: 100%;height: 20px;"></div>
 	</div>
@@ -111,7 +111,7 @@
 
 
 					<span class="part">
-				<a href="#" hidefocus="true">Conference</a>
+				<a href="#" hidefocus="true">Conferences</a>
 				</span>
 
 				</div>
@@ -132,8 +132,10 @@
 											<li><i style="font-weight: 600;"> US patent 62/695</i>,429 DNA Methylation Markers for Noninvasive Detection of Cancer(Filed 07-Sept-2018)</li>
 
 										</ul>
-										<div style="width: 100%;height: 30px"></div>
+										<div style="width: 100%;height: 100px"></div>
 										<ul>
+											<div style="width: 20%;height: 30px; font-size: 18px;line-height: 30px;border-bottom: 2px  solid #666666; ">Honors</div>
+											<p></p>
 											<li> 2011--<i style="font-weight: 600;">Postdoctoral fellow </i>of the Israel Cancer Research Foundation</li>
 											<div style="width: 100%;height: 20px"></div>
 											<li>2010--Toronto Alumni and Alumni Medical <i style="font-weight: 600;">Excellence Award</i></li>
@@ -183,7 +185,7 @@
 	<div id="paper"style="width: 100%;height: auto;">
 		<div style="width: 100%;height: auto;background-color: #F4F4F4;">
 			<div style="width: 90%;height: auto;margin: 0 auto; font-weight: 600;font-family: arial;">
-				<div id="din"><span style="font-weight: 700;color: #27809D;font-size: 18px;line-height: 50px;"> Cited papers</span></div>
+				<div id="din"><span style="font-weight: 700;color: #27809D;font-size: 18px;line-height: 50px;"> Published papers</span></div>
 			</div>
 		</div>
 		<div style="width: 100%;height: auto;background-color: #27809D;overflow: hidden;">

@@ -27,22 +27,24 @@
     <div style="width: 100%;height: 50px;">
     </div>
 
-    <div style="width: 50%;height: auto;margin: 0 auto;">
+    <div style="width: 90%;height: auto;margin: 0 auto;">
         <div style="width:100%;height:100%;">
-                <div style="width: 100%;height: 40px;">
-                    <div  style="cursor: pointer;float: right;font-size: 24px;font-weight: bold">
-                        <a href="/wix/wixorder/index.jhtml" style="text-decoration: none;color: black;">Register</a>
-                        <span>|</span>
-                        <a href="https://www.epi-age.com/" style="text-decoration: none;color: black">Home</a>
-                    </div>
+            <div style="width: 100%;height: 40px;">
+                <div style="cursor: pointer;float: right;font-size: 20px;font-weight: bold">
+                    <a href="/wix/wixorder/index.jhtml" style="text-decoration: none;color: black;">Register</a>
+                    <span>|</span>
+                    <a href="https://www.epi-age.com/" style="text-decoration: none;color: black">Home</a>
                 </div>
+            </div>
             <div id="login"></div>
             <form action="/user/login.jhtml" method="post">
                 <div class="login_bg">
                     <div style=" width: 80%; margin: 0 auto;text-align: left;">
                         <div id="PWDSignIn" style="display:block">
                             <div class="userName">
-                                <lable> <img src="static/images/InOrUp/mail.png" style="width: 16px;height: 16px;"></lable>
+                                <lable style="color:#808080"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <img src="static/images/InOrUp/mail.png" style="width: 16px;height: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;
+                                </lable>
                                 <input name="email" id="email" placeholder="Email" type="email" required="required"
                                        style="width: 70%">
                             </div>
@@ -55,19 +57,18 @@
                                        style="width:60%">
                             </div>
                             <div class="choose_box">
-                                <lable style="color:#696969;text-decoration: none;"><a
+                                <lable style="color:#696969;text-decoration: none;float: right;"><a
                                         href="/user/forgotPaswd.jhtml">forget password?</a>
                                 </lable>
                                 <div class="other_login"
-                                     style="width:50%;line-height: 27px;float: left; margin: 0 auto;">
+                                     style="width:90%;line-height: 27px;float: left; margin: 0 auto;">
                                     <div style="width: 100%;height: 110px;"></div>
                                     <div name="concent"
-                                         style="width: 80%;height: auto;font-size: 0.93em; color: #666666;margin: 0 auto;">
-                                        clicking the button below, I agree to
-                                        <a href="concent/index.jhtml" style="text-decoration: none;"><i
-                                                style="color: #E6BF73;">the User Agreement and Privacy Policy.</i></a>
+                                         style="width: 80%;height: auto;font-size: 0.93em; color: #666666;margin: 0 auto;float: left">
+                                        <a href="concent/index.jhtml" style="text-decoration: none;"><i>By clicking the button below, I agree to
+                                            the User Agreement and Privacy Policy.</i></a>
                                     </div>
-                                    <div style="width: 80%;height: 45px;text-align: center;">
+                                    <div style="width: 80%;height: 45px;text-align: center;overflow: hidden;">
                                         <input type="submit" class="login_btn" value="Login">
                                     </div>
                                 </div>

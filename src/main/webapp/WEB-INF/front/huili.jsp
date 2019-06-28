@@ -86,7 +86,7 @@
 		<div style="clear: both;"></div>
 		<div style="width: 100%;height: auto;text-align: center;font-family: arial;color: #666666;font-weight: 600;line-height: 29px;">
 			<strong>Hui Li Ph.D.</strong><br />
-			Lab Manager <br/><i style="font-weight: 600;"> HKG Epitherapeutics, Hong Kong</i>
+			Lab Manager <br/><i style="font-weight: 600;"> HKG epiTHERAPEUTICS, Hong Kong</i>
 		</div>
 		<div style="width: 100%;height: 20px;"></div>
 	</div>

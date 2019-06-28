@@ -15,10 +15,10 @@ public class WixregisterController {
     }
 
     @RequestMapping(value = "/wix/register/success")
-    public ModelAndView toLastRegister() {
+    public ModelAndView success() {
         ModelAndView modelView = new ModelAndView();
-        modelView.setViewName("/WEB-INF/front/wix/regsuccess.jsp");
-        modelView.addObject("title", "Thank you for your registration.");
+        modelView.setViewName("/WEB-INF/front/wix/wixsuccess.jsp");
+        modelView.addObject("registration", "Thank you for your registration.");
         modelView.addObject("canback", false);
         return modelView;
     }
