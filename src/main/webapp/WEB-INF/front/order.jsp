@@ -108,7 +108,7 @@
         <div style="text-align: center;height: 60px;background-color: #37475d;width: 40%;color: #f4f6f8;float: left;">
             <div style="height: 100%;font-size: 21px;line-height: 60px">
                 <div class="shop-total">
-                    <strong>Total：$<i class="total" id="AllTotal" name="total_price"></i></strong>
+                    <strong>$<i class="total" id="AllTotal" name="total_price"></i></strong>
                 </div>
                 <script>
                     $(function () {
