@@ -30,7 +30,7 @@
     <jsp:include page="header.jsp"/>
     <div id="diag" style="width: 100%;height: auto;">
         <div style="width: 100%;height: 20px;"></div>
-        <div style="width: 96%;height: auto;margin: 0 auto;">
+        <div style="width: 90%;height: auto;margin: 0 auto;">
             <div style="width: 100%;height: auto;font-family: arial;font-size: 24px; color: #036EB8;font-weight: 700;">
                 DNA methylation is a chemical mark on DNA
             </div>
@@ -50,7 +50,7 @@
     </div>
     <div id="methy" style="width: 100%;height: auto;">
         <div style="width: 100%;height: 20px;"></div>
-        <div style="width: 96%;height: auto;margin: 0 auto;">
+        <div style="width: 90%;height: auto;margin: 0 auto;">
             <div style="width: 100%;height: auto;">
                 <p style="font-family: arial;font-size: 24px;font-weight: 700;color: #036EB8;"> DNA methylation; the
                     genome software</p>
@@ -69,7 +69,7 @@
                     <li> DNA - is the Hardware.</li>
                     <li>The genetic Sequence - is the Operating system.</li>
                     <li>DNA methylation is the - Softwre coding Apps on DNA.</li>
-                    <li>Different " Apps" make cells perform specific tasks in space and time</li>
+                    <li>Different " Apps" make cells perform specific tasks in space and time.</li>
                 </ul>
             </div>
 
@@ -112,7 +112,7 @@
         </div>
     </div>
     <div id="tumor" style="width: 100%;height: auto;">
-        <div style="width: 96%;height: auto;margin: 0 auto;">
+        <div style="width: 90%;height: auto;margin: 0 auto;">
             <div style="width: 100%;height: auto;"><img src="static/images/met2.jpg" style="width: 100%;height: auto;"/>
             </div>
             <div style="width: 100%;height: 20px;"></div>
@@ -121,7 +121,7 @@
             </div>
             <div style="width: 100%;height: 20px;"></div>
             <div style="width: 100%;height: auto;font-family: arial;color: #6D6D6D;">
-                Studies in by Jirtle and his colleagues in 2004 showed in a mouse model that maternal diet during
+                Studies by Jirtle and his colleagues in 2004 showed in a mouse model that maternal diet during
                 pregnancy affects DNA methylation of her offspring and change their coat color and rish of obesity and
                 other conditions.
             </div>
@@ -146,7 +146,7 @@
     </div>
     <div style="width: 100%;height: 40px;"></div>
     <div id="tec-adv" style="width: 100%;height: auto;">
-        <div style="width: 96%;height: auto;margin: 0 auto;">
+        <div style="width: 90%;height: auto;margin: 0 auto;">
             <div style="width: 100%;height: auto;">
                 <div style="width: 65%;height: 100px;float: left;; font-family: arial;color: #036EB8;font-weight: 600;padding-top: 40px ;">
                     DNA methylation is potentially reversible by both physical and behavioral interventions
@@ -188,7 +188,7 @@
                 <div style="clear: both;"></div>
                 <div style="width: 100%;height: 20px;"></div>
                 <div style="width: 100%;height: auto;">
-                    <div style="width: 96%;height: auto;margin: 0 auto;">
+                    <div style="width: 90%;height: auto;margin: 0 auto;">
                         <div id='dot' style="width: 100%; height: auto;color: #666666;font-family: arial;">
                             A paradigm shift in the search for biological age markers has happened with the discovery of
                             the "epigenetic clock" by Horvath.
@@ -208,7 +208,7 @@
                         <div style="width: 100%;height: 20px;"></div>
                         <div id="dot" style="width: 100%;height: auto; color: #666666;font-family: arial;">
                             Our biological age is a better measure of our health and well being than chronological
-                            ageriments.
+                            age.
                         </div>
                         <div style="width: 100%;height: 20px;"></div>
                         <div id="dot" style="width: 100%;height: auto; color: #666666;font-family: arial;">
@@ -217,7 +217,7 @@
                         </div>
                         <div style="width: 100%;height: 20px;"></div>
                         <div id="dot" style="width: 100%;height: auto; color: #666666;font-family: arial;">
-                            Experiments in an animals show that it is possible to reverse the biological clock by
+                            Experiments in animals show that it is possible to reverse the biological clock by
                             dietary changes.
                         </div>
 

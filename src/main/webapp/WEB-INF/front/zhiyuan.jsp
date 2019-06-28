@@ -124,11 +124,11 @@
 									<div style="width: 90%;height: auto;margin: 0 auto;">
 										<div style="width: 100%;height: 40px;"></div>
 										<div>
-											<strong>2015.05</strong> Excellent Topic Summary Award for the 2015 Annual Meeting of the American Society of Immunologists
+											<strong>2015.05</strong> The American Association Immunologists (AAI) Annual Meeting– IMMUNOLOGY, Trainee Abstract Award
 										</div>
 										<div style="width: 100%;height: 20px;"></div>
 										<div>
-											<strong> 2010.09 </strong>State Overseas Studies Fund appointed joint doctoral scholarship
+											<strong> 2010.09 </strong>Scholarship under the State Scholarship Fund of China government
 										</div>
 										<div style="width: 100%;height: 20px;"></div>
 										<div style="font-weight: 800;line-height: 22px;">Ad Hoc Reviewer for Journals</div>

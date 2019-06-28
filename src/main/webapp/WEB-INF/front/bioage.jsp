@@ -18,13 +18,13 @@
 	<div class="header" style="width: 100%;height: auto;">
 		<img src="static/images/bio-1.jpg"style="width: 100%;"height="auto"/>
 		<div style="width: 100%;height: 20px;"></div>
-		<div style="width: 96%;height: auto;margin: 0 auto;line-height: 22px;">Stop counting your age by birthdays or candles on the cake, wrinkles, crow’s feet or the frown lines on your face — those are only numbers. And today, the numbers don’t count. </div>
+		<div style="width: 90%;height: auto;margin: 0 auto;line-height: 22px;">Stop counting your age by birthdays or candles on the cake, wrinkles, crow’s feet or the frown lines on your face — those are only numbers. And today, the numbers don’t count. </div>
 		<div style="width: 100%;height: 15px;"></div>
 	</div>
 
 	<div class="clock"style="width: 100%;height: auto;background-color:#F4F4F4 ;">
 		<div style="width: 100%;height: 20px;"></div>
-		<div style="width: 96%;height: auto;margin: 0 auto;;">
+		<div style="width: 90%;height: auto;margin: 0 auto;;">
 			<div style="width: 100%;height: auto;color: #0071BC;font-size: 20px;font-weight: 500;">
 				How old are you? Why is it important?
 			</div>
@@ -44,7 +44,7 @@
 
 	<div class="clock"style="width: 100%;height: auto;">
 		<div style="width: 100%;height: 20px;"></div>
-		<div style="width: 96%;height: auto;margin: 0 auto;;">
+		<div style="width: 90%;height: auto;margin: 0 auto;;">
 			<div style="width: 100%;height: auto;color: #0071BC;font-size: 20px;font-weight: 500;">
 				What is the epiAging test?  What does it mean?
 			</div>
@@ -63,7 +63,7 @@
 
 	<div class="clock"style="width: 100%;height: auto;background-color:#F4F4F4 ;">
 		<div style="width: 100%;height: 20px;"></div>
-		<div style="width: 96%;height: auto;margin: 0 auto;;">
+		<div style="width: 90%;height: auto;margin: 0 auto;;">
 			<div style="width: 100%;height: auto;color: #0071BC;font-size: 20px;font-weight: 500;">
 				How does the epiAging test work?
 			</div>
@@ -82,7 +82,7 @@
 
 	<div class="clock"style="width: 100%;height: auto;">
 		<div style="width: 100%;height: 20px;"></div>
-		<div style="width: 96%;height: auto;margin: 0 auto;;">
+		<div style="width: 90%;height: auto;margin: 0 auto;;">
 			<div style="width: 100%;height: auto;color: #0071BC;font-size: 20px;font-weight: 500;">
 				Why do you need questionnaires in the app?
 			</div>
@@ -96,7 +96,7 @@
 
 	<div class="clock"style="width: 100%;height: auto;background-color:#F4F4F4 ;">
 		<div style="width: 100%;height: 20px;"></div>
-		<div style="width: 96%;height: auto;margin: 0 auto;;">
+		<div style="width: 90%;height: auto;margin: 0 auto;;">
 			<div style="width: 100%;height: auto;color: #0071BC;font-size: 20px;font-weight: 500;">
 				How the data will be used?
 			</div>
@@ -110,7 +110,7 @@
 
 	<div class="clock"style="width: 100%;height: auto;background-color:#F4F4F4 ;">
 		<div style="width: 100%;height: 20px;"></div>
-		<div style="width: 96%;height: auto;margin: 0 auto;;">
+		<div style="width: 90%;height: auto;margin: 0 auto;;">
 			<div style="width: 100%;height: auto;color: #0071BC;font-size: 20px;font-weight: 500;">
 				Your Biological DNA Age is the Only Age That Counts
 			</div>
@@ -146,7 +146,7 @@
 	</div>
 
 	<div class="method" style="width: 100%;height: auto;background-color: #F4F4F4;">
-		<div style="width: 96%;height: auto;margin: 0 auto;">
+		<div style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: auto;text-align: center;color: #0071BC;font-size: 18px;line-height: 80px;">
 				Biological age detection method
 			</div>
@@ -158,7 +158,7 @@
 			<div style="width: 100%;height: auto;color: #899F54;text-align: center;">
 				Telomere Length
 			</div>
-			<div style="width: 100%;height: auto;text-align: center;line-height: 3px;color: #666666;">
+			<div style="width: 100%;height: auto;text-align: center;line-height: 20px;color: #666666;">
 				<p>The correlation between chronological age and telomere length was found to be weak</p>
 				<p>	High technical requirements</p>
 				<p>Small technical errors may have a decisive </p>
@@ -189,7 +189,7 @@
 				<div style="width: 100%;height: auto;color: #FBA32E;text-align: center;color: #FFFFFF;">
 					<i>Epigenetic clock</i>
 				</div>
-				<div style="width: 96%;height: auto;margin: 0 auto; text-align: center;line-height: 20px;color: #FFFFFF;">
+				<div style="width: 90%;height: auto;margin: 0 auto; text-align: center;line-height: 20px;color: #FFFFFF;">
 					<p>is closely related to the biological function of human body, and the acceleration of epigenetic clock is related to the risk of neurodegenerative diseases and cancer.</p>
 				</div>
 			</div>
@@ -216,9 +216,9 @@
 			<div style="line-height: 80px;"><img src="static/images/bio10.png"style="width: 100%;height: auto;"/></div>
 		</div>
 	</div>
-
+	<div style="width: 100%;height: 30px;"></div>
 	<div class="simple"style="width: 100%;height: auto;background-color: #F4F4F4;">
-		<div style="width: 96%;height: auto;margin: 0 auto;">
+		<div style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: 30px;"></div>
 			<div style="width: 100%;height: auto;color: #0071BC;font-size: 20px;font-weight: 500;">
 				Making Science Simple
@@ -246,7 +246,7 @@
 
 	<div style="width: 100%;height: auto;">
 		<div style="width: 100%;height: 20px;"></div>
-		<div style="width: 96%;height: auto;margin: 0 auto;">
+		<div style="width: 90%;height: auto;margin: 0 auto;">
 			<div style="height: auto;color: #0071BC;font-weight: 500;font-size: 20px;line-height: 60px;">
 				The Epiaging test
 			</div>
