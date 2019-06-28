@@ -26,7 +26,7 @@
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
     <form action="/user/transaction/loadOrder.jhtml" method="post">
-        <div style="background-color:#ffffff;padding-bottom: 70px">
+        <div style="background-color:#ffffff;padding-bottom: 70px;">
 
             <div style="width: 100%;height: 10px;"></div>
             <div name="cartbox" style="width:100%;height:auto;">

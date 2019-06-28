@@ -274,6 +274,10 @@
                 </div>
             </div>
             <div style="width: 100%;height: 30px;"></div>
+            <div name="process" style="width: 90%;height: 50px;margin: 0 auto;display: none;text-align: center;" >
+                <div style="width: 100%;height: 20px;"></div>
+                <img src="/static/images/process.gif" style="width: 32px;height: auto;"/>
+            </div>
             <div name="concent" style="width: 90%;height: auto;color: #666666;margin: 0 auto;">
                 <input type="checkbox" name="checkbox" required="required" id="checkbox" value="checkbox" style="width:15px;height: 12px;">
                         I have read and agree to the
@@ -282,12 +286,8 @@
             <div style="width: 100%;height: 5px;"></div>
             <div style="width: 90%;height: 50px;margin: 0 auto;">
                 <div class="other_login" style="height: 40px;margin: 0 auto;">
-                    <input type="submit" class="login_btn" value="Register" style="margin: 0"></input>
+                    <input type="submit"  class="login_btn" value="Register" style="margin: 0"></input>
                 </div>
-            </div>
-            <div name="process" style="width: 90%;height: 50px;margin: 0 auto;display: none;text-align: center;" >
-                <div style="width: 100%;height: 20px;"></div>
-                <img src="/static/images/process.gif" style="width: 32px;height: auto;"/>
             </div>
         </form>
     </div>
@@ -308,9 +308,9 @@
 <script>
     $("form").submit(function (e) {
         if ($('#checkbox').is(':checked')) {
-            $("input").attr("disabled", true);
-            $("input[type=submit]").remove();
-            $("div[name=concent]").remove();
+            $("input").attr("disabled", "disabled");
+            $("input[type=submit]").css("display","none");
+            $("div[name=concent]").css("display","none");
             $("div[name=process]").css("display","block");
             var mail = $("input[name=mail]").val();
             var password = $("input[name=password]").val();
@@ -323,9 +323,11 @@
             data.country = country;
             $.post("/user/register.jhtml", data, function (data) {
                 if (data != "success") {
-                    alert(data);
-                    $("input").attr("disabled", false);
-                    $("input[type=submit]").remove("disabled").val("register");
+                    window.alert(data);
+                    $("div[name=process]").css("display","none");
+                    $("input").removeAttr("disabled");
+                    $("input[type=submit]").css("display","block");
+                    $("div[name=concent]").css("display","block");
                 } else {
                     window.location.href = '/user/regsuccess.jhtml';
                 }

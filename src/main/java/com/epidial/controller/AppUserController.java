@@ -61,7 +61,7 @@ public class AppUserController {
     String register(User u, HttpSession session) {
         User user = userDao.findUser("mail",u.getMail());
         if (user != null) {
-            return "the " + u.getMail() + " Mailbox has been registered!";
+            return   u.getMail() + " \nhas been registered!";
         } else {
             String uuid = UserCreate.getUuid();
             String title = "[DO NOT REPLY] Please verify your registration on Epi-Aging";
@@ -75,8 +75,8 @@ public class AppUserController {
                     "<div style='width: 100%;height: auto;'>" +
                     "<div style='width: 100%;height: 60px;'></div>" + //
                     "<p>Dear user</p><p>Thank you for your registration on Epi-Aging. <br />Please click on the following link to complete your registration:</p>" +
-                    "<a href='https://app.beijingepidial.com/user/authMail.jhtml?mail=" + u.getMail()+ "'>https://app.beijingepidial.com/user/authMail.jhtml?mail=" + u.getMail()+ "</a>" +
-                    "<p style='color:red'>If you're unable to click on any of the links above, copy and paste the URL into a new browser window instead</p><p>HKG epitherapeutics Limited<br />https://www.hkgepitherapeutics.com</p>" +
+                    "<span style='font-size: 24px;text-decoration: underline' >https://app.beijingepidial.com/user/authMail.jhtml?mail=" + u.getMail()+ "</span>" +
+                    "<p style='color:red;font-size: 18px;'>Note: If clicking the activation link fails to activate the user, copy the activation link to the browser address bar to activate the user's mailbox.</p><p>HKG epitherapeutics Limited<br />https://www.hkgepitherapeutics.com</p>" +
                     "<p>(+852) 2354 8297<br/>info@hkgepitherapeutics.com</p><p>2019 All rights reserved</p>" +
                     "</div>" +
                     "</body>" +
@@ -90,7 +90,7 @@ public class AppUserController {
                 userDao.save(u);
                 return "success";
             }else {
-                return  data;
+                return  "network-error";
             }
         }
     }
@@ -198,6 +198,14 @@ public class AppUserController {
         }else {
             return "Mailbox not registered!";
         }
+    }
+    @RequestMapping(value = "/register")
+    public ModelAndView regview(){
+        ModelAndView modelView = new ModelAndView();
+        modelView.setViewName("/WEB-INF/front/register.jsp");
+        modelView.addObject("title","Register");
+        modelView.addObject("canback", true);
+        return  modelView;
     }
     @RequestMapping("/user/logout")
     public  ModelAndView logout(HttpSession session){

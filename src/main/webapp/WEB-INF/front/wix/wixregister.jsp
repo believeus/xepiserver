@@ -306,10 +306,10 @@
 <script>
     $("form").submit(function (e) {
         if ($('#checkbox').is(':checked')) {
-            $("input").attr("disabled", true);
-            $("input[type=submit]").remove();
-            $("div[name=concent]").remove();
-            $("div[name=process]").css("display", "block");
+            $("input").attr("disabled", "disabled");
+            $("input[type=submit]").css("display","none");
+            $("div[name=concent]").css("display","none");
+            $("div[name=process]").css("display","block");
             var mail = $("input[name=mail]").val();
             var password = $("input[name=password]").val();
             var nickname = $("#firstname").val() + "." + $("#lastname").val();
@@ -322,14 +322,16 @@
             $.post("/user/register.jhtml", data, function (data) {
                 if (data != "success") {
                     window.alert(data);
-                    $("input").attr("disabled", false);
-                    $("input[type=submit]").remove("disabled").val("register");
+                    $("div[name=process]").css("display","none");
+                    $("input").removeAttr("disabled");
+                    $("input[type=submit]").css("display","block");
+                    $("div[name=concent]").css("display","block");
                 } else {
-                    window.location.href = "/wix/register/success.jhtml";
+                    window.location.href = '/user/regsuccess.jhtml';
                 }
             });
         } else {
-            window.alert("Please accept the user Agreement , before sign in!")
+            alert("Please accept the user Agreement , before sign in!")
             return false;
         }
         return false;

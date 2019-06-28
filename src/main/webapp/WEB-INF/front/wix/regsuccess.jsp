@@ -60,6 +60,7 @@
                 margin: 0 auto;
                 text-align: left; ">
                 <div style="width: 100%;text-align: center"> <p style="font-size: 26px">Thank you for your registration.</p></div>
+                <a style="color: black;font-size: 24px" href="https://www.epi-age.com/">Home Page</a>
                 <p style="font-size: 20px">We have sent to you a verification email.</p>
                 <p style="font-size: 20px">Please complete your registration by following the instruction in the email.</p>
             </div>

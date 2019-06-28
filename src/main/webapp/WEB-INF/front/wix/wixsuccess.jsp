@@ -44,7 +44,7 @@
     <div style="width: 100%;height: 50px;">
     </div>
     <div style="width: 20%;height: auto;margin: 0 auto;">
-        <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: auto;margin: 0 auto;">
+        <a href="https://www.epi-age.com/"><img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: auto;margin: 0 auto;"></a>
     </div>
     <div style="width:100%;height:270px;">
         <div id="login"></div>
@@ -56,6 +56,8 @@
                     <div style="width: 100%;text-align: center;line-height: 100px;"><p style="font-size: 24px">Thank you
                         for your
                         registration.</p></div>
+                    <a style="color: black;font-size: 24px;font-weight: bold;text-decoration: underline;" href="https://www.epi-age.com/">[Home Page]</a>
+
                     <p style="font-size: 20px;">We have sent to you a verification
                         email.</p>
                     <p style="font-size: 20px;">Please complete your registration by following the

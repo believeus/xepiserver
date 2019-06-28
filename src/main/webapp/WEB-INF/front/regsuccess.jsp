@@ -47,37 +47,28 @@
 
 </head>
 <body style="margin: 0;padding: 0">
-<div  style="width: 100%;height: 50px">
-    <jsp:include page="header.jsp"></jsp:include>
-</div>
+
 <div style="background-image:url('static/images/bg.png');width:100%;height:667px;">
-    <div id="login"></div>
-    <div class="login_bg">
-        <div id="logo">
-            <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%"/>
+    <jsp:include page="header.jsp"></jsp:include>
+    <div style="clear: both;width: 100%;height: 30px;"></div>
+    <div class="login_bg" style="clear: both">
+        <div id="logo" style="text-align: center">
+            <img src="static/images/InOrUp/com_logo.png" style="width: 30%;height: auto;"/>
         </div>
 
         <div id="PhonePart" style="width:100%">
             <div style=" width: 80%;
                 margin: 0 auto;
                 text-align: left; ">
-                <div style="width: 100%;text-align: center"> <p style="font-size: 26px">Thank you for your registration.</p></div>
-                <p style="font-size: 20px">We have sent to you a verification email.</p>
-                <p style="font-size: 20px">Please complete your registration by following the instruction in the email.</p>
+                <div style="clear: both;width: 100%;height: 30px;"></div>
+                <div style="width: 100%;text-align: center"> <p style="font-size: 24px">Thank you for your registration.</p></div>
+                <div style="clear: both;width: 100%;height: 30px;"></div>
+                <p style="font-size: 20px;text-align: center;">We have sent to you a verification email to your mailbox.Please complete your registration by following the instruction in the email.</p>
             </div>
         </div>
 
     </div>
-    <jsp:include page="footnav.jsp"></jsp:include>
 </div>
 </body>
 
 </html>
-
-
-
-<script>
-    function ToLogin() {
-        window.location.href = 'login.jhtml';
-    }
-</script>
