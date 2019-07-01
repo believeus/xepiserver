@@ -65,8 +65,11 @@
                                     <div style="width: 100%;height: 110px;"></div>
                                     <div name="concent"
                                          style="width: 80%;height: auto;font-size: 0.93em; color: #666666;margin: 0 auto;float: left">
-                                        <a href="concent/index.jhtml" style="text-decoration: none;"><i>By clicking the button below, I agree to
-                                            the User Agreement and Privacy Policy.</i></a>
+                                        <div style="width: 50%;margin: 0 auto;">
+                                            <a href="concent/index.jhtml" style="text-decoration: none;"><i>By clicking
+                                                the button below, I agree to
+                                                the User Agreement and Privacy Policy.</i></a>
+                                        </div>
                                     </div>
                                     <div style="width: 80%;height: 45px;text-align: center;overflow: hidden;">
                                         <input type="submit" class="login_btn" value="Login">
