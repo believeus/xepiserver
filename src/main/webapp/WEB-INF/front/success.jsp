@@ -19,11 +19,9 @@
     <jsp:include page="header.jsp"></jsp:include>
     <div style="width: 100%;height: 72px;"></div>
     <div style="width: 100%;height: auto;">
-        <div style="width: 40%;height: 100px;float: left;"></div>
-        <div style="width: 20%;height: 100px;float: left;">
-            <img src="static/images/success-2.png" style="width: 100%;height: auto;"/>
+        <div style="overflow: hidden; width: 100%;height: 120px;text-align: center;">
+            <img src="static/images/success-2.png" width="100px" height="100px"/>
         </div>
-        <div style="width: 30%;height: 100px;float: left;"></div>
     </div>
     <div style="width: 100%;height: 300px;overflow: hidden;">
         <div style="width: 100%;height: 87px;text-align: center;line-height: 40px;font-weight: bold;font-family: arial;font-size: 20px;color: #0071BC;font-family: arial;">
