@@ -426,7 +426,7 @@
 
             <div style="width: 100%;height: 10px;background-color: #f4f6f8;"></div>
         </div>
-        <div style="clear:both;overflow:hidden;width:100%;height:60px;position:fixed;bottom:60px;border-top:1px solid #e0e0e0;background:#fff;">
+        <div style="clear:both;overflow:hidden;width:100%;height:60px;bottom:60px;border-top:1px solid #e0e0e0;background:#fff;">
             <div style="text-align: center;height: 100%;background-color: #37475d;width: 60%;color: #f4f6f8;float: left;">
                 <div style="height: 100%;font-size: 21px;line-height: 60px">
                     <div class="shop-total">
