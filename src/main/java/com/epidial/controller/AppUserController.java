@@ -162,6 +162,14 @@ public class AppUserController {
             return "null";
         }
     }
+    @RequestMapping("/user/mycenter/index")
+    public ModelAndView mycenter(){
+        ModelAndView modelView=new ModelAndView();
+        modelView.setViewName("/WEB-INF/front/usercenter.jsp");
+        modelView.addObject("title","User Center");
+        modelView.addObject("canback",true);
+        return modelView;
+    }
     @RequestMapping("/user/repasswdview")
     public ModelAndView repasswdview(String mail,String token){
         ModelAndView modelView=new ModelAndView();

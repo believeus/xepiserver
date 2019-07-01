@@ -6,7 +6,6 @@ import com.epidial.bean.Task;
 import com.epidial.bean.User;
 import com.epidial.bean.Wares;
 import com.epidial.dao.epi.TaskDao;
-import com.epidial.dao.epi.UserDao;
 import com.epidial.dao.epi.WaresDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,8 +28,6 @@ public class TransactionController {
     @Resource
     private WaresDao waresDao;
 
-    @Resource
-    private UserDao userDao;
 
     //产品信息查询
 
@@ -78,9 +75,13 @@ public class TransactionController {
     }
 
     @RequestMapping(value = "/user/transaction/success.jhtml")
-    public ModelAndView paySuccess() {
+    public ModelAndView paySuccess(String mobile) {
         ModelAndView modelView = new ModelAndView();
-        modelView.setViewName("/WEB-INF/front/success.jsp");
+        if (mobile.equals("true")) {
+            modelView.setViewName("/WEB-INF/front/success.jsp");
+        }else {
+            modelView.setViewName("/WEB-INF/front/wix/success.jsp");
+        }
         modelView.addObject("title", " Pay Success!");
         modelView.addObject("canback", false);
         return modelView;

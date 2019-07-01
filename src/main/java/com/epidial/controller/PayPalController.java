@@ -42,7 +42,7 @@ public class PayPalController {
     public final APIContext apiContext = new APIContext(clienId, secret, "live");*/
     //负责发起支付请求,会跳转到paypal的支付页面
     @RequestMapping("/user/paypal/payment")
-    public String payment(HttpSession session, HttpServletResponse response) {
+    public String payment(HttpSession session, HttpServletResponse response,String mobile) {
         User user = (User) session.getAttribute("sessionuser");
         //将其他地址状态归置
         addressDao.update("valid", 0, "uuid", user.getUuid());
@@ -71,8 +71,13 @@ public class PayPalController {
                 }
             }
             userDao.update(user);
-            //return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml";
-            return "redirect:http://localhost:8080/user/transaction/success.jhtml";
+            if (mobile.equals("true")) {
+                //return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=true";
+                return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=true";
+            }else {
+                //return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=false";
+                return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=false";
+            }
         } else {
             //测试数据
             //String total = "5";
@@ -93,9 +98,16 @@ public class PayPalController {
                 RedirectUrls redirectUrls = new RedirectUrls();
                 //redirectUrls.setCancelUrl("https://app.beijingepidial.com/index.jhtml");
                 redirectUrls.setCancelUrl("http://localhost:8080/index.jhtml");
-                // //当用户在paypal页面上点击支付的时候,这个请求会被调用
-                //redirectUrls.setReturnUrl("https://app.beijingepidial.com/user/paypal/paysuccess.jhtml");
-                redirectUrls.setReturnUrl("http://localhost:8080/user/paypal/paysuccess.jhtml");
+                if (mobile.equals("true")) {
+                    // //当用户在paypal页面上点击支付的时候,这个请求会被调用
+                    //redirectUrls.setReturnUrl("https://app.beijingepidial.com/user/paypal/paysuccess.jhtml?mobile=true");
+                    redirectUrls.setReturnUrl("http://localhost:8080/user/paypal/paysuccess.jhtml?mobile=true");
+                }else {
+                    // //当用户在paypal页面上点击支付的时候,这个请求会被调用
+                    //redirectUrls.setReturnUrl("https://app.beijingepidial.com/user/paypal/paysuccess.jhtml?mobile=false");
+                    redirectUrls.setReturnUrl("http://localhost:8080/user/paypal/paysuccess.jhtml?mobile=false");
+                }
+
                 payment.setRedirectUrls(redirectUrls);
                 Payment createdPayment = payment.create(apiContext);
                 Iterator<Links> links = createdPayment.getLinks().iterator();
@@ -118,7 +130,7 @@ public class PayPalController {
     //当用户在paypal页面上点击支付的时候,这个请求会被调用
     //参数paymentId和PayerID必填,在这个方法逻辑中负责转账支付
     @RequestMapping(value = "/user/paypal/paysuccess", method = RequestMethod.GET)
-    public String paysuccess(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId, HttpSession session, HttpServletResponse response) {
+    public String paysuccess(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId, HttpSession session, HttpServletResponse response,String mobile) {
         try {
             User user = (User) session.getAttribute("sessionuser");
             Payment payment = new Payment();
@@ -148,8 +160,13 @@ public class PayPalController {
                     udataDao.save(data);
                 }
             }
-            //return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml";
-            return "redirect:http://localhost:8080/user/transaction/success.jhtml";
+            if (mobile.equals("true")) {
+                //return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=true";
+                return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=true";
+            }else {
+                //return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=false";
+                return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=false";
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

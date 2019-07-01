@@ -113,7 +113,6 @@
                 <script>
                     $(function () {
                         $.post("/user/cart/sumprice.jhtml", function (data) {
-                            console.info(data);
                             $("[id=AllTotal]").text(data);
                         });
                     });
@@ -138,7 +137,7 @@
                 if (msg.length != 0) {
                     $("div[name=waiting]").css("display","block");
                     $("div[name=shopcart]").remove();
-                    window.location.href = '/user/paypal/payment.jhtml';
+                    window.location.href = '/user/paypal/payment.jhtml?mobile=true';
                 } else {
                     window.alert("Please select a product.");
                     window.location.href = "/user/cart/index.jhtml";
