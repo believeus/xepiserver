@@ -98,18 +98,23 @@
             </div>
             <div class="more_lang">
 
-                <div class="lang" data-value='cn'>
+                <%--<div class="lang" data-value='cn'>
                     <img src="https://image.flaticon.com/icons/svg/299/299914.svg">
                     <span class="lang-txt">简体中文</span>
-                </div>
+                </div>--%>
 
                 <div class="lang selected" data-value='en'>
                     <img src="https://image.flaticon.com/icons/svg/299/299722.svg">
                     <span class="lang-txt">English<span> (US)</span></span>
                 </div>
 
+                    <div class="lang" data-value='ru'>
+                        <a href=""><img src="static/images/flag/ru-flag.png">
+                        <span class="lang-txt">Russian</span>
+                        </a>
+                    </div>
 
-                <div class="lang" data-value='de'>
+                <%--<div class="lang" data-value='de'>
                     <img src="https://image.flaticon.com/icons/svg/299/299786.svg">
                     <span class="lang-txt">Deutsch</span>
                 </div>
@@ -134,7 +139,7 @@
                 <div class="lang" data-value="ar">
                     <img src="https://image.flaticon.com/icons/svg/299/299815.svg">
                     <span class="lang-txt">العربية <span> (SA)</span></span>
-                </div>
+                </div>--%>
             </div>
         </div>
         <div class="content">
