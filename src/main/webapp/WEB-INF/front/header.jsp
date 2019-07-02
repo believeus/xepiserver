@@ -104,8 +104,10 @@
                 </div>--%>
 
                 <div class="lang selected" data-value='en'>
-                    <img src="https://image.flaticon.com/icons/svg/299/299722.svg">
+                   <a href="">
+                    <img src="static/images/flag/usa-flag.png">
                     <span class="lang-txt">English<span> (US)</span></span>
+                   </a>
                 </div>
 
                     <div class="lang" data-value='ru'>
