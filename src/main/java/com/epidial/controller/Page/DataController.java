@@ -10,7 +10,7 @@ public class DataController {
 	public ModelAndView data(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/data.jsp");
-		modelView.addObject("title","Why should I enter my life style data?");
+		modelView.addObject("title","Data Security");
 		modelView.addObject("canback",true);
 		return modelView;
 	}

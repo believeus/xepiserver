@@ -10,7 +10,7 @@ public class HuiliController {
 	public ModelAndView huili(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.addObject("canback",true);
-		modelView.addObject("title","Hui Li Introduction");
+		modelView.addObject("title","Hui Li");
 		modelView.setViewName("/WEB-INF/front/huili.jsp");
 		return modelView;
 	}

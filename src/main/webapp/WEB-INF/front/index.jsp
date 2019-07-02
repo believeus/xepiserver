@@ -40,7 +40,7 @@ div[id=blue-dot]:before {
 <body style="padding: 0;margin: 0;">
 	<div style="width: 100%;height: 100%;">
 		<jsp:include page="header.jsp" />
-		<div id="header">
+		<div id="header" style="z-index: -1">
 			<div id="slide" class="slide" style="width: 100%;height:auto;">
 				<ul>
 					<li><a href="bioage/index.jhtml"> <img id="img1" src="static/images/h1.jpg">

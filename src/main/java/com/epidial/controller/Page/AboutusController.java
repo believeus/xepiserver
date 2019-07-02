@@ -17,7 +17,7 @@ public class AboutusController {
 	public ModelAndView   prof(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/prof.jsp");
-		modelView.addObject("title","About us introduction");
+		modelView.addObject("title","About Us");
 		modelView.addObject("canback",true);
 		return modelView;
 	}

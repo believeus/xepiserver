@@ -10,7 +10,7 @@ public class AgingController {
 	public ModelAndView aging(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/aging.jsp");
-		modelView.addObject("title","epiAging introduction");
+		modelView.addObject("title","epiAging");
 		modelView.addObject("canback",true);
 		return modelView;
 	}

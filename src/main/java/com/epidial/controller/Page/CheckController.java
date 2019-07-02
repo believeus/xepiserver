@@ -42,7 +42,7 @@ public class CheckController {
 		}
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/order.jsp");
-		modelView.addObject("title","Check your order");
+		modelView.addObject("title","Confirm order");
 		modelView.addObject("canback",true);
 		return modelView;
 	}

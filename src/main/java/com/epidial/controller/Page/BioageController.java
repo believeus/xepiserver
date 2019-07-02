@@ -10,7 +10,7 @@ public class BioageController {
 	public ModelAndView bioage(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/bioage.jsp");
-		modelView.addObject("title","Biological age Introduction");
+		modelView.addObject("title","Biological age");
 		modelView.addObject("canback",true);
 		return modelView;
 	}

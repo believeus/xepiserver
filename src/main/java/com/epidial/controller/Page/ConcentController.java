@@ -10,7 +10,7 @@ public class ConcentController {
 	public ModelAndView concent(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/concent.jsp");
-		modelView.addObject("title","User Informed Consent");
+		modelView.addObject("title","User Consent");
 		modelView.addObject("canback",true);
 		return modelView;
 	}

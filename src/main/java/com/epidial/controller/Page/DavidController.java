@@ -10,7 +10,7 @@ public class DavidController {
 	public ModelAndView david(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.addObject("canback",true);
-		modelView.addObject("title","David Cheishvili Introduction");
+		modelView.addObject("title","David Cheishvili");
 		modelView.setViewName("/WEB-INF/front/david.jsp");
 		return modelView;
 	}
