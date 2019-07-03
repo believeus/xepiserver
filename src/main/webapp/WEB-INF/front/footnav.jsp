@@ -53,25 +53,25 @@
     <li class="Imgbox" img="static/images/footer/ho1.png" data-img="static/images/footer/ho2.png">
         <a href="index.jhtml">
             <img src="static/images/footer/ho1.png" />
-            <p class="actives">HOME</p>
+            <div class="actives">HOME</div>
         </a>
     </li>
     <li class="Imgbox" img="static/images/footer/hg1.png" data-img="static/images/footer/hg2.png">
         <a href="aboutus/index.jhtml">
             <img src="static/images/footer/hg1.png" />
-            <p>ABOUT</p>
+            <div>ABOUT</div>
         </a>
     </li>
     <li class="Imgbox" img="static/images/footer/sh1.png" data-img="static/images/footer/sh2.png">
         <a href="user/cart/index.jhtml">
             <img src="static/images/footer/sh1.png" />
-            <p>SHOP</p>
+            <div>SHOP</div>
         </a>
     </li>
     <li class="Imgbox" img="static/images/footer/ep1.png" data-img="static/images/footer/ep2.png">
         <a href="user/mycenter/index.jhtml">
             <img src="static/images/footer/ep1.png" />
-            <p>EPICENTER</p>
+            <div>EPICENTER</div>
         </a>
     </li>
 </ul>

@@ -91,9 +91,9 @@
         <div class="translate_wrapper"style="z-index: 999999;padding-right: 5px;">
             <div class="current_lang">
                 <div class="lang">
-                    <a href="index.jhtml">
+                    <a href="https://app.beijingepidial.com:443/index.jhtml">
                     <img src="static/images/flag/usa-flag.png">
-                    <span class="lang-txt">EN</span></span>
+                    <span class="lang-txt">EN</span>
                     <span class="fa fa-chevron-down chevron"></span>
                     </a>
                 </div>
@@ -106,9 +106,9 @@
                 </div>--%>
 
                 <div class="lang selected" data-value='en'>
-                   <a href="index.jhtml">
+                   <a href="https://app.beijingepidial.com/russian/index.jhtml">
                     <img src="static/images/flag/usa-flag.png">
-                    <span class="lang-txt">English<span> (US)</span></span>
+                    <span class="lang-txt">Роия</span>
                    </a>
                 </div>
 
