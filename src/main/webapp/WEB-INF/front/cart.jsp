@@ -34,17 +34,32 @@
                 <c:forEach items="${waresbox}" var="wares">
                     <li>
                         <div class="shop-info">
-                            <input type="checkbox" name="checkbox" class="check goods-check goodsCheck"
-                                   value="${wares.id}"
-                                   style="border:0px solid #000">
+                            <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="${wares.id}" style="border:0px solid #000">
                             <div class="shop-info-img" style="text-align: center;">
-                                <a href="aging/index.jhtml">
-                                    <img src="${wares.imgpath}"
-                                         style="width: 90%;height:auto;transform: translateY(10px);"/>
-                                </a>
+                                <c:choose>
+                                    <c:when test="${wares.id==1001}">
+                                        <a href="aging/index.jhtml">
+                                            <img src="${wares.imgpath}" style="width: 90%;height:auto;transform: translateY(10px);"/>
+                                        </a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="same/index.jhtml">
+                                            <img src="${wares.imgpath}" style="width: 90%;height:auto;transform: translateY(10px);"/>
+                                        </a>
+                                    </c:otherwise>
+                                </c:choose>
+
                             </div>
                             <div class="shop-info-text">
-                                <h4><a href="aging/index.jhtml">${wares.name}</a></h4>
+                                <c:choose>
+                                    <c:when test="${wares.id==1001}">
+                                        <h4><a href="aging/index.jhtml">${wares.name}</a></h4>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <h4><a href="same/index.jhtml">${wares.name}</a></h4>
+                                    </c:otherwise>
+                                </c:choose>
+
                                 <div class="shop-brief"></div>
                                 <div class="shop-price">
                                     <div class="shop-pices">$<b class="price">${wares.price}</b></div>

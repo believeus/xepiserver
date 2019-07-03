@@ -91,9 +91,11 @@
         <div class="translate_wrapper"style="z-index: 999999;padding-right: 5px;">
             <div class="current_lang">
                 <div class="lang">
-                    <img src="https://image.flaticon.com/icons/svg/299/299722.svg">
-                    <span class="lang-txt">EN</span>
+                    <a href="index.jhtml">
+                    <img src="static/images/flag/usa-flag.png">
+                    <span class="lang-txt">EN</span></span>
                     <span class="fa fa-chevron-down chevron"></span>
+                    </a>
                 </div>
             </div>
             <div class="more_lang">
@@ -104,15 +106,15 @@
                 </div>--%>
 
                 <div class="lang selected" data-value='en'>
-                   <a href="">
+                   <a href="index.jhtml">
                     <img src="static/images/flag/usa-flag.png">
                     <span class="lang-txt">English<span> (US)</span></span>
                    </a>
                 </div>
 
                     <div class="lang" data-value='ru'>
-                        <a href=""><img src="static/images/flag/ru-flag.png">
-                        <span class="lang-txt">Russian</span>
+                        <a href="russian/index.jhtml"><img src="static/images/flag/ru-flag.png">
+                        <span class="lang-txt">Рия</span>
                         </a>
                     </div>
 

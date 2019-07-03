@@ -327,7 +327,7 @@
                     $("input[type=submit]").css("display","block");
                     $("div[name=concent]").css("display","block");
                 } else {
-                    window.location.href = '/wix/register/success.jhtml';
+                    window.location.href = 'http://user.epi-age.com/wix/register/success.jhtml';
                 }
             });
         } else {

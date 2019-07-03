@@ -31,13 +31,13 @@
         <div style="width:100%;height:100%;">
             <div style="width: 100%;height: 40px;">
                 <div style="cursor: pointer;float: right;font-size: 20px;font-weight: bold">
-                    <a href="/wix/wixorder/index.jhtml" style="text-decoration: none;color: black;">Register</a>
+                    <a href="http://user.epi-age.com/wix/wixorder/index.jhtml" style="text-decoration: none;color: black;">Register</a>
                     <span>|</span>
                     <a href="https://www.epi-age.com/" style="text-decoration: none;color: black">Home</a>
                 </div>
             </div>
             <div id="login"></div>
-            <form action="/user/login.jhtml" method="post">
+            <form action="http://user.epi-age.com/user/login.jhtml" method="post">
                 <div class="login_bg">
                     <div style=" width: 80%; margin: 0 auto;text-align: left;">
                         <div id="PWDSignIn" style="display:block">

@@ -470,11 +470,11 @@
                     data.city = $("#city").val();
                     data.detail = $("[name=detail-1]").val() + $("[name=detail-2]").val() + $("[name=detail-3]").val();
                     $.post("/user/address/save.jhtml", data, function (data) {
-                        window.location.href = "/wix/cart/review.jhtml" ;
+                        window.location.href = "http://user.epi-age.com/wix/cart/review.jhtml" ;
                     });
                 } else {
                     window.alert("Please select a product.");
-                    window.location.href = "/wix/cart/index.jhtml";
+                    window.location.href = "http://user.epi-age.com/wix/cart/index.jhtml";
                 }
             });
 

@@ -79,10 +79,3 @@
 </body>
 
 </html>
-
-
-<script>
-    function ToLogin() {
-        window.location.href = 'login.jhtml';
-    }
-</script>
