@@ -24,7 +24,7 @@
 <script>
     $(function () {
         $(document).ready(function () {
-           // $('.navbar-wrapper').stickUp();
+            // $('.navbar-wrapper').stickUp();
         });
 
     });
@@ -88,74 +88,26 @@
     <!-- End Navbar -->
     <!-- Start lang-->
     <div style="width:20%;height: 53px; float: left;background-color: #0071BC;padding-top: 8px;z-index: 999999;">
-        <div class="translate_wrapper"style="z-index: 999999;padding-right: 5px;">
-            <div class="current_lang">
-                <div class="lang">
-                    <a href="https://app.beijingepidial.com:443/index.jhtml">
+        <div class="translate_wrapper" style="z-index: 999999;">
+            <div name="cur-lang" class="current_lang">
+                <div name="us-lang"  class="lang" data-value='en'>
                     <img src="static/images/flag/usa-flag.png">
                     <span class="lang-txt">EN</span>
-                    <span class="fa fa-chevron-down chevron"></span>
-                    </a>
                 </div>
             </div>
             <div class="more_lang">
-
-                <%--<div class="lang" data-value='cn'>
-                    <img src="https://image.flaticon.com/icons/svg/299/299914.svg">
-                    <span class="lang-txt">简体中文</span>
-                </div>--%>
-
-                <div class="lang selected" data-value='en'>
-                   <a href="https://app.beijingepidial.com/russian/index.jhtml">
+                <div name="us-lang"  class="lang" data-value='en'>
                     <img src="static/images/flag/usa-flag.png">
-                    <span class="lang-txt">Роия</span>
-                   </a>
+                    <span class="lang-txt" >EN</span>
                 </div>
-
-                    <div class="lang" data-value='ru'>
-                        <a href="russian/index.jhtml"><img src="static/images/flag/ru-flag.png">
-                        <span class="lang-txt">Рия</span>
-                        </a>
-                    </div>
-
-                <%--<div class="lang" data-value='de'>
-                    <img src="https://image.flaticon.com/icons/svg/299/299786.svg">
-                    <span class="lang-txt">Deutsch</span>
+                <div name="ru-lang" class="lang" data-value='ru'>
+                    <img src="static/images/flag/ru-flag.png">
+                    <span class="lang-txt">RU</span>
                 </div>
-
-                <div class="lang" data-value='es'>
-                    <img src="https://image.flaticon.com/icons/svg/299/299820.svg">
-                    <span class="lang-txt">Español</span>
-                </div>
-
-
-                <div class="lang" data-value='fr'>
-                    <img src="https://image.flaticon.com/icons/svg/299/299753.svg">
-                    <span class="lang-txt">Français</span>
-                </div>
-
-
-                <div class="lang" data-value="pt">
-                    <img src="https://image.flaticon.com/icons/svg/299/299693.svg">
-                    <span class="lang-txt">Português<span> (BR)</span></span>
-                </div>
-
-                <div class="lang" data-value="ar">
-                    <img src="https://image.flaticon.com/icons/svg/299/299815.svg">
-                    <span class="lang-txt">العربية <span> (SA)</span></span>
-                </div>--%>
             </div>
         </div>
-        <div class="content">
-            <%-- <div class="ct-txt">
-                 <h1></h1>
-                 <p></p>
-                 <a href="#"><span>Link</span></a>
-             </div>--%>
-        </div>
+        <div class="content"></div>
     </div>
-</div>
-<!-- End lang-->
-
+    <!-- End lang-->
 
 

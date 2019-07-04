@@ -9,7 +9,15 @@ $(document).ready(function(){
   $('.translate_wrapper .current_lang').click(function(e){    
     e.stopPropagation();
     $(this).parent().toggleClass('active');
-    
+    $("div[name=cur-lang]").attr("data-url","https://app.beijingepidial.com/index.jhtml").click(function () {
+      window.location.href=$(this).attr("data-url");//让浏览器跳转
+    });
+    $("div[name=ru-lang]").attr("data-url","https://app.beijingepidial.com/russian/index.jhtml").click(function () {
+      window.location.href=$(this).attr("data-url");//让浏览器跳转
+    });
+    $("div[name=us-lang]").attr("data-url","https://app.beijingepidial.com/index.jhtml").click(function () {
+      window.location.href=$(this).attr("data-url");//让浏览器跳转
+    });
     setTimeout(function(){
       $('.more_lang').toggleClass('active');
     }, 5);
