@@ -42,10 +42,10 @@
 			<div style="accelerator: 100%;height: auto;background-color: #C1272D;">
 				<div style="width: 90%;height: auto;margin: 0 auto;color: #FFFFFF; font-family: arial;font-size: 14px;">
 					Overview: The McGill Pain Questionnaire can be used to evaluate a person experiencing significant pain. It can be used to monitor the pain over time and to determine the effectiveness of any intervention. It was developed at by Dr. Melzack at McGill University in Montreal Canada and has been translated into several languages.
-					<p>Sections:</p>
-					<p>1) What Does Your Pain Feel Like?</p>
-					<p>2) How Does Your Pain Change with Time?</p>
-					<p>3)How Strong is Your Pain?</p>
+					<div>Sections:</div>
+					<div>1) What Does Your Pain Feel Like?</div>
+					<div>2) How Does Your Pain Change with Time?</div>
+					<div>3)How Strong is Your Pain?</div>
 
 				</div>
 			</div>
@@ -3975,7 +3975,7 @@
 			</div> -->
 		<!-- <div style="width: 100%;height: auto;">
 				References:
-				<p>Melzack R. The McGill Pain Questionnaire: Major properties and scoring methods. Pain. 1975;1: 277-299. Stein C Mendl G. The German counterpart to McGill Pain Questionnaire. Pain. 1988; 32: 251-255.</p>
+				<div>Melzack R. The McGill Pain Questionnaire: Major properties and scoring methods. Pain. 1975;1: 277-299. Stein C Mendl G. The German counterpart to McGill Pain Questionnaire. Pain. 1988; 32: 251-255.</div>
 			</div> -->
 		<!-- <div class="submit" style="width: 100%;height: 30px;">
 				<button type="button" style="width: 90%;height: 40px;margin-left: 18px; display: block;margin: 0 auto; text-align:center;border-radius: 10px; font-size: 18px;line-height:28px; vertical-align:middle;background-color:#C1272D; color:#FFFFFF ;">Submit</button>

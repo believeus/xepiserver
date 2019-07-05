@@ -36,11 +36,11 @@
         <div style="width: 100%;height: auto;padding-top: 20px">
             <img src="static/images/usermanual/m2.png" style="width: 90%;height: auto;">
         </div>
-        <p> 2.1 Click the Agree to accept Customer Consent.</p>
+        <div> 2.1 Click the Agree to accept Customer Consent.</div>
         <div style="width: 100%;height: auto">
             <img src="static/images/usermanual/m4.png" style="width: 90%;height: auto;">
         </div>
-        <p>2.2You can use your registered email address & password that you create to Login to the App next time.</p>
+        <div>2.2You can use your registered email address & password that you create to Login to the App next time.</div>
         <div style="width: 100%;height: auto;">
             <img src="static/images/usermanual/m3.png" style="width: 90%;height: auto;">
         </div>

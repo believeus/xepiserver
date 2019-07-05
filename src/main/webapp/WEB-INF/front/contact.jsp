@@ -26,9 +26,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div style="width: 100%;height: 400px;overflow: hidden;">
 				<div style="width: 100%;height: 40px;text-align: center;line-height: 40px;font-family: arial;font-size: 18px;color: #666666;">(+852) 2354 8297</div>
 				<div style="width: 100%;height: 40px;text-align: center;line-height: 40px;color: #666666;">
-					<p> <i>info@hkgepitherapeutics.com</i></p>
-					<p> https://www.hkgepitherapeutics.com</p>
-					<p>HKG epitherapeutics Limited Unit 613, Biotech Centre 2,Hong Kong Science Park,Sha Tin,N.T.,Hong Kong</p>
+					<div> <i>info@hkgepitherapeutics.com</i></div>
+					<div> https://www.hkgepitherapeutics.com</div>
+					<div>HKG epitherapeutics Limited Unit 613, Biotech Centre 2,Hong Kong Science Park,Sha Tin,N.T.,Hong Kong</div>
 				</div>
 			</div>
 			<jsp:include page="footnav.jsp"></jsp:include>

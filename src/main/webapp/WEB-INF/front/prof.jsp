@@ -192,7 +192,7 @@
     <div class="video" ; style="width: 100%;height: auto;">
         <div style="width: 100%;height: auto;background-color:#EDEEF0 ;overflow: hidden;">
             <div style="width: 96%;height: auto;margin: 0 auto;">
-                <p style="line-height: 60px;font-weight: 900;">Related Videos</p>
+                <div style="line-height: 60px;font-weight: 900;">Related Videos</div>
                 <div style="width: 100%;height: auto; font-size: 14px;font-family: arial;line-height: 20px ;color: #666666;">
                     Healthtech O2O Summit Dr. Moshe Szyf, HKG Epitherapeutics.mp4
                 </div>

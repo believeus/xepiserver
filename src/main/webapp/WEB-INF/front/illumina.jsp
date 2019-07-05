@@ -33,10 +33,10 @@
 			</div>
 
 			<div style="width: 96%;height: auto;line-height: 18px;margin: 0 auto; font-family: arial; color: #666666; border:  ">
-				<p>Illumina sequencing technology combines microarray technology with proprietary reversible terminator technology for large-scale parallel synthesis and sequencing.</p>
+				<div>Illumina sequencing technology combines microarray technology with proprietary reversible terminator technology for large-scale parallel synthesis and sequencing.</div>
 
 
-				<p>Illumina Sequencing technology ensures high accuracy and single base sequencing .</p>
+				<div>Illumina Sequencing technology ensures high accuracy and single base sequencing .</div>
 			</div>
 		</div>
 
@@ -49,7 +49,7 @@
 			</div>
 			<div style="width: 100%;height:40px;"> </div>
 			<div style="width: 96%;height: auto;margin: 0 auto;font-family: arial;color: #666666;  ">
-				<p >Combining Illumina's open source data with third-party software.</p>
+				<div >Combining Illumina's open source data with third-party software.</div>
 
 			</div>
 			<div style="width: 100%;height:20px;"> </div>
@@ -60,11 +60,11 @@
 				Technological superiority
 			</div>
 			<div style="width: 96%;height: auto;margin: 0 auto; font-family: arial;color: #666666; border:  ">
-				<p><strong> Wide application flexibility：</strong> At present, it is the most widely used and verified new generation sequencing platform, Applicable to genome DNA methylation,epigenome and transcriptome studies.</p>
-				<p>For more info;<i> https://en.m.wikipedia.org/wiki/illumina_dye_sequencing</i> </p>
-				<p><i> https://www.illumina.com/science/technology/next-generation-sequencing.html</i></p>
-				<p>An unparalleled combination of reading lengths and massive reading slices： The reading length can reach 2 x 150 bp ,Each flow cell can read more than 640 million fragments.</p>
-				<p>High quality data: With 2 x 50 BP reads, More than 90% of the bases can exceed Q30 X coverag.</p>
+				<div><strong> Wide application flexibility：</strong> At present, it is the most widely used and verified new generation sequencing platform, Applicable to genome DNA methylation,epigenome and transcriptome studies.</div>
+				<div>For more info;<i> https://en.m.wikipedia.org/wiki/illumina_dye_sequencing</i> </div>
+				<div><i> https://www.illumina.com/science/technology/next-generation-sequencing.html</i></div>
+				<div>An unparalleled combination of reading lengths and massive reading slices： The reading length can reach 2 x 150 bp ,Each flow cell can read more than 640 million fragments.</div>
+				<div>High quality data: With 2 x 50 BP reads, More than 90% of the bases can exceed Q30 X coverag.</div>
 			</div>
 		</div>
 		<div style="width: 100%;height: 60px;"></div>

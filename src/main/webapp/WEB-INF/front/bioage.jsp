@@ -29,15 +29,15 @@
 				How old are you? Why is it important?
 			</div>
 			<div style="width: 100%;height: auto;">
-				<p>• People age at different rates. Some "look" and "feel" older than their chronological age while other look younger than their chronological age.</p>
-				<p>• Our biological age is a better parameter of our health well being and life span than our chronological age.</p>
-				<p>• DNA is the hardware, genetics is the operating system and DNA methylation and other epigenetic factors are the software that programs the genome.</p>
-				<p>• A paradigm shift in the search for biological age markers occurred with the discovery of the "epigenetic clock" by Horvath, which is based on measurement of DNA methylation status at 500 strategic positions in DNA.</p>
-				<p>• Studies suggest that accelerated "epigenetic clock" might be associated with increased risk for several age related chronic disease such as cardiovascular disease and cancer at later age. (link: https://www.ncbi.nlm.nih.gov/pubmed/?term=epigenetic+clock+disease). This is however still an open field and more studies are needed.</p>
-				<p>• Importantly, "epigenetics" in different from "genetics" is potentially reversible by dietary interventions and lifestyle changes.</p>
-				<p>• Preliminary studies are coming up that show that dietary changes can cause deceleration of epigenetic clock in certain people, however this is still an open life. (link: https://www.ncbi.nlm.nih.gov/pubmed/30350398)</p>
-				<p>• Lifestyle changes including exercise and change in dietary habits have been recommended by national medical associations for some time, however we need more data about the most advisable changes and they should be personalized.</p>
-				<p>• One way for us to learn about advisable life style changes is sharing our experiences with others and analyzing the impact of differences in life style. This is now possible using sharing technologies such as Apps as well as artificial intelligence. </p>
+				<div>• People age at different rates. Some "look" and "feel" older than their chronological age while other look younger than their chronological age.</div>
+				<div>• Our biological age is a better parameter of our health well being and life span than our chronological age.</div>
+				<div>• DNA is the hardware, genetics is the operating system and DNA methylation and other epigenetic factors are the software that programs the genome.</div>
+				<div>• A paradigm shift in the search for biological age markers occurred with the discovery of the "epigenetic clock" by Horvath, which is based on measurement of DNA methylation status at 500 strategic positions in DNA.</div>
+				<div>• Studies suggest that accelerated "epigenetic clock" might be associated with increased risk for several age related chronic disease such as cardiovascular disease and cancer at later age. (link: https://www.ncbi.nlm.nih.gov/pubmed/?term=epigenetic+clock+disease). This is however still an open field and more studies are needed.</div>
+				<div>• Importantly, "epigenetics" in different from "genetics" is potentially reversible by dietary interventions and lifestyle changes.</div>
+				<div>• Preliminary studies are coming up that show that dietary changes can cause deceleration of epigenetic clock in certain people, however this is still an open life. (link: https://www.ncbi.nlm.nih.gov/pubmed/30350398)</div>
+				<div>• Lifestyle changes including exercise and change in dietary habits have been recommended by national medical associations for some time, however we need more data about the most advisable changes and they should be personalized.</div>
+				<div>• One way for us to learn about advisable life style changes is sharing our experiences with others and analyzing the impact of differences in life style. This is now possible using sharing technologies such as Apps as well as artificial intelligence. </div>
 			</div>
 		</div>
 	</div>
@@ -49,14 +49,14 @@
 				What is the epiAging test?  What does it mean?
 			</div>
 			<div style="width: 100%;height: auto;">
-				<p>• After extensive data mining, we have discovered a single age-related CG methylation region that was sufficient to accurately predict biological age using saliva. </p>
-				<p>• Although it is still not clear how one can decelerate his age life style changes recommended by most national medical associations are perhaps a point to start. An older age is a "red flag" not more that suggest that perhaps it is time to make some life style changes. </p>
-				<p>• We consider a "red flag" an "epigenetic age" that is older than one standard deviation of the test. Standard deviation provides an idea about the distribution in the normal population which at this point of analysis  is 5 years. As more tests are accumulated we will get a more accurate number of the "normal distribution".</p>
-				<p>• A "red flag" might prompt you to act on your life style.</p>
-				<p>• Our App will link you to information on recommended life style behaviors by important US national medical association. These are updated regularly and we suggest that you keep updating by examining the links periodically. These recommendations are based on what "science" knows today, they are not perfect. With more data and more analysis science is improving. </p>
-				<p>• You will update your life style data as regularly as you wish. You might update all questions, some or none. However, we believe that accurate reporting will provide a more accurate better analysis.</p>
-				<p>• Initially our report will show how far are your life style parameters from consensus recommendations. Your data will be anonymized and your data and data from other anonymous users we will be analyzed by artificial intelligence to develop a model based on many users that measures the impact that life style changes have on "epigenetic clock". In time as more data is accumulated., the model will be used on your life style data and results of the "model" will be shared with you. </p>
-				<p>• Our test is simple to administer, low cost, robust and accurate, and is dynamically integrated into a life-long health ecosystem driven by App technology and machine learning</p>
+				<div>• After extensive data mining, we have discovered a single age-related CG methylation region that was sufficient to accurately predict biological age using saliva. </div>
+				<div>• Although it is still not clear how one can decelerate his age life style changes recommended by most national medical associations are perhaps a point to start. An older age is a "red flag" not more that suggest that perhaps it is time to make some life style changes. </div>
+				<div>• We consider a "red flag" an "epigenetic age" that is older than one standard deviation of the test. Standard deviation provides an idea about the distribution in the normal population which at this point of analysis  is 5 years. As more tests are accumulated we will get a more accurate number of the "normal distribution".</div>
+				<div>• A "red flag" might prompt you to act on your life style.</div>
+				<div>• Our App will link you to information on recommended life style behaviors by important US national medical association. These are updated regularly and we suggest that you keep updating by examining the links periodically. These recommendations are based on what "science" knows today, they are not perfect. With more data and more analysis science is improving. </div>
+				<div>• You will update your life style data as regularly as you wish. You might update all questions, some or none. However, we believe that accurate reporting will provide a more accurate better analysis.</div>
+				<div>• Initially our report will show how far are your life style parameters from consensus recommendations. Your data will be anonymized and your data and data from other anonymous users we will be analyzed by artificial intelligence to develop a model based on many users that measures the impact that life style changes have on "epigenetic clock". In time as more data is accumulated., the model will be used on your life style data and results of the "model" will be shared with you. </div>
+				<div>• Our test is simple to administer, low cost, robust and accurate, and is dynamically integrated into a life-long health ecosystem driven by App technology and machine learning</div>
 			</div>
 		</div>
 	</div>
@@ -68,14 +68,14 @@
 				How does the epiAging test work?
 			</div>
 			<div style="width: 100%;height: auto;">
-				<p>• Order epiAging kit through HKG epiaging App.</p>
-				<p>• The kit will be sent to you by express.</p>
-				<p>• Scan the unique barcode included in your kit.</p>
-				<p>• Collect saliva into the collection tubes following the instruction.</p>
-				<p>• Sent the kit back in the provided envelop.</p>
-				<p>• Log in the app to view your test results. </p>
-				<p>• Feed us with your health and lifestyle information to establish your personalized health ecosystem </p>
-				<p>• You will receive live analysis of your life data to your App. Once the test is complete you will receive the results.</p>
+				<div>• Order epiAging kit through HKG epiaging App.</div>
+				<div>• The kit will be sent to you by express.</div>
+				<div>• Scan the unique barcode included in your kit.</div>
+				<div>• Collect saliva into the collection tubes following the instruction.</div>
+				<div>• Sent the kit back in the provided envelop.</div>
+				<div>• Log in the app to view your test results. </div>
+				<div>• Feed us with your health and lifestyle information to establish your personalized health ecosystem </div>
+				<div>• You will receive live analysis of your life data to your App. Once the test is complete you will receive the results.</div>
 			</div>
 		</div>
 	</div>
@@ -87,9 +87,9 @@
 				Why do you need questionnaires in the app?
 			</div>
 			<div style="width: 100%;height: auto;">
-				<p>• EpiAging tests make sense only within a dynamic life-long life style, environmental and health management system.</p>
-				<p>• A personalized evaluation including intervention will be generated based on the health and lifestyle information you provided. </p>
-				<p>• Updates on your health and lifestyle parameters periodically to activate the life-long personalized analysis report</p>
+				<div>• EpiAging tests make sense only within a dynamic life-long life style, environmental and health management system.</div>
+				<div>• A personalized evaluation including intervention will be generated based on the health and lifestyle information you provided. </div>
+				<div>• Updates on your health and lifestyle parameters periodically to activate the life-long personalized analysis report</div>
 				</div>
 		</div>
 	</div>
@@ -101,9 +101,9 @@
 				How the data will be used?
 			</div>
 			<div style="width: 100%;height: auto;">
-				<p>• Continuously analyze Epiaging test results, general health parameters, personal interventions and its outcomes of multiple users using state of the art machine learning algorithms .</p>
-				<p>• Personalized analysis with some possible routes for improvement.</p>
-				<p>• Coevolving of your well being and our "Epiaging" learning environment.</p>
+				<div>• Continuously analyze Epiaging test results, general health parameters, personal interventions and its outcomes of multiple users using state of the art machine learning algorithms .</div>
+				<div>• Personalized analysis with some possible routes for improvement.</div>
+				<div>• Coevolving of your well being and our "Epiaging" learning environment.</div>
 			</div>
 		</div>
 	</div>
@@ -118,8 +118,8 @@
 				Everyone has a DNA clock
 			</div>
 			<div style="width: 100%;height: auto;">
-				<p>We all know our chronological age. But how old we really are?</p>
-				<p style="line-height: 22px;">People age at different rates. Some "look" and "feel" older than their chronological age while other look younger than their chronological age.</p>
+				<div>We all know our chronological age. But how old we really are?</div>
+				<div style="line-height: 22px;">People age at different rates. Some "look" and "feel" older than their chronological age while other look younger than their chronological age.</div>
 			</div>
 			<div style="width: 100%;height: auto;"><img src="static/images/bio-2.png"style="width: 100%;height: auto;"/></div>
 		</div>
@@ -159,10 +159,10 @@
 				Telomere Length
 			</div>
 			<div style="width: 100%;height: auto;text-align: center;line-height: 20px;color: #666666;">
-				<p>The correlation between chronological age and telomere length was found to be weak</p>
-				<p>	High technical requirements</p>
-				<p>Small technical errors may have a decisive </p>
-				<p>	impact on the results.</p>
+				<div>The correlation between chronological age and telomere length was found to be weak</div>
+				<div>	High technical requirements</div>
+				<div>Small technical errors may have a decisive </div>
+				<div>	impact on the results.</div>
 			</div>
 			<div style="width: 100%;height:20px;"></div>
 			<div style="width: 100%;height: auto;">
@@ -175,7 +175,7 @@
 				Metabolic age scores
 			</div>
 			<div style="width: 80%;height: auto;margin: 0 auto; text-align: center;line-height: 20px;color: #666666;">
-				<p>Sampling and detection methods are complex and have not been verified in a large number of population samples</p>
+				<div>Sampling and detection methods are complex and have not been verified in a large number of population samples</div>
 			</div>
 
 			<div style="width: 90%;margin: 0 auto; height: auto;background-color:#29ABE2 ; border-radius: 5px;">
@@ -190,7 +190,7 @@
 					<i>Epigenetic clock</i>
 				</div>
 				<div style="width: 90%;height: auto;margin: 0 auto; text-align: center;line-height: 20px;color: #FFFFFF;">
-					<p>is closely related to the biological function of human body, and the acceleration of epigenetic clock is related to the risk of neurodegenerative diseases and cancer.</p>
+					<div>is closely related to the biological function of human body, and the acceleration of epigenetic clock is related to the risk of neurodegenerative diseases and cancer.</div>
 				</div>
 			</div>
 		</div>

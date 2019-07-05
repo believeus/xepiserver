@@ -183,7 +183,7 @@
                 </div>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/29435170" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/29435170</a></i>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/15150277" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/15150277</a></i>
-                <p></p>
+                <div></div>
             </div>
         </div>
         <div style="width: 100%;height: auto;">
@@ -193,7 +193,7 @@
                     SAM-e was shown to block growth of liver cancer cells.
                 </div>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/29340097" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/29340097</a></i>
-                <p></p>
+                <div></div>
             </div>
         </div>
         <div style="width: 100%;height: auto;">
@@ -204,7 +204,7 @@
                 </div>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/25631332" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/25631332</a></i>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/16982764" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/16982764</a></i>
-                <p></p>
+                <div></div>
             </div>
         </div>
         <div style="width: 100%;height: auto;">
@@ -216,7 +216,7 @@
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/23073625" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/23073625</a></i>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/19444874" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/19444874</a></i>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22159228" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/22159228</a></i>
-                <p></p>
+                <div></div>
             </div>
         </div>
         <div style="width: 100%;height: auto;">
@@ -228,7 +228,7 @@
                 </div>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/27681803" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/27681803</a></i>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22221883" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/22221883</a></i>
-                <p></p>
+                <div></div>
                 </ul>
             </div>
         </div>

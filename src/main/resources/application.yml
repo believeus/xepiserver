@@ -31,7 +31,7 @@ primary:
         filters: stat
         driverClassName: com.mysql.jdbc.Driver
         #配置基本属性
-        url: jdbc:mysql://192.168.1.117:3306/epi?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useSSL=false
+        url: jdbc:mysql://192.168.1.116:3306/epi?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useSSL=false
         username: root
         password: LZmy5cRxNcHQnxDhNtMm08t1dTncNuMkgU6+xZ3NPeY/Fu2LFGasDBEsFuel6A+osQljPgV5uMa3WqeZZpguaA==
         publickey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJlRkDJNrJVIJu/TMBFJwEJJOxu0V3fVvDa1FoMWNrO5JuadCub/wvjSDtGUB1RVPXUIN/KIxiarqi5eaeCTeiECAwEAAQ==
@@ -61,7 +61,7 @@ back:
         filters: stat
         driverClassName: com.mysql.jdbc.Driver
         #配置基本属性
-        url: jdbc:mysql://192.168.1.117:3306/qtion?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useSSL=false
+        url: jdbc:mysql://192.168.1.116:3306/qtion?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useSSL=false
         username: root
         password: LZmy5cRxNcHQnxDhNtMm08t1dTncNuMkgU6+xZ3NPeY/Fu2LFGasDBEsFuel6A+osQljPgV5uMa3WqeZZpguaA==
         publickey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJlRkDJNrJVIJu/TMBFJwEJJOxu0V3fVvDa1FoMWNrO5JuadCub/wvjSDtGUB1RVPXUIN/KIxiarqi5eaeCTeiECAwEAAQ==

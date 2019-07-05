@@ -43,7 +43,7 @@
 				<div style="width: 90%;height: auto;margin: 0 auto;color: #FFFFFF; font-family: arial;font-size: 14px;">
 					<div style="width: 100%;height: 20px;"></div>
 					Most people experience problems with sleep in their life. In fact, it’s thought that a third of Brits will have episodes of insomnia at some point.
-					<p>The causes can include psychological conditions (Such as depression or anxiety) or a combination of both. This short test from Sleepio will give you a’sleep score ' plus practical tips and advice for improving your sleep.</p>
+					<div>The causes can include psychological conditions (Such as depression or anxiety) or a combination of both. This short test from Sleepio will give you a’sleep score ' plus practical tips and advice for improving your sleep.</div>
 					<div style="width: 100%;height: 20px;"></div>
 				</div>
 			</div>

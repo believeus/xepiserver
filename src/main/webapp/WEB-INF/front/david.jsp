@@ -135,7 +135,7 @@
 										<div style="width: 100%;height: 100px"></div>
 										<ul>
 											<div style="width: 20%;height: 30px; font-size: 18px;line-height: 30px;border-bottom: 2px  solid #666666; ">Honors</div>
-											<p></p>
+											<div></div>
 											<li> 2011--<i style="font-weight: 600;">Postdoctoral fellow </i>of the Israel Cancer Research Foundation</li>
 											<div style="width: 100%;height: 20px"></div>
 											<li>2010--Toronto Alumni and Alumni Medical <i style="font-weight: 600;">Excellence Award</i></li>

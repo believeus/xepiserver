@@ -40,10 +40,10 @@
                     <img src="static/images/var-error.png" style="width: 20%;height: auto"/>
                 </div>
                 <div style="width: 100%;height: 40%;text-align: center">
-                    <p style="font-size: 24px;color:#fc8d6b">Sorry,Verification failed!</p>
+                    <div style="font-size: 24px;color:#fc8d6b">Sorry,Verification failed!</div>
                 </div>
                 <div style="width: 100%;height: 10%;text-align: center">
-                    <p style="font-size: 17px;color:#000">Please contact us : info@hkgepitherapeutics.com</p>
+                    <div style="font-size: 17px;color:#000">Please contact us : info@hkgepitherapeutics.com</div>
                 </div>
             </div>
         </div>

@@ -36,11 +36,11 @@
             </div>
             <div style="width: 100%;height: 20px;"></div>
             <div style="width: 100%;height: auto;font-family: arial;color: #666666;line-height: 24px;">
-                <p>DNA methylation is a chemical mark that is added to DNA at different positions during gestation.</p>
-                <p>DNA methylation is part of the "epigenetic" program of our genes.</p>
-                <p> when DNA methylation happens at several important positions in genes it can silence the function of
-                    the gene.</p>
-                <p>This is how the same gene can be expressed or silenced in different cells in our body.</p>
+                <div>DNA methylation is a chemical mark that is added to DNA at different positions during gestation.</div>
+                <div>DNA methylation is part of the "epigenetic" program of our genes.</div>
+                <div> when DNA methylation happens at several important positions in genes it can silence the function of
+                    the gene.</div>
+                <div>This is how the same gene can be expressed or silenced in different cells in our body.</div>
             </div>
             <div style="width: 100%;height: auto;"><img src="static/images/methy-1.png"
                                                         style="width: 100%;height: auto;"/></div>
@@ -52,8 +52,8 @@
         <div style="width: 100%;height: 20px;"></div>
         <div style="width: 90%;height: auto;margin: 0 auto;">
             <div style="width: 100%;height: auto;">
-                <p style="font-family: arial;font-size: 24px;font-weight: 700;color: #036EB8;"> DNA methylation; the
-                    genome software</p>
+                <div style="font-family: arial;font-size: 24px;font-weight: 700;color: #036EB8;"> DNA methylation; the
+                    genome software</div>
 
             </div>
             <div style="width: 100%;height: auto;"><img src="static/images/met1.jpg" style="width: 100%;height: auto;"/>

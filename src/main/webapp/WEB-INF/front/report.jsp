@@ -495,10 +495,10 @@
         <div style="width: 100%;height: 20px;"></div>
         <div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;">
             <strong> Recommendation: </strong>
-            <p>If your BMI is less than 18.5, it falls within the underweight range.</p>
-            <p>If your BMI is 18.5 to 24.9, it falls within the normal or healthy weight range.</p>
-            <p>If your BMI is 25.0 to 29.9, it falls within the overweight range.</p>
-            <p>If your BMI is 30.0 or higher, it falls within the obese range.</p>
+            <div>If your BMI is less than 18.5, it falls within the underweight range.</div>
+            <div>If your BMI is 18.5 to 24.9, it falls within the normal or healthy weight range.</div>
+            <div>If your BMI is 25.0 to 29.9, it falls within the overweight range.</div>
+            <div>If your BMI is 30.0 or higher, it falls within the obese range.</div>
         </div>
         <div style="width: 100%;height: 20px; "></div>
         <div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
@@ -571,18 +571,18 @@
         <div style="width: 100%;height: 20px;"></div>
         <div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;">
             <strong> Recommendation: </strong>
-            <p>
+            <div>
                 Underweight: BMI < 18.5 kg/m<sup>2</sup>
-            </p>
-            <p>
+            </div>
+            <div>
                 Normal weight: BMI 18.5 – 25 kg/m<sup>2</sup>
-            </p>
-            <p>
+            </div>
+            <div>
                 Overweight: BMI 25 – 30 kg/m<sup>2</sup>
-            </p>
-            <p>
+            </div>
+            <div>
                 Obese: BMI > 30 kg/m<sup>2</sup>
-            </p>
+            </div>
         </div>
         <div style="width: 100%;height: 20px; "></div>
 
@@ -677,7 +677,7 @@
             normal range.
         </div>
         <div style="width: 100%;height: 20px; "></div>
-        <p style="font-weight: bold; font-size: 16px;">Systolic BP</p>
+        <div style="font-weight: bold; font-size: 16px;">Systolic BP</div>
         <div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 
             <div class="ex5SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">
@@ -701,7 +701,7 @@
             <div style="width: 100%;height: 20px;"></div>
         </div>
         <div style="width: 100%;height: 20px;"></div>
-        <p style="font-weight: bold; font-size: 16px">Diastolic BP</p>
+        <div style="font-weight: bold; font-size: 16px">Diastolic BP</div>
         <div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
             <div class="ex6SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">
                 Please download App and fill in your data

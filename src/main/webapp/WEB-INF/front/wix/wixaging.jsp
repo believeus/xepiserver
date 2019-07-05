@@ -42,13 +42,13 @@
                         style="text-decoration: line-through;font-family: arial; font-size: 18px;color: #7F7F7F;">$120/kit
 					for the original price<br/>
 				</span>
-                    <p></p>
+                    <div></div>
                     <span style="font-size: 18px;font-family: arial"><strong
                             style="font-weight: 600 ;font-size: 18px; font-family: arial; ">$99</strong>
 					per kit for purchase <strong
                                 style="font-family: arial;font-size: 18px;"> 1</strong> kit<br/>
 				</span>
-                    <p></p>
+                    <div></div>
                 </div>
             </div>
             <div id="add-cart" style="width: 100%;height: auto;margin-top: 20px;">
@@ -73,10 +73,10 @@
         </div>
         <div
                 style="width: 96%;height: auto;margin: 0 auto; font-size: 16px;line-height: 18px; color:  #666666;font-family: arial; ">
-            <p>We are all cognizant of our age</p>
-            <p> We are however always talking about our chronological age. How do we
-                know the age of our body?</p>
-            <p>The epiAging test provides a measure of our true age.</p>
+            <div>We are all cognizant of our age</div>
+            <div> We are however always talking about our chronological age. How do we
+                know the age of our body?</div>
+            <div>The epiAging test provides a measure of our true age.</div>
         </div>
     </div>
     <div id="age-pic" style="width: 100%;height: auto;">
@@ -94,14 +94,14 @@
                     <div style="width: 100%;height: auto;font-size: 16px;">
                         <div style="width: 100%;height: 20px;"></div>
                         <strong> Biological age≠Actual age </strong>
-                        <p>We all know our age, but how old are we?</p>
-                        <p>We age differently</p>
-                        <p>
+                        <div>We all know our age, but how old are we?</div>
+                        <div>We age differently</div>
+                        <div>
                             Some people "look" and "feel" older than they are. <br/>
                             Others look younger than they really are.
-                        </p>
-                        <p>Although the chronological age is overall corelated to
-                            their biological age, it is not always the case.</p>
+                        </div>
+                        <div>Although the chronological age is overall corelated to
+                            their biological age, it is not always the case.</div>
                     </div>
                 </div>
                 <div style="width: 100%;height: auto; ">
@@ -109,15 +109,15 @@
                 </div>
                 <div
                         style="width: 96%;height: auto;margin: 0 auto;font-family: arial; font-size: 16px;color:#666666;">
-                    <p>Biological age can be measured with only 1 ml saliva sample
+                    <div>Biological age can be measured with only 1 ml saliva sample
                         Samples of saliva are collected according to the instructions and
-                        sent back to our laboratory.</p>
-                    <p>We will push the test report to you through the APP within 24
-                        working days.</p>
-                    <p>We will provide an analysis of the life-style data you entered to your App,as well as PDF reports
-                        and updates.</p>
-                    <p>Data from you and other users will be analyzed by our artificial intelligence system and a
-                        "personalized" set of suggestions will be provided to you.</p>
+                        sent back to our laboratory.</div>
+                    <div>We will push the test report to you through the APP within 24
+                        working days.</div>
+                    <div>We will provide an analysis of the life-style data you entered to your App,as well as PDF reports
+                        and updates.</div>
+                    <div>Data from you and other users will be analyzed by our artificial intelligence system and a
+                        "personalized" set of suggestions will be provided to you.</div>
                 </div>
             </div>
         </div>

@@ -119,11 +119,11 @@ div[id=blue-dot]:before {
 			</div>
 			<div class="bio-con" style="width: 100%;height:auto ;background-color: #F0F0F0;">
 				<div style="width: 100%;height: 20px;"></div>
-				<p style="font-family: arial; color: #666666;">
+				<div style="font-family: arial; color: #666666;">
 					Only 1ml saliva samle is needed for detection,which is convenient and safe. <br />
 					The sample will be sent to the laboratory for testing,<br />
 					the test results will be sent to your APP.
-				</p>
+				</div>
 				<div style="width: 100%;height: 20px;"></div>
 			</div>
 			<div class="bio-pic" style="width: 100%;height: auto;background-color: #F0F0F0;">

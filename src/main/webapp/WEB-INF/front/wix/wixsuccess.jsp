@@ -53,16 +53,16 @@
                 <div style=" width: 100%;
                 margin: 0 auto;
                 text-align: center;line-height: 30px; ">
-                    <div style="width: 100%;text-align: center;line-height: 100px;"><p style="font-size: 24px">Thank you
+                    <div style="width: 100%;text-align: center;line-height: 100px;"><div style="font-size: 24px">Thank you
                         for your
-                        registration.</p></div>
+                        registration.</div></div>
 
 
-                    <p style="font-size: 20px;">We have sent to you a verification
-                        email.</p>
-                    <p style="font-size: 20px;">Please complete your registration by following the
+                    <div style="font-size: 20px;">We have sent to you a verification
+                        email.</div>
+                    <div style="font-size: 20px;">Please complete your registration by following the
                         instruction in the
-                        email.</p>
+                        email.</div>
                     <a style="color: black;font-size: 24px;font-weight: bold;text-decoration: underline;" href="https://www.epi-age.com/">[Home Page]</a>
                 </div>
             </div>

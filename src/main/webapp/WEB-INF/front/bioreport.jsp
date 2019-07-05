@@ -54,13 +54,13 @@
                         style="text-decoration: line-through;font-family: arial; font-size: 18px;color: #7F7F7F;">$120/kit
 					for original price<br/>
 				</span>
-                    <p></p>
+                    <div></div>
                     <span style="font-size: 18px;font-family: arial"><strong
                             style="font-weight: 600 ;font-size: 18px; font-family: arial; ">$99</strong>
 					per kit for purchase <strong
                                 style="font-family: arial;font-size: 18px;"> 1</strong> kit<br/>
 				</span>
-                    <p></p>
+                    <div></div>
                 </div>
             </div>
             <div id="add-cart" style="width: 100%;height: auto;margin-top: 20px;">
@@ -83,7 +83,7 @@
                     is
                     issued, The report will be updated on this page.<br>
                     <div style="width: 100%;height: 15px;"></div>
-                    <p><strong>enter the barcode on the saliva collection tube.</strong></p>
+                    <div><strong>enter the barcode on the saliva collection tube.</strong></div>
                     <div style="width: 100%;height: 10px;"></div>
                     <script>
                         $(function () {

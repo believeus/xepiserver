@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html>
 <!-- saved from url=(0065)http://www.17sucai.com/preview/1149930/2018-04-11/login/demo.html -->
@@ -59,10 +59,14 @@
             <div style=" width: 80%;
                 margin: 0 auto;
                 text-align: left; ">
-                <div style="width: 100%;text-align: center"> <p style="font-size: 26px">Thank you for your registration.</p></div>
+                <div style="width: 100%;text-align: center">
+                    <div style="font-size: 26px">Thank you for your registration.</div>
+                </div>
                 <a style="color: black;font-size: 24px" href="https://www.epi-age.com/">Home Page</a>
-                <p style="font-size: 20px">We have sent to you a verification email.</p>
-                <p style="font-size: 20px">Please complete your registration by following the instruction in the email.</p>
+                <div style="font-size: 20px">We have sent to you a verification email.</div>
+                <div style="font-size: 20px">Please complete your registration by following the instruction in the
+                    email.
+                </div>
             </div>
         </div>
 
