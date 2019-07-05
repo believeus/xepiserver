@@ -125,7 +125,7 @@
 		</div>
 	</div>
 
-	<div class="content" style="width: 100%;height: auto;">
+	<%--<div class="content" style="width: 100%;height: auto;">
 		<div style="width: 100%;height: 20px;"></div>
 		<div style="width: 94%;height: auto;margin: 0 auto;">
 			<div style="width: 100%;height: auto;color: #0071BC;font-size: 20px;font-weight: 500;">
@@ -143,7 +143,7 @@
 			<div style="width: 100%;height: 20px;"></div>
 			<div><img src="static/images/bio-3.png"style="width: 100%;height: auto;"/></div>
 		</div>
-	</div>
+	</div>--%>
 
 	<div class="method" style="width: 100%;height: auto;background-color: #F4F4F4;">
 		<div style="width: 90%;height: auto;margin: 0 auto;">

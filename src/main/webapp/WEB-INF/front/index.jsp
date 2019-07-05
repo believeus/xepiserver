@@ -60,7 +60,7 @@ div[id=blue-dot]:before {
 		</div>
 <div style="height: 30px;width: 100%;clear: both;"></div>
 		<div style="width: 100%;height: auto;">
-			<div style="width: 96%;height: 300px;margin: 0 auto; background-image: url(/static/images/taiji.png);background-position: fixed center; background-size: 100% 100%; background-repeat: no-repeat; ">
+			<div style="width: 96%;height: 300px;margin: 0 auto; background-image: url(/static/images/taiji.png);background-position:center; background-size: 100% 100%; background-repeat: no-repeat; ">
 				<div class="left" style="width: 30%;height: 100%;float: left; ">
 					<a href="aboutus/index.jhtml">
 						<div style="width: 100%;height: 50%;"></div>
