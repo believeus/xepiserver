@@ -117,8 +117,7 @@
 
 				<div style="width: 100%;height: auto;">
 					<a href="https://academic.oup.com/gbe/article/6/12/3344/549730">
-						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> IRE1α links Nck1 deficiency to attenuated PTP1B expression in HepG2 cells.
-							Cellular Signaling. 2017; Li J*, Wong, C.F.*, Wong M.T., Huang, H., Leung F.C. (2014) Modularized evolution in archaeal methanogens phylogenetic forest. Genome Bio
+						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Li J*, Wong, C.F.*, Wong M.T., Huang, H., Leung F.C. (2014) Modularized evolution in archaeal methanogens phylogenetic forest. Genome Bio
 							Evol, 6(12), 3344. doi: 10.1093/gbe/evu259.</div>
 					</a>
 
