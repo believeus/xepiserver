@@ -195,14 +195,14 @@
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.x-mol.com/paper/712300">
 						<div style="width: 90%;height: auto;float: left;color:#FFFFFF"> Identification of an Epigenetic Signature of Osteoporosis in Blood DNA of
-							Postmenopausal Women. JBMR. 2018;</div>
+							Postmenopausal Women.<i> JBMR</i>. 2018;</div>
 					</a>
 
 				</div>
 				<div style="width: 100%;height: 80px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="https://bmccancer.biomedcentral.com/articles/10.1186/s12885-018-4482-7">
-						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> DNA methylation signatures of breast cancer in peripheral T-cells. BMC  Cancer.
+						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> DNA methylation signatures of breast cancer in peripheral T-cells.<i> BMC  Cancer</i>.
 							2018;</div>
 					</a>
 
@@ -211,7 +211,7 @@
 				<div style="width: 100%;height: 60px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="https://clinicalepigeneticsjournal.biomedcentral.com/articles/10.1186/s13148-017-0436-1">
-						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">The signature of liver cancer in immune cells DNA methylation. Clin Epigenetics.
+						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">The signature of liver cancer in immune cells DNA methylation.<i> Clin Epigenetics</i>.
 							2018;</div>
 					</a>
 
@@ -220,7 +220,7 @@
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.onlinelibrary.wiley.com/doi/full/10.1002/mnfr.201701008">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Personalized cardio-metabolic responses to an anti-inflammatory nutrition
-							intervention in obese adolescents: a randomized controlled crossover trial. Mol Nutr Food Res. 2018;</div>
+							intervention in obese adolescents: a randomized controlled crossover trial.<i> Mol Nutr Food Res. 2018</i>;</div>
 					</a>
 
 				</div>
@@ -228,7 +228,7 @@
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.sciencedirect.com/science/article/pii/S1094695016301780">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Genetic polymorphisms in ESR1 and VDR genes do not correlate with
-							osteoporosis with familial dysautonomia. J Clin Densitom. 2018;
+							osteoporosis with familial dysautonomia.<i> J Clin Densitom</i>. 2018;
 						</div>
 					</a>
 
@@ -237,7 +237,7 @@
 				<div style="width: 100%;height: auto;">
 					<a href="http://www.greenmedinfo.com/article/methyl-donor-s-adenosylmethionine-sam-supplementation-attenuates-breast-cancer">
 						<div style="width: 100%;height: 100px;float: left;color:#FFFFFF"> Methyl donor S-adenosylmethionine (SAM) supplementation attenuates
-							breast cancer growth, invasion, and metastasis in vivo; therapeutic and chemopreventive applications. Oncotarget. 2017;
+							breast cancer growth, invasion, and metastasis in vivo; therapeutic and chemopreventive applications.<i>Oncotarget</i> . 2017;
 						</div>
 					</a>
 
@@ -246,7 +246,7 @@
 				<div style="width: 100%;height: auto;">
 					<a href="https://academic.oup.com/nar/article/45/22/12681/4259028">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> Epigenetic mechanisms underlie the crosstalk between growth factors and a
-							steroid hormone. Nucleic Acids Res. 2017;
+							steroid hormone.<i>Nucleic Acids Res</i> . 2017;
 						</div>
 					</a>
 
@@ -255,7 +255,7 @@
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.researchgate.net/publication/316689941_DNA_methylation_controls_unmethylated_transcription_start_sites_in_the_genome_in_trans">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> DNA methylation controls unmethylated transcription start sites in the genome
-							in trans”. Epigenomics. 2017;</div>
+							in trans”.<i>Epigenomics</i> . 2017;</div>
 					</a>
 
 				</div>

@@ -167,15 +167,16 @@
 				<div style="width: 100%;height: 60px;">
 					<a href="https://www.sciencedirect.com/science/article/pii/S0898656817301183">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> IRE1α links Nck1 deficiency to attenuated PTP1B expression in HepG2 cells.
-							Cellular Signaling. 2017;
+							<i>Cellular Signaling</i>. 2017;
 						</div>
 					</a>
 
 				</div>
+				<div style="width: 100%;height: 80px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4236421/">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Nck1 depletion induces activation of the PI3K/Akt pathway by attenuating
-							PTP1B protein expression. Cell Communication and Signaling. 2014;
+							PTP1B protein expression.<i> Cell Communication and Signaling</i>. 2014;
 						</div>
 					</a>
 
@@ -184,8 +185,8 @@
 				<div style="width: 100%;height: 80px;"></div>
 				<div style="width: 100%;height: auto;">
 
-					<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Hepatocellular carcinoma induced specific angiogenesis. Chinese Clinical
-						Oncology. 2009;</div>
+					<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Hepatocellular carcinoma induced specific angiogenesis.<i>Chinese Clinical
+						Oncology</i> . 2009;</div>
 
 
 				</div>
@@ -193,7 +194,7 @@
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.sciencedirect.com/science/article/pii/S1567576908003548">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">A novel peptide isolated from phage display peptides library recognized by
-							an antibody against connective tissue growth factor. International  Immunopharmacology. 2009;</div>
+							an antibody against connective tissue growth factor.<i> International  Immunopharmacology</i>. 2009;</div>
 					</a>
 
 				</div>
@@ -201,7 +202,7 @@
 				<div style="width: 100%;height: auto;">
 					<a href="https://link.springer.com/article/10.1007%2Fs00284-008-9241-6">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> Effects of cations and PH on antimicrobial activity of Thanatin and s-Thanatin
-							against Escherichia coli ATCC25922 and B. subtilis ATCC 21332. Current Microbiology. 2008.</div>
+							against Escherichia coli ATCC25922 and B. subtilis ATCC 21332.<i> Current Microbiology</i>. 2008.</div>
 					</a>
 
 				</div>

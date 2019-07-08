@@ -117,8 +117,8 @@
 
 				<div style="width: 100%;height: auto;">
 					<a href="https://academic.oup.com/gbe/article/6/12/3344/549730">
-						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Li J*, Wong, C.F.*, Wong M.T., Huang, H., Leung F.C. (2014) Modularized evolution in archaeal methanogens phylogenetic forest. Genome Bio
-							Evol, 6(12), 3344. doi: 10.1093/gbe/evu259.</div>
+						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Li J*, Wong, C.F.*, Wong M.T., Huang, H., Leung F.C. (2014) Modularized evolution in archaeal methanogens phylogenetic forest.<i>Genome Bio
+							Evol</i> , 6(12), 3344. doi: 10.1093/gbe/evu259.</div>
 					</a>
 
 				</div>
@@ -126,7 +126,7 @@
 				<div style="width: 100%;height: auto;">
 					<a href="http://cis.hku.hk/publication.html">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Bao X, Wang Y, Li X, Li XM, Liu Z, Yang T, Wong CF, Zhang J, Hao Q, Li XD. (2014) Identification of 'erasers' for lysine crotonylated histone marks
-							using a chemical proteomics approach. Elife, Nov 4;3. doi: 10.7554/eLife.02999.</div>
+							using a chemical proteomics approach.<i>Elife</i> , Nov 4;3. doi: 10.7554/eLife.02999.</div>
 					</a>
 
 				</div>
@@ -134,15 +134,15 @@
 				<div style="width: 100%;height: 120px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.ncbi.nlm.nih.gov/pubmed/25079268">
-						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Niu H, Leung DY, Wong C, Zhang T, Chan M, Leung FC. (2014) Nitric oxide removal by wastewater bacteria in a biotrickling filter. J Environ Sci
-							(China), 26(3), 555. doi: 10.1016/S1001-0742(13)60456-8.</div>
+						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Niu H, Leung DY, Wong C, Zhang T, Chan M, Leung FC. (2014) Nitric oxide removal by wastewater bacteria in a biotrickling filter.<i> J Environ Sci
+							(China)</i>, 26(3), 555. doi: 10.1016/S1001-0742(13)60456-8.</div>
 					</a>
 
 				</div>
 				<div style="width: 100%;height: 110px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.researchgate.net/publication/257075402_Comparative_Genome_Analysis_of_Enterobacter_cloacae">
-						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Liu W-Y, Wong C-F, Chung KM-K, Jiang J-W, Leung FC-C (2013) Comparative Genome Analysis of Enterobacter cloacae. PLoS ONE 8(9): e74487.
+						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Liu W-Y, Wong C-F, Chung KM-K, Jiang J-W, Leung FC-C (2013) Comparative Genome Analysis of Enterobacter cloacae.<i>PLoS ONE 8(9)</i> : e74487.
 							doi:10.1371/journal.pone.0074487</div>
 					</a>
 
@@ -151,7 +151,7 @@
 				<div style="width: 100%;height: auto;">
 					<a href="https://jb.asm.org/content/194/22/6326.full?related-urls=yes&legid=jb;194/22/6326">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> Wong, C. F., Niu, H., Jiang, J., Li, J., Chan, C. M., Leung, D. Y., & Leung, F. C. (2012). Genome Sequence of Pseudomonas mendocina DLHK,
-							Isolated from a Biotrickling Reactor. J Bacteriol, 194(22), 6326. doi: 10.1128/JB.01618-12</div>
+							Isolated from a Biotrickling Reactor.<i> J Bacteriol</i>, 194(22), 6326. doi: 10.1128/JB.01618-12</div>
 					</a>
 
 				</div>
@@ -159,7 +159,7 @@
 				<div style="width: 100%;height: auto;">
 					<a href="https://jb.asm.org/content/194/21/5965.full">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Liu, W. Y., Chung, K. M., Wong, C. F., Jiang, J. W., Hui, R. K., & Leung, F. C. (2012). Complete Genome Sequence of the Endophytic Enterobacter
-							cloacae subsp. cloacae Strain ENHKU01. J Bacteriol, 194(21), 5965. doi: 10.1128/JB.01394-12</div>
+							cloacae subsp. cloacae Strain ENHKU01.<i> J Bacteriol</i>, 194(21), 5965. doi: 10.1128/JB.01394-12</div>
 					</a>
 
 				</div>

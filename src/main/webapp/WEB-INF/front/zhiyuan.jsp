@@ -256,7 +256,7 @@
                     <a href="https://www.pnas.org/content/113/37/E5434">
                         <div style="width: 100%;height: auto;float: left;color:#FFFFFF">Cd47-Sirpαinteraction and IL-10
                             constrain inflammation-induced
-                            macrophage phagocytosis of healthy self-cells. PNAS. 2016 Sep;
+                            macrophage phagocytosis of healthy self-cells.<i> PNAS</i>. 2016 Sep;
                         </div>
                     </a>
 
@@ -266,7 +266,7 @@
                     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4490976/">
                         <div style="width: 1-0%;height: auto;float: left;color:#FFFFFF">Loss of Cell Surface CD47
                             Clustering Formation and Binding Avidity to
-                            SIRPa Facilitate Apoptotic Cell Clearance by Macrophages. The Journal of Immunology. 2015
+                            SIRPa Facilitate Apoptotic Cell Clearance by Macrophages.<i> The Journal of Immunology</i>. 2015
                             Jul;
                         </div>
                     </a>
@@ -278,7 +278,7 @@
                     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4607582/">
                         <div style="width: 100%;height: auto;float: left;color:#FFFFFF">CD47 deficiency ameliorates
                             autoimmune nephritis in Faslpr mice by
-                            suppressing IgG autoantibody production. The Journal of Pathology. 2015 Jun;
+                            suppressing IgG autoantibody production.<i> The Journal of Pathology</i>. 2015 Jun;
                         </div>
                     </a>
 
@@ -288,7 +288,7 @@
                     <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0103599">
                         <div style="width: 100%;height: auto;float: left;color:#FFFFFF">Argonaute 2 in cell-secreted
                             microvesicles guides the function of
-                            secreted miRNAs in recipient cells. PloS One. 2014 Jul;
+                            secreted miRNAs in recipient cells.<i> PloS One</i>. 2014 Jul;
                         </div>
                     </a>
 
@@ -299,7 +299,7 @@
                         <div style="width: 100%;height: auto;float: left;color:#FFFFFF"> Clustering’SIRPα into the
                             plasma membrane lipid microdomains is
                             required for activated monocytes and macrophages to mediate effective cell surface
-                            interactions with CD47. PloS One. 2013 Oct;.
+                            interactions with CD47.<i> PloS One</i>. 2013 Oct;.
                         </div>
                     </a>
 
@@ -309,7 +309,7 @@
                     <a href="https://www.nature.com/articles/ncomms3436">
                         <div style="width: 100%;height: auto;float: left;color:#FFFFFF"> Inflammation-induced
                             proteolytic processing of the SIRPα
-                            cytoplasmic ITIM in neutrophils propagates a proinflammatory state. Nature Communications.
+                            cytoplasmic ITIM in neutrophils propagates a proinflammatory state.<i> Nature Communications</i>.
                             2013 Sep;
                         </div>
                     </a>
@@ -320,7 +320,7 @@
                     <a href="https://www.sciencedirect.com/science/article/pii/S0091674913003102">
                         <div style="width: 100%;height: auto;float: left;color:#FFFFFF">MicroRNA-17/20a/106a modulate
                             macrophage inflammatory responses
-                            through targeting signal-regulatory protein α. Journal of Allergy and Clinical Immunology.
+                            through targeting signal-regulatory protein α.<i>Journal of Allergy and Clinical Immunology</i> .
                             2013 Aug;
                         </div>
                     </a>
@@ -331,7 +331,7 @@
                     <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/jcp.24015">
                         <div style="width: 100%;height: auto;float: left;color:#FFFFFF">The protective role of
                             peroxisome proliferator-activated receptor γ
-                            coactivator-1α in hyperthyroid cardiac hypertrophy. Journal of Cellular Physiology. 2012
+                            coactivator-1α in hyperthyroid cardiac hypertrophy.<i> Journal of Cellular Physiology</i>. 2012
                             Sep;
                         </div>
                     </a>
@@ -342,8 +342,8 @@
                     <a href="https://www.ncbi.nlm.nih.gov/pubmed/20816931">
                         <div style="width: 100%;height: auto;float: left;color:#FFFFFF"> Molecular cloning of amphioxus
                             uncoupling protein and assessment
-                            of its uncoupling activity using a yeast heterologous expression system. Biochem Biophys Res
-                            Commun. 2010 Aug
+                            of its uncoupling activity using a yeast heterologous expression system.<i> Biochem Biophys Res
+                            Commun</i>. 2010 Aug
                         </div>
                     </a>
 
@@ -353,7 +353,7 @@
                     <a href="https://www.nature.com/articles/cr201046">
                         <div style="width: 100%;height: auto;float: left;color:#FFFFFF"> Hypoxia induces PGC-1α
                             expression and mitochondrial biogenesis in
-                            myocardium of TOF patients. Cell Research. 2010 Apr;
+                            myocardium of TOF patients.<i>Cell Research</i> . 2010 Apr;
                         </div>
                     </a>
 
@@ -363,7 +363,7 @@
                     <a href="https://www.sciencedirect.com/science/article/pii/S1567724909001500">
                         <div style="width: 100%;height: auto;float: left;color:#FFFFFF"> Molecular cloning of lamprey
                             uncoupling protein and assessment of
-                            its uncoupling activity using a yeast heterologous expression system. Mitochodrion. 2009
+                            its uncoupling activity using a yeast heterologous expression system.<i> Mitochodrion</i>. 2009
                             Sep;
                         </div>
                     </a>
@@ -375,7 +375,7 @@
                         <div style="width: 100%;height: auto;float: left;color:#FFFFFF">HDMCP uncouples yeast
                             mitochondrial respiration and alleviates
                             steatosis in L02 and hepG2 cells by decreasing ATP and H2O2 levels: A novel mechanism for
-                            NAFLD. Journal of Hepatology. 2008 Oct.
+                            NAFLD.<i> Journal of Hepatology</i>. 2008 Oct.
                         </div>
                     </a>
 

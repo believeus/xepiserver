@@ -379,7 +379,7 @@
                 <div style="width: 100%;height: auto;">
                     <a href="https://www.ncbi.nlm.nih.gov/pubmed/15220929">
                         <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Epigenetic programming by
-                            maternal behavior.Aug 1st 2004 Nature Neuroscience volume 7 issue 8 pp 847-854
+                            maternal behavior.Aug 1st 2004 <i> Nature Neuroscience </i>volume 7 issue 8 pp 847-854
                         </div>
                     </a>
                     <div style="width: 20%;height: auto;float: right;">5530 Citations</div>
@@ -388,7 +388,7 @@
                 <div style="width: 100%;height: auto;">
                     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2944040/">
                         <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Epigenetic regulation of the
-                            glucocorticoid receptor in human brain associates with childhood abuse.Nat Neurosci.2009
+                            glucocorticoid receptor in human brain associates with childhood abuse.<i> Nat Neurosci</i>.2009
                             Mar; 12(3): 342–348.
                         </div>
                     </a>
@@ -408,7 +408,7 @@
                 <div style="width: 100%;height: auto;">
                     <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0002085">
                         <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Promoter-wide hypermethylation of
-                            the ribosomal RNA gene promoter in the suicide brain. PLoS One. 2008 May 7
+                            the ribosomal RNA gene promoter in the suicide brain.<i> PLoS One</i>. 2008 May 7
                         </div>
                     </a>
                     <div style="width: 20%;height: auto;float: right;">351 Citations</div>
@@ -417,7 +417,7 @@
                 <div style="width: 100%;height: auto;">
                     <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0014739">
                         <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Broad epigenetic signature of
-                            maternal care in the brain of adult rats. PLoS One.2011 Feb 28
+                            maternal care in the brain of adult rats.<i> PLoS One</i>.2011 Feb 28
                         </div>
                     </a>
                     <div style="width: 20%;height: auto;float: right;">347 Citations</div>
@@ -426,7 +426,7 @@
                 <div style="width: 100%;height: auto;">
                     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2365485/">
                         <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Expression of antisense to DNA
-                            demethylation and inhibits tumorigenesis .J Biol Chem. 1995 Apr 7
+                            demethylation and inhibits tumorigenesis .<i> J Biol Chem</i>. 1995 Apr 7
                         </div>
                     </a>
                     <div style="width: 20%;height: auto;float: right;">256 Citations</div>
@@ -435,7 +435,7 @@
                 <div style="width: 100%;height: auto;">
                     <a href="https://www.annualreviews.org/doi/abs/10.1146/annurev-pharmtox-061008-103102">
                         <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Epigenetics, DNA methylation,
-                            and chromatin modifying drugs. Annu Rev Pharmacol Toxicol.2009;49
+                            and chromatin modifying drugs. <i>Annu Rev Pharmacol Toxicol</i> .2009;49
                         </div>
                     </a>
                     <div style="width: 20%;height: auto;float: left;">432 Citations</div>
@@ -445,7 +445,7 @@
                     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1413873/">
                         <div style="width: 80%;height: auto;float: left;color:#FFFFFF">Maternal care effects on the
                             hippocampal transcriptome and anxiety-mediated behaviors in the offspring that are
-                            reversible in adulthood.Proc Natl
+                            reversible in adulthood.<i>Proc Natl</i>
                         </div>
                     </a>
                     <div style="width: 20%;height: auto;float: left;">786 Citations</div>
