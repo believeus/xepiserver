@@ -172,7 +172,7 @@
 					</a>
 
 				</div>
-				<div style="width: 100%;height: 80px;"></div>
+				<div style="width: 100%;height: 60px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4236421/">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Nck1 depletion induces activation of the PI3K/Akt pathway by attenuating

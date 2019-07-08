@@ -122,7 +122,7 @@
 					</a>
 
 				</div>
-				<div style="width: 100%;height: 150px;"></div>
+				<div style="width: 100%;height: 80px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="http://cis.hku.hk/publication.html">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF">Bao X, Wang Y, Li X, Li XM, Liu Z, Yang T, Wong CF, Zhang J, Hao Q, Li XD. (2014) Identification of 'erasers' for lysine crotonylated histone marks
