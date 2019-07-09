@@ -32,14 +32,14 @@ public class PayPalController {
     @Resource
     private UdataDao udataDao;
     //沙箱测试
-    public final String clienId = "AT61CAlskHNaaTSd05_OHGo1MGHdRrUhuVLNiWXda_hZx2iHdCkrqLJSkrHRX-bsYxCwQpR2zPq5F7LI";
-    public final String secret = "EA0jDUxg0JYDPTVnz1pajlTBMdMo-kvjSqwRZ2mxwSIW5wES7I0LztJ8iQQMQC6-CS8b_9xCzKJy0Trx";
-    public final APIContext apiContext = new APIContext(clienId, secret, "sandbox");
+   // public final String clienId = "AT61CAlskHNaaTSd05_OHGo1MGHdRrUhuVLNiWXda_hZx2iHdCkrqLJSkrHRX-bsYxCwQpR2zPq5F7LI";
+   // public final String secret = "EA0jDUxg0JYDPTVnz1pajlTBMdMo-kvjSqwRZ2mxwSIW5wES7I0LztJ8iQQMQC6-CS8b_9xCzKJy0Trx";
+   // public final APIContext apiContext = new APIContext(clienId, secret, "sandbox");
 
 
-    /*public  final String clienId = "AZrj5hDXIJWEa5MBrCDqSy5cBE877968Swrqw4p59PTi7JrsZlcYCrTTbE9s2T8iPRHPIkHDDP7SJ8Md";
+    public  final String clienId = "AZrj5hDXIJWEa5MBrCDqSy5cBE877968Swrqw4p59PTi7JrsZlcYCrTTbE9s2T8iPRHPIkHDDP7SJ8Md";
     public  final String secret = "EEWmiwODSJPMUtSYBGedZUXOZ7h0c58CAGeuX0RJ2xq9kKlJXOpNcibbK40FvlhR1TW_ABvZpq3YluWC";
-    public final APIContext apiContext = new APIContext(clienId, secret, "live");*/
+    public final APIContext apiContext = new APIContext(clienId, secret, "live");
     //负责发起支付请求,会跳转到paypal的支付页面
     @RequestMapping("/user/paypal/payment")
     public String payment(HttpSession session, HttpServletResponse response,String mobile) {
@@ -72,11 +72,11 @@ public class PayPalController {
             }
             userDao.update(user);
             if (mobile.equals("true")) {
-                //return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=true";
-                return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=true";
+                return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=true";
+                //return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=true";
             }else {
-                //return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=false";
-                return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=false";
+                return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=false";
+                //return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=false";
             }
         } else {
             //测试数据
@@ -96,16 +96,16 @@ public class PayPalController {
                 payment.setPayer(payer);
                 payment.setTransactions(transactions);
                 RedirectUrls redirectUrls = new RedirectUrls();
-                //redirectUrls.setCancelUrl("https://app.beijingepidial.com/index.jhtml");
-                redirectUrls.setCancelUrl("http://localhost:8080/index.jhtml");
+                redirectUrls.setCancelUrl("https://app.beijingepidial.com/index.jhtml");
+                //redirectUrls.setCancelUrl("http://localhost:8080/index.jhtml");
                 if (mobile.equals("true")) {
                     // //当用户在paypal页面上点击支付的时候,这个请求会被调用
-                    //redirectUrls.setReturnUrl("https://app.beijingepidial.com/user/paypal/paysuccess.jhtml?mobile=true");
-                    redirectUrls.setReturnUrl("http://localhost:8080/user/paypal/paysuccess.jhtml?mobile=true");
+                    redirectUrls.setReturnUrl("https://app.beijingepidial.com/user/paypal/paysuccess.jhtml?mobile=true");
+                   // redirectUrls.setReturnUrl("http://localhost:8080/user/paypal/paysuccess.jhtml?mobile=true");
                 }else {
                     // //当用户在paypal页面上点击支付的时候,这个请求会被调用
-                    //redirectUrls.setReturnUrl("https://app.beijingepidial.com/user/paypal/paysuccess.jhtml?mobile=false");
-                    redirectUrls.setReturnUrl("http://localhost:8080/user/paypal/paysuccess.jhtml?mobile=false");
+                    redirectUrls.setReturnUrl("https://app.beijingepidial.com/user/paypal/paysuccess.jhtml?mobile=false");
+                    //redirectUrls.setReturnUrl("http://localhost:8080/user/paypal/paysuccess.jhtml?mobile=false");
                 }
 
                 payment.setRedirectUrls(redirectUrls);
@@ -161,11 +161,11 @@ public class PayPalController {
                 }
             }
             if (mobile.equals("true")) {
-                //return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=true";
-                return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=true";
+                return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=true";
+                //return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=true";
             }else {
-                //return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=false";
-                return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=false";
+                return  "redirect:https://app.beijingepidial.com/user/transaction/success.jhtml?mobile=false";
+                //return "redirect:http://localhost:8080/user/transaction/success.jhtml?mobile=false";
             }
         } catch (Exception e) {
             e.printStackTrace();
