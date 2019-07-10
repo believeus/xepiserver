@@ -251,7 +251,7 @@
 					</a>
 
 				</div>
-				<div style="width: 100%;height: 100px;"></div>
+				<div style="width: 100%;height: 120px;"></div>
 				<div style="width: 100%;height: auto;">
 					<a href="https://www.researchgate.net/publication/316689941_DNA_methylation_controls_unmethylated_transcription_start_sites_in_the_genome_in_trans">
 						<div style="width: 100%;height: auto;float: left;color:#FFFFFF"> DNA methylation controls unmethylated transcription start sites in the genome

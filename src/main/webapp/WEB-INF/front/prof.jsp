@@ -399,7 +399,7 @@
                 <div style="width: 100%;height: auto;">
                     <a href="https://www.nature.com/articles/17533">
                         <div style="width: 80%;height: auto;float: left;color:#FFFFFF">A mammalian protein with specific
-                            demethylase activity for mCpG DNA Nature. 1999 Feb 18
+                            demethylase activity for mCpG DNA.<i> Nature</i>. 1999 Feb 18
                         </div>
                     </a>
                     <div style="width: 20%;height: auto;float: right;">528 Citations</div>

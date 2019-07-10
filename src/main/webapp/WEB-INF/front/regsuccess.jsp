@@ -61,7 +61,7 @@
                 margin: 0 auto;
                 text-align: left; ">
                 <div style="clear: both;width: 100%;height: 30px;"></div>
-                <div style="width: 100%;text-align: center"> <div style="font-size: 24px">Thank you for your registration.</p></div>
+                <div style="width: 100%;text-align: center"> <div style="font-size: 24px">Thank you for your registration.</div>
                 <div style="clear: both;width: 100%;height: 30px;"></div>
                 <div style="font-size: 20px;text-align: center;">We have sent to you a verification email to your mailbox.Please complete your registration by following the instruction in the email.</p>
             </div>
