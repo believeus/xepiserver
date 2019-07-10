@@ -36,7 +36,7 @@
         <div id="login" style="width: 100%;height: 20px;"></div>
         <form action="/user/login.jhtml" method="post">
             <div class="login_bg">
-                <div id="logo" style="width: 30%; margin: 0 auto;">
+                <div id="logo" style="width: 22%; margin: 0 auto;">
                     <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%;"/>
                 </div>
                 <div style="width: 100%;height: 10px;"></div>
@@ -79,7 +79,8 @@
                 </div>
             </div>
         </form>
-        <div id="all-right" style="width: 100%;height: auto;font-family: arial;padding-top: 268px;">
+        <div id="all-right" style="width: 100%;height: auto;font-family: arial;">
+            <div style="width: 100%;height: 93px;"></div>
             <div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-bottom: 50px;">
                 @2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved
             </div>
