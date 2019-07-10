@@ -31,7 +31,7 @@
            <%-- <div style="width: 8%;height: 50px;float: left;"></div>--%>
             <c:choose>
                 <c:when test="${sessionuser==null}">
-                    <div style="width: 100%;height: auto;margin: 20px 0 0 20px;color:#ffffff">
+                    <div style="width: 100%;height: auto;color:#ffffff">
                         <a href="/user/loginview.jhtml" style="font-size: 18px;font-weight: bold;color: white;">login</a>
                         <span>&nbsp;|&nbsp;</span>
                         <a  href="/concent/index.jhtml" style="font-size: 18px;font-weight: bold;color: white;">register</a></div>

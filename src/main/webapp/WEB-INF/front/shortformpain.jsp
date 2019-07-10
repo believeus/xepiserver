@@ -33,13 +33,13 @@
 <body>
 <div id="container" style="width: 100%;height: 100%;background-color: #DEDEDE;">
     <jsp:include page="header.jsp"/>
-    <div style="width: 100%;height: 20px;background-color:#FFFFFF;"></div>
+    <div style="width: 100%;height: 20px;background-color:#FFFFFF;clear: both;"></div>
     <div id="title" style="width: 100%;height: auto;">
         <div>
             <img src="static/images/pain.png" style="width: 20%;height: 16%;float: right;"/>
         </div>
         <div style="width: 100%;height: auto;">
-            <div style="width: 100%;height: 58px;text-align: center;font-size: 20px;font-family: arial;line-height: 46px; background-color: #FFFFFF; font-weight: 700;">
+            <div style="width: 100%;height: 90px;text-align: center;font-size: 20px;font-family: arial;line-height: 46px; background-color: #FFFFFF; font-weight: 700;">
                 The McGill Pain Questionnaire
             </div>
             <div style="accelerator: 100%;height: auto;background-color: #C1272D;">

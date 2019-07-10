@@ -132,7 +132,7 @@
         });
 	</script>
 
-	<div class="food" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
+	<div class="food" style="width: 96%;margin: 0 auto;height: auto;background-color: #FFFFFF;clear: both;">
 		<div style="width: 100%;height: 30px;"></div>
 		<div style="width: 100%;height: auto;font-weight: 700;color: #666666; font-size: 18px;font-family: arial; ">Food consumption (calories/day)</div>
 		<div style="width: 100%;height: auto;font-size: 12px; font-family: airal;color: #666666;">
