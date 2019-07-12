@@ -34,7 +34,8 @@
                 <c:forEach items="${waresbox}" var="wares">
                     <li>
                         <div class="shop-info">
-                            <input type="checkbox" name="checkbox" class="check goods-check goodsCheck" value="${wares.id}" style="border:0px solid #000">
+                            <input type="checkbox" name="checkbox" class="check goods-check goodsCheck"
+                                   value="${wares.id}" style="border:0px solid #000">
                             <div class="shop-info-img" style="text-align: center;">
                                 <c:choose>
                                     <c:when test="${wares.id==1001}">
@@ -59,6 +60,8 @@
                                         <h4><a href="same/index.jhtml">${wares.name}</a></h4>
                                     </c:otherwise>
                                 </c:choose>
+
+
 
                                 <div class="shop-brief"></div>
                                 <div class="shop-price">
@@ -88,21 +91,18 @@
             </div>
         </div>
     </div>
-    <div class="payment-bar" style="height: 82px">
-        <div class="all-checkbox" style="float: left;height: 100%;width: 5%;"><input type="checkbox"
-                                                                                     class="check goods-check"
-                                                                                     id="AllCheck"
-                                                                                     style="top:30%;border:0px solid #000">
-        </div>
-        <div class="shop-total" style="float: left;width: 30%">
+    <div class="payment-bar" style="height: 82px;clear: both;">
+
+        <div class="shop-total" style="float: left;width: 37%">
             <strong>TOTAL：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
         </div>
+        <div style="width: 100%;height: 8px;"></div>
         <div class="settlement" name="next"
-             style="float: right;width: 20%;cursor: pointer;border-radius: 0 50px 50px 0;">
+             style="float: right;width: 25%;cursor: pointer;border-radius: 0 50px 50px 0;">
             Next
         </div>
         <div class="settlement" name="mycart"
-             style="float: right;background-color: #0e90d2;width: 20%;cursor: pointer;border-radius:  50px 0 0 50px;">
+             style="float: right;background-color: #0e90d2;width: 25%;cursor: pointer;border-radius:  50px 0 0 50px;">
             MyCart
         </div>
     </div>
@@ -112,14 +112,14 @@
         $(function () {
             $("div[name=mycart]").click(function () {
                 if ("${sessionuser==null}" == "true") {
-                    if (window.confirm("You are not logged in yet. \nPlease log in first.")) {
-                        window.location.href = "/user/loginview.jhtml";
+                    if (window.confirm(" You are not logged in yet.\n Please log in first.")) {
+                        window.location.href = "user/loginview.jhtml";
                     }
                     return;
                 }
-                $.post("/user/cart/unPayGoodslist.jhtml", function (msg) {
+                $.post("user/cart/unPayGoodslist.jhtml", function (msg) {
                     if (msg.length != 0) {
-                        window.location.href = "/user/cart/check.jhtml";
+                        window.location.href = "user/cart/check.jhtml";
                     } else {
                         window.alert("Please select a product.");
                     }
@@ -234,7 +234,7 @@
         $("div[name=next]").click(function () {
             if ("${sessionuser==null}" == "true") {
                 if (window.confirm("You are not logged in yet.\n Please log in first.")) {
-                    window.location.href = "/user/loginview.jhtml";
+                    window.location.href = "user/loginview.jhtml";
                 }
                 return;
             }
@@ -283,12 +283,12 @@
 
                 console.log(s1)
                 $.ajax({
-                    url: "/user/transaction/postCar.jhtml",
+                    url: "user/transaction/postCar.jhtml",
                     type: "post",
                     contentType: 'application/json; charset=UTF-8',
                     data: s1,
                     success: function (data) {
-                        window.location.href = data;
+                        window.location.href = "user/cart/check.jhtml";
                     }
                 });
             } else {
