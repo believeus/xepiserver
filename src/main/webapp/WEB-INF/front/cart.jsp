@@ -93,7 +93,7 @@
     </div>
     <div class="payment-bar" style="height: 82px;clear: both;">
 
-        <div class="shop-total" style="float: left;width: 37%">
+        <div class="shop-total" style="float: left;width: 35%">
             <strong>TOTAL：$<i class="total" id="AllTotal" name="total_price">0.00</i></strong>
         </div>
         <div style="width: 100%;height: 8px;"></div>
