@@ -19,6 +19,7 @@ public class Task {
     private int addrid;//收货地址
     private float disprice;//打折之后的价钱
     private String delivery;//0:未发货 1:已经发货
+    private String email;
 
     public String getDelivery() {
         return delivery;
@@ -161,5 +162,13 @@ public class Task {
 
     public void setDisprice(float disprice) {
         this.disprice = disprice;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

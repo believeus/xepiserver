@@ -9,9 +9,9 @@ import java.util.List;
 @Mapper
 public interface UdataDao {
     @Insert("insert into udata" +
-                "(uid,username,naturally,biological,barcode,status,createTime)" +
+                "(uid,username,naturally,biological,barcode,status,createTime,uploadTime,email)" +
             "values" +
-                "(#{uid},#{username},#{naturally},#{biological},#{barcode},#{status},#{createTime})")
+                "(#{uid},#{username},#{naturally},#{biological},#{barcode},#{status},#{createTime},#{uploadTime},#{email})")
     public void  save(Udata udata);
 
     //pending processing finished

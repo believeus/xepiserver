@@ -10,9 +10,9 @@ public interface TaskDao {
 
     //添加产品进入购物车
     @Insert("insert into task" +
-                "(uid ,gid,name,price,imgpath,pay,count,orderno,type,invite,valid,total,createTime,addrid,delivery,disprice,payTime) " +
+                "(uid ,gid,name,price,imgpath,pay,count,orderno,type,invite,valid,total,createTime,addrid,delivery,disprice,payTime,email) " +
             "values " +
-                "(#{uid},#{gid},#{name},#{price},#{imgpath},#{pay},#{count},#{orderno},#{type},#{invite},#{valid},#{total},#{createTime},#{addrid},#{delivery},#{disprice},#{payTime})")
+                "(#{uid},#{gid},#{name},#{price},#{imgpath},#{pay},#{count},#{orderno},#{type},#{invite},#{valid},#{total},#{createTime},#{addrid},#{delivery},#{disprice},#{payTime},#{email})")
     public int save(Task task);
 
     //查询已经放入购物车还未购买订单
@@ -46,7 +46,7 @@ public interface TaskDao {
    @Update("update task set " +
                 "uid=#{uid},gid=#{gid},name=#{name},price=#{price},imgpath=#{imgpath},pay=#{pay}," +
                 "count=#{count},type=#{type},invite=#{invite},valid=#{valid}," +
-                "total=#{total},createTime=#{createTime},payTime=#{payTime},orderno=#{orderno},addrid=#{addrid},delivery=#{delivery} where id=${id} ")
+                "total=#{total},createTime=#{createTime},payTime=#{payTime},orderno=#{orderno},addrid=#{addrid},delivery=#{delivery},email=#{email} where id=${id} ")
    public void  update(Task task);
 
    @Select("select * from task where id=#{id}")

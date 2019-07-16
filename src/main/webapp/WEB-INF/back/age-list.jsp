@@ -39,10 +39,11 @@
 		<thead>
 			<tr class="text-c">
 				<th width="100">username</th>
-				<th width="40">naturally</th>
-				<th width="40">biological</th>
-				<th width="100">barcode</th>
-				<th width="20">status</th>
+				<th width="100">email</th>
+				<th width="70">naturally</th>
+				<th width="70">biological</th>
+				<th width="80">barcode</th>
+				<th width="50">status</th>
 				<th width="100">createTime</th>
 				<th width="100">uploadTime</th>
 				<th width="50">operation</th>
@@ -52,6 +53,7 @@
 			<c:forEach items="${databox}" var="task">
 				<tr  class="text-c">
 					<td>${task.username}</td>
+					<td>${task.email}</td>
 					<td><input name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
 					<td><input name="biological" data-id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
 					<td>${task.barcode}</td>

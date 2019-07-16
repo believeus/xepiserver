@@ -69,6 +69,7 @@ public class TransactionController {
             task.setValid(0);//0：订单有效
             task.setCreateTime(time);//订单创建时间
             task.setDelivery("Unfilled");
+            task.setEmail(user.getMail());
             taskDao.save(task);
         }
         return "/user/cart/check.jhtml";

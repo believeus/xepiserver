@@ -94,6 +94,7 @@ public class TaskController {
         task.setValid(0);//0：订单有效
         task.setCreateTime(time);//订单创建时间
         task.setPayTime(time);
+        task.setEmail(user.getMail());
         task.setDelivery("Unfilled");
         //手动绑定一个地址
         Address address = new Address();

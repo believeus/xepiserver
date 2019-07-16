@@ -11,6 +11,19 @@ public class Udata {
     private String status;//状态：pending processing finished
     private long createTime;//创建时间
     private long uploadTime;//上传barcode时间
+    private String email;
+    public Udata(){}
+
+    public Udata(int uid,String username,String email) {
+        this.username = username;
+        this.uid = uid;
+        this.naturally=0;
+        this.biological=0;
+        this.status="pending";
+        this.createTime=System.currentTimeMillis();
+        this.barcode="";
+        this.email=email;
+    }
 
     public long getCreateTime() {
         return createTime;
@@ -82,5 +95,13 @@ public class Udata {
 
     public void setUid(int uid) {
         this.uid = uid;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

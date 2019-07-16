@@ -85,7 +85,7 @@
                 </div>
                 <div style="width: 70%;height: 92px;float: left;text-align: left;margin-left: 20px;">
                     <div style="width: 100%;height: 92px;font-weight: 600;line-height: 93px">
-                        <a href="user/bioreport/index.jhtml" style="text-decoration: none">My Report </a>
+                        <a href="user/report/my.jhtml" style="text-decoration: none">My Report </a>
                     </div>
                 </div>
                 <div style="width: 8%;height: 92px;float: left;text-align: left;line-height: 92px">

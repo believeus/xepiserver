@@ -1,10 +1,7 @@
 package com.epidial.controller;
 
-import com.epidial.bean.Udata;
-import com.epidial.bean.User;
-import com.epidial.dao.epi.TaskDao;
-import com.epidial.dao.epi.UdataDao;
-import com.epidial.dao.epi.UserDao;
+import com.epidial.bean.*;
+import com.epidial.dao.epi.*;
 import com.epidial.serivce.ReportService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,6 +29,12 @@ public class ReportController {
     @Resource
     private UdataDao udataDao;
 
+    @Resource
+    private DnakitDao dnakitDao;
+
+    @Resource
+    private WaresDao waresDao;
+
     @RequestMapping(value = "/user/report/getData")
     @ResponseBody
     public String getData(HttpSession session, String id) {
@@ -43,9 +46,7 @@ public class ReportController {
         String ntrGtBioData = redata(ntrGtBioUsers);
         //自然年龄<生物学年龄分为一组
         String ntrLtBioData = redata(ntrLtBioUsers);
-        //return reportService.GetDataForReport(user.getUuid());
         String data = ntrGtBioData + "@" + ntrLtBioData + "@" + udata.getNaturally() + "-" + udata.getBiological();
-        System.out.println(data);
         return data;
     }
 
@@ -106,8 +107,65 @@ public class ReportController {
 
     @ResponseBody
     @RequestMapping("/user/report/status")
-    public String xx(String id) {
+    public String status(String id) {
         Udata data = udataDao.findBy("id", id).get(0);
         return data.getStatus();
     }
+
+
+    @ResponseBody
+    @RequestMapping("/user/report/my")
+    public ModelAndView myreport(){
+        ModelAndView modelView = new ModelAndView();
+        modelView.setViewName("/WEB-INF/front/mydnage.jsp");
+        modelView.addObject("title", "Your Biological Age Report");
+        return  modelView;
+    }
+    @ResponseBody
+    @RequestMapping("/user/report/upbarcode")
+    public String upbarcode(String barcode,HttpSession session){
+        User user = (User) session.getAttribute("sessionuser");
+        Dnakit dnakit = dnakitDao.find("barcode", barcode);
+        if (dnakit!=null){
+            Wares wares = waresDao.find("id", "1001").get(0);
+            long time=System.currentTimeMillis();
+            Task task = new Task();
+            task.setCount(1);
+            task.setGid(wares.getId());
+            task.setImgpath(wares.getImgpath());
+            task.setInvite("");
+            task.setOrderno("HKG:" +time );
+            task.setPay(1);//已付款
+            task.setName(wares.getName());
+            task.setPrice(wares.getPrice());
+            float total = wares.getPrice();//商品总价
+            task.setDisprice(wares.getPrice() * user.getDiscount());
+            task.setTotal(total*user.getDiscount());
+            task.setUid(user.getId());
+            task.setType(wares.getType());
+            task.setValid(0);//0：订单有效
+            task.setCreateTime(time);//订单创建时间
+            task.setPayTime(time);
+            task.setDelivery("deliveried");
+            task.setEmail(user.getMail());
+            taskDao.save(task);
+            Udata data=new Udata(user.getId(),user.getNickname(),user.getMail());
+            data.setBarcode(barcode);
+            data.setUploadTime(time);
+            udataDao.save(data);
+            dnakitDao.delete(dnakit.getId());
+            return "success";
+        }else {
+            try{
+                Udata udata = udataDao.findBy("barcode", barcode).get(0);
+                return udata.getStatus()+"@"+udata.getId();
+            }catch (Exception e){
+                return "error";//没有库存
+            }
+
+
+        }
+
+    }
+
 }

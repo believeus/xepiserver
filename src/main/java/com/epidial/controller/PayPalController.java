@@ -59,14 +59,7 @@ public class PayPalController {
             List<Task> taskbox = taskDao.findPayDNAKit(user.getId());
             for (Task task : taskbox) {
                 for (int i = 0; i < task.getCount(); i++) {
-                    Udata data = new Udata();
-                    data.setBiological(0);
-                    data.setNaturally(0);
-                    data.setStatus("pending");
-                    data.setUsername(user.getNickname());
-                    data.setUid(user.getId());
-                    data.setBarcode("");
-                    data.setCreateTime(System.currentTimeMillis());
+                    Udata data=new Udata(user.getId(),user.getNickname(),user.getMail());
                     udataDao.save(data);
                 }
             }
@@ -149,14 +142,7 @@ public class PayPalController {
             List<Task> taskbox = taskDao.findPayDNAKit(user.getId());
             for (Task task : taskbox) {
                 for (int i = 0; i < task.getCount(); i++) {
-                    Udata data = new Udata();
-                    data.setBiological(0);
-                    data.setNaturally(0);
-                    data.setStatus("pending");
-                    data.setUsername(user.getNickname());
-                    data.setUid(user.getId());
-                    data.setBarcode("");
-                    data.setCreateTime(System.currentTimeMillis());
+                    Udata data = new Udata(user.getId(),user.getNickname(),user.getMail());
                     udataDao.save(data);
                 }
             }

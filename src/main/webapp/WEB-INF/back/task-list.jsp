@@ -41,6 +41,7 @@
 		<thead>
 			<tr class="text-c">
 				<th width="40">No</th>
+				<th width="80">email</th>
 				<th width="80">item</th>
 				<th width="40">price</th>
 				<th width="50">image</th>
@@ -54,13 +55,14 @@
 				<th width="50">address</th>
 				<th width="50">disprice</th>
 				<th width="80">delivered</th>
-				<th width="50">operation</th>
+				<th width="50">edit</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${taskbox}" var="task">
 				<tr class="text-c">
 					<td>${task.orderno}</td>
+					<td>${task.email}</td>
 					<td>${task.name}</td>
 					<td>${task.price}</td>
 					<td><img src="${task.imgpath}" width="50px" height="50px"></td>
