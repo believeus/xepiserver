@@ -10,7 +10,7 @@ public class ProlistController {
 	public ModelAndView  prolist(){
 		ModelAndView modelView=new ModelAndView();
 		modelView.setViewName("/WEB-INF/front/prolist.jsp");
-		modelView.addObject("title","Product list");
+		modelView.addObject("title","Prof. Moshe");
 		modelView.addObject("canback",true);
 		return modelView;
 	}

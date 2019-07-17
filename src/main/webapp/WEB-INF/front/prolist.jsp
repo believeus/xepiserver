@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
-    <title>Product list</title>
+    <title>Prof. Moshe</title>
 
 
 </head>
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div style="width: 100%;height: 20px;"></div>
+       <%-- <div style="width: 100%;height: 20px;"></div>
         <div style="width: 98%;height: auto;margin: 0 auto;overflow: hidden;">
             <div style="width: 34%;height: auto;float: left;">
                 <img src="static/images/David.png" style="width: 100%;height: auto;"/>
@@ -113,7 +113,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
     <div style="width: 100%;height: 60px;"></div>
     <div id="all-right" style="width: 100%;height: auto;font-family: arial;">
         <div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-bottom: 50px;">
