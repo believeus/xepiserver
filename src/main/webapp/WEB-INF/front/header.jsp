@@ -12,7 +12,7 @@
 <link href="static/css/stickup.css" rel="stylesheet">
 <script src="static/js/jquery-3.3.1.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-<script src="/static/js/stickUp.min.js"></script>
+<script src="static/js/stickUp.min.js"></script>
 <link href="static/css/diet.bootstrap.min.css" rel="stylesheet"/>
 <link href="static/css/diet.bootstrap-select.min.css" rel="stylesheet"/>
 <script src="static/js/diet.bootstrap-select.js"></script>
@@ -103,6 +103,14 @@
                 <div name="ru-lang" class="lang" data-value='ru'>
                     <img src="static/images/flag/ru-flag.png">
                     <span class="lang-txt">RU</span>
+                </div>
+                <div class="lang" data-value='es'>
+                    <img src="static/images/flag/sp-flag.jpg">
+                    <span class="lang-txt">Español</span>
+                </div>
+                <div class="lang" data-value='pg'>
+                    <img src="static/images/flag/por-flag.jpg">
+                    <span class="lang-txt">Português</span>
                 </div>
             </div>
         </div>

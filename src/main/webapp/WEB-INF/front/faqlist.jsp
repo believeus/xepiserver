@@ -30,12 +30,6 @@
         </div>
 
         <hr/>
-        <div style="margin-top: 30px;">
-            <a href="illumina/index.jhtml" style="text-decoration: none;">
-                <h4>2. What's illumina sequencing?</h4>
-            </a>
-        </div>
-        <hr/>
 
     </div>
     <jsp:include page="footnav.jsp"></jsp:include>
