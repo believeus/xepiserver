@@ -503,7 +503,7 @@
 		<div class="scroll-bar" style="width: 90%;height: auto;margin: 0 auto;">
 			<div class="lifestyle-heartrate-val" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;">0 beats/minutes</div>
 			<div>
-				<input class="lifestyle-heartrate-bar"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #92D050 18%,#FFC000 70%, red 100%)"   type="text" data-slider-min="40" data-slider-max="300" data-slider-step="1" data-slider-value="40">
+				<input class="lifestyle-heartrate-bar"   style-gradient="-webkit-linear-gradient(left, #92D050 0%, #92D050 18%,#FFC000 70%, red 100%)"   type="text" data-slider-min="40" data-slider-max="220" data-slider-step="1" data-slider-value="40">
 			</div>
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: 350px;" id='lifestyle-heartrate-report'></div>
