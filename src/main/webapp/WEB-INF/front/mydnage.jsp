@@ -39,7 +39,7 @@
         <img src="static/images/ic1.png" style="width: 100%;height: auto;"/>
     </div>
     <div id="version-2.0" style="width: 100%;height: auto;">
-        <div style="width: 100%;height: auto;margin-bottom: 10px;">
+        <div  style="width: 100%;height: auto;margin-bottom: 10px;">
             <div style="width: 100%;height: 40px;"></div>
             <div style='width: 100%;height:auto;margin: 0 auto;'>
                 <div style='border: 1px dashed grey;border-radius: 5px;padding: 5px;height:80px;width: 100%'>
@@ -51,10 +51,30 @@
                             <input  name='bind' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;font-size: 14px' value='Get Your Report'/>
                         </div>
                     </form>
-            </div>
+                </div>
+                <div name="mybarcode"></div>
             <div style='width: 100%;height: 10px'></div>
                 <script>
                     $(function () {
+                        $.post("user/cart/paydnakit.jhtml",function(v){
+                            console.info(v);
+                            v.forEach(function(data){
+                                var div="<div style='width: 100%;height: 10px;'></div><div style='width: 100%;height:auto;margin: 0 auto;'>" +
+                                    "                <div style='border: 1px dashed grey;border-radius: 5px;padding: 5px;height:80px;width: 100%'>" +
+                                    "                    <form  action=''>" +
+                                    "                        <div style='float: left;height: 30px;line-height: 30px;font-size: 16px;font-weight: bold;width: 22%;text-align: center;'>barcode:</div>" +
+                                    "                        <div style='width: 78%;height: 30px;float: left'><input name='barcode' readonly  value='"+data.barcode+"' style='width: 100%;height: 100%;border: 1px solid blue;'/></div>" +
+                                    "                        <div style='width: 100%;height:5px;clear: both; '></div>" +
+                                    "                        <div style='width: 100%;height: 30px;'>" +
+                                    "                            <input  name='bind' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;font-size: 14px' value='Get Your Report'/>" +
+                                    "                        </div>" +
+                                    "                    </form>" +
+                                    "            </div>";
+                                $("div[name=mybarcode]").append(div);
+                            });
+
+
+                        });
 
                         $("body").on("click", "input[name=bind]", function (event) {
                             var _oThis = $(event.currentTarget);
@@ -108,7 +128,6 @@
 
                     });
                 </script>
-
             </div>
 
             <div style="width: 90%;height: auto;margin: 0 auto;display: none" name="finished">

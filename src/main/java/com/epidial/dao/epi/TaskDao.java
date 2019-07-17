@@ -19,14 +19,23 @@ public interface TaskDao {
     @Select("select * from task where uid=#{uid} and pay=0 and valid=0 and type=0")
     public List<Task> findUnPayDNAKit(@Param("uid") Object uid);
 
+    @Select("select sum(count) from task where uid=#{uid} and pay=0 and valid=0 and type=0")
+    public int findUnPayDNAKitCount(@Param("uid") Object uid);
+
     @Select("select * from task where uid=#{uid} and pay=0 and valid=0")
     public List<Task> findUnPayGoods(@Param("uid") Object uid);
+
+    @Select("select * from task where uid=#{uid} and pay=0 and valid=0 and type=0")
+    public List<Task> findUnPayDnkKit(@Param("uid") Object uid);
+
+    @Select("select * from task where uid=#{uid} and pay=0 and valid=0 and type=1")
+    public List<Task> findUnPayNoDnkKit(@Param("uid") Object uid);
 
     @Select("select * from task where uid=#{uid} and pay=1")
     public List<Task> findPayGoods(@Param("uid")Object uid);
 
     //查询总价钱
-    @Select("select sum(sumprice) from task where uid=#{uid} and pay=0 and valid=0")
+    @Select("select sum(unpaidAmount) from task where uid=#{uid} and pay=0 and valid=0")
     public float getPrice(@Param("uid") Object uid);
 
     @Delete("delete from task where  ${c}=#{v}")
@@ -37,7 +46,7 @@ public interface TaskDao {
     public List<Task> findPayDNAKit(@Param("uid") Object uid);
 
     @Select("select sum(total) from task where pay=0 and valid=0 and uid=#{uid}")
-    public String sumprice(@Param("uid") Object uid);
+    public String unpaidAmount(@Param("uid") Object uid);
 
 
     @Select("select * from task limit #{idx},#{sz}")

@@ -42,11 +42,11 @@
                                     "                            <div style=\"float: left;width: 50%;height: 100%;\">" +
                                     "                                <div style=\"width:100%;height:10%\"></div>" +
                                     "                                <div style=\"width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">" + v.name + "</div>" +
-                                    "                                <div class=\"shop-sumprice\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
+                                    "                                <div class=\"shop-unpaidAmount\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
                                                                         "<div style='float: left'>total:</div>"+
                                     "                                    <div class=\"shop-pices\" style=\"float:left;width: 35%;height: 100%\">&nbsp;&nbsp;$<b>" + v.price + "</b>&nbsp;&nbsp;&nbsp;&nbsp;X"+v.count+"</div>" +
                                     "                                </div>" +
-                                                                    "<div class=\"shop-sumprice\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
+                                                                    "<div class=\"shop-unpaidAmount\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
                                                                         "<div style='float: left;color: red;'>discount:</div>"+
                                                                         "<div class=\"shop-pices\" style=\"float:left;width: 35%;height: 100%\">&nbsp;&nbsp;$<b>" + v.disprice + "</b>&nbsp;&nbsp;&nbsp;&nbsp;X"+v.count+"</div>" +
                                                                     "</div>" +
@@ -65,9 +65,9 @@
                                     data.id = _oThis.attr("id");
                                     $.post("/user/cart/del.jhtml", data, function (data) {
                                         _oThis.parents("div[name=cart]").remove();
-                                        $.post("/user/cart/sumprice.jhtml", function (data) {
+                                        $.post("/user/cart/unpaidAmount.jhtml", function (data) {
                                             console.info(data);
-                                            $("[name=sumprice]").text(data);
+                                            $("[name=unpaidAmount]").text(data);
                                         });
                                     });
                                 }
@@ -432,14 +432,14 @@
                     <div class="shop-total">
                         <script>
                             $(function () {
-                                $.post("/user/cart/sumprice.jhtml", function (data) {
+                                $.post("/user/cart/unpaidAmount.jhtml", function (data) {
                                     console.info(data);
-                                    $("[name=sumprice]").text(data);
+                                    $("[name=unpaidAmount]").text(data);
                                 });
                             });
                         </script>
                         <strong>Total：$<i class="total" id="AllTotal"
-                                          name="sumprice"></i></strong>
+                                          name="unpaidAmount"></i></strong>
                     </div>
                 </div>
             </div>

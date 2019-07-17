@@ -80,8 +80,8 @@
                         "<div class=\"shop-info-text\">" +
                         "<h4>" + res.CartList[i].wares_name + "</h4>" +
                         "<div class=\"shop-brief\"><span>" + res.CartList[i].wares_info + "</span></div>" +
-                        "<div class=\"shop-sumprice\">" +
-                        "<div class=\"shop-pices\">￥<b class=\"sumprice\">" + res.CartList[i].sell_price + "</b></div>" +
+                        "<div class=\"shop-unpaidAmount\">" +
+                        "<div class=\"shop-pices\">￥<b class=\"unpaidAmount\">" + res.CartList[i].sell_price + "</b></div>" +
                         "<div class=\"shop-arithmetic\">" +
                         "<a href=\"javascript:;\" class=\"minus\">-</a>" +
                         "<span class=\"num\" >1</span>" +
@@ -176,20 +176,20 @@
 
         //Calculation
         function TotalPrice() {
-            var allprice = 0; //Total sumprice
+            var allprice = 0; //Total unpaidAmount
             $(".shop-group-item").each(function () { //Cycle each store
-                var oprice = 0; //Total store sumprice
+                var oprice = 0; //Total store unpaidAmount
                 $(this).find(".goodsCheck").each(function () { //Goods in a recycling shop
                     if ($(this).is(":checked")) { //If the item is selected
                         var num = parseInt($(this).parents(".shop-info").find(".num").text()); //Quantity of Goods Obtained
-                        var price = parseFloat($(this).parents(".shop-info").find(".sumprice").text()); //Unit Price of Goods Obtained
-                        var total = price * num; //Calculate the total sumprice of a single commodity
-                        oprice += total; //Calculate the total sumprice of the store
+                        var price = parseFloat($(this).parents(".shop-info").find(".unpaidAmount").text()); //Unit Price of Goods Obtained
+                        var total = price * num; //Calculate the total unpaidAmount of a single commodity
+                        oprice += total; //Calculate the total unpaidAmount of the store
                     }
                     $(this).closest(".shop-group-item").find(".ShopTotal").text(oprice.toFixed(2)); //Shop prices showing selected items
                 });
-                var oneprice = parseFloat($(this).find(".ShopTotal").text()); //Get the total sumprice of each store
-                allprice += oneprice; //Calculate the total sumprice of all stores
+                var oneprice = parseFloat($(this).find(".ShopTotal").text()); //Get the total unpaidAmount of each store
+                allprice += oneprice; //Calculate the total unpaidAmount of all stores
             });
             $("#AllTotal").text(allprice.toFixed(2)); //Total Output Price
         }

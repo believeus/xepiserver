@@ -23,6 +23,8 @@ public class TaskController {
     private WaresDao waresDao;
     @Resource
     private UdataDao udataDao;
+    @Resource
+    private DnakitDao dnakitDao;
 
     @RequestMapping("/admin/task/view")
     public ModelAndView list(int idx, int size) {
@@ -70,11 +72,14 @@ public class TaskController {
     @ResponseBody
     @RequestMapping("/admin/task/save")
     public String save(String mail, String item, String count) {
-        long time = System.currentTimeMillis();
         User user = userDao.findUser("mail", mail);
         if (user == null) {
             return "email is null";
         }
+        if(dnakitDao.paging(0, Integer.parseInt(count)).size()<Integer.parseInt(count)){
+            return "Insufficient stock";
+        }
+        long time = System.currentTimeMillis();
         Wares wares = waresDao.find("id", item).get(0);
         Task task = new Task();
         task.setCount(Integer.parseInt(count));
@@ -112,14 +117,10 @@ public class TaskController {
         taskDao.save(task);
         if (wares.getType() == 0) {
             for (int i = 0; i < Integer.parseInt(count); i++) {
-                Udata data = new Udata();
-                data.setBiological(0);
-                data.setNaturally(0);
-                data.setStatus("pending");
-                data.setUsername(user.getNickname());
-                data.setUid(user.getId());
-                data.setBarcode("");
-                data.setCreateTime(time);
+                Dnakit dnakit = dnakitDao.paging(0, 1).get(0);
+                Udata data = new Udata(user.getId(),user.getNickname(),user.getMail());
+                data.setBarcode(dnakit.getBarcode());
+                dnakitDao.delete(dnakit.getId());
                 udataDao.save(data);
             }
         }

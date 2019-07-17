@@ -98,11 +98,16 @@ public class ReportController {
     @ResponseBody
     @RequestMapping("/user/report/bind")
     public String bind(String barcode, String id) {
-        Udata data = udataDao.findBy("id", id).get(0);
-        data.setBarcode(barcode);
-        data.setUploadTime(System.currentTimeMillis());
-        udataDao.update(data);
-        return "success";
+        try{
+            Udata data = udataDao.findBy("barcode", barcode).get(0);
+            data.setBarcode(barcode);
+            data.setUploadTime(System.currentTimeMillis());
+            udataDao.update(data);
+            return "success";
+        }catch (Exception e){
+            return "error";
+        }
+
     }
 
     @ResponseBody

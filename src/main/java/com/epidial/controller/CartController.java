@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -78,10 +77,10 @@ public class CartController {
 
     //计算用户购买商品总价
     @ResponseBody
-    @RequestMapping("/user/cart/sumprice")
+    @RequestMapping("/user/cart/unpaidAmount")
     public String sumprice(HttpSession session){
         User user=(User)session.getAttribute("sessionuser");
-        String total=taskDao.sumprice(user.getId());
+        String total=taskDao.unpaidAmount(user.getId());
         return String.format("%.2f", Float.parseFloat(total==null?"0":total));
     }
 
@@ -129,6 +128,10 @@ public class CartController {
         User user = (User) session.getAttribute("sessionuser");
         List<Udata> box = udataDao.findBy("uid", user.getId());
         return box;
+    }
+    @RequestMapping("/user/cart/stockmsg")
+    public String stockmsg(){
+        return "/WEB-INF/front/stockmsg.jsp";
     }
 
 }

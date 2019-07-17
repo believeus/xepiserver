@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <article class="page-container">
-	<form action="/admin/task/save.jhtml" method="post" class="form form-horizontal" id="form-member-add">
+	<form action="admin/task/save.jhtml" method="post" class="form form-horizontal" id="form-member-add">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>user-email：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="formControls col-xs-8 col-sm-9">
                 <script>
                     $(function(){
-                        $.post("/admin/goods/list.jhtml",function(data){
+                        $.post("admin/goods/list.jhtml",function(data){
                             for (var i=0;i<data.length;i++){
                                 var option="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
                                 $("select[name=item]").append(option);

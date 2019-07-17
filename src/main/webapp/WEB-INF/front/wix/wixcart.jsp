@@ -251,7 +251,7 @@
                 s1 += "],"
 
                 var price = document.getElementById('AllTotal').innerHTML;
-                //alert(sumprice)
+                //alert(unpaidAmount)
                 s1 += '"total_price":"' + price + '",';
                 s1 += '"invite":"' + $("#invite").val() + '"';
                 data.total_price = $("#AllTotal").text();

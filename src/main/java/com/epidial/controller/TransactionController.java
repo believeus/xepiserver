@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.epidial.bean.Task;
 import com.epidial.bean.User;
 import com.epidial.bean.Wares;
+import com.epidial.dao.epi.DnakitDao;
 import com.epidial.dao.epi.TaskDao;
 import com.epidial.dao.epi.WaresDao;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,8 @@ public class TransactionController {
     @Resource
     private WaresDao waresDao;
 
+    @Resource
+    private DnakitDao dnakitDao;
 
     //产品信息查询
 
@@ -72,7 +75,7 @@ public class TransactionController {
             task.setEmail(user.getMail());
             taskDao.save(task);
         }
-        return "/user/cart/check.jhtml";
+        return "user/cart/check.jhtml";
     }
 
     @RequestMapping(value = "/user/transaction/success.jhtml")

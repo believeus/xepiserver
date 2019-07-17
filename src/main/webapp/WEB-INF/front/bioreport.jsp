@@ -88,7 +88,7 @@
                     <script>
                         $(function () {
                             //获得已经购买的DNA套件
-                            $.post("/user/cart/paydnakit.jhtml", function (data) {
+                            $.post("user/cart/paydnakit.jhtml", function (data) {
                                 if (data.length != 0) {
 
                                     data.forEach(function (v) {
@@ -96,12 +96,10 @@
                                         div += "<div style='border: 1px dashed grey;border-radius: 5px;padding: 5px;height:80px;width: 100%'>";
                                         div += "<form  action=''>" +
                                             "<div style='float: left;height: 30px;line-height: 30px;font-size: 16px;font-weight: bold;width: 22%;text-align: center;'>barcode:</div>" +
-                                            "<div style='width: 78%;height: 30px;float: left'><input name='barcode'  style='width: 100%;height: 100%;border: 1px solid blue;' value='" + v.barcode + "' /></div>" +
+                                            "<div style='width: 78%;height: 30px;float: left'><input name='barcode' required  style='width: 100%;height: 100%;border: 1px solid blue;' value='" + v.barcode + "' /></div>" +
                                             "<div style='width: 100%;height:5px;clear: both; '></div>" +
                                             "<div style='width: 100%;height: 30px;'>" +
-                                            "<div style='width: 59%;float: left;height: 30px;'><input  id=" + v.id + " name='bind' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;font-size: 14px' value='Link/Upload Your Barcode'/></div>" +
-                                            "<div style='width: 1%;height: 30px;float: left'></div>" +
-                                            "<div style='width: 40%;float: left;height: 30px;'><input id=" + v.id + " name='report' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;font-size: 14px' value='Get Your Report'/></div>" +
+                                                "<div style='width: 100%;float: left;height: 30px;'><input id=" + v.id + " name='report' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;font-size: 14px' value='Get Your Report'/></div>" +
                                             "</div>"
                                         "</form>";
                                         div += "</div>";
@@ -112,57 +110,45 @@
 
                                 }
                             });
-                            $("body").on("click", "input[name=bind]", function (event) {
-                                var _oThis = $(event.currentTarget);
-                                if (_oThis.val() == "edit the barcode") {
-                                    _oThis.val("Link/Upload Your Barcode");
-                                    _oThis.parents("form").find("input[name=barcode]").removeAttr("readonly");
-                                } else {
-                                    var data = {};
-                                    data.id = _oThis.attr("id");
-                                    data.barcode = _oThis.parents("form").find("input[name=barcode]").val();
-                                    console.info(data.barcode);
-                                    if (data.barcode == "") {
-                                        alert("please enter the barcode!");
-                                        return;
-                                    }
-                                    $.post("/user/report/bind.jhtml", data, function (data) {
-                                        _oThis.parents("form").find("input[name=barcode]").attr("readonly", "readonly");
-                                        _oThis.val("edit the barcode");
-                                    });
-                                }
-                            });
-
                             $("body").on("click", "input[name=report]", function (event) {
                                 var _oThis = $(event.currentTarget);
                                 var data = {};
                                 data.id = _oThis.attr("id");
                                 data.barcode = _oThis.parents("form").find("input[name=barcode]").val();
+                                console.info(data.barcode);
                                 if (data.barcode == "") {
-                                    alert("please enter the barcode!");
+                                    window.alert("please enter the barcode!");
                                     return;
                                 }
-                                //显示对应的div
-                                $.post("/user/report/status.jhtml", data, function (status) {
-                                    if (status == "pending" || status == "processing") {
-                                        alert("Thanks for choosing our  \n epiAging product.Your report will be \n available in 21 working days.")
-                                    } else if (status == "finished") {
-                                        $.post("/user/report/getData.jhtml", data, function (value) {
-                                            value.split("@")[0].split("#").forEach(function (v) {
-                                                window.ntrGtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])]);
-                                            });
-                                            value.split("@")[1].split("#").forEach(function (v) {
-                                                window.ntrLtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])]);
-                                            });
-                                            window.xx = parseInt(value.split("@")[2].split("-")[0]);//自然年龄
-                                            window.yy = parseInt(value.split("@")[2].split("-")[1]);//生物学年龄
-                                            window.ready = true;
+                                $.post("user/report/bind.jhtml", data, function (data) {
+                                    if (data == "error") {
+                                        window.alert("The barcode is incorrect");
+                                    } else {
+                                        //显示对应的div
+                                        $.post("user/report/status.jhtml", data, function (status) {
+                                            if (status == "pending" || status == "processing") {
+                                                alert("Thanks for choosing our  \n epiAging product.Your report will be \n available in 21 working days.")
+                                            } else if (status == "finished") {
+                                                $.post("/user/report/getData.jhtml", data, function (value) {
+                                                    value.split("@")[0].split("#").forEach(function (v) {
+                                                        window.ntrGtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])]);
+                                                    });
+                                                    value.split("@")[1].split("#").forEach(function (v) {
+                                                        window.ntrLtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])]);
+                                                    });
+                                                    window.xx = parseInt(value.split("@")[2].split("-")[0]);//自然年龄
+                                                    window.yy = parseInt(value.split("@")[2].split("-")[1]);//生物学年龄
+                                                    window.ready = true;
+                                                    $("div[name=finished]").css("display", "block");
+                                                });
+                                            }
 
                                         });
                                     }
-                                    $("div[name=" + status + "]").css("display", "block");
                                 });
                             });
+
+
                         });
                     </script>
 
