@@ -46,7 +46,7 @@
 			<img src="static/images/mood.png" style="width: 20%;height: 16%;float: right;" />
 		</div>
 		<div style="width: 100%;height: auto;">
-			<div style="width: 100%;height: 90px;text-align: center;font-size: 20px;font-family: arial;line-height: 46px; background-color: #FFFFFF; font-weight: 700;">Mood Self Assessment</div>
+			<div style="width: 100%;height: 63px;text-align: center;font-size: 20px;font-family: arial;line-height: 46px; background-color: #FFFFFF; font-weight: 700;">Mood Self Assessment</div>
 			<div style="accelerator: 100%;height: auto;background-color: #6950F4;">
 				<div style="width: 90%;height: auto;margin: 0 auto;color: #FFFFFF; font-family: arial;font-size: 14px;">
 					<div style="width: 100%;height: 20px;"></div>
