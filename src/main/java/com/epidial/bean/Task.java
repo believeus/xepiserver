@@ -5,19 +5,16 @@ public class Task {
     private  int uid;
     private  int gid;
     private  String name;
-    private float price;
     private String imgpath;
     private int pay;
-    private int count;
     private String orderno; //订单号
     private int type;
-    private String invite;//邀请码
+    private String barcode;//二维码
     private  int valid; //0:订单未消费 1 订单已消费
     private float total;//总价格
     private long createTime;//下单时间
     private long payTime;//付款时间
     private int addrid;//收货地址
-    private float disprice;//打折之后的价钱
     private String delivery;//0:未发货 1:已经发货
     private String email;
 
@@ -85,14 +82,6 @@ public class Task {
         this.name = name;
     }
 
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
     public String getImgpath() {
         return imgpath;
     }
@@ -109,19 +98,12 @@ public class Task {
         this.pay = pay;
     }
 
-    public int getCount() {
-        return count;
+    public String getBarcode() {
+        return barcode;
     }
 
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    public String getInvite() {
-        return invite;
-    }
-    public void setInvite(String invite) {
-        this.invite = invite;
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
     }
 
     public int getValid() {
@@ -156,13 +138,6 @@ public class Task {
         this.payTime = payTime;
     }
 
-    public float getDisprice() {
-        return disprice;
-    }
-
-    public void setDisprice(float disprice) {
-        this.disprice = disprice;
-    }
 
     public String getEmail() {
         return email;

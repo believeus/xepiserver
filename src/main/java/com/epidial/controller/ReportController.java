@@ -39,7 +39,7 @@ public class ReportController {
     @ResponseBody
     public String getData(HttpSession session, String id) {
         User user = (User) session.getAttribute("sessionuser");
-        Udata udata = udataDao.findBy("id", id).get(0);
+        Udata udata = udataDao.findBy("id", id);
         List<Udata> ntrGtBioUsers = udataDao.findNtrGtBio();//查找自然年龄大于生物学年龄的用户
         List<Udata> ntrLtBioUsers = udataDao.findNtrLtBio();//查找自然年龄小于生物学年龄的用户
         //自然年龄>生物学年龄分为一组
@@ -69,11 +69,11 @@ public class ReportController {
         //已经在购物车没有购买
         if (!taskDao.findUnPayDNAKit(user.getId()).isEmpty()) {
             return new ModelAndView("redirect:/user/cart/check.jhtml");
-        //如果产品已经购买了
+            //如果产品已经购买了
         } else if (!taskDao.findPayDNAKit(user.getId()).isEmpty()) {
             modelView.setViewName("/WEB-INF/front/bioreport.jsp");
             modelView.addObject("title", "Your Biological Age Report");
-         //购物车中没有产品也没有购买任何产品，跳转到产品介绍页面
+            //购物车中没有产品也没有购买任何产品，跳转到产品介绍页面
         } else {
             modelView.setViewName("/WEB-INF/front/aging.jsp");
             modelView.addObject("title", "Aging");
@@ -98,13 +98,13 @@ public class ReportController {
     @ResponseBody
     @RequestMapping("/user/report/bind")
     public String bind(String barcode, String id) {
-        try{
-            Udata data = udataDao.findBy("barcode", barcode).get(0);
+        try {
+            Udata data = udataDao.findBy("barcode", barcode);
             data.setBarcode(barcode);
             data.setUploadTime(System.currentTimeMillis());
             udataDao.update(data);
             return "success";
-        }catch (Exception e){
+        } catch (Exception e) {
             return "error";
         }
 
@@ -113,39 +113,35 @@ public class ReportController {
     @ResponseBody
     @RequestMapping("/user/report/status")
     public String status(String id) {
-        Udata data = udataDao.findBy("id", id).get(0);
+        Udata data = udataDao.findBy("id", id);
         return data.getStatus();
     }
 
 
     @ResponseBody
     @RequestMapping("/user/report/my")
-    public ModelAndView myreport(){
+    public ModelAndView myreport() {
         ModelAndView modelView = new ModelAndView();
         modelView.setViewName("/WEB-INF/front/mydnage.jsp");
         modelView.addObject("title", "Your Biological Age Report");
-        return  modelView;
+        return modelView;
     }
+
     @ResponseBody
     @RequestMapping("/user/report/upbarcode")
-    public String upbarcode(String barcode,HttpSession session){
+    public String upbarcode(String barcode, HttpSession session) {
         User user = (User) session.getAttribute("sessionuser");
         Dnakit dnakit = dnakitDao.find("barcode", barcode);
-        if (dnakit!=null){
+        if (dnakit != null) {
             Wares wares = waresDao.find("id", "1001").get(0);
-            long time=System.currentTimeMillis();
+            long time = System.currentTimeMillis();
             Task task = new Task();
-            task.setCount(1);
             task.setGid(wares.getId());
             task.setImgpath(wares.getImgpath());
-            task.setInvite("");
-            task.setOrderno("HKG:" +time );
+            task.setOrderno("HKG:" + time);
             task.setPay(1);//已付款
             task.setName(wares.getName());
-            task.setPrice(wares.getPrice());
-            float total = wares.getPrice();//商品总价
-            task.setDisprice(wares.getPrice() * user.getDiscount());
-            task.setTotal(total*user.getDiscount());
+            task.setTotal(wares.getPrice() * user.getDiscount());
             task.setUid(user.getId());
             task.setType(wares.getType());
             task.setValid(0);//0：订单有效
@@ -153,18 +149,31 @@ public class ReportController {
             task.setPayTime(time);
             task.setDelivery("deliveried");
             task.setEmail(user.getMail());
+            task.setBarcode(barcode);
             taskDao.save(task);
-            Udata data=new Udata(user.getId(),user.getNickname(),user.getMail());
+            Udata data = new Udata(user.getId(), user.getNickname(), user.getMail());
             data.setBarcode(barcode);
             data.setUploadTime(time);
             udataDao.save(data);
             dnakitDao.delete(dnakit.getId());
             return "success";
-        }else {
-            try{
-                Udata udata = udataDao.findBy("barcode", barcode).get(0);
-                return udata.getStatus()+"@"+udata.getId();
-            }catch (Exception e){
+        } else {
+            try {
+                Task task = taskDao.findPayDnaKitTask("barcode", barcode, "uid", user.getId());
+                if (task != null) {
+                    Udata data = udataDao.findBy("barcode", barcode);
+                    if (data==null) {
+                        data = new Udata(user.getId(), user.getNickname(), user.getMail());
+                        data.setBarcode(barcode);
+                        data.setUploadTime(System.currentTimeMillis());
+                        udataDao.save(data);
+                    }
+                    Udata u=udataDao.findBy("barcode", barcode);
+                    return u.getStatus() + "@" + u.getId();
+                }else {
+                    return "empty";
+                }
+            } catch (Exception e) {
                 return "error";//没有库存
             }
 

@@ -38,18 +38,14 @@
                                     "                        <div style=\"width: 100%\">" +
                                     "                            <div style=\"width:40%;height:auto;float: left;text-align: center\">" +
                                     "                                <image src=" + v.imgpath + " style=\"width:70%;height:auto\"></image>" +
-                                    "                            </div>\n" +
+                                    "                            </div>" +
                                     "                            <div style=\"float: left;width: 50%;height: 100%;\">" +
                                     "                                <div style=\"width:100%;height:10%\"></div>" +
                                     "                                <div style=\"width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">" + v.name + "</div>" +
                                     "                                <div class=\"shop-unpaidAmount\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
                                                                         "<div style='float: left'>total:</div>"+
-                                    "                                    <div class=\"shop-pices\" style=\"float:left;width: 35%;height: 100%\">&nbsp;&nbsp;$<b>" + v.price + "</b>&nbsp;&nbsp;&nbsp;&nbsp;X"+v.count+"</div>" +
+                                    "                                    <div class=\"shop-pices\" style=\"float:left;width: 35%;height: 100%\">&nbsp;&nbsp;$<b>" + v.total + "</b></div>" +
                                     "                                </div>" +
-                                                                    "<div class=\"shop-unpaidAmount\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
-                                                                        "<div style='float: left;color: red;'>discount:</div>"+
-                                                                        "<div class=\"shop-pices\" style=\"float:left;width: 35%;height: 100%\">&nbsp;&nbsp;$<b>" + v.disprice + "</b>&nbsp;&nbsp;&nbsp;&nbsp;X"+v.count+"</div>" +
-                                                                    "</div>" +
                                     "                            </div>" +
                                     "                        </div>" +
                                     "                    </div><div name='cartdel' id='" + v.id + "' style='clear:both;float: left;background-color:#0071bc;color: white;width: 18%;height: 20px;cursor: pointer;border-radius:5px;text-align: center;font-weight: bold; '>Remove</div></div>" +
@@ -63,9 +59,9 @@
                                     var data = {};
                                     var _oThis = $(event.currentTarget);
                                     data.id = _oThis.attr("id");
-                                    $.post("/user/cart/del.jhtml", data, function (data) {
+                                    $.post("user/cart/del.jhtml", data, function (data) {
                                         _oThis.parents("div[name=cart]").remove();
-                                        $.post("/user/cart/unpaidAmount.jhtml", function (data) {
+                                        $.post("user/cart/unpaidAmount.jhtml", function (data) {
                                             console.info(data);
                                             $("[name=unpaidAmount]").text(data);
                                         });
@@ -433,7 +429,6 @@
                         <script>
                             $(function () {
                                 $.post("/user/cart/unpaidAmount.jhtml", function (data) {
-                                    console.info(data);
                                     $("[name=unpaidAmount]").text(data);
                                 });
                             });

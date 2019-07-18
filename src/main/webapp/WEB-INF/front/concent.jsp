@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
@@ -57,11 +58,12 @@
 
 		</div>
 		<div style="width: 100%;height: 30px"></div>
-		<div style="width: 50%;margin: 0 auto; height: 40px;">
-			<a href="register.jhtml">
-				<div style="width: 50%;height: 40px;border-radius: 10px;border: 1px solid grey;margin: 0 auto;text-align: center;line-height: 40px;font-size:18px ;background-color: #0071BC;font-family: arial;color: #FFFFFF;">Agree</div>
-			</a>
-		</div>
+		<c:if test="${sessionuser==null}">
+			<div style="width: 50%;margin: 0 auto; height: 40px;">
+				<a href="register.jhtml"><div style="width: 50%;height: 40px;border-radius: 10px;border: 1px solid grey;margin: 0 auto;text-align: center;line-height: 40px;font-size:18px ;background-color: #0071BC;font-family: arial;color: #FFFFFF;">Agree</div></a>
+			</div>
+		</c:if>
+
 	</div>
 
 	<div id="all-right"style="width: 100%;height: auto;font-family: arial;">

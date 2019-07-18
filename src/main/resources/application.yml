@@ -1,6 +1,8 @@
 server:
     port: 8080
 spring:
+    jmx:
+      default-domain: EN
     # 静态文件请求匹配方式
     mvc: static-path-pattern=/**
     # 修改默认的静态寻址资源目录 多个使用逗号分隔
@@ -31,7 +33,7 @@ primary:
         filters: stat
         driverClassName: com.mysql.jdbc.Driver
         #配置基本属性
-        url: jdbc:mysql://192.168.1.116:3306/epi?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useSSL=false
+        url: jdbc:mysql://localhost:3306/epi?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useSSL=false
         username: root
         password: LZmy5cRxNcHQnxDhNtMm08t1dTncNuMkgU6+xZ3NPeY/Fu2LFGasDBEsFuel6A+osQljPgV5uMa3WqeZZpguaA==
         publickey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJlRkDJNrJVIJu/TMBFJwEJJOxu0V3fVvDa1FoMWNrO5JuadCub/wvjSDtGUB1RVPXUIN/KIxiarqi5eaeCTeiECAwEAAQ==
@@ -61,7 +63,7 @@ back:
         filters: stat
         driverClassName: com.mysql.jdbc.Driver
         #配置基本属性
-        url: jdbc:mysql://192.168.1.116:3306/qtion?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useSSL=false
+        url: jdbc:mysql://localhost:3306/qtion?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useSSL=false
         username: root
         password: LZmy5cRxNcHQnxDhNtMm08t1dTncNuMkgU6+xZ3NPeY/Fu2LFGasDBEsFuel6A+osQljPgV5uMa3WqeZZpguaA==
         publickey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJlRkDJNrJVIJu/TMBFJwEJJOxu0V3fVvDa1FoMWNrO5JuadCub/wvjSDtGUB1RVPXUIN/KIxiarqi5eaeCTeiECAwEAAQ==
@@ -84,9 +86,8 @@ back:
         maxPoolPreparedStatementPerConnectionSize: 20
 
 
-  ## Mybatis配置
-  #mybatis:
-  #    configLocation: classpath:Mybatis/mybatis.xml              #mybatis配置文件路径
-  #    mapperLocations: classpath:mapper/*.xml  #所有mapper映射文件地址
-  #     # pojo类所在包路径
-  #    type-aliases-package: com.Bean
+mybatis:
+    configLocation: classpath:Mybatis/mybatis.xml              #mybatis配置文件路径
+#    mapperLocations: classpath:mapper/*.xml  #所有mapper映射文件地址
+#     # pojo类所在包路径
+#    type-aliases-package: com.Bean

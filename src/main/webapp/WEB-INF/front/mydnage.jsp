@@ -56,7 +56,7 @@
             <div style='width: 100%;height: 10px'></div>
                 <script>
                     $(function () {
-                        $.post("user/cart/paydnakit.jhtml",function(v){
+                        $.post("user/cart/dnakitlist.jhtml",function(v){
                             console.info(v);
                             v.forEach(function(data){
                                 var div="<div style='width: 100%;height: 10px;'></div><div style='width: 100%;height:auto;margin: 0 auto;'>" +
@@ -72,7 +72,6 @@
                                     "            </div>";
                                 $("div[name=mybarcode]").append(div);
                             });
-
 
                         });
 

@@ -11,7 +11,7 @@ import java.util.List;
 public interface WaresDao {
 
     @Select("select * from wares where ${column}=#{v}")
-    public List<Wares> find(@Param("column") String column, @Param("v") String v);
+    public List<Wares> find(@Param("column") String column, @Param("v") Object v);
 
     @Select("select * from wares")
     public List<Wares> findAll();

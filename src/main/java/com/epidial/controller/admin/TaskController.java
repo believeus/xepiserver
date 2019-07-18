@@ -82,18 +82,12 @@ public class TaskController {
         long time = System.currentTimeMillis();
         Wares wares = waresDao.find("id", item).get(0);
         Task task = new Task();
-        task.setCount(Integer.parseInt(count));
         task.setGid(wares.getId());
         task.setImgpath(wares.getImgpath());
-        task.setInvite(user.getInvite());
         task.setOrderno("HKG:" + time);
         task.setPay(1);//未付款
         task.setName(wares.getName());
-        task.setPrice(wares.getPrice());
-        float total = wares.getPrice() * Float.parseFloat(count);//商品总价
-        float disprice = wares.getPrice() * user.getDiscount();//每件商品打折的价钱
-        task.setDisprice((user.getDiscount() < 1) ? disprice : wares.getPrice());
-        task.setTotal(total * user.getDiscount());//设置产品总价
+        task.setTotal( wares.getPrice() * user.getDiscount());//设置产品总价
         task.setUid(user.getId());
         task.setType(wares.getType());
         task.setValid(0);//0：订单有效

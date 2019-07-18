@@ -2,13 +2,15 @@ package com.epidial.controller;
 
 import com.epidial.bean.Dnakit;
 import com.epidial.bean.Task;
-import com.epidial.bean.Udata;
 import com.epidial.bean.User;
 import com.epidial.dao.epi.*;
 import com.paypal.api.payments.*;
 import com.paypal.base.rest.APIContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -40,14 +42,17 @@ public class PayPalController {
 
     //负责发起支付请求,会跳转到paypal的支付页面
     @RequestMapping("/user/paypal/payment")
-    public String payment(HttpSession session, String mobile) {
+    public synchronized String payment(HttpSession session, String mobile) {
         User user = (User) session.getAttribute("sessionuser");
-        userDao.update(user);
+        int unPayDNAKitCount = taskDao.findUnPayDNAKitCount(user.getId());
+        if (dnakitDao.paging(0, unPayDNAKitCount).size() < unPayDNAKitCount) {
+            return "redirect:/user/cart/stockmsg.jhtml";
+        }
         //将其他地址状态归置
         addressDao.update("valid", 0, "uuid", user.getUuid());
         String total = String.format("%.2f", Float.parseFloat(taskDao.unpaidAmount(user.getId())));
         if (total.equals("0.00")) {
-            return endTask(user, mobile);
+            endTask(user, mobile);
         } else {
             try {
                 Amount amount = new Amount();
@@ -67,7 +72,7 @@ public class PayPalController {
                 redirectUrls.setCancelUrl("/index.jhtml");
                 // 当用户在paypal页面上点击支付的时候,这个请求会被调用
                 String url = "http://localhost:8080/user/paypal/paysuccess.jhtml?mobile=" + (mobile.equals("true") ? "true" : "false");
-               // String url = "https://app.beijingepidial.com/user/paypal/paysuccess.jhtml?mobile=" + (mobile.equals("true") ? "true" : "false");
+                // String url = "https://app.beijingepidial.com/user/paypal/paysuccess.jhtml?mobile=" + (mobile.equals("true") ? "true" : "false");
                 redirectUrls.setReturnUrl(url);
 
                 payment.setRedirectUrls(redirectUrls);
@@ -93,12 +98,15 @@ public class PayPalController {
     public String paysuccess(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId, HttpSession session, String mobile) {
         try {
             User user = (User) session.getAttribute("sessionuser");
-            Payment payment = new Payment();
-            payment.setId(paymentId);
-            PaymentExecution paymentExecute = new PaymentExecution();
-            paymentExecute.setPayerId(payerId);
-            payment.execute(apiContext, paymentExecute);
-            return endTask(user, mobile);
+            synchronized (Object.class) {
+                endTask(user, mobile);
+                Payment payment = new Payment();
+                payment.setId(paymentId);
+                PaymentExecution paymentExecute = new PaymentExecution();
+                paymentExecute.setPayerId(payerId);
+                payment.execute(apiContext, paymentExecute);
+                return "redirect:/user/transaction/success.jhtml?mobile=" + (mobile.equals("true") ? "true" : "false");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -106,29 +114,22 @@ public class PayPalController {
     }
 
 
-    private String endTask(User user, String mobile) {
+    private void endTask(User user, String mobile) {
         List<Task> unPayNoDnkKit = taskDao.findUnPayNoDnkKit(user.getId());
         for (Task task : unPayNoDnkKit) {
             task.setPay(1);//购买成功
             task.setPayTime(System.currentTimeMillis());
             taskDao.update(task);
         }
-        int unPayDNAKitCount = taskDao.findUnPayDNAKitCount(user.getId());
-        for (int i = 0; i < unPayDNAKitCount; i++) {
+        List<Task> unpPayDNAKit = taskDao.findUnPayDNAKit(user.getId());
+        for (Task task : unpPayDNAKit) {
             Dnakit dnakit = dnakitDao.paging(0, 1).get(0);
-            Udata data = new Udata(user.getId(), user.getNickname(), user.getMail());
-            data.setBarcode(dnakit.getBarcode());
-            udataDao.save(data);
             dnakitDao.delete(dnakit.getId());
-        }
-        List<Task> unPayDNAKit = taskDao.findUnPayDNAKit(user.getId());
-        for (Task task : unPayDNAKit) {
             task.setPay(1);
             task.setPayTime(System.currentTimeMillis());
+            task.setBarcode(dnakit.getBarcode());
             taskDao.update(task);
         }
-        return "redirect:/user/transaction/success.jhtml?mobile=" + (mobile.equals("true") ? "true" : "false");
-
     }
 
     @ResponseBody

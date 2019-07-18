@@ -25,16 +25,15 @@
     </div>
     <div style="width: 100%;height: 300px;overflow: hidden;">
         <div style="width: 100%;height: 87px;text-align: center;line-height: 40px;font-weight: bold;font-family: arial;font-size: 20px;color: #0071BC;font-family: arial;">
-            Sorry! Insufficient stock
+            Sorry! Biological age detection Insufficient stock
         </div>
-
+        <a href="user/cart/index.jhtml">
         <div style="width: 100%;height: 40px;">
-            <a href="index.jhtml">
                 <div style="width: 50%;height: 40px;border-radius: 10px;border: 1px solid grey;margin: 0 auto;text-align: center;line-height: 40px;font-size:16px ;background-color: #0071BC;font-family: arial;color: #FFFFFF;">
-                    Done
+                    Back
                 </div>
-            </a>
         </div>
+        </a>
     </div>
 
     <div id="all-right" style="width: 100%;height: auto;font-family: arial;">

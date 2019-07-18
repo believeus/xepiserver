@@ -40,41 +40,33 @@
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
 			<tr class="text-c">
-				<th width="40">No</th>
-				<th width="80">email</th>
+				<th width="100">No</th>
 				<th width="80">item</th>
-				<th width="40">price</th>
 				<th width="50">image</th>
-				<th width="20">pay</th>
-				<th width="45">quantity</th>
-				<th width="60">invite</th>
-				<th width="30">valid</th>
-				<th width="20">total</th>
+				<th width="30">pay</th>
+				<th width="60">barcode</th>
+				<th width="45">valid</th>
+				<th width="40">total</th>
 				<th width="100">createTime</th>
 				<th width="100">paymentTime</th>
 				<th width="50">address</th>
-				<th width="50">disprice</th>
 				<th width="80">delivered</th>
-				<th width="50">edit</th>
+				<th width="20">edit</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${taskbox}" var="task">
 				<tr class="text-c">
 					<td>${task.orderno}</td>
-					<td>${task.email}</td>
 					<td>${task.name}</td>
-					<td>${task.price}</td>
 					<td><img src="${task.imgpath}" width="50px" height="50px"></td>
 					<c:choose>
 						<c:when test="${task.pay ==1}">	<td class="td-status"><span class="label label-success radius">paid</span></td></c:when>
-						<c:otherwise><td class="td-status"><span class="label label-error radius">un-pay</span></td></c:otherwise>
+						<c:otherwise><td class="td-status"></td></c:otherwise>
 					</c:choose>
-
-					<td>${task.count}</td>
-					<td>${task.invite}</td>
+					<td>${task.barcode}</td>
 					<c:choose>
-						<c:when test="${task.valid ==0}">	<td class="td-status"><span class="label label-success radius">Unexpired</span></td></c:when>
+						<c:when test="${task.valid ==0}"><td class="td-status"><span class="label label-success radius">Unexpired</span></td></c:when>
 						<c:otherwise><td class="td-status"><span class="label label-error radius">expire</span></td></c:otherwise>
 					</c:choose>
 					<td>${task.total}</td>
@@ -86,7 +78,6 @@
 
 
 					<td class="td-manage"><a title="edit" href="javascript:;" onclick="member_edit('edit','/admin/task/edit.jhtml?id=${task.addrid}','4','','510')" class="ml-5" style="text-decoration:none">check</a>  </td>
-					<td>${task.disprice}</td>
 					<td>
 						<select>
 							<c:choose>

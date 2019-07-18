@@ -287,8 +287,12 @@
                     type: "post",
                     contentType: 'application/json; charset=UTF-8',
                     data: s1,
-                    success: function (data) {
-                        window.location.href = "user/cart/check.jhtml";
+                    success: function (v) {
+                        if (v=="insufficient-stock"){
+                            window.location.href = "user/cart/stockmsg.jhtml";
+                        }else {
+                            window.location.href = "user/cart/check.jhtml";
+                        }
                     }
                 });
             } else {

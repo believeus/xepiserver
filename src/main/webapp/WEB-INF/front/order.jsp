@@ -44,8 +44,7 @@
                                 "          <div style='width:100%;height:10%'></div>" +
                                 "           <div style='width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size: 14px'>" + v.name + "</div>" +
                                 "            <div class='shop-unpaidAmount' style='width:100%;height:40%;;text-align: center'>" +
-                                "                <div class='shop-pices' style='float:left;width: 40%;height: 100%'>$<b>" + v.disprice + "</b></div>" +
-                                "                <div class='shop-arithmetic' style='float: right;width: 60%;height: 100%;text-align: center'>X" + v.count + "</div>" +
+                                "                <div class='shop-pices' style='float:left;width: 40%;height: 100%'>$<b>" + v.total + "</b></div>" +
                                 "            </div>" +
                                 "   </div>" +
                                 "   <div style='float: left;width: 32%;height: 100%;'>" +

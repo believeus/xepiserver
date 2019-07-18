@@ -96,13 +96,9 @@
                 </div>
             </div>
             <div class="more_lang">
-                <div name="us-lang"  class="lang" data-value='en'>
-                    <img src="static/images/flag/usa-flag.png">
-                    <span class="lang-txt" >EN</span>
-                </div>
                 <div name="ru-lang" class="lang" data-value='ru'>
                     <img src="static/images/flag/ru-flag.png">
-                    <span class="lang-txt">RU</span>
+                    <span class="lang-txt">русский</span>
                 </div>
                 <div class="por-lang" data-value='pg'>
                     <img src="static/images/flag/por-flag.jpg">
@@ -118,6 +114,5 @@
         <div class="content"></div>
     </div>
     <!-- End lang-->
-
-
 </div>
+

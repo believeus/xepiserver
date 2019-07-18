@@ -122,13 +122,15 @@ public class CartController {
         List<Task> tasks = taskDao.findUnPayGoods(user.getId());
         return tasks;
     }
+
     @ResponseBody
-    @RequestMapping("/user/cart/paydnakit")
-    public List<Udata> payDNAKit(HttpSession session){
+    @RequestMapping("/user/cart/dnakitlist")
+    public List<Task> dnakitlist(HttpSession session) {
         User user = (User) session.getAttribute("sessionuser");
-        List<Udata> box = udataDao.findBy("uid", user.getId());
-        return box;
+        List<Task> tasks = taskDao.findPayDNAKit(user.getId());
+        return tasks;
     }
+
     @RequestMapping("/user/cart/stockmsg")
     public String stockmsg(){
         return "/WEB-INF/front/stockmsg.jsp";

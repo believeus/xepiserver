@@ -26,7 +26,7 @@ public class AgeController {
     @ResponseBody
     @RequestMapping("/admin/age/update")
     public String update(int id,String v){
-        Udata udata = udataDao.findBy("id", id).get(0);
+        Udata udata = udataDao.findBy("id", id);
         udata.setNaturally(Float.parseFloat(v.split("@")[0]));
         udata.setBiological(Float.parseFloat(v.split("@")[1]));
         udata.setStatus(v.split("@")[2]);
