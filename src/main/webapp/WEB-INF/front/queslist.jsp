@@ -39,13 +39,13 @@
 		<div style="width: 100%;height: 20px;"></div>
 		<div style="width: 100%;height: auto">
 			<div style="width: 95%;height: auto;margin: 0 auto;">
-				<a href="/user/lifestyle/index.jhtml"><img src="static/images/ru-qu1.png" style="width: 100%;height: auto;"></a>
+				<a href="/user/lifestyle/index.jhtml"><img src="static/images/iQ1.png" style="width: 100%;height: auto;"></a>
 			</div>
 		</div>
 		<div style="width: 100%;height: 20px;"></div>
 		<div style="width: 100%;height: auto">
 			<div style="width: 95%;height: auto;margin: 0 auto;">
-				<a href="/user/mood/index.jhtml"><img src="static/images/ru-qu2.png" style="width: 100%;height: auto;"></a>
+				<a href="/user/mood/index.jhtml"><img src="static/images/iQ2.png" style="width: 100%;height: auto;"></a>
 			</div>
 		</div>
 		<%--<div style="width: 100%;height: 20px;"></div>--%>
@@ -57,19 +57,19 @@
 		<div style="width: 100%;height: 20px;"></div>
 		<div style="width: 100%;height: auto">
 			<div style="width: 95%;height: auto;margin: 0 auto;">
-				<a href="/user/pian/shortform.jhtml"><img src="static/images/ru-qu3.png" style="width: 100%;height: auto;"></a>
+				<a href="/user/pian/shortform.jhtml"><img src="static/images/iQ5.png" style="width: 100%;height: auto;"></a>
 			</div>
 		</div>
 		<div style="width: 100%;height: 20px;"></div>
 		<div style="width: 100%;height: auto">
 			<div style="width: 95%;height: auto;margin: 0 auto;">
-				<a href="/user/sleep/index.jhtml"><img src="static/images/ru-qu4.png" style="width: 100%;height: auto;"></a>
+				<a href="/user/sleep/index.jhtml"><img src="static/images/iQ4.png" style="width: 100%;height: auto;"></a>
 			</div>
 		</div>
 		<div style="width: 100%;height: 20px;"></div>
 		<div style="width: 100%;height: auto">
 			<div style="width: 95%;height: auto;margin: 0 auto;">
-				<a href="/user/diet/index.jhtml"><img src="static/images/ru-qu5.png" style="width: 100%;height: auto;"></a>
+				<a href="/user/diet/index.jhtml"><img src="static/images/iQ6.png" style="width: 100%;height: auto;"></a>
 			</div>
 		</div>
 		<jsp:include page="footnav.jsp"></jsp:include>
