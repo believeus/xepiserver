@@ -51,7 +51,7 @@
         <img src="static/images/hm2.jpg" style="width: 100%;height: auto;"/>
     </div>
     <div class="same-box" style="width: 100%;height: auto;margin: 0 auto;">
-        <img src="static/images/sam1.png" style="width: 100%;height: auto;"/>
+        <img src="static/images/same.png" style="width: 100%;height: auto;"/>
         <div style="width: 100%;height: auto;">
             <div style="width: 96%;height: auto;margin: 0 auto;font-family: arial; color: #666666;">
                 <div style="width: 100%;height: 20px;"></div>

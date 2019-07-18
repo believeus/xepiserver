@@ -18,10 +18,10 @@ $(document).ready(function(){
     $("div[name=us-lang]").attr("data-url","https://app.beijingepidial.com/index.jhtml").click(function () {
       window.location.href=$(this).attr("data-url");//让浏览器跳转
     });
-    $("div[name=us-lang]").attr("data-url","https://app.beijingepidial.com/portuguese/index.jhtml").click(function () {
+    $("div[name=por-lang]").attr("data-url","https://app.beijingepidial.com/portuguese/index.jhtml").click(function () {
       window.location.href=$(this).attr("data-url");//让浏览器跳转
     });
-    $("div[name=us-lang]").attr("data-url","https://app.beijingepidial.com/spanish/index.jhtml").click(function () {
+    $("div[name=sp-lang]").attr("data-url","https://app.beijingepidial.com/spanish/index.jhtml").click(function () {
       window.location.href=$(this).attr("data-url");//让浏览器跳转
     });
     setTimeout(function(){

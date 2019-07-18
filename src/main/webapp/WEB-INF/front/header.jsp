@@ -53,7 +53,7 @@
                                 </div>
                                 <div style="float: left; width: 65%;text-align: left;">
                                     <a class="navbar-brand" href="javascript:(void);"
-                                       style="font-size: 12px;font-weight: bold;line-height: 22px;">${title}</a>
+                                       style="width: 100%;font-size: 12px;font-weight: bold;line-height: 22px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;">${title}</a>
                                 </div>
                             </div>
                         </div>
@@ -104,13 +104,13 @@
                     <img src="static/images/flag/ru-flag.png">
                     <span class="lang-txt">RU</span>
                 </div>
-                <div class="lang" data-value='es'>
-                    <img src="static/images/flag/sp-flag.jpg">
-                    <span class="lang-txt">Español</span>
-                </div>
-                <div class="lang" data-value='pg'>
+                <div class="por-lang" data-value='pg'>
                     <img src="static/images/flag/por-flag.jpg">
                     <span class="lang-txt">Português</span>
+                </div>
+                <div class="sp-lang" data-value='sp'>
+                    <img src="static/images/flag/sp-flag.jpg">
+                    <span class="lang-txt">Español</span>
                 </div>
             </div>
         </div>

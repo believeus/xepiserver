@@ -39,10 +39,10 @@
             <img src="static/images/pain.png" style="width: 20%;height: 16%;float: right;"/>
         </div>
         <div style="width: 100%;height: auto;">
-            <div style="width: 100%;height: 90px;text-align: center;font-size: 20px;font-family: arial;line-height: 46px; background-color: #FFFFFF; font-weight: 700;">
+            <div style="width: 100%;height: 63px;text-align: center;font-size: 20px;font-family: arial;line-height: 46px; background-color: #FFFFFF; font-weight: 700;">
                 The McGill Pain Questionnaire
             </div>
-            <div style="accelerator: 100%;height: auto;background-color: #C1272D;">
+            <div style="width: 100%;height: auto;background-color: #C1272D;">
                 <div style="width: 90%;height: auto;margin: 0 auto;color: #FFFFFF; font-family: arial;font-size: 14px;">
                     Introduction: The Mcgill Pain Questionnaire(MPQ)(] has become one of the most wideused tests for the
                     measurement of pain.
