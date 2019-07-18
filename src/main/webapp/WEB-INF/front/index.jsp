@@ -162,7 +162,7 @@ div[id=blue-dot]:before {
 			<div class="bio-title" style="width: 100%;height:60px ;">
 				<div style="width: 58%;height: auto;float: left; line-height: 59px;font-size: large; font-weight: 700; font-family: arial;">What is SAM-e？</div>
 				<div style="width: 17%;height: 61px;float: left; font-family: arial;font-size: 30px;font-weight: bold;color: #036EB7;line-height: 40px; ">
-					<div style="width: 80%;height: auto;margin: 0 auto;line-height: 58px;">$35</div>
+					<div style="width: 80%;height: auto;margin: 0 auto;line-height: 58px;">$60</div>
 				</div>
 				<div style="width: 25%;height: 61px;float: right; ">
 					<a href="same/index.jhtml" style="text-decoration: none"><div style="width: 78%;height: 40px;color: white; background-color: #93278F;margin: 0 auto ;margin-top: 9px;text-align: center; line-height: 40px; font-size: large; border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">More</div> </a>

@@ -17,7 +17,7 @@
 <body>
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
-    <div style="width: 100%;height: auto;">
+    <div style="width: 100%;height: auto;clear: both;">
         <div style="width: 100%;height: 30px;"></div>
         <a href="prof/index.jhtml">
             <div style="width: 98%;height: auto;margin: 0 auto;overflow: hidden;">
