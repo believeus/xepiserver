@@ -100,11 +100,11 @@
                     <img src="static/images/flag/ru-flag.png">
                     <span class="lang-txt">русский</span>
                 </div>
-                <div class="por-lang" data-value='pg'>
+                <div name="por-lang" class="lang" data-value='pg'>
                     <img src="static/images/flag/por-flag.jpg">
                     <span class="lang-txt">Português</span>
                 </div>
-                <div class="sp-lang" data-value='sp'>
+                <div name="sp-lang" class="lang" data-value='sp'>
                     <img src="static/images/flag/sp-flag.jpg">
                     <span class="lang-txt">Español</span>
                 </div>
