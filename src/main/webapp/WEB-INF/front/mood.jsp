@@ -47,14 +47,14 @@
 		</div>
 		<div style="width: 100%;height: auto;">
 			<div style="width: 100%;height: 63px;text-align: center;font-size: 20px;font-family: arial;line-height: 46px; background-color: #FFFFFF; font-weight: 700;">Mood Self Assessment</div>
-			<div style="accelerator: 100%;height: auto;background-color: #6950F4;">
+			<div style="width: 100%;height: auto;background-color: #6950F4;">
 				<div style="width: 90%;height: auto;margin: 0 auto;color: #FFFFFF; font-family: arial;font-size: 14px;">
 					<div style="width: 100%;height: 20px;"></div>
 					When it comes to emotions, it can sometimes be hard to recognise or admit that we're not feeling 100%.
 					<div style="width: 100%;height: 20px;"></div>
-					<p>If you are 16 or over, take this short questionnaire to</p>
-					<p>1) Help you better understand how you've been feeling over the last fortnight</p>
-					<p>2) Point you in the right direction for helpful advice and information</p>
+					<div>If you are 16 or over, take this short questionnaire to</div>
+					<div>1) Help you better understand how you've been feeling over the last fortnight</div>
+					<div>2) Point you in the right direction for helpful advice and information</div>
 					<div style="width: 100%;height: 20px;"></div>
 				</div>
 			</div>

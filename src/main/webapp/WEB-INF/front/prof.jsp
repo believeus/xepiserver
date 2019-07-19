@@ -143,7 +143,7 @@
             Chairman & CEO<br/> <i style="font-weight: 600;"> HKG epiTHERAPEUTICS, Hong Kong</i></div>
     </div>
 
-    <div id="pro-stem" style="width: 100%;height: auto;background-color: #F7F7F9;margin: 0 auto;">
+    <div id="pro-stem" style="width: 100%;height: auto;background-color: #F7F7F9;margin: 0 auto;clear: both;">
         <div style="width: 96%;height: auto;margin: 0 auto;">
             <div style="width: 100%;height: auto;line-height: 50px;font-weight: 700;">Professional Experiences</div>
             <hr/>
@@ -189,7 +189,7 @@
     <hr style="font-size: 14px;color: #E7E7E7;"/>
 
 
-    <div class="video" ; style="width: 100%;height: auto;">
+    <div class="video" ; style="width: 100%;height: auto;clear: both;">
         <div style="width: 100%;height: auto;background-color:#EDEEF0 ;overflow: hidden;">
             <div style="width: 96%;height: auto;margin: 0 auto;">
                 <div style="line-height: 60px;font-weight: 900;">Related Videos</div>
