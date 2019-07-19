@@ -98,15 +98,15 @@
             <div class="more_lang">
                 <div name="ru-lang" class="lang" data-value='ru'>
                     <img src="static/images/flag/ru-flag.png">
-                    <span class="lang-txt">русский</span>
+                    <span class="lang-txt">RU</span>
                 </div>
                 <div name="por-lang" class="lang" data-value='pg'>
                     <img src="static/images/flag/por-flag.jpg">
-                    <span class="lang-txt">Português</span>
+                    <span class="lang-txt">PT</span>
                 </div>
                 <div name="sp-lang" class="lang" data-value='sp'>
                     <img src="static/images/flag/sp-flag.jpg">
-                    <span class="lang-txt">Español</span>
+                    <span class="lang-txt">ES</span>
                 </div>
             </div>
         </div>
