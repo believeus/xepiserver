@@ -44,7 +44,7 @@ public interface TaskDao {
     @Select("select * from task where ${c1}=#{v1} and ${c2}=#{v2} and pay=1 and type=0")
     public Task findPayDnaKitTask(@Param("c1") String c1,@Param("v1") Object v1,@Param("c2") String c2,@Param("v2") Object v2);
     //查询是否购买了生物学试剂，该试剂还在检测中
-    @Select("select * from task where uid=#{uid} and pay=1 and valid=0 and type=0")
+    @Select("select * from task where uid=#{uid} and pay=1 and type=0")
     public List<Task> findPayDNAKit(@Param("uid") Object uid);
 
     @Select("select sum(total) from task where pay=0 and valid=0 and uid=#{uid}")

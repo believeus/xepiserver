@@ -28,10 +28,8 @@ public class ReportController {
     private UserDao userDao;
     @Resource
     private UdataDao udataDao;
-
     @Resource
     private DnakitDao dnakitDao;
-
     @Resource
     private WaresDao waresDao;
 
@@ -167,6 +165,9 @@ public class ReportController {
                         data.setBarcode(barcode);
                         data.setUploadTime(System.currentTimeMillis());
                         udataDao.save(data);
+                        //使用过之后订单失效
+                        task.setValid(1);
+                        taskDao.update(task);
                     }
                     Udata u=udataDao.findBy("barcode", barcode);
                     return u.getStatus() + "@" + u.getId();

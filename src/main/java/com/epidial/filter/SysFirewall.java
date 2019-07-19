@@ -22,14 +22,13 @@ public class SysFirewall implements Filter {
             "/user/transaction/loadOrder.jhtml", "/user/transaction/check.jhtml",
             "/user/transaction/success.jhtml",
             "/user/cart/check.jhtml", "/user/cart/order.jhtml", "/user/cart/unpaidAmount.jhtml",
-            "/user/cart/watchagain.jhtml", "/user/cart/del.jhtml",
+            "/user/cart/watchagain.jhtml", "/user/cart/del.jhtml","/user/cart/dnakitlist.jhtml",
             "/user/paypal/payment.jhtml", "/user/paypal/paysuccess.jhtml",
             "/user/paypal/cancelUrl.jhtml", "/user/report/iage.jhtml","/user/report/upbarcode.jhtml","/user/report/my.jhtml",
             "/user/report/getData.jhtml", "/user/transaction/delAddr.jhtml",
             "/user/taskrecord/index.jhtml"});
 
     private List<String> nologinCanAccessUrl = Arrays.asList(new String[]{"/user/logout.jhtml", "/user/loginview.jhtml", "/user/cart/index.jhtml",});
-    private String loginurl = "/user/login.jhtml";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

@@ -34,7 +34,9 @@
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> user manager <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 
+<%--
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="member_add('添加用户','/admin/task/addview.jhtml','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Add Order</a></span> </div>
+--%>
 
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -45,7 +47,7 @@
 				<th width="50">image</th>
 				<th width="30">pay</th>
 				<th width="60">barcode</th>
-				<th width="45">valid</th>
+				<th width="45">status</th>
 				<th width="40">total</th>
 				<th width="100">createTime</th>
 				<th width="100">paymentTime</th>
@@ -66,8 +68,8 @@
 					</c:choose>
 					<td>${task.barcode}</td>
 					<c:choose>
-						<c:when test="${task.valid ==0}"><td class="td-status"><span class="label label-success radius">Unexpired</span></td></c:when>
-						<c:otherwise><td class="td-status"><span class="label label-error radius">expire</span></td></c:otherwise>
+						<c:when test="${task.valid ==0}"><td class="td-status"><span class="label  label-error radius">Not Used</span></td></c:when>
+						<c:otherwise><td class="td-status"><span class="label label-success radius">Used</span></td></c:otherwise>
 					</c:choose>
 					<td>${task.total}</td>
 					<td><date:date value="${task.createTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td>

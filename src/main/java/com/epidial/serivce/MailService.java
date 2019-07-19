@@ -63,7 +63,7 @@ public class MailService {
             Transport.send(msg);
         } catch (Exception e) {
             e.printStackTrace();
-            return e.getMessage();
+            return "error";
         }
         System.out.println("Send success!");
         return "success";

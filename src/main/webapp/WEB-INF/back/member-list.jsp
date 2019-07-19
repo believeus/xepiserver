@@ -40,7 +40,6 @@
 				<th width="120">ID</th>
 				<th width="100">username</th>
 				<th width="120">email</th>
-				<th width="120">password</th>
 				<th width="70">mail status</th>
 				<th width="120">register time</th>
 				<th width="120">last Login time</th>
@@ -56,7 +55,6 @@
 					<td>${user.uuid}</td>
 					<td><u style="cursor:pointer" class="text-primary" onclick="member_show('${user.nickname}','member-show.html','${user.mail}','360','400')">${user.nickname}</u></td>
 					<td>${user.mail}</td>
-					<td><input name="password"  value="${user.password}" style="border: none;width: 100%" readonly="readonly"></td>
 					<c:choose>
 						<c:when test="${user.valid==0}">
 							<td class="td-status"><span class="label label-error radius">inactivated</span></td>

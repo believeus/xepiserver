@@ -69,7 +69,7 @@ public class PayPalController {
                 payment.setPayer(payer);
                 payment.setTransactions(transactions);
                 RedirectUrls redirectUrls = new RedirectUrls();
-                redirectUrls.setCancelUrl("/index.jhtml");
+                redirectUrls.setCancelUrl("https://app.beijingepidial.com/index.jhtml");
                 // 当用户在paypal页面上点击支付的时候,这个请求会被调用
                 String url = "http://localhost:8080/user/paypal/paysuccess.jhtml?mobile=" + (mobile.equals("true") ? "true" : "false");
                 // String url = "https://app.beijingepidial.com/user/paypal/paysuccess.jhtml?mobile=" + (mobile.equals("true") ? "true" : "false");
