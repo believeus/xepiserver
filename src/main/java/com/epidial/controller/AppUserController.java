@@ -51,7 +51,7 @@ public class AppUserController {
                 userDao.update(user);
                 session.setAttribute("sessionuser",user);
                 System.out.println(request.getRequestURI());
-                return "/index.jhtml";
+                return "index.jhtml";
             }
         }
     }
