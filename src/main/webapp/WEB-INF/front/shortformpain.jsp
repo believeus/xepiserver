@@ -33,7 +33,7 @@
 <body>
 <div id="container" style="width: 100%;height: 100%;background-color: #DEDEDE;">
     <jsp:include page="header.jsp"/>
-    <div style="width: 100%;height: 20px;background-color:#FFFFFF;clear: both;"></div>
+    <div style="width: 100%;height: 75px;background-color:#FFFFFF;clear: both;"></div>
     <div id="title" style="width: 100%;height: auto;">
         <div>
             <img src="static/images/pain.png" style="width: 20%;height: 16%;float: right;"/>

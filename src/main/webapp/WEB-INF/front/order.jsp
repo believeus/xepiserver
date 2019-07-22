@@ -22,6 +22,7 @@
 <body style="background-color: white;">
 <!--头部开始-->
 <jsp:include page="header.jsp"></jsp:include>
+<div style="width: 100%;height: 55px;clear: both;"></div>
 <div style="width: 100%;height: auto;background-color:#ffffff">
     <div name="waiting" style="display: none;margin:0 auto;text-align: center;background-color:#ffffff">
         <div style="width: 100%;height: 100px;"></div>

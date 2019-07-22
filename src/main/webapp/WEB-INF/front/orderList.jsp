@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="static/css/stylesheet.css" />
     <!-- <link href="static/css/bootstrap-slider.min.css" rel="stylesheet"> -->
-    <link href="/static/css/pain-bootstrap-slider.css" rel="stylesheet">
+    <link href="static/css/pain-bootstrap-slider.css" rel="stylesheet">
     <script type='text/javascript' src="static/js/jquery-3.3.1.min.js"></script>
     <script type='text/javascript' src="static/js/bootstrap-slider.js"></script>
     <script src="static/js/build/dist/echarts.js"></script>
@@ -47,6 +47,7 @@
 <body style="padding: 0;margin: 0;">
 <div id="container" style="width: 100%;height: auto;">
     <jsp:include page="header.jsp"/>
+        <div style="width: 100%;height: 55px;clear: both;"></div>
     <!-- END COVER -->
     <!-- START THE NAVBAR -->
     <div class="navbar-wrapper stuckMenu" style="z-index: 9999;">

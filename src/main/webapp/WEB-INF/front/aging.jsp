@@ -23,6 +23,7 @@
 </head>
 <body style="padding: 0px;margin: 0px;">
 <jsp:include page="header.jsp"/>
+<div style="width: 100%;height: 55px;clear: both;"></div>
 <div id="container">
     <div id="illu-pic" style="width: 100%;height: auto;">
         <img src="static/images/ic1.png" style="width: 100%;height: auto;"/>

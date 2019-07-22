@@ -23,6 +23,7 @@
 <body style="padding: 0px;margin: 0px;">
 <div style="width: 100%;height: 100%;">
 	<jsp:include page="header.jsp"></jsp:include>
+	<div style="width: 100%;height: 55px;clear: both;"></div>
 	<div style="width: 100%;height: auto;background-color: #F6F8F9;">
 		<div style="width: 96%;height: auto;margin: 0 auto; overflow: hidden;">
 			<div style="width: 100%;height: 20px;"></div>

@@ -128,6 +128,7 @@
 <body style="padding: 0;margin: 0;">
 <div id="container" style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
+    <div style="width: 100%;height: 55px;clear: both;"></div>
     <div id="header" style="width: 100%;height: 100%;">
         <div style="width: 100%;height: 28px;margin: 0 auto;"></div>
         <div style="width: 100%;height: 142px;overflow: hidden;margin: 0 auto;">

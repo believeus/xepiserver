@@ -15,6 +15,7 @@
 <body style="padding: 0;margin: 0;">
 <div id="container" style="width: 100%;height: auto;font-family: arial;color: #666666;line-height: 22px;">
 	<jsp:include page="header.jsp"></jsp:include>
+	<div style="width: 100%;height: 55px;clear: both;"></div>
 	<div class="header" style="width: 100%;height: auto;">
 		<img src="static/images/bio-1.jpg"style="width: 100%;"height="auto"/>
 		<div style="width: 100%;height: 20px;"></div>

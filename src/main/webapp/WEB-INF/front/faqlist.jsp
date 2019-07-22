@@ -22,6 +22,7 @@
 <body>
 <div id="container" style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
+    <div style="width: 100%;height: 55px;clear: both;"></div>
     <div style="width: 90%;height: auto;margin: 0 auto;clear: both;">
         <div style="margin-top: 50px;">
             <a href="usermanual/index.jhtml" style="text-decoration: none;">

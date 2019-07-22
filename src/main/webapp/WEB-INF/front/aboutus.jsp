@@ -24,6 +24,7 @@
 <body style="padding:0px;margin: 0px;">
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
+    <div style="width: 100%;height: 60px;"></div>
     <div style="width: 100%;height: auto;">
         <div style="width: 90%;height: auto;margin: 0 auto;overflow: hidden;">
             <div id="dot" style="width: 90%;color: #0071BC;line-height: 50px; font-weight: 700;">

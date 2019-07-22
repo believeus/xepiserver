@@ -121,6 +121,7 @@
         </div>
     </div>
     <jsp:include page="footnav.jsp"></jsp:include>
+        <div style="width: 100%;height: 55px;clear: both;"></div>
 </div>
 </body>
 </html>

@@ -33,6 +33,7 @@
 <body style="padding: 0;margin: 0;">
 <div id="container" style="width: 100%;height: auto;background-color: #EDEDED;">
 	<jsp:include page="header.jsp" />
+	<div style="width: 100%;height: 55px;clear: both;"></div>
 	<script>
         $(function() {
             require([ 'echarts', 'echarts/chart/line' ], function(ec) {

@@ -37,6 +37,7 @@
 <!--头部开始-->
 <div style="width: 100%;height: 50px;">
     <jsp:include page="header.jsp"></jsp:include>
+    <div style="width: 100%;height: 55px;clear: both;"></div>
 </div>
 <div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
     <div style="width:100%;height:100%;">

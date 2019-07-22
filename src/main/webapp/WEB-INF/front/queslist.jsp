@@ -36,7 +36,7 @@
     <%--</div>--%>
     <%--</div>--%>
 
-    <div style="width: 100%;height: 20px;clear: both;"></div>
+    <div style="width: 100%;height: 80px;clear: both;"></div>
     <div style="width: 100%;height: auto">
         <div style="width: 95%;height: auto;margin: 0 auto;">
             <a href="/user/lifestyle/index.jhtml"><img src="static/images/iQ1.png"

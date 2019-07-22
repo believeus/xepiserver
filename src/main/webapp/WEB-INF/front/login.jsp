@@ -23,10 +23,8 @@
 </head>
 <body style="margin: 0;padding: 0">
 <!--头部开始-->
-<div style="width: 100%;height: 50px;">
-    <jsp:include page="header.jsp"></jsp:include>
-</div>
-
+<jsp:include page="header.jsp"></jsp:include>
+<div style="width: 100%;height: 55px;clear: both;"></div>
 <div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
     <div style="width:100%;height:100%;">
         <c:if test="${sessionuser ==null}">
@@ -69,10 +67,11 @@
                                 <div style=" width:100%;height: 40px; font-size: 0.8em;color: #909093;">
                                     <a href="concent/index.jhtml" style="text-decoration: none;">
                                         <i>By clicking the button below,I agree to
-                                     the User Agreement and Privacy Policy.</i>
+                                            the User Agreement and Privacy Policy.</i>
                                     </a>
                                 </div>
-                                <input type="submit" class="login_btn" value="Login" style="margin-top: 0px;text-align: center"></input>
+                                <input type="submit" class="login_btn" value="Login"
+                                       style="margin-top: 0px;text-align: center"></input>
                             </div>
                         </div>
                     </div>

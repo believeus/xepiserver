@@ -47,6 +47,7 @@
 <body style="padding: 0px;margin: 0px;">
 <div id="sam-e" style="width: 100%;height: auto;">
     <jsp:include page="header.jsp"/>
+    <div style="width: 100%;height: 55px;clear: both;"></div>
     <div class="same-pic" style="width: 100%;height: auto;margin: 0 auto;">
         <img src="static/images/hm2.jpg" style="width: 100%;height: auto;"/>
     </div>

@@ -43,6 +43,7 @@
 <!--头部开始-->
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
+    <div style="width: 100%;height: 55px;clear: both;"></div>
     <form action="/user/transaction/loadOrder.jhtml" method="post">
         <div style="background-color:#ffffff;padding-bottom: 70px">
             <div style="width: 100%;height: 10px;"></div>
@@ -51,7 +52,8 @@
                     $(function () {
                         $.post("/user/cart/unPayGoodslist.jhtml", function (data) {
                             data.forEach(function (v) {
-                                var div = "<div style='clear: both' name='cart'>" +
+                                var div ="<div style='clear: both' name='cart'>" +
+                                    "<div style='width: 100%;height: 55px;clear: both;'></div>" +
                                     "<div  style='background-color:crimson;color: white;width: 20%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;'>to be paid</div>" +
                                     "<div style='width:100%;display: flex;flex-direction: row;justify-content: center;float: left;'>" +
                                     "<div style='width: 100%;float: left;height: 60px;'>" +

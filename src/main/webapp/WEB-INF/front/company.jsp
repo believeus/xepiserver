@@ -16,6 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<body style="padding: 0px;margin: 0px;">
 		<div id="container"style="width: 100%;height: 100%;">
 		<jsp:include page="header.jsp"></jsp:include>
+			<div style="width: 100%;height: 55px;clear: both;"></div>
 			<div id="company"style="width: 100%;height: auto;">
 				<img src="static/images/company4.jpg"style="width: 100%;height: auto;"/>
 			</div>

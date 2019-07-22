@@ -18,10 +18,8 @@
 
 <body style="padding: 0;margin: 0;">
 <div id="container" style="width: 100%;height: 100%;">
-    <div style="width: 100%;height: 50px;">
-        <jsp:include page="header.jsp"></jsp:include>
-    </div>
-
+    <jsp:include page="header.jsp"></jsp:include>
+    <div style="width: 100%;height: 55px;clear: both;"></div>
     <div style="width: 100%;height: auto;">
 
 

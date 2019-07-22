@@ -28,6 +28,7 @@
 <body style="padding: 0px;margin: 0px;">
 <div id="container" style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"/>
+    <div style="width: 100%;height: 55px;clear: both;"></div>
     <div id="diag" style="width: 100%;height: auto;">
         <div style="width: 100%;height: 20px;"></div>
         <div style="width: 90%;height: auto;margin: 0 auto;">

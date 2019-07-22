@@ -29,6 +29,7 @@
 <body style="padding: 0px;margin: 0px;background-color: #ffffff;">
 <div style="width: 100%;height: auto;">
     <jsp:include page="header.jsp"/>
+        <div style="width: 100%;height: 55px;clear: both;"></div>
     <script>
         //定义两个全局变量存放生物学年龄数据
         window.ntrGtBioData = [];

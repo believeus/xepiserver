@@ -50,6 +50,7 @@
 
 <div style="background-image:url('static/images/bg.png');width:100%;height:667px;">
     <jsp:include page="header.jsp"></jsp:include>
+        <div style="width: 100%;height: 55px;clear: both;"></div>
     <div style="clear: both;width: 100%;height: 30px;"></div>
     <div class="login_bg" style="clear: both">
         <div id="logo" style="text-align: center">

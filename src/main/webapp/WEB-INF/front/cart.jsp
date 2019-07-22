@@ -23,8 +23,8 @@
 <body>
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
+    <div style="width: 100%;height: 55px;clear: both;"></div>
     <div class="shopping">
-
         <div class="shop-group-item">
             <div class="shop-name">
                 <input type="checkbox" class="check goods-check shopCheck" style="border:0px solid #000">

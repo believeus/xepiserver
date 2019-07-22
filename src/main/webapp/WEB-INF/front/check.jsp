@@ -25,6 +25,7 @@
 <!--头部开始-->
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
+    <div style="width: 100%;height: 55px;clear: both;"></div>
     <form action="/user/transaction/loadOrder.jhtml" method="post">
         <div style="background-color:#ffffff;padding-bottom: 70px;">
 

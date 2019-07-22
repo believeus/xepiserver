@@ -17,6 +17,7 @@
 <body style="padding: 0px;margin: 0px;">
 <div style="width: 100%;height: auto;overflow: hidden;">
     <jsp:include page="header.jsp"></jsp:include>
+    <div style="width: 100%;height: 55px;clear: both;"></div>
     <div style="width: 100%;height: 72px;"></div>
     <div style="width: 100%;height: auto;">
         <div style="overflow: hidden; width: 100%;height: 120px;text-align: center;">
