@@ -31,7 +31,7 @@
 </script>
 <!-- END COVER -->
 <!-- START THE NAVBAR -->
-<div style="width: 100%;height: 55px; background-color: #0071BC;">
+<div style="width: 100%;height: 55px; background-color: #0071BC;position: fixed;">
     <div class="navbar-wrapper" style="z-index: 9999;width: 80%;float: left;">
         <div class="container" style="padding: 0px;max-width: 100%;max-height: 50px;">
             <div class="navwrapper">
