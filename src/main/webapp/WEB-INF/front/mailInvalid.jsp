@@ -27,7 +27,7 @@
 <div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
     <div style="width:100%;height:100%;">
         <div id="login"></div>
-        <form action="/user/login.jhtml" method="post">
+        <form action="user/login.jhtml" method="post">
             <div class="login_bg">
                 <div id="logo">
                     <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%"/>
@@ -50,7 +50,7 @@
             var data = {};
             data.email = $("#email").val();
             data.password = $("#password").val();
-            $.post("/user/login.jhtml", data, function (data) {
+            $.post("user/login.jhtml", data, function (data) {
                 if (data.indexOf("ERROR") != -1) {
                     alert(data);
                 } else {

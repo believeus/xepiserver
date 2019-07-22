@@ -27,9 +27,9 @@
                     var data = {};
                     var _oThis = $(event.currentTarget);
                     data.id = _oThis.attr("id");
-                    $.post("/user/cart/del.jhtml", data, function (data) {
+                    $.post("user/cart/del.jhtml", data, function (data) {
                         _oThis.parents("div[name=cart]").remove();
-                        $.post("/user/cart/unpaidAmount.jhtml", function (data) {
+                        $.post("user/cart/unpaidAmount.jhtml", function (data) {
                             console.info(data);
                             $("[name=unpaidAmount]").text(data);
                         });
@@ -44,13 +44,13 @@
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
     <div style="width: 100%;height: 55px;clear: both;"></div>
-    <form action="/user/transaction/loadOrder.jhtml" method="post">
+    <form action="user/transaction/loadOrder.jhtml" method="post">
         <div style="background-color:#ffffff;padding-bottom: 70px">
             <div style="width: 100%;height: 10px;"></div>
             <div name="cartbox" style="width:100%;height:auto;">
                 <script>
                     $(function () {
-                        $.post("/user/cart/unPayGoodslist.jhtml", function (data) {
+                        $.post("user/cart/unPayGoodslist.jhtml", function (data) {
                             data.forEach(function (v) {
                                 var div ="<div style='clear: both' name='cart'>" +
                                     "<div style='width: 100%;height: 55px;clear: both;'></div>" +
@@ -72,7 +72,7 @@
                                     "         <div style='width: 100%;height: 5px;clear: both;'></div>" +
                                     "         <div name='cartdel' id='" + v.id + "' style='background-color:#37475d;color: white;width: 100%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;'>Remove</div>" +
                                     "         <div style='width: 100%;height: 5px;clear: both;'></div>"+
-                                    "          <div onclick='window.location.href=\"/user/cart/check.jhtml\"'  style='background-color:#0071bc;color: white;width: 100%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;font-size: 12px;font-weight: bold;' >Proceed to payment</div>"+
+                                    "          <div onclick='window.location.href=\"user/cart/check.jhtml\"'  style='background-color:#0071bc;color: white;width: 100%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;font-size: 12px;font-weight: bold;' >Proceed to payment</div>"+
                                     "    </div>"
                                 "      </div>" +
                                 "   </div>" +
@@ -88,7 +88,7 @@
             <div name="taskrecode" style="width:100%;height:auto;">
                 <script>
                     $(function () {
-                        $.post("/user/cart/paygoodslist.jhtml", function (data) {
+                        $.post("user/cart/paygoodslist.jhtml", function (data) {
                             data.forEach(function (v) {
                                 var div = "<div style='clear: both' name='cart'>" +
                                     "<div  style='background-color:green;color: white;width: 20%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;'>paid</div>" +

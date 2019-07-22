@@ -61,7 +61,7 @@ div[id=blue-dot]:before {
 		</div>
 <div style="height: 30px;width: 100%;clear: both;"></div>
 		<div style="width: 100%;height: auto;">
-			<div style="width: 96%;height: 300px;margin: 0 auto; background-image: url(/static/images/taiji.png);background-position:center; background-size: 100% 100%; background-repeat: no-repeat; ">
+			<div style="width: 96%;height: 300px;margin: 0 auto; background-image: url(static/images/taiji.png);background-position:center; background-size: 100% 100%; background-repeat: no-repeat; ">
 				<div class="left" style="width: 30%;height: 100%;float: left; ">
 					<a href="aboutus/index.jhtml">
 						<div style="width: 100%;height: 50%;"></div>
@@ -114,7 +114,7 @@ div[id=blue-dot]:before {
 					<div style="width: 80%;height: auto;margin: 0 auto;line-height: 55px;">$99</div>
 				</div>
 				<div style="width: 23%;height: 61px;float: right; ">
-					<a href="/user/cart/index.jhtml"> <a href="aging/index.jhtml" style="text-decoration: none"><div style="width: 78%;height: 40px;color: white; background-color: #93278F;margin: 0 auto ;margin-top: 9px;text-align: center; line-height: 40px; font-size: large; border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">More</div></a>
+					<a href="user/cart/index.jhtml"> <a href="aging/index.jhtml" style="text-decoration: none"><div style="width: 78%;height: 40px;color: white; background-color: #93278F;margin: 0 auto ;margin-top: 9px;text-align: center; line-height: 40px; font-size: large; border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">More</div></a>
 					</a>
 				</div>
 			</div>
@@ -155,7 +155,7 @@ div[id=blue-dot]:before {
 		<div style="clear: both;"></div>
 		<div style="width: 100%;height: auto;background-color: #036EB7;margin: 0 auto; ">
 			<div class="blank" style="width: 100%;height: 30px;background-color: #036EB7 ; "></div>
-			<img src="/static/images/hm6.png" style="width: 100%;height: auto;background-color: #036EB7;" />
+			<img src="static/images/hm6.png" style="width: 100%;height: auto;background-color: #036EB7;" />
 			<div class="blank" style="width: 100%;height: 30px;background-color: #036EB7 ; "></div>
 		</div>
 		<div id="sam-e" style="width: 100%;height: 800px;">

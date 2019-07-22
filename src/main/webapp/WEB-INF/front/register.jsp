@@ -277,7 +277,7 @@
             <div style="width: 100%;height: 30px;"></div>
             <div name="process" style="width: 90%;height: 50px;margin: 0 auto;display: none;text-align: center;" >
                 <div style="width: 100%;height: 20px;"></div>
-                <img src="/static/images/process.gif" style="width: 32px;height: auto;"/>
+                <img src="static/images/process.gif" style="width: 32px;height: auto;"/>
             </div>
             <div name="concent" style="width: 90%;height: auto;color: #666666;margin: 0 auto;">
                 <input type="checkbox" name="checkbox" required="required" id="checkbox" value="checkbox" style="width:15px;height: 12px;">
@@ -322,7 +322,7 @@
             data.password = password;
             data.mail = mail;
             data.country = country;
-            $.post("/user/register.jhtml", data, function (data) {
+            $.post("user/register.jhtml", data, function (data) {
                 if (data != "success") {
                     window.alert(data);
                     $("div[name=process]").css("display","none");
@@ -330,7 +330,7 @@
                     $("input[type=submit]").css("display","block");
                     $("div[name=concent]").css("display","block");
                 } else {
-                    window.location.href = '/user/regsuccess.jhtml';
+                    window.location.href = 'user/regsuccess.jhtml';
                 }
             });
         } else {

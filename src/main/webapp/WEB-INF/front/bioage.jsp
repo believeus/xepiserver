@@ -184,7 +184,7 @@
 				<div style="width: 100%;height: auto;">
 					<div style="width: 33%;height: auto;"></div>
 					<div style="width: 24%;height: auto; margin: 0 auto;text-align: center;">
-						<img src="/static/images/bio-7.png"style="width: 100%;height: auto;"/></div>
+						<img src="static/images/bio-7.png"style="width: 100%;height: auto;"/></div>
 					<div style="width: 33%;height: auto;"></div>
 				</div>
 				<div style="width: 100%;height: auto;color: #FBA32E;text-align: center;color: #FFFFFF;">

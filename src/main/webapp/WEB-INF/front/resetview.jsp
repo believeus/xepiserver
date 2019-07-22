@@ -91,7 +91,7 @@
             data.password = password;
             data.mail = mail;
             data.token=token;
-            $.post("/user/repasswd.jhtml", data, function (data) {
+            $.post("user/repasswd.jhtml", data, function (data) {
                 window.alert(data);
             });
 

@@ -32,7 +32,7 @@
             </div>
         </c:if>
         <div id="login" style="width: 100%;height: 20px;"></div>
-        <form action="/user/login.jhtml" method="post">
+        <form action="user/login.jhtml" method="post">
             <div class="login_bg">
                 <div id="logo" style="width: 22%; margin: 0 auto;">
                     <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%;"/>
@@ -57,7 +57,7 @@
                         </div>
                         <div style="width: 100%;height: 100px;">
                             <lable style="color:#696969;text-decoration: none;float: right;">
-                                <a href="/user/forgotPaswd.jhtml">forget password</a>
+                                <a href="user/forgotPaswd.jhtml">forget password</a>
                             </lable>
                         </div>
 
@@ -99,7 +99,7 @@
             var data = {};
             data.email = $("#email").val();
             data.password = $("#password").val();
-            $.post("/user/login.jhtml", data, function (data) {
+            $.post("user/login.jhtml", data, function (data) {
                 if (data.indexOf("ERROR") != -1) {
                     alert(data);
                 } else {

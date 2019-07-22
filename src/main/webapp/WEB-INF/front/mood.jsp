@@ -13,7 +13,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
-    <link rel="stylesheet" href="/static/css/stylesheet.css"/>
+    <link rel="stylesheet" href="static/css/stylesheet.css"/>
     <!--
         作者：julie
         时间：2019-03-11

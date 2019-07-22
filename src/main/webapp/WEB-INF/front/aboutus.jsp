@@ -63,7 +63,7 @@
                 Customer Data Consent Form
             </div>
             <div style="width: 100%;height: auto;line-height: 50px;"><a href="concent/index.jhtml"><img
-                    src="/static/images/company5.png" style="width: 100%;height: auto;"/></a></div>
+                    src="static/images/company5.png" style="width: 100%;height: auto;"/></a></div>
         </div>
     </div>
     <div style="width: 100%;height: 10px;background-color: #F0F0F0;"></div>

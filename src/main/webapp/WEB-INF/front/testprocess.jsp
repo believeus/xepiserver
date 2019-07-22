@@ -21,8 +21,6 @@
     <jsp:include page="header.jsp"></jsp:include>
     <div style="width: 100%;height: 55px;clear: both;"></div>
     <div style="width: 100%;height: auto;">
-
-
         <img src="static/images/tp-1.png" style="width: 100%;height: auto;"/>
         <%--<a href="download/EPIAging-apk.jhtml">--%>
         <img src="static/images/tp-2.png" style="width: 100%;height: auto;"/>
