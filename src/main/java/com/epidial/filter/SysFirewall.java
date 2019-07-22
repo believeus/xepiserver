@@ -13,7 +13,7 @@ import java.util.*;
 @WebFilter(filterName = "sysFirwall", urlPatterns = {"/user/*"})
 public class SysFirewall implements Filter {
     private List<String> nologinCannotAccessUrl = Arrays.asList(new String[]{
-            "/user/bioreport/index.jhtml", "/user/lifestyle/index.jhtml",
+            "/user/bioreport/index.jhtml", "/user/lifestyle/index.jhtml","/user/pian/shortform.jhtml",
             "/user/pain/index.jhtml", "/user/mood/index.jhtml",
             "/user/sleep/index.jhtml", "/user/sleep/index.jhtml",
             "/user/diet/index.jhtml", "/user/cart/index.jhtml",
