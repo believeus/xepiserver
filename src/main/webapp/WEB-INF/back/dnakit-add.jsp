@@ -74,33 +74,21 @@ $(function(){
 		radioClass: 'iradio-blue',
 		increaseArea: '20%'
 	});
-	
-	$("#form-member-add").validate({
-		rules:{
-			username:{
-				required:true,
-				minlength:2,
-				maxlength:16
-			},
-			valid:{
-				required:true,
-			},
-			email:{
-				required:true,
-				email:true,
-			},
-		},
-		onkeyup:false,
-		focusCleanup:true,
-		success:"valid",
-		submitHandler:function(form){
-			$(form).ajaxSubmit();
+
+	$("form").submit(function(e){
+		var data={};
+		data.name=$("input[name=name]").val();
+		data.barcode=$("input[name=barcode]").val();
+		$.post("admin/dnakit/save.jhtml",data,function(){
 			var index = parent.layer.getFrameIndex(window.name);
 			//parent.$('#btn-refresh').click();
-            parent.location.reload();
+			parent.location.reload();
 			parent.layer.close(index);
-		}
+		});
+		return false;
 	});
+
+
 });
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->

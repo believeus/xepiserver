@@ -29,7 +29,7 @@
 <body style="padding: 0px;margin: 0px;background-color: #ffffff;">
 <div style="width: 100%;height: auto;">
     <jsp:include page="header.jsp"/>
-        <div style="width: 100%;height: 55px;clear: both;"></div>
+    <div style="width: 100%;height: 55px;clear: both;"></div>
     <script>
         //定义两个全局变量存放生物学年龄数据
         window.ntrGtBioData = [];
@@ -40,31 +40,37 @@
         <img src="static/images/ic1.png" style="width: 100%;height: auto;"/>
     </div>
     <div id="version-2.0" style="width: 100%;height: auto;">
-        <div  style="width: 100%;height: auto;margin-bottom: 10px;">
+        <div style="width: 100%;height: auto;margin-bottom: 10px;">
             <div style="width: 100%;height: 40px;"></div>
             <div style='width: 100%;height:auto;margin: 0 auto;'>
                 <div style='border: 1px dashed grey;border-radius: 5px;padding: 5px;height:80px;width: 100%'>
-                    <form  action=''>
-                        <div style='float: left;height: 30px;line-height: 30px;font-size: 16px;font-weight: bold;width: 22%;text-align: center;'>barcode:</div>
-                        <div style='width: 78%;height: 30px;float: left'><input name='barcode'  style='width: 100%;height: 100%;border: 1px solid blue;'  /></div>
+                    <form action=''>
+                        <div style='float: left;height: 30px;line-height: 30px;font-size: 16px;font-weight: bold;width: 22%;text-align: center;'>
+                            barcode:
+                        </div>
+                        <div style='width: 78%;height: 30px;float: left'><input name='barcode'
+                                                                                style='width: 100%;height: 100%;border: 1px solid blue;'/>
+                        </div>
                         <div style='width: 100%;height:5px;clear: both; '></div>
                         <div style='width: 100%;height: 30px;'>
-                            <input  name='bind' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;font-size: 14px' value='Get Your Report'/>
+                            <input name='bind' type='button'
+                                   style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;font-size: 14px'
+                                   value='Get Your Report'/>
                         </div>
                     </form>
                 </div>
                 <div name="mybarcode"></div>
-            <div style='width: 100%;height: 10px'></div>
+                <div style='width: 100%;height: 10px'></div>
                 <script>
                     $(function () {
-                        $.post("user/cart/dnakitlist.jhtml",function(v){
+                        $.post("user/cart/dnakitlist.jhtml", function (v) {
                             console.info(v);
-                            v.forEach(function(data){
-                                var div="<div style='width: 100%;height: 10px;'></div><div style='width: 100%;height:auto;margin: 0 auto;'>" +
+                            v.forEach(function (data) {
+                                var div = "<div style='width: 100%;height: 10px;'></div><div style='width: 100%;height:auto;margin: 0 auto;'>" +
                                     "                <div style='border: 1px dashed grey;border-radius: 5px;padding: 5px;height:80px;width: 100%'>" +
                                     "                    <form  action=''>" +
                                     "                        <div style='float: left;height: 30px;line-height: 30px;font-size: 16px;font-weight: bold;width: 22%;text-align: center;'>barcode:</div>" +
-                                    "                        <div style='width: 78%;height: 30px;float: left'><input name='barcode' readonly  value='"+data.barcode+"' style='width: 100%;height: 100%;border: 1px solid blue;'/></div>" +
+                                    "                        <div style='width: 78%;height: 30px;float: left'><input name='barcode' readonly  value='" + data.barcode + "' style='width: 100%;height: 100%;border: 1px solid blue;'/></div>" +
                                     "                        <div style='width: 100%;height:5px;clear: both; '></div>" +
                                     "                        <div style='width: 100%;height: 30px;'>" +
                                     "                            <input  name='bind' type='button' style='width: 100%;height: 30px;background-color: #1e347b;color: white;border: none;border-radius: 5px;font-size: 14px' value='Get Your Report'/>" +
@@ -78,51 +84,48 @@
 
                         $("body").on("click", "input[name=bind]", function (event) {
                             var _oThis = $(event.currentTarget);
-                            if (_oThis.val() == "edit the barcode") {
-                            } else {
-                                var data = {};
-                                data.barcode = _oThis.parents("form").find("input[name=barcode]").val();
-                                console.info(data.barcode);
-                                if (data.barcode == "") {
-                                    window.alert("please enter the barcode!");
-                                    return;
-                                }
-                                $.post("user/report/upbarcode.jhtml", data, function (v) {
-                                    if (v=="success"){
-                                        window.alert("Thanks for choosing our \n epiAging product.Your report will be \n available in 21 working days.");
-                                    }else if (v=="error") {
-                                        if(window.confirm("Sorry, you haven't bought \n our products yet. Would you like \n to buy our products?")){
-                                            window.location.href="user/bioreport/index.jhtml";
-                                        }
-                                    }else if (v.split("@")[0]=="pending") {
-                                            window.alert("The test has not been processed yet！\n Please wait.");
-                                    }else if(v.split("@")[0]=="processing"){
-                                            window.alert("Detection is being processed!\n please wait")
-                                    }else {
-                                        data.id = v.split("@")[1];
-                                        //显示对应的div
-                                        $.post("user/report/status.jhtml", data, function (status) {
-                                            if (status == "pending" || status == "processing") {
-                                                alert("Thanks for choosing our  \n epiAging product.Your report will be \n available in 21 working days.")
-                                            } else if (status == "finished") {
-                                                $.post("user/report/getData.jhtml", data, function (value) {
-                                                    value.split("@")[0].split("#").forEach(function (v) {
-                                                        window.ntrGtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])]);
-                                                    });
-                                                    value.split("@")[1].split("#").forEach(function (v) {
-                                                        window.ntrLtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])]);
-                                                    });
-                                                    window.xx = parseInt(value.split("@")[2].split("-")[0]);//自然年龄
-                                                    window.yy = parseInt(value.split("@")[2].split("-")[1]);//生物学年龄
-                                                    window.ready = true;
-                                                    $("div[name=finished]").css("display", "block");
-                                                });
-                                            }
-
-                                        });
-                                    }
-                                });
+                            var data = {};
+                            data.barcode = _oThis.parents("form").find("input[name=barcode]").val();
+                            console.info(data.barcode);
+                            if (data.barcode == "") {
+                                window.alert("please enter the barcode!");
+                                return;
                             }
+                            $.post("user/report/upbarcode.jhtml", data, function (v) {
+                                if (v == "success") {
+                                    window.alert("Thanks for choosing our \n epiAging product.Your report will be \n available in 21 working days.");
+                                } else if (v == "error") {
+                                    if (window.confirm("Sorry, you haven't bought \n our products yet. Would you like \n to buy our products?")) {
+                                        window.location.href = "user/bioreport/index.jhtml";
+                                    }
+                                } else if (v.split("@")[0] == "pending") {
+                                    window.alert("The test has not been processed yet！\n Please wait.");
+                                } else if (v.split("@")[0] == "processing") {
+                                    window.alert("Detection is being processed!\n please wait")
+                                } else {
+                                    data.id = v.split("@")[1];
+                                    //显示对应的div
+                                    $.post("user/report/status.jhtml", data, function (status) {
+                                        if (status == "pending" || status == "processing") {
+                                            alert("Thanks for choosing our  \n epiAging product.Your report will be \n available in 21 working days.")
+                                        } else if (status == "finished") {
+                                            $.post("user/report/getData.jhtml", data, function (value) {
+                                                value.split("@")[0].split("#").forEach(function (v) {
+                                                    window.ntrGtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])]);
+                                                });
+                                                value.split("@")[1].split("#").forEach(function (v) {
+                                                    window.ntrLtBioData.push([window.parseInt(v.split("-")[0]), window.parseInt(v.split("-")[1])]);
+                                                });
+                                                window.xx = parseInt(value.split("@")[2].split("-")[0]);//自然年龄
+                                                window.yy = parseInt(value.split("@")[2].split("-")[1]);//生物学年龄
+                                                window.ready = true;
+                                                $("div[name=finished]").css("display", "block");
+                                            });
+                                        }
+
+                                    });
+                                }
+                            });
                         });
 
 
