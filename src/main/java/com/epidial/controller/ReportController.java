@@ -157,17 +157,20 @@ public class ReportController {
             return "success";
         } else {
             try {
+                //如果已经购买了试剂盒
                 Task task = taskDao.findPayDnaKitTask("barcode", barcode, "uid", user.getId());
                 if (task != null) {
+                    //使用过之后订单失效
+                    if (task.getValid()!=1){
+                        task.setValid(1);
+                        taskDao.update(task);
+                    }
                     Udata data = udataDao.findBy("barcode", barcode);
                     if (data==null) {
                         data = new Udata(user.getId(), user.getNickname(), user.getMail());
                         data.setBarcode(barcode);
                         data.setUploadTime(System.currentTimeMillis());
                         udataDao.save(data);
-                        //使用过之后订单失效
-                        task.setValid(1);
-                        taskDao.update(task);
                     }
                     Udata u=udataDao.findBy("barcode", barcode);
                     return u.getStatus() + "@" + u.getId();
