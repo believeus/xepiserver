@@ -40,7 +40,6 @@ div[id=blue-dot]:before {
 <body style="padding: 0;margin: 0;">
 	<div style="width: 100%;height: 100%;">
 		<jsp:include page="header.jsp" />
-			<div style="width: 100%;height: 55px;clear: both;"></div>
 		<div id="header" style="z-index: -1">
 			<div id="slide" class="slide" style="width: 100%;height:auto;">
 				<ul>
