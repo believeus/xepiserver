@@ -24,7 +24,7 @@ public class CartController {
     @Resource
     private WaresDao waresDao;
 
-    @RequestMapping("user/taskrecord/index.jhtml")
+    @RequestMapping("/user/taskrecord/index.jhtml")
     public ModelAndView tasklisk(){
         ModelAndView modelView = new ModelAndView("/WEB-INF/front/taskrecord.jsp");
         modelView.addObject("title","Order record ");

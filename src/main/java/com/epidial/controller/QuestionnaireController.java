@@ -117,9 +117,4 @@ public class QuestionnaireController {
 
         return list;
     }
-
-//    @RequestMapping(value = "/GetReport")
-//    public Map<String , Object> GetReport(@RequestBody JSONObject jsonObject){
-//
-//    }
 }

@@ -52,7 +52,7 @@
         var paid = ""
         $.ajax({
             type: "post",
-            url: "http://localhost:8080/transaction/Check.jhtml",
+            url: "transaction/Check.jhtml",
             success: function(data) {
                 //console.log(data)
                 for (var i = 0; i < data.length; i++) {
@@ -75,7 +75,6 @@
                             '<div id="dot" style="width: 100%;height: 20px;color: #F36602;line-height: 30px; font-size: 16px;">$' + data[i].list[j].sell_price  +'</div>' +
                             '<div style="width: 100%;height: 24px;"></div></div></div><div style="width:100%;height: 1px;background-color: #efefef;"></div></div>'
                     }
-
                 }
 				if (data.length <= 0){
                     paid = '<div style="width:100%;height:auto"><img src="static/images/order_empty.png" style="width:100%;height: auto"/> </div>' +

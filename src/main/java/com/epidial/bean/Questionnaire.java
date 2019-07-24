@@ -1,14 +1,5 @@
 package com.epidial.bean;
 
-import org.springframework.stereotype.Component;
-
-/**
- * @ CreateDate : Create in 19:31 2019/3/9
- * @ Explain :
- * @ UpdateDate : Update in
- * @ Author : Eestill
- */
-@Component
 public class Questionnaire {
     private String fraction;
     private String uuid;

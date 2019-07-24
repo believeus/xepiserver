@@ -121,6 +121,7 @@ public class ReportController {
     public ModelAndView myreport() {
         ModelAndView modelView = new ModelAndView();
         modelView.setViewName("/WEB-INF/front/mydnage.jsp");
+        modelView.addObject("canback",true);
         modelView.addObject("title", "Your Biological Age Report");
         return modelView;
     }
