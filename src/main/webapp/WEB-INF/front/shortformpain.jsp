@@ -13,7 +13,6 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
-    <link rel="stylesheet" href="static/css/stylesheet.css"/>
     <!-- <link href="static/css/bootstrap-slider.min.css" rel="stylesheet"> -->
     <!-- <link href="/static/css/pain-bootstrap-slider.css" rel="stylesheet"> -->
     <link href="static/css/lifestyle-bootstrap-slider.css" rel="stylesheet">
@@ -282,10 +281,10 @@
                                 value = "none(level 0)";
                                 break;
                             case 1:
-                                value = "jumping(level 1)";
+                                value = "moderate(level 1)";
                                 break;
                             case 2:
-                                value = "flashing(level 2)";
+                                value = "severe(level 2)";
                                 break;
                             case 3:
                                 value = "shooting(level 3)";
@@ -1832,10 +1831,10 @@
                 <div class="ex11CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
                 <div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
                     <div>
-                        <span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #FFFC00;">sickening(level1)</span>
+                        <span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #FFFC00;">mild(level1)</span>
                     </div>
                     <div>
-                        <span style="color: red;">suffocating(level 2)</span>
+                        <span style="color: red;">moderate(level 2)</span> <span style="color: red;">severe(level 3)</span>
                     </div>
                 </div>
             </div>
@@ -1896,10 +1895,13 @@
                                 value = "none(level 0)";
                                 break;
                             case 1:
-                                value = "sickening(level 1)";
+                                value = "mild(level 1)";
                                 break;
                             case 2:
-                                value = "suffocating(level 2)";
+                                value = "moderate(level 2)";
+                                break;
+                            case 3:
+                                value = "severe (level 3)";
                                 break;
                         }
                         var data = "{\"type\" : \"Pain\",\"data\" : {\"id\" : \"12\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -2473,8 +2475,9 @@
                 <div class="pain-ex15-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
                 <div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
                     <div>
-                        <span style="color: #92D050;">none(level 0)</span>&nbsp; <span style="color: #92D050;">mild (level1)</span>&nbsp;<span
-                            style="color:red;">moderate (level 2)</span>
+                        <span style="color: #92D050;">none(level 0)</span>&nbsp;
+                        <span style="color: #92D050;">mild (level1)</span>&nbsp;
+                        <span style="color:red;">moderate (level 2)</span>
                     </div>
                     <div>
                         <span style="color: #FFC000;">severe (level 3)</span>
@@ -2485,11 +2488,8 @@
         </div>
         <div style="width: 100%;height: 10px;"></div>
     </div>
-    <div style="width: 100%;height: 60px;"></div>
-    <div id="all-right" style="width: 100%;height: auto;font-family: arial;">
-        <div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-bottom: 50px;">@2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved</div>
-    </div>
-    <jsp:include page="footnav.jsp"></jsp:include>
+    <div style="width: 100%;height: 45px;background-color: #0A64A4;text-align: center;border-radius: 5px;color: white;line-height: 45px;font-size: 24px;font-weight: bold;cursor: pointer" onclick="alert('submit success')">submit</div>
+
 </div>
 </body>
 </html>

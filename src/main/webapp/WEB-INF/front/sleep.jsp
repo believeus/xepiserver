@@ -12,8 +12,6 @@
 	<base href="<%=basePath%>">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-	<link rel="stylesheet" href="static/css/stylesheet.css" />
-
 	<!-- <link href="static/css/sleep-bootstrap-slider.css" rel="stylesheet"> -->
 	<link href="static/css/lifestyle-bootstrap-slider.css" rel="stylesheet">
 	<script type='text/javascript' src="static/js/jquery-2.1.0.min.js"></script>
@@ -1132,15 +1130,8 @@
 
 	</div>
 
-	<!-- <div class="submit" style="width: 100%;height: 30px;">
-        <button type="button" style="width: 90%;height: 40px;margin-left: 18px;display: block; margin: 0 auto; text-align:center;border-radius: 10px; font-size: 18px;line-height:28px; vertical-align:middle;background-color:#F77A78; color:#FFFFFF ;">Submit</button>
-    </div> -->
+	<div style="width: 100%;height: 45px;background-color: #0A64A4;text-align: center;border-radius: 5px;color: white;line-height: 45px;font-size: 24px;font-weight: bold;cursor: pointer" onclick="alert('submit success')">submit</div>
 
-	<div style="width: 100%;height: 60px;"></div>
-	<div id="all-right" style="width: 100%;height: auto;font-family: arial;">
-		<div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-bottom: 50px;">@2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved</div>
-	</div>
-	<jsp:include page="footnav.jsp"></jsp:include>
 </div>
 </body>
 </html>

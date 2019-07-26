@@ -11,13 +11,7 @@
 <head>
     <base href="<%=basePath%>">
     <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
-    <link rel="stylesheet" href="static/css/stylesheet.css"/>
-    <!--
-        作者：julie
-        时间：2019-03-11
-        描述：slide-bar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
     <link href="static/css/lifestyle-bootstrap-slider.css" rel="stylesheet">
     <script type='text/javascript' src="static/js/jquery-2.1.0.min.js"></script>
     <script type='text/javascript' src="static/js/bootstrap-slider.js"></script>

@@ -13,8 +13,6 @@
 <head>
 	<base href="<%=basePath%>">
 	<meta charset="UTF-8">
-
-	<link rel="stylesheet" href="static/css/stylesheet.css" />
 	<link href="static/css/lifestyle-bootstrap-slider.css" rel="stylesheet">
 	<script type='text/javascript' src="static/js/jquery-2.1.0.min.js"></script>
 	<script type='text/javascript' src="static/js/bootstrap-slider.js"></script>
@@ -2087,15 +2085,9 @@
 			<div style="width: 100%;height: 20px;"></div>
 		</div>
 
-	<div style="width: 100%;height:30px;border: 1px solid red;">
-		<input type="submit"name="submit"value="Submit" style="width: 20%;height:30px;background-color: #0071BC;margin: 0 auto;"></input>
+
+		<div style="width: 100%;height: 45px;background-color: #0A64A4;text-align: center;border-radius: 5px;color: white;line-height: 45px;font-size: 24px;font-weight: bold;cursor: pointer" onclick="alert('submit success')">submit</div>
+
 	</div>
-	<div style="width: 100%;height: 60px;"></div>
-	<div id="all-right" style="width: 100%;height: auto;font-family: arial;">
-		<div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-bottom: 50px;">@2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved</div>
-	</div>
-	</div>
-	<jsp:include page="footnav.jsp"></jsp:include>
-</div>
 </body>
 </html>
