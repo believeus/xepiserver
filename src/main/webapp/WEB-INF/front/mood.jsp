@@ -2530,13 +2530,8 @@
         <!-- <div class="submit" style="width: 100%;height: 30px;">
             <button type="button" style="width: 90%;height: 40px;margin-left: 18px;border: 0px; display: block; margin: 0 auto; text-align:center;border-radius: 10px; font-size: 18px;line-height:28px; vertical-align:middle;background-color:#9650F4; color:#FFFFFF ;">Submit</button>
         </div> -->
-        <div style="width: 100%;height: 60px;"></div>
-        <div id="all-right" style="width: 100%;height: auto;font-family: arial;">
-            <div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-bottom: 50px;">
-                @2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved
-            </div>
-        </div>
-        <jsp:include page="footnav.jsp"></jsp:include>
+        <div style="width: 100%;height: 45px;background-color: #0A64A4;text-align: center;border-radius: 5px;color: white;line-height: 45px;font-size: 24px;font-weight: bold;cursor: pointer" onclick="alert('submit success')">submit</div>
+
     </div>
 </body>
 
