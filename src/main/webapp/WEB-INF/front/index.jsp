@@ -46,7 +46,7 @@
             <ul>
                 <li><a href="bioage/index.jhtml"> <img id="img1" src="static/images/home3.jpg">
                 </a></li>
-                <li><a href="same/index.jhtml"> <img id="img1" src="static/images/hoe2.jpg">
+                <li><a href="same/index.jhtml"> <img id="img1" src="static/images/home2.jpg">
                 </a></li>
                 <li><img id="img1" src="static/images/home1.jpg"></li>
                 <li><img id="img1" src="static/images/home4.jpg"></li>
