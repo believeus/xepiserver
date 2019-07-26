@@ -43,9 +43,6 @@ public class LifeController {
         *   "value2" : //输入的值2
         *  }
         * */
-        System.out.println("*****************************");
-        System.out.println(jsonObject);
-        System.out.println("*****************************");
 
         //column 去空格处理
         String column = jsonObject.getString("column");
@@ -62,7 +59,6 @@ public class LifeController {
         User userInfo = (User)session.getAttribute("sessionuser");
         String uuid = userInfo.getUuid();
 
-        System.out.println(jsonObject);
         if (jsonObject.getString("value1") != null){
             value1 = Double.parseDouble(jsonObject.getString("value1"));
         }
@@ -94,10 +90,6 @@ public class LifeController {
         *  }
         * */
         //String uuid = jsonObject.getString("uuid");
-
-        System.out.println("-------------------------------");
-        System.out.println(jsonObject);
-        System.out.println("-------------------------------");
 
         HttpSession session = request.getSession();
         User userInfo = (User)session.getAttribute("sessionuser");
