@@ -674,6 +674,7 @@
                                 dataType : "json",
                                 contentType : "application/json",
                                 success : function(data) {
+                                	console.info(data);
                                     var option = {
                                         legend : {
                                             data : [ 'Diastolic BP status' ]
@@ -695,7 +696,7 @@
                                         series : [ {
                                             name : 'Diastolic BP status',
                                             type : 'line',
-                                            data : data[1],
+                                            data : data[2],
                                         }, ]
                                     };
                                     // 为echarts对象加载数据
