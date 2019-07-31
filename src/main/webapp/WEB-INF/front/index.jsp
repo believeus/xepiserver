@@ -41,17 +41,15 @@
 <body style="padding: 0;margin: 0;">
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"/>
-    <div id="header" style="z-index: -1">
+    <div style="width: 100%;height: 55px;"></div>
+    <div id="header" style="z-index: -1000">
         <div id="slide" class="slide" style="width: 100%;height:auto;">
             <ul>
-                <li><a href="bioage/index.jhtml"> <img id="img1" src="static/images/home3.jpg">
-                </a></li>
-                <li><a href="same/index.jhtml"> <img id="img1" src="static/images/home2.jpg">
-                </a></li>
-                <li><img id="img1" src="static/images/home1.jpg"></li>
-                <li><img id="img1" src="static/images/home4.jpg"></li>
-                <li><img id="img1" src="static/images/home5.jpg"></li>
-
+                <li><a href="bioage/index.jhtml"> <img src="static/images/home3.jpg"></a></li>
+                <li><a href="same/index.jhtml"> <img  src="static/images/home2.jpg"></a></li>
+                <li><img  src="static/images/home1.jpg"></li>
+                <li><img  src="static/images/home4.jpg"></li>
+                <li><img  src="static/images/home5.jpg"></li>
             </ul>
             <div>
                 <span class="prev_btn"> &lt; </span> <span class="next_btn"> &gt; </span>
@@ -60,7 +58,7 @@
     </div>
     <div style="height: 30px;width: 100%;clear: both;"></div>
     <div style="width: 100%;height: auto;">
-        <div style="width: 96%;height: 300px;margin: 0 auto; background-image: url(static/images/taiji.png);background-position:center; background-size: 100% 100%; background-repeat: no-repeat; ">
+        <div style="width: 96%;height: 300px;margin: 0 auto; background-image: url('static/images/taiji.png');background-position:center; background-size: 100% 100%; background-repeat: no-repeat; ">
             <div class="left" style="width: 30%;height: 100%;float: left; ">
                 <a href="aboutus/index.jhtml">
                     <div style="width: 100%;height: 50%;"></div>

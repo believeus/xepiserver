@@ -95,9 +95,7 @@
                                 if (v == "success") {
                                     window.alert("Thanks for choosing our \n epiAging product.Your report will be \n available in 21 working days.");
                                 } else if (v == "error") {
-                                    if (window.confirm("Sorry, you haven't bought \n our products yet. Would you like \n to buy our products?")) {
-                                        window.location.href = "user/bioreport/index.jhtml";
-                                    }
+                                    window.alert("The barcode you entered \n is incorrect. Please re-enter!")
                                 } else if (v.split("@")[0] == "pending") {
                                     window.alert("The test has not been processed yet！\n Please wait.");
                                 } else if (v.split("@")[0] == "processing") {

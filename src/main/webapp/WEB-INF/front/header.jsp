@@ -31,7 +31,7 @@
 </script>
 <!-- END COVER -->
 <!-- START THE NAVBAR -->
-<div style="width: 100%;height: 55px; background-color: #0071BC;position: fixed;">
+<div style="width: 100%;height: 55px; background-color: #0071BC;position: fixed;z-index: 90000">
     <div class="navbar-wrapper" style="z-index: 9999;width: 80%;float: left;">
         <div class="container" style="padding: 0px;max-width: 100%;max-height: 50px;">
             <div class="navwrapper">
@@ -110,7 +110,6 @@
                 </div>
             </div>
         </div>
-
         <div class="content"></div>
     </div>
     <!-- End lang-->
