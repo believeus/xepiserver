@@ -24,6 +24,15 @@ $(document).ready(function(){
     $("div[name=sp-lang]").attr("data-url","https://app.beijingepidial.com/spain/index.jhtml").click(function () {
       window.location.href=$(this).attr("data-url");//让浏览器跳转
     });
+    $("div[name=hk-lang]").attr("data-url","https://app.beijingepidial.com/hkcn/index.jhtml").click(function () {
+      window.location.href=$(this).attr("data-url");//让浏览器跳转
+    });
+    $("div[name=cn-lang]").attr("data-url","https://app.beijingepidial.com/chinese/index.jhtml").click(function () {
+      window.location.href=$(this).attr("data-url");//让浏览器跳转
+    });
+    $("div[name=fr-lang]").attr("data-url","https://app.beijingepidial.com/french/index.jhtml").click(function () {
+      window.location.href=$(this).attr("data-url");//让浏览器跳转
+    });
     setTimeout(function(){
       $('.more_lang').toggleClass('active');
     }, 5);

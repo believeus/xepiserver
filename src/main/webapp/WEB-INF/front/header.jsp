@@ -108,6 +108,10 @@
                     <img src="static/images/flag/sp-flag.jpg">
                     <span class="lang-txt">ES</span>
                 </div>
+				<div name="hk-lang" class="lang" data-value='hk'>
+                    <img src="static/images/flag/hk-flag.png">
+                    <span class="lang-txt">HK</span>
+                </div>
             </div>
         </div>
         <div class="content"></div>
