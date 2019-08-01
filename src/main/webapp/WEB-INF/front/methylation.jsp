@@ -155,8 +155,7 @@
                 <div style="width: 35%;height: 100px;float: left;">
                     <img src="static/images/met-icon.jpg" style="width: 100%;height: auto;"/>
                 </div>
-                <div style="clear: both;"></div>
-                <div style="width: 100%;height: 20px;"></div>
+                <div style="width: 100%;height: 50px;clear: both;"></div>
                 <div style="width: 100%;height: auto; ">
 
                     <div id='dot' style="color: #666666;font-family: arial;"> Studies suggest that different
@@ -186,8 +185,7 @@
                         <img src="static/images/met-icon1.jpg" style="width: 100%;height: auto;"/>
                     </div>
                 </div>
-                <div style="clear: both;"></div>
-                <div style="width: 100%;height: 20px;"></div>
+                <div style="width: 100%;height: 50px;clear: both;"></div>
                 <div style="width: 100%;height: auto;">
                     <div style="width: 90%;height: auto;margin: 0 auto;">
                         <div id='dot' style="width: 100%; height: auto;color: #666666;font-family: arial;">

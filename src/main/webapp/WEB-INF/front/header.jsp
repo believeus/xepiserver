@@ -112,6 +112,15 @@
                     <img src="static/images/flag/hk-flag.png">
                     <span class="lang-txt">HK</span>
                 </div>
+                <div name="cn-lang" class="lang" data-value='cn'>
+                    <img src="static/images/flag/cn-flag.png">
+                    <span class="lang-txt">CN</span>
+                </div>
+                <div name="fr-lang" class="lang" data-value='fr'>
+                    <img src="static/images/flag/fr-flag.png">
+                    <span class="lang-txt">FR</span>
+                </div>
+
             </div>
         </div>
         <div class="content"></div>
