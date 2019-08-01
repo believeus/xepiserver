@@ -26,12 +26,11 @@
 <body style="margin: 0;padding: 0">
 <div style="width: 100%;height: 50px;">
     <jsp:include page="header.jsp"></jsp:include>
-    <div style="width: 100%;height: 55px;clear: both;"></div>
 </div>
 <div style="background-image:url('static/images/bg.png');width:100%;height:667px;">
     <div style="width: 90%;height: auto;margin: 0 auto;">
         <div style="width: 100%;height: auto;font-family: arial;font-size: 20px;font-weight: 500;line-height: 80px;font-weight:600;">
-            Reset your password
+            重置密码
         </div>
         <div style="width: 100%;height: 20px;"></div>
         <form action="#" method="post">
@@ -91,7 +90,7 @@
             data.password = password;
             data.mail = mail;
             data.token=token;
-            $.post("user/repasswd.jhtml", data, function (data) {
+            $.post("/user/repasswd.jhtml", data, function (data) {
                 window.alert(data);
             });
 

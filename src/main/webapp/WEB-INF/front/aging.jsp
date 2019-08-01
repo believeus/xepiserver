@@ -12,7 +12,7 @@
     <base href="<%=basePath%>">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
-    <title>2.0 for DNA Methylation Detection</title>
+    <title>DNA甲基化检测2.0</title>
     <style>
         div[id=box]:before {
             content: "●";
@@ -23,7 +23,6 @@
 </head>
 <body style="padding: 0px;margin: 0px;">
 <jsp:include page="header.jsp"/>
-<div style="width: 100%;height: 55px;clear: both;"></div>
 <div id="container">
     <div id="illu-pic" style="width: 100%;height: auto;">
         <img src="static/images/ic1.png" style="width: 100%;height: auto;"/>
@@ -36,14 +35,13 @@
                  style="width: 100%;height: auto;font-size: 16px;font-family:arial; color: #FF6B03; ">
                 <div style="width: 90%;height: auto;margin: 0 auto;">
 				<span
-                        style="text-decoration: line-through;font-family: arial; font-size: 18px;color: #7F7F7F;">$120/kit
-					for the original price<br/>
+                        style="text-decoration: line-through;font-family: arial; font-size: 18px;color: #7F7F7F;">原价 $120/套<br/>
 				</span>
                     <div></div>
-                    <span style="font-size: 18px;font-family: arial"><strong
+                    <span style="font-size: 18px;font-family: arial">现价<strong
                             style="font-weight: 600 ;font-size: 18px; font-family: arial; ">$99</strong>
-					per kit for purchase <strong
-                                style="font-family: arial;font-size: 18px;"> 1</strong> kit<br/>
+					<strong
+                                style="font-family: arial;font-size: 18px;"> 1</strong> 套<br/>
 				</span>
                     <div></div>
                 </div>
@@ -52,28 +50,27 @@
                 <div style="width: 90%;height: auto;margin: 0 auto;">
                     <div style="width: 40%;height: 40px;font-family: arial;font-size: 18px;text-align: center;line-height: 40px; color:#FFFFFF ;float: left;">
                     </div>
-                    <a href="user/cart/index.jhtml">
+                    <a href="/user/cart/index.jhtml">
                         <div style="width: 40%;height: 40px;font-family: arial;font-size: 18px;text-align: center;line-height: 40px; color:#FFFFFF ;float: right;background-color: #0365D2; border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
-                            BUY
+                            购买
                         </div>
                     </a>
                 </div>
             </div>
             <div style="width: 100%;height: 90px;"></div>
             <div style="width: 96%;height: auto;font-family: arial;color: #000000;font-size: 22px;font-weight: bold;  margin: 0 auto; text-align: center;">
-                Standard Edition 2.0 for DNA Methylation epiAging test
+                DNA甲基化生物学年龄检测标准版2.0
             </div>
         </div>
         <div
                 style="width: 96%;margin: 0 auto; height: auto;margin-bottom: 10px; font-family: arial;font-size: 18px;color: #1566B9;font-weight:600; ">
-            The epiAging test provides an assessment of your biological age
+            DNA 甲基化检测解密人类生物学年龄
         </div>
         <div
                 style="width: 96%;height: auto;margin: 0 auto; font-size: 16px;line-height: 18px; color:  #666666;font-family: arial; ">
-            <div>We are all cognizant of our age</div>
-            <div> We are however always talking about our chronological age. How do we
-                know the age of our body?</div>
-            <div>The epiAging test provides a measure of our true age.</div>
+            <div>我们都知道自己的年龄</div>
+            <div> 然而，我们总是在谈论我们的实际年龄。但我们怎么知道我们的生物学年龄呢？</div>
+            <div>表观遗传学检测提供了我们真实生物学年龄的检测。</div>
         </div>
     </div>
     <div id="age-pic" style="width: 100%;height: auto;">
@@ -84,21 +81,20 @@
             <div style="width: 100%;height: auto;">
                 <div
                         style="width: 96%;height: auto;margin: 0 auto; font-family: arial;margin-top: 30px; font-size: 18px;color: #1566B9;font-weight: 600;">
-                    Biological Age Detection by DNA Methylation
+                    DNA甲基化检测生物年龄
                 </div>
                 <div
                         style="width: 96%;height: auto;margin: 0 auto;font-family: arial; font-size: 18px;color:#666666;">
                     <div style="width: 100%;height: auto;font-size: 16px;">
                         <div style="width: 100%;height: 20px;"></div>
-                        <strong> Biological age≠Actual age </strong>
-                        <div>We all know our age, but how old are we?</div>
-                        <div>We age differently</div>
+                        <strong> 生物学年龄≠实际年龄 </strong>
+                        <div>我们都知道自己的实际年龄，但我们真实年龄到底多大了？</div>
+                        <div>每个人衰老程度不同</div>
                         <div>
-                            Some people "look" and "feel" older than they are. <br/>
-                            Others look younger than they really are.
+                           有些人“看起来”和“感觉”比他们实际年龄老。<br/>
+                           而另一些人看起来比实际年龄年轻。
                         </div>
-                        <div>Although the chronological age is overall corelated to
-                            their biological age, it is not always the case.</div>
+                        <div>尽管实际年龄与他们的生理年龄并不总是如此。</div>
                     </div>
                 </div>
                 <div style="width: 100%;height: auto; ">
@@ -106,15 +102,10 @@
                 </div>
                 <div
                         style="width: 96%;height: auto;margin: 0 auto;font-family: arial; font-size: 16px;color:#666666;">
-                    <div>Biological age can be measured with only 1 ml saliva sample
-                        Samples of saliva are collected according to the instructions and
-                        sent back to our laboratory.</div>
-                    <div>We will push the test report to you through the APP within 24
-                        working days.</div>
-                    <div>We will provide an analysis of the life-style data you entered to your App,as well as PDF reports
-                        and updates.</div>
-                    <div>Data from you and other users will be analyzed by our artificial intelligence system and a
-                        "personalized" set of suggestions will be provided to you.</div>
+                    <div>根据说明书步骤收集唾液样本并以到付形式寄回实验室。</div>
+                    <div>我们将在24个工作日内通过应用程序向您推送检测报告</div>
+                    <div>我们将提供您输入到应用程序中的生活方式数据的分析，以及PDF报告和更新数据。</div>
+                    <div>同时我们的人工智能系统将分析您和其他用户的数据，并向您提供“个性化”的建议。</div>
                 </div>
             </div>
         </div>
@@ -138,7 +129,7 @@
         <div style="width: 100%;height: auto;">
             <div
                     style="width: 96%;height: auto;margin: 0 auto; font-family: arial;font-size: 18px;color: #1566B9;font-weight: 600;">
-                What can the product provide for users ?
+               我们的产品能为用户提供什么？
             </div>
             <div style="clear: both;">
                 <div style="width: 100%;height: 20px;"></div>
@@ -146,24 +137,21 @@
                     <div style="width: 100%;height: auto; font-size: 16px;">
 
                         <div id='box' style="color: #666666;font-family: arial;">
-                            A measure of your biological age using accurate DNA methylation technology.
+                           精准DNA甲基化技术-- 检测您的生物学年龄。
                         </div>
                         <div style="width: 100%;height: 20px;"></div>
 
 
-                        <div id="box" style="color: #666666;font-family: arial;">App based management - dynamic tracking
-                            of personal life style data and interventions with iterative assessment of progress.
+                        <div id="box" style="color: #666666;font-family: arial;">基于应用程序的管理-- 动态跟踪个人生活方式的数据和干预与反复评估进展。
                         </div>
                         <div style="width: 100%;height: 20px;"></div>
 
-                        <div id="box" style="color: #666666;font-family: arial;">Advanced
-                            Technology--Based on Second Generation Sequencing Detection and
-                            Highly Age-related Methylation Loci in Human Biology
+                        <div id="box" style="color: #666666;font-family: arial;">大数据分析-- 基于第二代序列检测和人类生物学中与年龄相关的高度甲基化位点
                         </div>
                         <div style="width: 100%;height: 20px;"></div>
 
                         <div id="box" style="color: #666666;font-family: arial;">
-                            Big Data analysis
+                           大数据分析
                         </div>
                         <div style="width: 100%;height: 20px;"></div>
 

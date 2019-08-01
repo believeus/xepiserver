@@ -37,11 +37,10 @@
 <!--头部开始-->
 <div style="width: 100%;height: 50px;">
     <jsp:include page="header.jsp"></jsp:include>
-    <div style="width: 100%;height: 55px;clear: both;"></div>
 </div>
 <div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
     <div style="width:100%;height:100%;">
-        <div id="zhuce" style="text-decoration: none"><a href="user/loginview.jhtml">Login &nbsp;</a>|<a href="/index.jhtml">&nbsp; home</a></div>
+        <div id="zhuce" style="text-decoration: none"><a href="/user/loginview.jhtml">登录 &nbsp;</a>|<a href="/index.jhtml">&nbsp; 主页</a></div>
         <div id="login" style="width: 100%;height: 60px;"></div>
 
         <div class="login_bg">
@@ -59,7 +58,7 @@
                             data.email = email;
                             $("div[name=btnsend]").css("display", "none");
                             $("div[name=process]").css("display", "block");
-                            $.post("user/sendpaswd.jhtml", data, function (msg) {
+                            $.post("/user/sendpaswd.jhtml", data, function (msg) {
                                 var data = "";
                                 if (msg == "success") {
                                     data = "A link to reset your password has been sent to your <strong>["+$("input[name=email]").val()+"]</strong> mailbox.If you have not received the email, please check the junk bin of your email. Please check it out !"
@@ -85,13 +84,13 @@
                         </div>
 
                         <div name="btnsend" class="other_login" style="margin-top: 40px;">
-                            <span>By clicking the button below, A link to reset your password will be sent to your email</span>
+                            <span>点击下面的按钮，将向您的电子邮件发送重置密码的链接。</span>
                             <input type="submit" class="login_btn" name="sendmail" value="Reset password" style="margin-top: 0px;">
                             </input>
                         </div>
                         <div name="process" style="display: none;margin:0 auto;text-align: center;">
                             <div style="width: 100%;height: 20px;"></div>
-                            <img src="static/images/process.gif" style="width: 32px;height: auto;"/>
+                            <img src="/static/images/process.gif" style="width: 32px;height: auto;"/>
                         </div>
                         <div name="message" style="display: none;margin:0 auto;text-align: left;">
 

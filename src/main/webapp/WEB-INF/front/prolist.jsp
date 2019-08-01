@@ -18,7 +18,7 @@
 <body style="padding: 0;margin: 0;">
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
-    <div style="width: 100%;height: auto;clear: both;">
+    <div style="width: 100%;height: auto;">
         <div style="width: 100%;height: 30px;"></div>
         <div style="width: 98%;height: auto;margin: 0 auto;overflow: hidden;">
             <div style="width: 34%;height: auto;float: left;">
@@ -27,9 +27,9 @@
             <div style="width: 6%;;height: 20px;float: left;"></div>
             <div style="width: 48%;height: auto;float: left;font-family: arial;">
                 <div style="width: 100%;height: 8px;"></div>
-                <div style="font-weight: 700;color: #27809D;line-height: 38px;font-size: 16px;">Moshe Szyf, Prof.</div>
-                <div style="color: #666666;">Chairman & CEO</div>
-                <div style="color: #666666;font-size: 12px;">HKG epiTHERAPEUTICS Ltd.</div>
+                <div style="font-weight: 700;color: #27809D;line-height: 38px;font-size: 16px;">摩西▪西夫 教授</div>
+                <div style="color: #666666;">董事长兼CEO</div>
+                <div style="color: #666666;font-size: 12px;">香港精准医学技术有限公司</div>
             </div>
             <div style="width: 10%;height: auto;float: left;line-height: 30px;">
                 <div style="width: 100%;height: 28px;"></div>
@@ -121,7 +121,6 @@
         </div>
     </div>
     <jsp:include page="footnav.jsp"></jsp:include>
-        <div style="width: 100%;height: 55px;clear: both;"></div>
 </div>
 </body>
 </html>

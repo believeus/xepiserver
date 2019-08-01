@@ -12,6 +12,7 @@
 	<base href="<%=basePath%>">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="static/css/stylesheet.css" />
 	<!-- <link href="static/css/bootstrap-slider.min.css" rel="stylesheet"> -->
 	<!-- <link href="/static/css/pain-bootstrap-slider.css" rel="stylesheet"> -->
 	<link href="static/css/lifestyle-bootstrap-slider.css" rel="stylesheet">
@@ -26,7 +27,7 @@
             }
         });
 	</script>
-	<title>McGill Pain Questionnaire</title>
+	<title>麦吉尔疼痛调查问卷</title>
 </head>
 <body>
 <div id="container" style="width: 100%;height: 100%;background-color: #DEDEDE;">
@@ -37,14 +38,15 @@
 			<img src="static/images/pain.png" style="width: 20%;height: 16%;float: right;" />
 		</div>
 		<div style="width: 100%;height: auto;">
-			<div style="width: 100%;height: 58px;text-align: center;font-size: 20px;font-family: arial;line-height: 46px; background-color: #FFFFFF; font-weight: 700;">The McGill Pain Questionnaire</div>
+			<div style="width: 100%;height: 58px;text-align: center;font-size: 20px;font-family: arial;line-height: 46px; background-color: #FFFFFF; font-weight: 700;">麦吉尔疼痛问卷</div>
 			<div style="accelerator: 100%;height: auto;background-color: #C1272D;">
 				<div style="width: 90%;height: auto;margin: 0 auto;color: #FFFFFF; font-family: arial;font-size: 14px;">
-					Overview: The McGill Pain Questionnaire can be used to evaluate a person experiencing significant pain. It can be used to monitor the pain over time and to determine the effectiveness of any intervention. It was developed at by Dr. Melzack at McGill University in Montreal Canada and has been translated into several languages.
-					<div>Sections:</div>
-					<div>1) What Does Your Pain Feel Like?</div>
-					<div>2) How Does Your Pain Change with Time?</div>
-					<div>3)How Strong is Your Pain?</div>
+					概述:麦吉尔疼痛问卷可用于评估经历严重疼痛的人。它可以用来监测疼痛随着时间的推移，
+并任何确定的干预有效性它的英文由加拿大蒙特利尔麦吉尔大学的梅尔扎克博士开发的，并已翻译成多种语言。
+					<div>章节:</div>
+					<div>1) 你的疼痛是什么样的感觉?</div>
+					<div>2) 你的疼痛是如何随着时间而改变的?</div>
+					<div>3) 你的疼痛有多剧烈?</div>
 
 				</div>
 			</div>
@@ -96,28 +98,28 @@
                     var slider = new Slider(".pain-ex1-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none (level 1)";
+                                value = "没有 (level 1)";
                                 break;
                             case 1:
-                                value = "flickering(level 1) ";
+                                value = "闪现(level 1) ";
                                 break;
                             case 2:
-                                value = "quivering (level 2)";
+                                value = "颤抖 (level 2)";
                                 break;
                             case 3:
-                                value = "pulsing(level 3)";
+                                value = "脉冲(level 3)";
                                 break;
                             case 4:
-                                value = "throbbing(level 4)";
+                                value = "抽痛(level 4)";
                                 break;
                             case 5:
-                                value = "beating(level 5)";
+                                value = "跳动(level 5)";
                                 break;
                             case 6:
-                                value = "pounding(level 6)";
+                                value = "重击痛(level 6)";
                                 break;
                         }
                         var data = "{\"type\" : \"Pain\",\"data\" : {\"id\" : \"1\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -186,21 +188,21 @@
             });
 		</script>
 		<div class="ques1" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-family: arial;font-size: 20px;line-height:66px;text-align:center; font-weight: 700;">What Does Your Pain Feel Like?</div>
-			<div style="width: 96%;height: auto;margin:0 auto; color:#666666">Statement: Some of the following words below describe your present pain. Circle ONLY those words that best describe it. Leave out any category that is not suitable. Use only a single word in each appropriate category - the one that applies best.</div>
+			<div style="width: 100%;height: auto;font-family: arial;font-size: 20px;line-height:66px;text-align:center; font-weight: 700;">你的疼痛是什么样的感觉?</div>
+			<div style="width: 96%;height: auto;margin:0 auto; color:#666666">陈述：选出下面最恰当描述你痛苦的词</div>
 
-			<div style="width: 96%;height: auto;font-size: 16px;margin:0 auto; font-family: airal;font-weight: 600; color: #666666;">1.temporal?</div>
+			<div style="width: 96%;height: auto;font-size: 16px;margin:0 auto; font-family: airal;font-weight: 600; color: #666666;">1..时间上?</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
-				<div class="pain-ex1SliderVal" style="font-size: 16px;font-family: arial;line-height: 40px; font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px">none(level 0)</div>
+				<div class="pain-ex1SliderVal" style="font-size: 16px;font-family: arial;line-height: 40px; font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px">没有(level 0)</div>
 				<div>
 					<input class="pain-ex1-bar" type="text" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" data-slider-min="0" data-slider-max="6" data-slider-step="1" data-slider-value="0">
 				</div>
 			</div>
 			<div style="width: 100%;height: auto;">
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
-					<div><span style="color: #92D050;">none(level 0)</span>&nbsp; <span style="color: #92D050;">flickering(level1)</span>&nbsp;<span style="color: #FFC000;">quivering (level 2)</span></div>
-					<div><span style="color: #FFC000;">pulsing(level 3)</span>&nbsp;<span style="color: #FFFC00;">throbbing(level 4)</span></div>
-					<div><span style="color: red;">beating(level 5)</span>&nbsp; <span style="color: red;">pounding(level 6)</span></div>
+					<div><span style="color: #92D050;">没有(level 0)</span>&nbsp; <span style="color: #92D050;">闪现(level1)</span>&nbsp;<span style="color: #FFC000;">颤抖 (level 2)</span></div>
+					<div><span style="color: #FFC000;">脉冲(level 3)</span>&nbsp;<span style="color: #FFFC00;">抽痛(level 4)</span></div>
+					<div><span style="color: red;">跳动(level 5)</span>&nbsp; <span style="color: red;">重击痛(level 6)</span></div>
 				</div>
 				<div>
 					<div style="width: 100%;height: 350px;" id='pain-report-1'></div>
@@ -252,19 +254,19 @@
                     var slider = new Slider(".pain-ex2-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
-                                value = "jumping(level 1)";
+                                value = "跳痛(level 1)";
                                 break;
                             case 2:
-                                value = "flashing(level 2)";
+                                value = "脉冲式疼痛(level 2)";
                                 break;
                             case 3:
-                                value = "shooting(level 3)";
+                                value = "刺痛(level 3)";
                                 break;
                         }
                         var data = "{\"type\" : \"Pain\",\"data\" : {\"id\" : \"2\",\"value\" :\"" + slideEvt.value + "\"}}";
@@ -333,16 +335,16 @@
             });
 		</script>
 		<div class="ques2" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">2.spatial</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">2.空间的</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 				<div style="width: 100%;height: 10px;"></div>
-				<div class="pain-ex2SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px">none(level 0)</div>
+				<div class="pain-ex2SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px">没有(level 0)</div>
 				<div><input class="pain-ex2-bar" type="text" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="0"></div>
 			</div>
 			<div style="width: 100%;height: auto;">
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
-					<div><span style="color: #92D050;">none(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">jumping(level 1)</span></div>
-					<div><span style="color: #FFC000;">flashing(level 2)</span>&nbsp; &nbsp;<span style="color: red;">shooting(level 3)</span></div>
+					<div><span style="color: #92D050;">没有(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">跳痛(level 1)</span></div>
+					<div><span style="color: #FFC000;">脉冲式疼痛(level 2)</span>&nbsp; &nbsp;<span style="color: red;">刺痛(level 3)</span></div>
 				</div>
 				<div style="width: 100%;height: 350px;" id='pain-report-2'></div>
 			</div>
@@ -392,10 +394,10 @@
                     var slider = new Slider(".pian-ex3-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "pricking(level 1)";
@@ -481,22 +483,22 @@
             });
 		</script>
 		<div class="ques3" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">3.punctate pressure</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">3.点状压力</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pian-ex3-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pian-ex3-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pian-ex3-bar" type="text" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">pricking(level 1)</span>&nbsp;&nbsp;<span style="color: #FFC000;">boring (level 2)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">轻微刺痛(level 1)</span>&nbsp;&nbsp;<span style="color: #FFC000;">沉闷 (level 2)</span>
 					</div>
 					<div>
-						<span style="color: #FFC000;">drilling(level 3)</span>&nbsp;<span style="color: #FFFC00;">stabbing(level 4)</span>
+						<span style="color: #FFC000;">钻痛(level 3)</span>&nbsp;<span style="color: #FFFC00;">剧烈刺痛(level 4)</span>
 					</div>
 					<div>
-						<span style="color: red;">lancinating(level 5)</span>
+						<span style="color: red;">撕裂痛(level 5)</span>
 					</div>
 				</div>
 				<div class="pian-ex3-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
@@ -546,10 +548,10 @@
                     var slider = new Slider(".pain-ex4-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "sharp(level 1)";
@@ -628,20 +630,20 @@
             });
 		</script>
 		<div class="ques4" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;font-weight: 600;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">4.incisive pressure</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;padding: 10px;">4.切向压力</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex4-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex4-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex4-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="0" />
 				</div>
 				<div class="pain-ex4-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">sharp(level 1)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;"> 锋利(level 1)</span>
 					</div>
 					<div>
-						<span style="color: #FFC000;">cutting(level 2)</span>&nbsp;<span style="color: red;">lacerating(level 3)</span>
+						<span style="color: #FFC000;">切割(level 2)</span>&nbsp;<span style="color: red;">撕裂(level 3)</span>
 					</div>
 				</div>
 			</div>
@@ -692,10 +694,10 @@
                     var slider = new Slider(".pain-ex5-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0) ";
+                                value = "没有(level 0) ";
                                 break;
                             case 1:
                                 value = "pinching(level 1) ";
@@ -782,22 +784,22 @@
             });
 		</script>
 		<div class="ques5" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">5.constrictive pressure</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">5.限制压力</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex5-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex5-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex5-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp; <span style="color: #92D050;">pinching(level1)</span>&nbsp;<span style="color: #FFC000;">pressing (level 2)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp; <span style="color: #92D050;">捏(level1)</span>&nbsp;<span style="color: #FFC000;">压 (level 2)</span>
 					</div>
 					<div>
-						<span style="color: #FFC000;">gnawing(level 3)</span>&nbsp;<span style="color: #FFFC00;">cramping(level 4)</span>
+						<span style="color: #FFC000;">咬(level 3)</span>&nbsp;<span style="color: #FFFC00;">痉挛(level 4)</span>
 					</div>
 					<div>
-						<span style="color: red;">crushing(level 5)</span>
+						<span style="color: red;">挤压(level 5)</span>
 					</div>
 				</div>
 				<div class="pain-ex5-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
@@ -849,10 +851,10 @@
                     var slider = new Slider(".pain-ex6-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "tugging(level 1) ";
@@ -932,19 +934,19 @@
             });
 		</script>
 		<div class="ques6" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">6.traction pressure</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">6.牵引压力</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex6-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex6-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex6-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">tugging(level1)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">牵引(level 1)</span>
 					</div>
 					<div>
-						<span style="color: #FFC000;">pulling(level 2)</span>&nbsp;<span style="color: red;">wrenching(level 4)</span>
+						<span style="color: #FFC000;">拉动(level 2)</span>&nbsp;<span style="color: red;">扭伤(level 4)</span>
 					</div>
 				</div>
 				<div class="pain-ex6-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
@@ -994,10 +996,10 @@
                     var slider = new Slider(".pain-ex7-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "hot(level 1)";
@@ -1078,23 +1080,23 @@
             });
 		</script>
 		<div class="ques7" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">7.thermal</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">7.热量</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex7-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex7-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex7-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex7-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">hot(level1)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">热(level 1)</span>
 					</div>
 					<div>
-						<span style="color: #FFC000;">boring(level 2)</span>&nbsp;<span style="color: red;">scalding(level 3)</span>
+						<span style="color: #FFC000;">燃烧(level 2)</span>&nbsp;<span style="color: red;">烫伤(level 3)</span>
 					</div>
 					<div>
-						<span style="color: red;">searing(level 4)</span>
+						<span style="color: red;">灼热(level 4)</span>
 					</div>
 				</div>
 			</div>
@@ -1144,10 +1146,10 @@
                     var slider = new Slider(".pain-ex8-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "tingling(level 1) ";
@@ -1230,23 +1232,23 @@
             });
 		</script>
 		<div class="ques8" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">8.brightness</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">8.亮度</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex8-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex8-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex8-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex8-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">tingling(level1)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">刺痛(level 1)</span>
 					</div>
 					<div>
-						<span style="color: #FFC000;">itchy(level 2)</span>&nbsp;<span style="color: red;">smarting(level 3)</span>
+						<span style="color: #FFC000;">发痒(level 2)</span>&nbsp;<span style="color: red;">擦伤痛(level 3)</span>
 					</div>
 					<div>
-						<span style="color: red;">stinging(level 4)</span>
+						<span style="color: red;">刺状痛(level 4)</span>
 					</div>
 				</div>
 			</div>
@@ -1295,10 +1297,10 @@
                     var slider = new Slider(".pain-ex9-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "dull(level 1) ";
@@ -1382,20 +1384,20 @@
             });
 		</script>
 		<div class="ques9" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">9.dullness</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">9.迟钝</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex9-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex9-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex9-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex9-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">dull(level1)</span>&nbsp;&nbsp;<span style="color: #FFC000;">sore(level 3)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">沉闷(level1)</span>&nbsp;&nbsp;<span style="color: #FFC000;">酸痛(level 3)</span>
 					</div>
 					<div>
-						<span style="color: #FFFC00;">hurting(level 4)</span>&nbsp;&nbsp;<span style="color: red;">heavy(level 5)</span>
+						<span style="color: #FFFC00;">伤痛(level 4)</span>&nbsp;&nbsp;<span style="color: red;">沉重(level 5)</span>
 					</div>
 				</div>
 			</div>
@@ -1444,10 +1446,10 @@
                     var slider = new Slider(".pain-ex10-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "tender(level 1)";
@@ -1528,20 +1530,20 @@
             });
 		</script>
 		<div class="ques10" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">10.sensory miscellaneous</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">10.感官杂类</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex10-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex10-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex10-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex10-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">tender(level1)</span>&nbsp;&nbsp;<span style="color: #FFC000;">taut(level 2)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">柔和(level1)</span>&nbsp;&nbsp;<span style="color: #FFC000;">紧绷(level 2)</span>
 					</div>
 					<div>
-						<span style="color: #FFFC00;">rasping(level 3)</span>&nbsp;&nbsp;<span style="color: red;">splitting(level 4)</span>
+						<span style="color: #FFFC00;">焦躁的(level 3)</span>&nbsp;&nbsp;<span style="color: red;">剧烈的(level 4)</span>
 					</div>
 				</div>
 			</div>
@@ -1590,10 +1592,10 @@
                     var slider = new Slider(".ex11");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "sickening(level 1)";
@@ -1668,20 +1670,20 @@
             });
 		</script>
 		<div class="ques11" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">11.tension</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">11.不安</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="ex11SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="ex11SliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="ex11" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="ex11CurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #FFFC00;">sickening(level1)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #FFFC00;">令人厌恶(level 1)</span>
 					</div>
 					<div>
-						<span style="color: red;">suffocating(level 2)</span>
+						<span style="color: red;">令人窒息(level 2)</span>
 					</div>
 				</div>
 			</div>
@@ -1730,10 +1732,10 @@
                     var slider = new Slider(".pain-ex12-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "sickening(level 1)";
@@ -1808,20 +1810,20 @@
             });
 		</script>
 		<div class="ques12" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">12.autonomic</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">12.自发的</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex12-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex12-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex12-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex12-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #FFFC00;">sickening(level1)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #FFFC00;">令人厌恶(level 1)</span>
 					</div>
 					<div>
-						<span style="color: red;">suffocating(level 2)</span>
+						<span style="color: red;">令人窒息(level 2)</span>
 					</div>
 				</div>
 			</div>
@@ -1870,10 +1872,10 @@
                     var slider = new Slider(".pain-ex13-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "fearful(level 1)";
@@ -1951,20 +1953,20 @@
             });
 		</script>
 		<div class="ques13" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">13.fear</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;padding: 10px;">13.畏惧</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex13-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex13-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex13-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex13-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #FFFF00;">fearful(level1)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #FFFF00;">害怕(level1)</span>
 					</div>
 					<div>
-						<span style="color: #FFFC00;">frightful(level 2)</span>&nbsp;&nbsp;<span style="color: red;">terrifying(level 3)</span>
+						<span style="color: #FFFC00;">毛骨悚然(level 2)</span>&nbsp;&nbsp;<span style="color: red;">极度恐惧(level 3)</span>
 					</div>
 				</div>
 			</div>
@@ -2013,10 +2015,10 @@
                     var slider = new Slider(".pain-ex14-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "punishing(level 1)";
@@ -2101,23 +2103,23 @@
             });
 		</script>
 		<div class="ques14" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
-			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">14.pinishment</div>
+			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">14.惩罚</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex14-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex14-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex14-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex14-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">punishing(level1)</span>&nbsp;&nbsp;<span style="color: #FFC000;">gruelling(level 2)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">惩罚(level 1)</span>&nbsp;&nbsp;<span style="color: #FFC000;">严厉(level 2)</span>
 					</div>
 					<div>
-						<span style="color: #FFC000;">cruel(level 3)</span>&nbsp;<span style="color: #FFFC00;">vicious(level 4)</span>
+						<span style="color: #FFC000;">残忍(level 3)</span>&nbsp;<span style="color: #FFFC00;">恶毒(level 4)</span>
 					</div>
 					<div>
-						<span style="color: red;">killing(level 5)</span>&nbsp;
+						<span style="color: red;">杀戮(level 5)</span>&nbsp;
 					</div>
 				</div>
 			</div>
@@ -2168,10 +2170,10 @@
                     var slider = new Slider(".pain-ex15-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "wretched(level 1)";
@@ -2251,14 +2253,14 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">15.affective-evaluative-sensory:miscellaneous</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex15-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex15-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex15-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex15-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp; <span style="color: #92D050;">wretched(level1)</span>&nbsp;<span style="color:red;">blinding(level 2)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp; <span style="color: #92D050;">wretched(level1)</span>&nbsp;<span style="color:red;">blinding(level 2)</span>
 					</div>
 				</div>
 			</div>
@@ -2307,10 +2309,10 @@
                     var slider = new Slider(".pain-ex16-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "annoying(level 1)";
@@ -2397,14 +2399,14 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">16.evaluative</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex16-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex16-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex16-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex16-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">annoying(level1)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">annoying(level1)</span>
 					</div>
 					<div>
 						<span style="color: #FFC000;">troublesome(level 3)</span>&nbsp;&nbsp;<span style="color: #FFFC00;">intense(level 4)</span>
@@ -2459,10 +2461,10 @@
                     var slider = new Slider(".pain-ex17-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "spreading(level 1)";
@@ -2546,14 +2548,14 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">17.sensory: miscellaneous</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex17-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex17-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex17-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex17-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">radiating(level 1)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">radiating(level 1)</span>
 					</div>
 					<div>
 						<span style="color: #FFC000;">radiating(level 2)</span>&nbsp;&nbsp;<span style="color: #FFFC00;">penetrating(level 3)</span>
@@ -2608,10 +2610,10 @@
                     var slider = new Slider(".pain-ex18-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "tight(level 1)";
@@ -2698,14 +2700,14 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">18.sensory: miscellaneous</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex18-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex18-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex18-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex18-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">tight(level1)</span>&nbsp;&nbsp;<span style="color: #FFC000;">numb(level 2)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #92D050;">tight(level1)</span>&nbsp;&nbsp;<span style="color: #FFC000;">numb(level 2)</span>
 					</div>
 					<div>
 						<span style="color: #FFFC00;">drawing(level 3)</span>&nbsp;&nbsp;<span style="color: #FFFC00;">squeezing(level 4)</span>
@@ -2760,10 +2762,10 @@
                     var slider = new Slider(".pain-ex19-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "cool(level 1)";
@@ -2844,14 +2846,14 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">19.sensory</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex19-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex19-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex19-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex19-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
 					<div>
-						<span style="color: #92D050;">none(level 0)</span>&nbsp;&nbsp; <span style="color: #FFF000;">cool(level1)</span>
+						<span style="color: #92D050;">没有(level 0)</span>&nbsp;&nbsp; <span style="color: #FFF000;">cool(level1)</span>
 					</div>
 					<div>
 						<span style="color: #FFFC00;">cold(level 2)</span>&nbsp;&nbsp;<span style="color:red;">freezing(level 3)</span>
@@ -2903,10 +2905,10 @@
                     var slider = new Slider(".pain-ex20-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "nagging(level 1)";
@@ -2992,13 +2994,13 @@
 		<div class="ques20" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius:10px;padding: 10px; ">
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">20.affective-evaluative:miscellaneous</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
-				<div class="pain-ex20-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex20-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex20-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex20-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
-					<div><span style="color: #92D050;">none(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
+					<div><span style="color: #92D050;">没有(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
 					<div><span style="color: #FFC000;">nauseating(level 2)</span>&nbsp;&nbsp;<span style="color: #FFFC00;">agonizing(level 3)</span></div>
 					<div><span style="color: #FFFC00;">dreadful(level 4)</span>&nbsp;&nbsp;<span style="color: red;">torturing(level 5)</span></div>
 				</div>
@@ -3129,10 +3131,10 @@
                     var slider = new Slider(".pain-ex21-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "mild(level 1)";
@@ -3218,13 +3220,13 @@
 		<div class="ques21" style="width: 96%;height: auto;margin: 0 auto; background-color: #FFFFFF;border-radius: 10px;padding: 10px;">
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">21. Which word describes your pain right now?</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
-				<div class="pain-ex21-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex21-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex21-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex21-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
-					<div><span style="color: #92D050;">none(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
+					<div><span style="color: #92D050;">没有(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
 					<div><span style="color: #FFC000;">nauseating(level 2)</span>&nbsp;&nbsp;<span style="color: #FFFC00;">agonizing(level 3)</span></div>
 					<div><span style="color: #FFFC00;">dreadful(level 4)</span>&nbsp;&nbsp;<span style="color: red;">torturing(level 5)</span></div>
 				</div>
@@ -3274,10 +3276,10 @@
                     var slider = new Slider(".pain-ex22-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "mild(level 1)";
@@ -3364,13 +3366,13 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">22.Which word describes it at its worst?</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex22-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex22-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex22-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex22-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
-					<div><span style="color: #92D050;">none(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
+					<div><span style="color: #92D050;">没有(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
 					<div><span style="color: #FFC000;">nauseating(level 2)</span>&nbsp;&nbsp;<span style="color: #FFFC00;">agonizing(level 3)</span></div>
 					<div><span style="color: #FFFC00;">dreadful(level 4)</span>&nbsp;&nbsp;<span style="color: red;">torturing(level 5)</span></div>
 				</div>
@@ -3420,10 +3422,10 @@
                     var slider = new Slider(".pain-ex23-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "mild(level 1)";
@@ -3510,13 +3512,13 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">23.Which word describes it when it is least?</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex23-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex23-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex23-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex23-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
-					<div><span style="color: #92D050;">none(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
+					<div><span style="color: #92D050;">没有(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
 					<div><span style="color: #FFC000;">nauseating(level 2)</span>&nbsp;&nbsp;<span style="color: #FFFC00;">agonizing(level 3)</span></div>
 					<div><span style="color: #FFFC00;">dreadful(level 4)</span>&nbsp;&nbsp;<span style="color: red;">torturing(level 5)</span></div>
 				</div>
@@ -3566,10 +3568,10 @@
                     var slider = new Slider(".pain-ex24-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "mild(level 1)";
@@ -3656,13 +3658,13 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">24.Which word describes the worst toothache you ever had?</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex24-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex24-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex24-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex24-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
-					<div><span style="color: #92D050;">none(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
+					<div><span style="color: #92D050;">没有(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
 					<div><span style="color: #FFC000;">nauseating(level 2)</span>&nbsp;&nbsp;<span style="color: #FFFC00;">agonizing(level 3)</span></div>
 					<div><span style="color: #FFFC00;">dreadful(level 4)</span>&nbsp;&nbsp;<span style="color: red;">torturing(level 5)</span></div>
 				</div>
@@ -3712,10 +3714,10 @@
                     var slider = new Slider(".pain-ex25-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "mild(level 1)";
@@ -3803,13 +3805,13 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">25.Which word describes the worst headache you ever had?</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex25-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex25-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex25-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex25-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
-					<div><span style="color: #92D050;">none(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
+					<div><span style="color: #92D050;">没有(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
 					<div><span style="color: #FFC000;">nauseating(level 2)</span>&nbsp;&nbsp;<span style="color: #FFFC00;">agonizing(level 3)</span></div>
 					<div><span style="color: #FFFC00;">dreadful(level 4)</span>&nbsp;&nbsp;<span style="color: red;">torturing(level 5)</span></div>
 				</div>
@@ -3859,10 +3861,10 @@
                     var slider = new Slider(".pain-ex26-bar");
                     //拖动发送
                     slider.on("slide", function(slideEvt) {
-                        var value = "none(level 0)";
+                        var value = "没有(level 0)";
                         switch (slideEvt.value) {
                             case 0:
-                                value = "none(level 0)";
+                                value = "没有(level 0)";
                                 break;
                             case 1:
                                 value = "mild(level 1)";
@@ -3950,21 +3952,20 @@
 			<div style="width: 100%;height: auto;font-size: 16px; font-family: airal;color: #666666;font-weight: 600;">26.Which word describes the worst stomach-ache you ever had?</div>
 			<div class="scroll-bar" style="width: 96%;height: auto;margin: 0 auto;">
 
-				<div class="pain-ex26-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">none(level 0)</div>
+				<div class="pain-ex26-barSliderVal" style="font-size: 16px;font-family: arial;font-weight: 700; margin: 0 auto;color: #C1272D;line-height: 40px;">没有(level 0)</div>
 				<div>
 					<input class="pain-ex26-bar" style-gradient="-webkit-linear-gradient(left, #92D050 0%, #FFC000 60%,  red 100%)" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0">
 				</div>
 				<div class="pain-ex26-barCurrentSliderValLabel" style="font-size: 16px;font-family: arial;"></div>
 				<div style="margin: 0 auto;text-align: center;width: 95%;text-align: center;">
-					<div><span style="color: #92D050;">none(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
+					<div><span style="color: #92D050;">没有(level 0)</span>&nbsp; &nbsp;<span style="color: #92D050;">nagging(level1)</span></div>
 					<div><span style="color: #FFC000;">nauseating(level 2)</span>&nbsp;&nbsp;<span style="color: #FFFC00;">agonizing(level 3)</span></div>
 					<div><span style="color: #FFFC00;">dreadful(level 4)</span>&nbsp;&nbsp;<span style="color: red;">torturing(level 5)</span></div>
 				</div>
 			</div>
 			<div style="width: 100%;height: 350px;" id='pain-report-26'></div>
 		</div>
-		<div style="width: 100%;height: 45px;background-color: #0A64A4;text-align: center;border-radius: 5px;color: white;line-height: 45px;font-size: 24px;font-weight: bold;cursor: pointer" onclick="alert('submit success')">submit</div>
-
+		<div style="width: 100%;height: 10px;"></div>
 		<!-- <div style="width: 100%;height: auto;font-family: arial;">
 				<div>Interpretation:</div>
 				<ul>
@@ -3985,7 +3986,7 @@
 				<div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;">@2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved</div>
 			</div> -->
 	</div>
-
+	<jsp:include page="footnav.jsp"></jsp:include>
 </div>
 </body>
 </html>

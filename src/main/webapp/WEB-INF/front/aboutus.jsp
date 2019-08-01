@@ -11,7 +11,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
     <meta charset="UTF-8">
-    <title>About us</title>
+    <title>关于我们</title>
 
     <style>
         div[id=dot]:before {
@@ -24,11 +24,10 @@
 <body style="padding:0px;margin: 0px;">
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
-    <div style="width: 100%;height: 60px;"></div>
     <div style="width: 100%;height: auto;">
         <div style="width: 90%;height: auto;margin: 0 auto;overflow: hidden;">
             <div id="dot" style="width: 90%;color: #0071BC;line-height: 50px; font-weight: 700;">
-                Company Introduction
+                公司介绍
             </div>
             <div style="width: 100%;height: auto;line-height: 50px;"><a href="company/index.jhtml"><img
                     src="static/images/au-1.png" style="width: 100%;height: auto;"/></a></div>
@@ -39,7 +38,7 @@
     <div style="width: 100%;height: auto;">
         <div style="width: 90%;height: auto;margin: 0 auto;overflow: hidden;">
             <div id="dot" style="width: 90%;color: #0071BC;line-height: 50px; font-weight: 700;">
-                Science Team
+                科研团队
             </div>
             <div style="width: 100%;height: auto;line-height: 50px;"><a href="scienceteam/index.jhtml"><img
                     src="static/images/au-2.png" style="width: 100%;height: auto;"/></a></div>
@@ -50,7 +49,7 @@
     <div style="width: 100%;height: auto;">
         <div style="width: 90%;height: auto;margin: 0 auto;overflow: hidden;">
             <div id="dot" style="width: 90%;color: #0071BC;line-height: 50px; font-weight: 700;">
-                DNA Methylation
+                DNA甲基化
             </div>
             <div style="width: 100%;height: auto;line-height: 50px;"><a href="methylation/index.jhtml"><img
                     src="static/images/au-3.png" style="width: 100%;height: auto;"/></a></div>
@@ -60,10 +59,10 @@
     <div style="width: 100%;height: auto;">
         <div style="width: 90%;height: auto;margin: 0 auto;overflow: hidden;">
             <div id="dot" style="width: 90%;color: #0071BC;line-height: 50px; font-weight: 700;">
-                Customer Data Consent Form
+                用户数据知情同意书
             </div>
             <div style="width: 100%;height: auto;line-height: 50px;"><a href="concent/index.jhtml"><img
-                    src="static/images/company5.png" style="width: 100%;height: auto;"/></a></div>
+                    src="/static/images/company5.png" style="width: 100%;height: auto;"/></a></div>
         </div>
     </div>
     <div style="width: 100%;height: 10px;background-color: #F0F0F0;"></div>
@@ -71,7 +70,7 @@
     <div style="width: 100%;height: auto;">
         <div style="width: 90%;height: auto;margin: 0 auto;overflow: hidden;">
             <div id="dot" style="width: 90%;color: #0071BC;line-height: 50px; font-weight: 700;">
-                Biological Age Detection
+                生物学年龄检测
             </div>
             <div style="width: 100%;height: auto;line-height: 50px;"><a href="bioage/index.jhtml"><img
                     src="static/images/company6.png" style="width: 100%;height: auto;"/></a></div>

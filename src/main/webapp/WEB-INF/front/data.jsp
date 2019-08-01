@@ -10,7 +10,7 @@
 	<base href="<%=basePath%>">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<title>Why should I enter my life style data?</title>
+	<title>为什么要输入我的生活方式数据？</title>
 </head>
 <style>
 	div[id=dot]:before{
@@ -23,20 +23,19 @@
 <body style="padding: 0px;margin: 0px;">
 <div style="width: 100%;height: 100%;">
 	<jsp:include page="header.jsp"></jsp:include>
-	<div style="width: 100%;height: 55px;clear: both;"></div>
 	<div style="width: 100%;height: auto;background-color: #F6F8F9;">
 		<div style="width: 96%;height: auto;margin: 0 auto; overflow: hidden;">
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;">
-				<div style="width: 70%;height: auto;float: left;font-weight: 700;font-family: arial;font-size:18px;">Importance of filling out questionnaires</div>
+				<div style="width: 70%;height: auto;float: left;font-weight: 700;font-family: arial;font-size:18px;">填写调查表的重要性</div>
 				<div style="width: 25%;height: auto;float: left;"><img src="static/images/ques1.png"style="width: 100%;height:auto ;"/></div>
 				<div style="width: 100%;height: 30px;"></div>
 				<div style="width: 100%;height: auto;color: #666666;">
-					<div id="dot" >EpiAging tests make sense only within a dynamic life-long life style, environmental and health management system.</div>
+					<div id="dot" >生物学年龄检测只有在一个动态的终身生活方式、环境和健康管理系统中才有意义。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" style="width: 100%;height: auto;">A personalized evaluation including intervention will be generated based on the health and lifestyle information you provided.</div>
+					<div id="dot" style="width: 100%;height: auto;">根据您提供的健康和生活方式信息，将生成包括干预在内的个性化评估。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" style="width: 100%;height: auto;">Update your health and lifestyle parameters periodically to activate the life-long personalized analysis report.</div>
+					<div id="dot" style="width: 100%;height: auto;">定期更新您的健康和生活方式参数，以激活终身个性化分析报告。</div>
 					<div style="width: 100%;height: 20px;"></div>
 
 				</div>
@@ -50,21 +49,21 @@
 				<div style="width: 25%;height: auto;float: left;"><img src="static/images/ques2.png"style="width: 100%;height:auto ;"/></div>
 				<div style="width: 70%;height: 116px;float: left;font-weight: 700; font-family: arial;font-size:18px;">
 					<div style="width: 90%; height: 60px;margin: 18px auto; ">
-						How do we conduct data analysis
+						我们如何进行数据分析
 					</div>
 				</div>
 
 				<div style="width: 100%;height: 30px;"></div>
 				<div style="width: 100%;height: auto;color: #666666;">
-					<div id="dot" >Epiaging test results are continuously analyzed with general health parameters, personal interventions and outcomes of multiple users using state of the art machine learning algorithms.</div>
+					<div id="dot" >我们使用最先进的机器学习算法，通过一般健康参数、个人干预和多个用户的结果持续分析生物学年龄检测结果。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" >Personalized analysis with some possible routes for improvement.</div>
+					<div id="dot" >个性化分析，并提供一些可能的改进途径。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" >Data in our data base in blinded with respect to personal identity.</div>
+					<div id="dot" >我们数据库中的数据在个人身份方面是盲目的。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" >No access is allowed to your personal information by any one who has access to your health and life style data.</div>
+					<div id="dot" >任何有权访问您的健康和生活方式数据的人都不允许访问您的个人信息。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" >Only general conclusions based on a population wide summary will be shared.</div>
+					<div id="dot" >只有基于全人口概况的一般统计才会被分享。</div>
 					<div style="width: 100%;height: 20px;"></div>
 				</div>
 			</div>
@@ -74,23 +73,23 @@
 		<div style="width: 96%;height: auto;margin: 0 auto;overflow: hidden;background-color: #F6F8F9;">
 			<div style="width: 100%;height: 20px;"></div>
 			<div style="width: 100%;height: auto;">
-				<div style="width: 70%;height: auto;float: left;font-weight: 700;font-family: arial;font-size:18px;">How do we ensure that information is confidential</div>
+				<div style="width: 70%;height: auto;float: left;font-weight: 700;font-family: arial;font-size:18px;">我们如何确保信息保密</div>
 				<div style="width: 25%;height: auto;float: left;"><img src="static/images/ques3.png"style="width: 100%;height:auto ;"/></div>
 				<div style="width: 100%;height: 30px;"></div>
 				<div style="width: 100%;height: auto;color: #666666;">
-					<div id="dot" >Once you download the App you will be assigned an ID that will allow you to retrieve your data and receive health reports, but your identity will remain unknown either on the app or the "cloud" analysis data base.</div>
+					<div id="dot" >下载应用程序后，将为您分配一个ID，该ID允许您检索数据并接收健康报告，但您的身份将在应用程序或“云”分析数据库中保持未知。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" style="width: 100%;height: auto;">Once you receive a saliva kit you scan the bar code with your Mobile. the test ID is now linked with your blind ID.</div>
+					<div id="dot" style="width: 100%;height: auto;">一旦你收到唾液试剂盒，你就用手机扫描条形码。测试ID现在与您的盲法ID链接。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" style="width: 100%;height: auto;">Your personal information and assigned ID will be stored in a fire clouded separate server and will not be accessible to the "data base" server. This information will be used to send you kits, restore your assigned ID if you lose it and for personal requests that you might have. For example, a request for erasure of your blinded and personal data. </div>
+					<div id="dot" style="width: 100%;height: auto;">您的个人信息和分配的ID将存储在一个独立的云防火墙服务器中，“数据库”服务器将无法访问。此信息将用于向您发送工具包、在丢失时恢复分配的ID以及您可能有的个人请求。例如，请求删除您的盲数据和个人数据。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" style="width: 100%;height: auto;">Access to personal information will be tokenized and protected from being linked to the blinded health data.</div>
+					<div id="dot" style="width: 100%;height: auto;">对个人信息的访问将被标记化，并防止被链接到盲的健康数据。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" style="width: 100%;height: auto;">The team analyzing your health data will have no permission to access the blinded health data.</div>
+					<div id="dot" style="width: 100%;height: auto;">分析您的健康数据的团队将无权访问盲健康数据。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" style="width: 100%;height: auto;">Your health data will serve for generating general neiral networks and deriving general models based on many blinded users.</div>
+					<div id="dot" style="width: 100%;height: auto;">您的健康数据将用于生成通用的内部网络，并基于许多盲用户派生通用模型。</div>
 					<div style="width: 100%;height: 20px;"></div>
-					<div id="dot" style="width: 100%;height: auto;">Your personal data will never be shared with any other company. </div>
+					<div id="dot" style="width: 100%;height: auto;">您的个人数据将永远不会与任何其他公司共享。 </div>
 				</div>
 			</div>
 		</div>

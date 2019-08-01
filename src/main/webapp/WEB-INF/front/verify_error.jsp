@@ -15,7 +15,7 @@
     <base href="<%=basePath%>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Error</title>
+    <title>验证错误</title>
 </head>
 </head>
 <body style="margin: 0;padding: 0">
@@ -40,10 +40,10 @@
                     <img src="static/images/var-error.png" style="width: 20%;height: auto"/>
                 </div>
                 <div style="width: 100%;height: 40%;text-align: center">
-                    <div style="font-size: 24px;color:#fc8d6b">Sorry,Verification failed!</div>
+                    <div style="font-size: 24px;color:#fc8d6b">验证失败！</div>
                 </div>
                 <div style="width: 100%;height: 10%;text-align: center">
-                    <div style="font-size: 17px;color:#000">Please contact us : info@hkgepitherapeutics.com</div>
+                    <div style="font-size: 17px;color:#000">请联系我们: info@hkgepitherapeutics.com</div>
                 </div>
             </div>
         </div>

@@ -20,9 +20,9 @@
     <meta http-equiv="description" content="This is my page">
     <link rel="stylesheet" href="static/css/stylesheet.css"/>
     <link href="static/css/lifestyle-bootstrap-slider.css" rel="stylesheet">
-    <link href="static/css/pain-bootstrap-slider.css" rel="stylesheet">
+    <link href="/static/css/pain-bootstrap-slider.css" rel="stylesheet">
     <script type='text/javascript' src="static/js/jquery-2.1.0.min.js"></script>
-    <script type='text/javascript' src="static/js/bootstrap-slider.js"></script>
+    <script type='text/javascript' src="/static/js/bootstrap-slider.js"></script>
     <script src="static/js/build/dist/echarts.js"></script>
     <script src="static/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript">

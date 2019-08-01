@@ -26,12 +26,11 @@
 <body style="margin: 0;padding: 0">
 <div style="width: 100%;height: 50px;">
     <jsp:include page="header.jsp"></jsp:include>
-    <div style="width: 100%;height: 55px;clear: both;"></div>
 </div>
 <div style="background-image:url('static/images/bg.png');width:100%;height:667px;">
     <div style="width: 90%;height: auto;margin: 0 auto;">
         <div style="width: 100%;height: auto;font-family: arial;font-size: 20px;font-weight: 500;line-height: 80px;font-weight:600;">
-            Register
+            注册
         </div>
         <div style="width: 100%;height: 20px;"></div>
         <form action="App/register.jhtml" method="post">
@@ -64,7 +63,7 @@
             <div style="width: 90%;height: 50px;margin: 0 auto;">
                 <div style="padding:3% 0 3% 3%;height: 50px;">
                     <div style="float:left;width: 20%;height: 100%">
-                        Your Region:
+                        国家:
                     </div>
                     <div style="float:left;width: 60%">
                         <select name="country" class="fastbannerform__country" style="width: 100%;height: 35px;"
@@ -277,12 +276,12 @@
             <div style="width: 100%;height: 30px;"></div>
             <div name="process" style="width: 90%;height: 50px;margin: 0 auto;display: none;text-align: center;" >
                 <div style="width: 100%;height: 20px;"></div>
-                <img src="static/images/process.gif" style="width: 32px;height: auto;"/>
+                <img src="/static/images/process.gif" style="width: 32px;height: auto;"/>
             </div>
             <div name="concent" style="width: 90%;height: auto;color: #666666;margin: 0 auto;">
                 <input type="checkbox" name="checkbox" required="required" id="checkbox" value="checkbox" style="width:15px;height: 12px;">
-                        I have read and agree to the
-                        <a href="concent/index.jhtml" style="text-decoration: none;"><i style="color: #E6BF73;">Terms of Service and Privacy Statement</i></a>.
+                        我已阅读并介绍
+                        <a href="concent/index.jhtml" style="text-decoration: none;"><i style="color: #E6BF73;">用户服务条款和隐私协议</i></a>.
             </div>
             <div style="width: 100%;height: 5px;"></div>
             <div style="width: 90%;height: 50px;margin: 0 auto;">
@@ -322,7 +321,7 @@
             data.password = password;
             data.mail = mail;
             data.country = country;
-            $.post("user/register.jhtml", data, function (data) {
+            $.post("/user/register.jhtml", data, function (data) {
                 if (data != "success") {
                     window.alert(data);
                     $("div[name=process]").css("display","none");
@@ -330,7 +329,7 @@
                     $("input[type=submit]").css("display","block");
                     $("div[name=concent]").css("display","block");
                 } else {
-                    window.location.href = 'user/regsuccess.jhtml';
+                    window.location.href = '/user/regsuccess.jhtml';
                 }
             });
         } else {

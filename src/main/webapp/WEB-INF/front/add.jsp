@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>添加购物车</title>
 
     <script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
 
@@ -24,7 +24,7 @@
     <jsp:include page="header.jsp"></jsp:include>
     <!--Head start-->
     <div class="header">
-        <h1>Shopping Cart</h1>
+        <h1>添加购物车</h1>
         <a href="#" class=""></a>
     </div>
     <!--End of head-->
@@ -33,19 +33,19 @@
         <div class="shop-group-item">
             <div class="shop-name">
                 <input type="checkbox" class="check goods-check shopCheck">
-                <h4><a href="#">Product information</a></h4>
+                <h4><a href="#">产品信息</a></h4>
             </div>
             <ul id="test">
             </ul>
-            <div class="shopPrice">Total of this column：$<span class="shop-total-amount ShopTotal">0.00</span></div>
+            <div class="shopPrice">此栏总价：$<span class="shop-total-amount ShopTotal">0.00</span></div>
         </div>
     </div>
     <div class="payment-bar">
-        <div class="all-checkbox"><input type="checkbox" class="check goods-check" id="AllCheck">All election</div>
+        <div class="all-checkbox"><input type="checkbox" class="check goods-check" id="AllCheck">全选</div>
         <div class="shop-total">
-            <strong>Total price：<i class="total" id="AllTotal">0.00</i></strong>
+            <strong>总价：<i class="total" id="AllTotal">0.00</i></strong>
         </div>
-        <a href="#" class="settlement">Settlement</a>
+        <a href="#" class="settlement">结算</a>
     </div>
 
     <div style="width: 100%;height: 60px;"></div>
@@ -80,8 +80,8 @@
                         "<div class=\"shop-info-text\">" +
                         "<h4>" + res.CartList[i].wares_name + "</h4>" +
                         "<div class=\"shop-brief\"><span>" + res.CartList[i].wares_info + "</span></div>" +
-                        "<div class=\"shop-unpaidAmount\">" +
-                        "<div class=\"shop-pices\">￥<b class=\"unpaidAmount\">" + res.CartList[i].sell_price + "</b></div>" +
+                        "<div class=\"shop-sumprice\">" +
+                        "<div class=\"shop-pices\">￥<b class=\"sumprice\">" + res.CartList[i].sell_price + "</b></div>" +
                         "<div class=\"shop-arithmetic\">" +
                         "<a href=\"javascript:;\" class=\"minus\">-</a>" +
                         "<span class=\"num\" >1</span>" +
@@ -176,20 +176,20 @@
 
         //Calculation
         function TotalPrice() {
-            var allprice = 0; //Total unpaidAmount
+            var allprice = 0; //Total sumprice
             $(".shop-group-item").each(function () { //Cycle each store
-                var oprice = 0; //Total store unpaidAmount
+                var oprice = 0; //Total store sumprice
                 $(this).find(".goodsCheck").each(function () { //Goods in a recycling shop
                     if ($(this).is(":checked")) { //If the item is selected
                         var num = parseInt($(this).parents(".shop-info").find(".num").text()); //Quantity of Goods Obtained
-                        var price = parseFloat($(this).parents(".shop-info").find(".unpaidAmount").text()); //Unit Price of Goods Obtained
-                        var total = price * num; //Calculate the total unpaidAmount of a single commodity
-                        oprice += total; //Calculate the total unpaidAmount of the store
+                        var price = parseFloat($(this).parents(".shop-info").find(".sumprice").text()); //Unit Price of Goods Obtained
+                        var total = price * num; //Calculate the total sumprice of a single commodity
+                        oprice += total; //Calculate the total sumprice of the store
                     }
                     $(this).closest(".shop-group-item").find(".ShopTotal").text(oprice.toFixed(2)); //Shop prices showing selected items
                 });
-                var oneprice = parseFloat($(this).find(".ShopTotal").text()); //Get the total unpaidAmount of each store
-                allprice += oneprice; //Calculate the total unpaidAmount of all stores
+                var oneprice = parseFloat($(this).find(".ShopTotal").text()); //Get the total sumprice of each store
+                allprice += oneprice; //Calculate the total sumprice of all stores
             });
             $("#AllTotal").text(allprice.toFixed(2)); //Total Output Price
         }

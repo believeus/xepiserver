@@ -50,7 +50,6 @@
 
 <div style="background-image:url('static/images/bg.png');width:100%;height:667px;">
     <jsp:include page="header.jsp"></jsp:include>
-        <div style="width: 100%;height: 55px;clear: both;"></div>
     <div style="clear: both;width: 100%;height: 30px;"></div>
     <div class="login_bg" style="clear: both">
         <div id="logo" style="text-align: center">
@@ -62,9 +61,9 @@
                 margin: 0 auto;
                 text-align: left; ">
                 <div style="clear: both;width: 100%;height: 30px;"></div>
-                <div style="width: 100%;text-align: center"> <div style="font-size: 24px">Thank you for your registration.</div>
+                <div style="width: 100%;text-align: center"> <div style="font-size: 24px">感谢您的注册</div>
                 <div style="clear: both;width: 100%;height: 30px;"></div>
-                <div style="font-size: 20px;text-align: center;">We have sent to you a verification email to your mailbox.Please complete your registration by following the instruction in the email.</div>
+                <div style="font-size: 20px;text-align: center;">我们已将验证邮件发送到您的邮箱。请按照邮件中的说明完成注册。</div>
             </div>
         </div>
 

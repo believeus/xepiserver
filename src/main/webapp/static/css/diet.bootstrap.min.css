@@ -4531,9 +4531,9 @@ textarea.input-group-sm>.input-group-btn>.btn {
 	background-color: transparent
 }
 
-/*.navbar-inverse .navbar-toggle {
+.navbar-inverse .navbar-toggle {
 	border-color: #333
-}*/
+}
 
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {

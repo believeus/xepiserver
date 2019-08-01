@@ -10,13 +10,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<base href="<%=basePath%>">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-		<title>Company introduction</title>
+		<title>公司介绍</title>
 
 	</head>
 	<body style="padding: 0px;margin: 0px;">
 		<div id="container"style="width: 100%;height: 100%;">
 		<jsp:include page="header.jsp"></jsp:include>
-			<div style="width: 100%;height: 55px;clear: both;"></div>
 			<div id="company"style="width: 100%;height: auto;">
 				<img src="static/images/company4.jpg"style="width: 100%;height: auto;"/>
 			</div>
@@ -40,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div style="width: 96%;height: 150px;margin: 0 auto;">
 						<div style="width: 100%;height: 93px;margin: 0 auto;">
 							<div style="width: 63%;height: 93px;float: left;font-size: 14px;color:#666666;line-height: 24px;font-weight: 600; font-family: arial; ">
-								We are developing next generation DNA methylation biomarkers for early cancer detection and healthy aging.
+								我们正在开发新一代DNA甲基化生物标记物，用于早期癌症检测和管理健康衰老。
 							</div>
 							<div style="width: 36%;height: auto;float: left;">
 								<img src="static/images/company1.jpg"style="width: 100%;height: auto;"/>
@@ -58,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div style="width: 96%;height: 150px;margin: 0 auto;">
 						<div style="width: 100%;height: 93px;">
 							<div style="width: 63%;height: 93px;float: left;font-size: 14px;color:#666666;line-height: 24px;font-weight: 600; font-family: arial; ">
-								We are working on building a new health ecosystem that will guide personalized management of healthy life.
+								我们致力于建设一个全新的健康生态系统，以指导健康生活的个性化管理。
 							</div>
 							<div style="width: 36%;height: auto;float: left;">
 								<img src="static/images/company2.jpg"style="width: 100%;height: auto;"/>
@@ -75,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div style="width: 96%;height: 150px;margin: 0 auto;">
 						<div style="width: 100%;height: 93px;">
 							<div style="width: 63%;height: 93px;float: left;font-size: 14px;color:#666666;line-height: 24px;font-weight: 600; font-family: arial; ">
-								We believe that with the help of IT technology and DNA methylation testing people should be able to take ownership of their health.
+								我们相信，在IT技术和DNA甲基化检测的帮助下，人们应该能够掌控自己的健康。
 							</div>
 							<div style="width: 36%;height: auto;float: left;">
 								<img src="static/images/company3.jpg"style="width: 100%;height: auto;"/>

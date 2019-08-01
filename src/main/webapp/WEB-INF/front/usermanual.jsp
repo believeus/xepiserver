@@ -22,7 +22,6 @@
 <body>
 <div id="container" style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
-    <div style="width: 100%;height: 55px;clear: both;"></div>
     <div style="width: 85%;height: auto;margin: 0 auto;">
         <div>
             <h3 style="margin-top: 30px;text-align: center;">

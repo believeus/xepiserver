@@ -41,11 +41,11 @@
                                     "                            <div style=\"float: left;width: 50%;height: 100%;\">" +
                                     "                                <div style=\"width:100%;height:10%\"></div>" +
                                     "                                <div style=\"width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">" + v.name + "</div>" +
-                                    "                                <div class=\"shop-unpaidAmount\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
+                                    "                                <div class=\"shop-sumprice\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
                                     "<div style='float: left'>:</div>"+
                                     "                                    <div class=\"shop-pices\" style=\"float:left;width: 35%;height: 100%\">&nbsp;&nbsp;$<b>" + v.price + "</b>&nbsp;&nbsp;&nbsp;&nbsp;X"+v.count+"</div>" +
                                     "                                </div>" +
-                                    "<div class=\"shop-unpaidAmount\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
+                                    "<div class=\"shop-sumprice\" style=\"width:100%;height:25%;;text-align: center;border: 1px dashed grey;\">" +
                                     "<div style='float: left;color: red;'>discount:</div>"+
                                     "<div class=\"shop-pices\" style=\"float:left;width: 35%;height: 100%\">&nbsp;&nbsp;$<b>" + v.disprice + "</b>&nbsp;&nbsp;&nbsp;&nbsp;X"+v.count+"</div>" +
                                     "</div>" +
@@ -64,8 +64,8 @@
                                     data.id = _oThis.attr("id");
                                     $.post("/user/cart/del.jhtml", data, function (data) {
                                         _oThis.parents("div[name=cart]").remove();
-                                        $.post("/user/cart/unpaidAmount.jhtml", function (data) {
-                                            $("[name=unpaidAmount]").text(data);
+                                        $.post("/user/cart/sumprice.jhtml", function (data) {
+                                            $("[name=sumprice]").text(data);
                                         });
                                     });
                                 }
@@ -432,9 +432,9 @@
                     <div class="shop-">
                         <script>
                             $(function () {
-                                $.post("/user/cart/unpaidAmount.jhtml", function (data) {
+                                $.post("/user/cart/sumprice.jhtml", function (data) {
                                     console.info(data);
-                                    $("[name=unpaidAmount]").text(data);
+                                    $("[name=sumprice]").text(data);
                                 });
                             });
                         </script>

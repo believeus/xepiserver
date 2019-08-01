@@ -18,7 +18,6 @@
 <body style="padding: 0;margin: 0;">
 <div id="container" style="width: 100%;height: auto;">
     <jsp:include page="header.jsp"></jsp:include>
-    <div style="width: 100%;height: 55px;clear: both;"></div>
     <div style="width: 100%;height: auto;background-color: #0071BC;overflow: hidden;">
         <div style="height: 20px;width: 100%;"></div>
         <div style="width: 100%;height: 70px;">
@@ -33,7 +32,7 @@
             <c:choose>
                 <c:when test="${sessionuser==null}">
                     <div style="width: 100%;height: auto;color:#ffffff">
-                        <a href="user/loginview.jhtml" style="font-size: 18px;font-weight: bold;color: white;">login</a>
+                        <a href="/user/loginview.jhtml" style="font-size: 18px;font-weight: bold;color: white;">login</a>
                         <span>&nbsp;|&nbsp;</span>
                         <a  href="/concent/index.jhtml" style="font-size: 18px;font-weight: bold;color: white;">register</a></div>
                 </c:when>
@@ -86,7 +85,7 @@
                 </div>
                 <div style="width: 70%;height: 92px;float: left;text-align: left;margin-left: 20px;">
                     <div style="width: 100%;height: 92px;font-weight: 600;line-height: 93px">
-                        <a href="user/report/my.jhtml" style="text-decoration: none">My Report </a>
+                        <a href="user/bioreport/index.jhtml" style="text-decoration: none">My Report </a>
                     </div>
                 </div>
                 <div style="width: 8%;height: 92px;float: left;text-align: left;line-height: 92px">

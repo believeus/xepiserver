@@ -15,7 +15,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<body style="padding: 0;margin: 0;">
 		<jsp:include page="header.jsp"></jsp:include>
-        <div style="width: 100%;height: 55px;clear: both;"></div>
 		<div id="container" style="width: 100%;height: 100%;clear: both;">
 			<div style="width: 100%;height: auto;">
 			<div class="food" style="width: 90%;margin: 0 auto;height: auto;background-color: #FFFFFF;">
@@ -551,9 +550,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div style="width: 20%;height: 55px;float: left;text-align: center;line-height: 55px; border:1px solid grey ;border-width: 1px 1px 1px 1px;">587</div>
 					</div>
 				</div>
-
-
-            <div style="width: 100%;height: 45px;background-color: #0A64A4;text-align: center;border-radius: 5px;color: white;line-height: 45px;font-size: 24px;font-weight: bold;cursor: pointer" onclick="alert('submit success')">submit</div>
-        </div>
-    </body>
+					
+					
+			<div style="width: 100%;height: 60px;"></div>
+				<div id="all-right"style="width: 90%;height: auto;font-family: arial;margin: 0 auto;">
+					<div style="width: 100%;height: auto;font-size: 12px;text-align: center; margin: 0 auto;line-height: 50px;margin-bottom: 50px;">
+						@2019 HKG epi THERAPEUTICS Ltd. All Rights Reserved
+					</div>
+				</div>
+            <jsp:include page="footnav.jsp"></jsp:include>
+		</div>
+	</body>
 </html>

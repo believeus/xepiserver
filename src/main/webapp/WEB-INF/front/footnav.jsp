@@ -53,25 +53,25 @@
     <li class="Imgbox" img="static/images/footer/ho1.png" data-img="static/images/footer/ho2.png">
         <a href="index.jhtml">
             <img src="static/images/footer/ho1.png" />
-            <div class="actives">HOME</div>
+            <div class="actives">主页</div>
         </a>
     </li>
     <li class="Imgbox" img="static/images/footer/hg1.png" data-img="static/images/footer/hg2.png">
         <a href="aboutus/index.jhtml">
             <img src="static/images/footer/hg1.png" />
-            <div>ABOUT</div>
+            <div>关于我们</div>
         </a>
     </li>
     <li class="Imgbox" img="static/images/footer/sh1.png" data-img="static/images/footer/sh2.png">
         <a href="user/cart/index.jhtml">
             <img src="static/images/footer/sh1.png" />
-            <div>SHOP</div>
+            <div>商店</div>
         </a>
     </li>
     <li class="Imgbox" img="static/images/footer/ep1.png" data-img="static/images/footer/ep2.png">
         <a href="user/mycenter/index.jhtml">
             <img src="static/images/footer/ep1.png" />
-            <div>EPICENTER</div>
+            <div>个人中心</div>
         </a>
     </li>
 </ul>

@@ -128,7 +128,6 @@
 <body style="padding: 0;margin: 0;">
 <div id="container" style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
-    <div style="width: 100%;height: 55px;clear: both;"></div>
     <div id="header" style="width: 100%;height: 100%;">
         <div style="width: 100%;height: 28px;margin: 0 auto;"></div>
         <div style="width: 100%;height: 142px;overflow: hidden;margin: 0 auto;">
@@ -140,62 +139,62 @@
         </div>
         <div style="clear: both;"></div>
         <div style="width: 100%;height: auto;text-align: center;font-family: arial;color: #666666;font-weight: 600;line-height: 29px;">
-            <strong>Moshe Szyf, Prof.</strong><br/>
-            Chairman & CEO<br/> <i style="font-weight: 600;"> HKG epiTHERAPEUTICS, Hong Kong</i></div>
+            <strong>摩西▪西夫 教授</strong><br/>
+            董事长兼CEO<br/> <i style="font-weight: 600;">香港精准医学技术有限公司</i></div>
     </div>
 
-    <div id="pro-stem" style="width: 100%;height: auto;background-color: #F7F7F9;margin: 0 auto;clear: both;">
+    <div id="pro-stem" style="width: 100%;height: auto;background-color: #F7F7F9;margin: 0 auto;">
         <div style="width: 96%;height: auto;margin: 0 auto;">
-            <div style="width: 100%;height: auto;line-height: 50px;font-weight: 700;">Professional Experiences</div>
+            <div style="width: 100%;height: auto;line-height: 50px;font-weight: 700;">职业经历</div>
             <hr/>
             <div style="width: 100%;height: auto;line-height: 22px;font-weight: 500">
                 <div id="dot">
-                    Pioneer of the field of epigenetics
+                    表观遗传学领域的先驱
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">
-                    Inventor of the first broad patents in the field
+                   发明者在该领域的第一个广泛专利
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">
-                    Inventor of the first patents on DNA methylation and cancer
+                    关于DNA甲基化和癌症的第一批专利的发明者
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">
-                    Founder of the field of behavioral and psychiatry epigenetics
+                    行为和精神病学表观遗传学领域的创始人
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">
-                    Thought leader, published 295 papers in the area
+                    思想领袖，在该领域发表了295篇论文
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">
-                    Fellow of the Royal Society of Canada
+                   加拿大皇家学会会员
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">
-                    Fellow of the Canadian Academy of Health Sciences
+                    加拿大卫生科学院院士
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
                 <div id="dot">
-                    Professor Department of Pharmacology and Therapeutics McGill University Montreal Canada
+                    加拿大蒙特利尔麦吉尔大学药理学和治疗学系教授
                 </div>
                 <div style="width: 30%;height: 20px;"></div>
-                <div id="dot">Resident chief scientist of Beijing epidial medical diagnostic technology co., LTD.</div>
+                <div id="dot">北京埃彼达雅医疗诊断技术有限公司驻地首席科学家</div>
                 <div style="width: 30%;height: 20px;"></div>
-                <div id="dot">Director of epigenetic institute, Beijing yizhuang innovation institute</div>
+                <div id="dot">北京亦庄创新研究所表观遗传研究所所长</div>
             </div>
         </div>
     </div>
     <hr style="font-size: 14px;color: #E7E7E7;"/>
 
 
-    <div class="video" ; style="width: 100%;height: auto;clear: both;">
+    <div class="video" ; style="width: 100%;height: auto;">
         <div style="width: 100%;height: auto;background-color:#EDEEF0 ;overflow: hidden;">
             <div style="width: 96%;height: auto;margin: 0 auto;">
-                <div style="line-height: 60px;font-weight: 900;">Related Videos</div>
+                <div style="line-height: 60px;font-weight: 900;">精彩视频</div>
                 <div style="width: 100%;height: auto; font-size: 14px;font-family: arial;line-height: 20px ;color: #666666;">
-                    Healthtech O2O Summit Dr. Moshe Szyf, HKG Epitherapeutics.mp4
+                    健康科技O2O峰会,摩西▪ 西夫 教授，香港精准医学.mp4
                 </div>
             </div>
         </div>
@@ -218,7 +217,7 @@
             <div style="width: 100%;height: 30px;"></div>
             <div style="width: 96%;height: auto;margin: 0 auto;">
                 <div style="width: 100%;height: auto;float: left; font-size: 14px;font-family: arial;color: #666666;">
-                    Dr. Moshe Szyf , Science of Hope Conference 2017.mp4
+                   2017年希望科学大会,摩西▪ 西夫 教授，香港精准医学.mp4
                 </div>
             </div>
             <div style="width: 100%;height: 10px;"></div>
@@ -245,7 +244,7 @@
 
 
                 <div style="width: 100%;height: auto;float: left; font-size: 14px;font-family: arial;color: #666666;">
-                    Dr. Moshe Szyf, What is epigenetic and why knowing it will change your life .mp4
+                    什么是表观遗传学?它如何改变你的生活,摩西▪ 西夫 教授，香港精准医学.mp4
                 </div>
             </div>
         </div>
@@ -270,9 +269,7 @@
 
 
                 <div style="width: 100%;height: auto;float: left; font-size: 14px;font-family: arial;color: #666666;">
-
-                    Moshe Szyf, Behavioral Epigenetics.mp4
-
+                    行为表观遗传学,摩西▪ 西夫 教授，香港精准医学.mp4
                 </div>
 
             </div>
@@ -302,13 +299,13 @@
             <div class="wrap">
                 <div class="tabs">
 				<span class="part" style="border-right: 1px solid #666666">
-				<a href="#career" hidefocus="true">Career</a>
+				<a href="#career" hidefocus="true">职业生涯</a>
 				</span>
                     <span class="part" style="border-right: 1px solid #666666">
-					<a href="#" hidefocus="true">Honors</a>
+					<a href="#" hidefocus="true">荣誉</a>
 				</span>
                     <span class="part">
-				<a href="#" hidefocus="true">Sponsored</a>
+				<a href="#" hidefocus="true">所获资助</a>
 				</span>
                 </div>
 
@@ -326,24 +323,22 @@
                             <div class="content-slide">
                                 <div style="width: 100%;height: 30px;"></div>
                                 <ul style="font-family: arial;font-size: 14px;color: #666666;line-height: 30px; margin-left: 30px;list-style: none;">
-                                    <li><strong> 2013--</strong>Member of the Royal Society of Canada</li>
-                                    <li><strong> 2011--</strong>CCNP Neuropsychopharmacology Innovation Award</li>
-                                    <li><strong> 2009--</strong>Radio Canada Annual Scientist Award</li>
-                                    <li><strong> 2009--</strong>Carolinska Speech at the Nobel Forum</li>
-                                    <li><strong> 2007--</strong>GlaxoSmithKline Pharmacology</li>
-                                    <li><strong>2003--</strong> Honorary Professor of James McGill</li>
-                                    <li><strong> 2001--</strong>Medical College Teaching Honors List</li>
-                                    <li><strong>1999--</strong>Carrie Derek Graduate Teaching Guidance Award</li>
-                                    <li><strong>1999--</strong>Israel Cancer Research Foundation "Eliot Osseman
-                                        Outstanding Contribution Award"
+                                    <li><strong> 2013--</strong>加拿大皇家学会院士</li>
+                                    <li><strong> 2011--</strong>CCNP神经心理药理学创新奖</li>
+                                    <li><strong> 2009--</strong>加拿大广播电台年度科学家奖</li>
+                                    <li><strong> 2009--</strong>诺贝尔论坛卡罗林斯卡讲</li>
+                                    <li><strong> 2007--</strong>葛兰素史克药理学</li>
+                                    <li><strong>2003--</strong> 詹姆斯·麦吉尔荣誉教授</li>
+                                    <li><strong> 2001--</strong>医学院教学荣誉榜</li>
+                                    <li><strong>1999--</strong>卡莉·德里克研究生教学指导奖</li>
+                                    <li><strong>1999--</strong>以色列癌症研究基金会“艾略特·奥瑟曼杰出贡献奖”
                                     </li>
-                                    <li><strong>1989-1995--</strong>Canadian National Cancer Institute "Outstanding
-                                        Young Professor Award"
+                                    <li><strong>1989-1995--</strong>加拿大国立癌症研究所“杰出青年教授奖”
                                     </li>
-                                    <li><strong>1987--</strong>American Cancer Society Scholarship</li>
-                                    <li><strong>1984--</strong>Rothschild Scholarship</li>
-                                    <li><strong>1980--</strong>Medical Scholarship of Hebrew University</li>
-                                    <li><strong>1980--</strong>Distinguished master</li>
+                                    <li><strong>1987--</strong>美国癌症学会奖学金</li>
+                                    <li><strong>1984--</strong>罗斯柴尔德奖学金</li>
+                                    <li><strong>1980--</strong>希伯来大学医学院奖学金</li>
+                                    <li><strong>1980--</strong>杰出硕士</li>
                                     <li></li>
                                 </ul>
 
@@ -369,7 +364,7 @@
     <div id="paper" style="width: 100%;height: auto;">
         <div style="width: 100%;height: auto;background-color: #F4F4F4;">
             <div style="width: 90%;height: auto;margin: 0 auto; font-weight: 600;font-family: arial;">
-                <div id="din"><span style="font-weight: 700;color: #27809D;font-size: 18px;line-height: 50px;"> Published papers</span>
+                <div id="din"><span style="font-weight: 700;color: #27809D;font-size: 18px;line-height: 50px;">发表论文</span>
                 </div>
             </div>
         </div>

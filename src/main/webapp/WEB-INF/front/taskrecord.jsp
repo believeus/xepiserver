@@ -27,11 +27,11 @@
                     var data = {};
                     var _oThis = $(event.currentTarget);
                     data.id = _oThis.attr("id");
-                    $.post("user/cart/del.jhtml", data, function (data) {
+                    $.post("/user/cart/del.jhtml", data, function (data) {
                         _oThis.parents("div[name=cart]").remove();
-                        $.post("user/cart/unpaidAmount.jhtml", function (data) {
+                        $.post("/user/cart/sumprice.jhtml", function (data) {
                             console.info(data);
-                            $("[name=unpaidAmount]").text(data);
+                            $("[name=sumprice]").text(data);
                         });
                     });
                 }
@@ -43,36 +43,34 @@
 <!--头部开始-->
 <div style="width: 100%;height: 100%;">
     <jsp:include page="header.jsp"></jsp:include>
-    <div style="width: 100%;height: 55px;clear: both;"></div>
-    <form action="user/transaction/loadOrder.jhtml" method="post">
+    <form action="/user/transaction/loadOrder.jhtml" method="post">
         <div style="background-color:#ffffff;padding-bottom: 70px">
             <div style="width: 100%;height: 10px;"></div>
             <div name="cartbox" style="width:100%;height:auto;">
                 <script>
                     $(function () {
-                        $.post("user/cart/unPayGoodslist.jhtml", function (data) {
+                        $.post("/user/cart/unPayGoodslist.jhtml", function (data) {
                             data.forEach(function (v) {
-                                console.info(v)
-                                var div ="<div style='clear: both' name='cart'>" +
-                                    "<div style='width: 100%;height: 10px;clear: both;'></div>" +
+                                var div = "<div style='clear: both' name='cart'>" +
                                     "<div  style='background-color:crimson;color: white;width: 20%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;'>to be paid</div>" +
                                     "<div style='width:100%;display: flex;flex-direction: row;justify-content: center;float: left;'>" +
                                     "<div style='width: 100%;float: left;height: 60px;'>" +
-                                    "   <div style='width:30%;height:auto;float: left;text-align: center'><image src=" + v.imgpath + " style='width:45%;height:auto'></image></div>" +
+                                    "   <div style='width:30%;height:auto;float: left;text-align: center'><image src=" + v.imgpath + " style='width:70%;height:auto'></image></div>" +
                                     "   <div style='float: left;width: 2%;height: 100%;'></div>" +
                                     "   <div style='float: left;width: 30%;height: 100%;'>" +
                                     "          <div style='width:100%;height:10%'></div>" +
                                     "           <div style='width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size: 14px'>" + v.name + "</div>" +
                                     "           <div style='width:100%;height:15%'></div>" +
-                                    "            <div class='shop-unpaidAmount' style='width:100%;height:40%;;text-align: center'>" +
-                                    "                <div class='shop-pices' style='float:left;width: 40%;height: 100%'>$<b>" + v.total + "</b></div>" +
+                                    "            <div class='shop-sumprice' style='width:100%;height:40%;;text-align: center'>" +
+                                    "                <div class='shop-pices' style='float:left;width: 40%;height: 100%'>$<b>" + v.price + "</b></div>" +
+                                    "                <div class='shop-arithmetic' style='float: right;width: 60%;height: 100%;text-align: center'>X" + v.count + "</div>" +
                                     "            </div>" +
                                     "   </div>" +
                                     "   <div style='float: left;width: 32%;height: 100%'>" +
                                     "         <div style='width: 100%;height: 5px;clear: both;'></div>" +
                                     "         <div name='cartdel' id='" + v.id + "' style='background-color:#37475d;color: white;width: 100%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;'>Remove</div>" +
                                     "         <div style='width: 100%;height: 5px;clear: both;'></div>"+
-                                    "          <div onclick='window.location.href=\"user/cart/check.jhtml\"'  style='background-color:#0071bc;color: white;width: 100%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;font-size: 12px;font-weight: bold;' >Proceed to payment</div>"+
+                                    "          <div onclick='window.location.href=\"/user/cart/check.jhtml\"'  style='background-color:#0071bc;color: white;width: 100%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;font-size: 12px;font-weight: bold;' >Proceed to payment</div>"+
                                     "    </div>"
                                 "      </div>" +
                                 "   </div>" +
@@ -88,7 +86,7 @@
             <div name="taskrecode" style="width:100%;height:auto;">
                 <script>
                     $(function () {
-                        $.post("user/cart/paygoodslist.jhtml", function (data) {
+                        $.post("/user/cart/paygoodslist.jhtml", function (data) {
                             data.forEach(function (v) {
                                 var div = "<div style='clear: both' name='cart'>" +
                                     "<div  style='background-color:green;color: white;width: 20%;height: 25px;cursor: pointer;text-align: center;border-radius: 5px;line-height: 25px;'>paid</div>" +
@@ -100,8 +98,9 @@
                                     "          <div style='width:100%;height:10%'></div>" +
                                     "           <div style='width:100%;height:30%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'>" + v.name + "</div>" +
                                     "           <div style='width:100%;height:15%'></div>" +
-                                    "            <div class='shop-unpaidAmount' style='width:100%;height:40%;;text-align: center'>" +
-                                    "                <div class='shop-pices' style='float:left;width: 40%;height: 100%'>$<b>" + v.total + "</b></div>" +
+                                    "            <div class='shop-sumprice' style='width:100%;height:40%;;text-align: center'>" +
+                                    "                <div class='shop-pices' style='float:left;width: 40%;height: 100%'>$<b>" + v.price + "</b></div>" +
+                                    "                <div class='shop-arithmetic' style='float: right;width: 60%;height: 100%;text-align: center'>X" + v.count + "</div>" +
                                     "            </div>" +
                                     "   </div>" +
                                     "   <div style='float: left;width: 20%;height: 100%'>" +

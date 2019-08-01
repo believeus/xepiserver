@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
 
-    <title>Login</title>
+    <title>登录</title>
 
     <link rel="stylesheet" type="text/css" href="static/css/login.css">
     <script src="static/js/jquery-2.1.1.min.js"></script>
@@ -23,16 +23,18 @@
 </head>
 <body style="margin: 0;padding: 0">
 <!--头部开始-->
-<jsp:include page="header.jsp"></jsp:include>
-<div style="width: 100%;height: 55px;clear: both;"></div>
+<div style="width: 100%;height: 50px;">
+    <jsp:include page="header.jsp"></jsp:include>
+</div>
+
 <div style="background-image:url('static/images/bg.png');width: 100%;height: 667px;">
     <div style="width:100%;height:100%;">
         <c:if test="${sessionuser ==null}">
-            <div id="zhuce" style="cursor: pointer" onclick="window.location.href = '/concent/index.jhtml'">Register
+            <div id="zhuce" style="cursor: pointer" onclick="window.location.href = '/concent/index.jhtml'">注册
             </div>
         </c:if>
         <div id="login" style="width: 100%;height: 20px;"></div>
-        <form action="user/login.jhtml" method="post">
+        <form action="/user/login.jhtml" method="post">
             <div class="login_bg">
                 <div id="logo" style="width: 22%; margin: 0 auto;">
                     <img src="static/images/InOrUp/com_logo.png" style="width: 100%;height: 100%;"/>
@@ -57,7 +59,7 @@
                         </div>
                         <div style="width: 100%;height: 100px;">
                             <lable style="color:#696969;text-decoration: none;float: right;">
-                                <a href="user/forgotPaswd.jhtml">forget password</a>
+                                <a href="/user/forgotPaswd.jhtml">忘记密码？</a>
                             </lable>
                         </div>
 
@@ -66,12 +68,10 @@
                                  style="width: 80%;margin: 0 auto;line-height: 12px;overflow: hidden;">
                                 <div style=" width:100%;height: 40px; font-size: 0.8em;color: #909093;">
                                     <a href="concent/index.jhtml" style="text-decoration: none;">
-                                        <i>By clicking the button below,I agree to
-                                            the User Agreement and Privacy Policy.</i>
+                                        <i>点击下面的按钮，我同意用户协议和隐私政策。</i>
                                     </a>
                                 </div>
-                                <input type="submit" class="login_btn" value="Login"
-                                       style="margin-top: 0px;text-align: center"></input>
+                                <input type="submit" class="login_btn" value="Login" style="margin-top: 0px;text-align: center"></input>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
             var data = {};
             data.email = $("#email").val();
             data.password = $("#password").val();
-            $.post("user/login.jhtml", data, function (data) {
+            $.post("/user/login.jhtml", data, function (data) {
                 if (data.indexOf("ERROR") != -1) {
                     alert(data);
                 } else {

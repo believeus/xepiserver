@@ -47,37 +47,33 @@
 <body style="padding: 0px;margin: 0px;">
 <div id="sam-e" style="width: 100%;height: auto;">
     <jsp:include page="header.jsp"/>
-    <div style="width: 100%;height: 55px;clear: both;"></div>
     <div class="same-pic" style="width: 100%;height: auto;margin: 0 auto;">
         <img src="static/images/hm2.jpg" style="width: 100%;height: auto;"/>
     </div>
     <div class="same-box" style="width: 100%;height: auto;margin: 0 auto;">
-        <img src="static/images/same.png" style="width: 100%;height: auto;"/>
+        <img src="static/images/sam1.png" style="width: 100%;height: auto;"/>
         <div style="width: 100%;height: auto;">
             <div style="width: 96%;height: auto;margin: 0 auto;font-family: arial; color: #666666;">
                 <div style="width: 100%;height: 20px;"></div>
-                <div id="dot" style="font-size: 18px">SAM-e is a nutritional supplement not a drug.</div>
+                <div id="dot" style="font-size: 18px">SAM-e（S-Adenosyl methionine， S-腺苷甲硫氨酸）是一种营养补充剂，并非药物</div>
                 <div style="width: 100%;height: 20px;"></div>
 
-                <div id="dot" style="font-size: 18px">SAM-e (S-Adenosyl Methionine) is a chemical found naturally in the
-                    body.
+                <div id="dot" style="font-size: 18px">SAM-e是人体中天然存在的化合物。
                 </div>
                 <div style="width: 100%;height: 20px;"></div>
 
-                <div id="dot">SAM-e is considered the most important methyl donor<br/> in the body.</div>
+                <div id="dot">SAM-e被认为是人体中最重要的甲基供体。</div>
                 <div style="width: 100%;height: 20px;"></div>
 
-                <div id="dot">The level of SAM-e decreases as the body ages. Concomitantly, a number of health issues,
-                    including mood, joint, and liver disorders are likely to occur.
+                <div id="dot">随着机体老化，SAM-e水平会下降。随之而来，一系列与情绪、关节和肝脏功能等相关的健康问题可能出现。
                 </div>
                 <div style="width: 100%;height: 20px;"></div>
 
-                <div id="dot">All SAM-e molecules have two forms: the SS (active) isomer and the RS (inactive) isomer.
+                <div id="dot">所有的SAM-e分子有两种异构体：SS（活性）异构体和RS（非活性）异构体
                 </div>
                 <div style="width: 100%;height: 20px;"></div>
 
-                <div id="dot">While SAM-e comes in two stable salt forms; tosylate<br/> and butane disulphanate, only
-                    the tosylate form is <br/> backed by twenty years of research for safety and effectiveness.
+                <div id="dot">虽然SAM-e有两种成盐形式--甲苯磺酸盐和丁烷二硫酸盐，但只有甲苯磺酸盐的安全性和有效性有二十年的研究数据支持。
                 </div>
                 <div style="width: 100%;height: 20px;"></div>
 
@@ -88,7 +84,7 @@
     <div class="intro-sam" style="width: 100%;height: auto; background-color: #F4F4F6;">
         <div style="width: 96%;height: auto;margin: 18px auto;">
             <div style="width: 100%;height: auto; font-family: arial;font-weight:600;">
-                According to clinical studies,sam-e can improve emotional health, joint relaxation and liver function
+              据临床研究报导，SAM-e有助于增进情绪健康、关节舒功能和肝脏功能
             </div>
         </div>
         <div style="width: 100%;height: auto;">
@@ -98,7 +94,7 @@
         <div style="clear: both;"></div>
         <div style="width: 100%;height: auto; background-color: #F4F4F6;">
             <div style="width: 88%;height:auto;margin: 0 auto;border-top: 9px; align-content: center;color: #666666; background-color: #C1E1E8; border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
-                In March of 2003, the AHRQ (Agency for Healthcare Research and Quality) a division of the United States
+               2003年3月，美国卫生及公共服务部发表了一项关于SAM-e的重要研究。
                 Health and Human Services, released the findings of a major study on SAM-e. <br/>
                 <i style="color: #4A9ACA;"><a href="https://www.ncbi.nlm.nih.gov/books/NBK11886" target="_blank">https://www.ncbi.nlm.nih.gov/books/NBK11886/</a></i>
             </div>
@@ -106,18 +102,16 @@
             <div style="width: 100%;height: auto;">
                 <div style="width: 95%;height: auto; color: #666666;margin: 0 auto;font-family: arial;">
 
-                    <div id="dot">SAM-e is as effective as conventional prescription medications in the treatment of
-                        depression
+                    <div id="dot">SAM-e和传统的抗抑郁处方药相比同样有效。
                     </div>
                     <div style="width: 100%;height: 20px;"></div>
-                    <div id="dot">SAM-e is as effective as standard prescription medications (NSAIDs) in the treatment
-                        of osteoarthritis
+                    <div id="dot">SAM-e和用于治疗骨性关节炎的标准处方非甾体抗炎药相比同样有效。
                     </div>
                     <div style="width: 100%;height: 20px;"></div>
-                    <div id="dot">SAM-e has significant benefits for patients suffering from various liver diseases
+                    <div id="dot">SAM-e对患有多种肝病的病人有明显益处。
                     </div>
                     <div style="width: 100%;height: 20px;"></div>
-                    <div id="dot">Natural SAM-e was not found to have any noticeable side effects</div>
+                    <div id="dot">并未发现天然SAM-e有明显副作用</div>
                 </div>
             </div>
         </div>
@@ -126,7 +120,7 @@
     <div class="spot-sam" style="width: 100%;height: auto;">
         <div style="width: 100%;height: auto;margin: 0 auto;">
             <div style="width: 96%;height: auto;margin: 0 auto;font-weight: 600;line-height: 100px; font-family: arial; align-content: center;">
-                SAM-e in the spotlight
+                聚光灯下的SAM-e
             </div>
         </div>
 
@@ -171,7 +165,7 @@
 <div class="sam-link" style="width: 100%;height: auto;">
     <div style="width: 100%;height: auto;">
         <div style="width: 96%;height: auto;font-weight: 600; ">
-            Basic research on SAM-e on human cell lines and animals which were not yet followed by clinical studies
+            SAM-e对人类细胞系和动物的基础研究尚未进行临床研究
         </div>
     </div>
     <div style="width: 100%;height: 50px;"></div>
@@ -180,8 +174,7 @@
             <div style="width: 92%;height: auto; border-bottom:1px solid #CBCBCC;margin: 0 auto; ">
 
                 <div id="dot" style="color: #666666;font-family: arial;">
-                    SAM-e was shown to block breast cancer growth and metastasis in experiments on breast cancer cel
-                    lines and animals.
+                    在乳腺癌细胞系和动物的实验中，SAM-e显示可阻断乳腺癌的生长和转移。
                 </div>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/29435170" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/29435170</a></i>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/15150277" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/15150277</a></i>
@@ -192,7 +185,7 @@
             <div style="width: 92%;height: auto;border-bottom:1px solid #CBCBCC;margin: 0 auto;">
 
                 <div id="dot" style="color: #666666;font-family: arial;">
-                    SAM-e was shown to block growth of liver cancer cells.
+                    研究显示，SAM-e 能够阻止肝癌细胞增殖。
                 </div>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/29340097" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/29340097</a></i>
                 <div></div>
@@ -202,7 +195,7 @@
             <div style="width: 92%;height: auto;border-bottom:1px solid #CBCBCC;margin: 0 auto; ">
 
                 <div id="dot" style="color: #666666;font-family: arial;">
-                    SAM-e was shown to block growth of prostate cancer cells.
+                    研究显示， SAM-e能够抑制前列腺癌细胞增殖。
                 </div>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/25631332" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/25631332</a></i>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/16982764" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/16982764</a></i>
@@ -213,7 +206,7 @@
             <div style="width: 92%;height: auto;border-bottom:1px solid #CBCBCC;margin: 0 auto;">
 
                 <div id="dot" style="color: #666666;font-family: arial;">
-                    SAM-e was shown to inhibit formation of liver cancer in rats and colorectal cancer in mice.
+                    研究显示， SAM-e能够抑制大鼠肝脏肿瘤及小鼠结直肠肿瘤的形成。
                 </div>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/23073625" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/23073625</a></i>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/19444874" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/19444874</a></i>
@@ -225,8 +218,7 @@
             <div style="width: 92%;height: auto;border-bottom:1px solid #CBCBCC;margin: 0 auto;">
 
                 <div id="dot" style="color: #666666;font-family: arial;">
-                    SAM-e was shown to improve memory in a mouse model of Alzheimer disease when taken before onset of
-                    symptoms.
+                    研究显示， 在症状开始前服用，SAM-e能够增强阿尔茨海默模型小鼠的记忆力。
                 </div>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/27681803" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/27681803</a></i>
                 <i style="color: #2E86C3;"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22221883" target="_blank">https://www.ncbi.nlm.nih.gov/pubmed/22221883</a></i>
@@ -242,51 +234,49 @@
 <div class="why-sam" style="width: 100%;height: auto;">
     <div style="width: 100%;height: auto;ont-family: arial;line-height: 77px; margin: 0 auto;font-weight: 600;">
         <div style="width: 96%;height: auto;">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Why Chose Our SAM-e?
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为什么选择我们的产品？
         </div>
     </div>
     <div style="width: 100%;height: auto;color:#207EBF ;">
         <div style="width: 96%;height: auto;margin: 0 auto; color: #666666;">
             <div id="dot">
-                Our SAMe is manufactured to the highest standards, using the original Italian method (salt - tosylate
-                disulfate)
+                我们的产品采用原版意大利工艺，根据最高标准生产。
             </div>
 
             <div style="width: 100%;height: 20px;"></div>
 
             <div id="dot">
-                Our SAMe products’ starting raw materials consistently test at the highest SS to RS isomer ratio on the
-                market: <br/> SS isomer >80% / RS isomer <20%.
+                我们产品的原材料是市面上SS/RS异构体比例最高的--SS活性异构体>80%, RS 活性异构体<20%。
             </div>
 
             <div style="width: 100%;height: 20px;"></div>
 
             <div id="dot">
-                Our SAMe tablets are enteric coated for optimum absorption by the body
+                我们SAM-e是肠溶片，有利于机体吸收。
             </div>
 
             <div style="width: 100%;height: 20px;"></div>
 
             <div id="dot">
-                Our SAMe tablets are sealed in blister packs to ensure freshness
+               我们的产品采用独立吸塑包装以保持新鲜度。
             </div>
 
             <div style="width: 100%;height: 20px;"></div>
 
             <div id="dot">
-                Our SAMe is made to guaranteed purity and potency standards
+               我们的产品有严格的纯度质量保证:
             </div>
 
             <div style="width: 100%;height: 20px;"></div>
 
             <div id="dot">
-                No Artifical Flavors, Dairy Free, No Preservatives, Allergen Free, No Yeast or Gluten, Kosher Certified
+               不含人工香料、不含乳制品、不含防腐剂、无过敏原、不含酵母或麸质、犹太认证
             </div>
 
             <div style="width: 100%;height: 20px;"></div>
 
             <div id="dot">
-                Our SAMe tablets have been tested for a minimum full two year stability rating
+                我们的产品全部通过至少两年的稳定性测试。
             </div>
         </div>
 
@@ -294,18 +284,17 @@
 </div>
 <div class="caution" style="width: 100%;height: auto;margin-top: 25px;">
     <div style="width: 100%;height: auto;font-family: arial;margin: 0 auto;font-weight: 600;line-height: 77px; ">
-        &nbsp;&nbsp;&nbsp;&nbsp;Caution when taking SAM-e
+        &nbsp;&nbsp;&nbsp;&nbsp;注意事项
     </div>
     <div style="width: 100%;height: auto;font-family: arial;color: #666666;">
         <div style="width: 96%;height: auto;margin: 0 auto;">
             <div id="dot">
-                SAM-e should not be used in conjunction or in place of treatment recommended by your doctor.
+                SAM-e不应当与医生建议的治疗手段连用，也不应当取代医生建议的治疗手段。
             </div>
             <div style="width: 100%;height: 20px;"></div>
 
             <div id="dot">
-                If you're taking medication and considering taking SAM-e as supplementary, consulate your doctor to make
-                sure that SAM-e has no interaction with the medication that you are taking.
+               如果您正在服用药物并考虑使用SAM-e作为补充剂，请咨询医生SAM-e是否与所服用药物有相互作用。
             </div>
             <div style="width: 100%;height: 20px;"></div>
         </div>

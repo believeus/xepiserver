@@ -31,7 +31,7 @@
 </script>
 <!-- END COVER -->
 <!-- START THE NAVBAR -->
-<div style="width: 100%;height: 55px; background-color: #0071BC;position: fixed;z-index: 90000">
+<div style="width: 100%;height: 55px; background-color: #0071BC;">
     <div class="navbar-wrapper" style="z-index: 9999;width: 80%;float: left;">
         <div class="container" style="padding: 0px;max-width: 100%;max-height: 50px;">
             <div class="navwrapper">
@@ -60,21 +60,21 @@
 
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="menuItem"><a href="index.jhtml">Home</a></li>
-                                <li class="menuItem"><a href="aboutus/index.jhtml">About Us</a></li>
+                                <li class="menuItem"><a href="index.jhtml">主页</a></li>
+                                <li class="menuItem"><a href="aboutus/index.jhtml">关于我们</a></li>
                                 <c:if test="${sessionuser!=null}">
-                                    <li class="menuItem"><a href="user/bioreport/index.jhtml">My Report</a></li>
+                                    <li class="menuItem"><a href="user/bioreport/index.jhtml">我的报告</a></li>
                                 </c:if>
                                 <c:if test="${sessionuser!=null}">
-                                    <li class="menuItem"><a href="user/cart/check.jhtml">My Cart</a></li>
+                                    <li class="menuItem"><a href="user/cart/check.jhtml">购物车</a></li>
                                 </c:if>
                                 <c:if test="${sessionuser!=null}">
-                                    <li class="menuItem"><a href="user/taskrecord/index.jhtml">Order List</a></li>
+                                    <li class="menuItem"><a href="user/taskrecord/index.jhtml">订单列表</a></li>
                                 </c:if>
-                                <li class="menuItem"><a href="user/cart/index.jhtml">Health Market</a></li>
-                                <li class="menuItem"><a href="scienceteam/index.jhtml">Science Team</a></li>
+                                <li class="menuItem"><a href="user/cart/index.jhtml">商店</a></li>
+                                <li class="menuItem"><a href="scienceteam/index.jhtml">科研团队</a></li>
                                 <c:if test="${sessionuser!=null}">
-                                    <li class="menuItem"><a href="user/logout.jhtml">Log Out</a></li>
+                                    <li class="menuItem"><a href="user/logout.jhtml">退出登录</a></li>
                                 </c:if>
 
                             </ul>
@@ -96,35 +96,36 @@
                 </div>
             </div>
             <div class="more_lang">
+                <div name="us-lang"  class="lang" data-value='en'>
+                    <img src="static/images/flag/usa-flag.png">
+                    <span class="lang-txt" >EN</span>
+                </div>
                 <div name="ru-lang" class="lang" data-value='ru'>
                     <img src="static/images/flag/ru-flag.png">
                     <span class="lang-txt">RU</span>
                 </div>
-                <div name="por-lang" class="lang" data-value='pg'>
+                <div class="por-lang" data-value='pg'>
                     <img src="static/images/flag/por-flag.jpg">
-                    <span class="lang-txt">PT</span>
+                    <span class="lang-txt">Português</span>
                 </div>
-                <div name="sp-lang" class="lang" data-value='sp'>
+                <div class="sp-lang" data-value='sp'>
                     <img src="static/images/flag/sp-flag.jpg">
-                    <span class="lang-txt">ES</span>
+                    <span class="lang-txt">Español</span>
                 </div>
-				<div name="hk-lang" class="lang" data-value='hk'>
-                    <img src="static/images/flag/hk-flag.png">
-                    <span class="lang-txt">HK</span>
-                </div>
-                <div name="cn-lang" class="lang" data-value='cn'>
-                    <img src="static/images/flag/cn-flag.png">
+				 <div class="cn-lang" data-value='cn'>
+                    <img src="static/images/flag/sp-flag.jpg">
                     <span class="lang-txt">CN</span>
                 </div>
-                <div name="fr-lang" class="lang" data-value='fr'>
-                    <img src="static/images/flag/fr-flag.png">
-                    <span class="lang-txt">FR</span>
+				<div class="cn-lang" data-value='cn'>
+                    <img src="static/images/flag/sp-flag.jpg">
+                    <span class="lang-txt">CN</span>
                 </div>
-
             </div>
         </div>
+
         <div class="content"></div>
     </div>
     <!-- End lang-->
-</div>
 
+
+</div>
