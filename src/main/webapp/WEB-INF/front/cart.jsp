@@ -26,6 +26,11 @@
     <div style="width: 100%;height: 55px;clear: both;"></div>
     <div class="shopping">
         <div class="shop-group-item">
+            <!--begin:2019/8/2 wuqiwei 添加20美元邮费-->
+            <div style="border: 1px dashed grey;width:100%;height: 40px;font-weight: bold; ">
+                Tip: An additional 20 USD courier fee is required
+            </div>
+            <!--begin:2019/8/2 wuqiwei 添加20美元邮费-->
             <div class="shop-name">
                 <input type="checkbox" class="check goods-check shopCheck" style="border:0px solid #000">
                 <h4><a href="javascript:;">Select All</a></h4>
@@ -82,7 +87,7 @@
             </ul>
             <div class="shopPrice">
                 <span style="color: #666666;font-weight: 600;">Invitation Code:</span>
-                <input type="text" value="${sessionuser.invite}" id="invite" name="invite"
+                <input type="text" value="" id="invite" name="invite"
                        style="height: 25px;width: 40%; border-style: ridge;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
                 <div style="width: 100%;">
                     <span style="color: #666666;font-weight: 600;">TOTAL：$</span>

@@ -41,6 +41,7 @@ public class TransactionController {
         User user = (User) session.getAttribute("sessionuser");
         long time = System.currentTimeMillis();
         JSONArray waresbox = data.getJSONArray("wares");
+        String invite = data.getString("invite");
         for (int i = 0; i < waresbox.size(); i++) {
             int waresId = Integer.parseInt(((JSONObject) waresbox.get(i)).getString("wares_id"));
             int count = Integer.parseInt(((JSONObject) waresbox.get(i)).getString("wares_count"));
@@ -52,7 +53,7 @@ public class TransactionController {
                 task.setOrderno("HKG:" + time);
                 task.setPay(0);//未付款
                 task.setName(wares.getName());
-                task.setTotal(wares.getPrice() * user.getDiscount());//折扣价钱
+                task.setTotal(invite.equals(user.getInvite())?wares.getPrice()*user.getDiscount():wares.getPrice());//折扣价钱
                 task.setUid(user.getId());
                 task.setType(wares.getType());
                 task.setValid(0);//0：订单有效

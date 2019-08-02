@@ -43,7 +43,6 @@ public class UManagerController {
         u.setDiscount(json.getDiscount());
         u.setInvite(json.getInvite());
         u.setTimes(json.getTimes());
-        u.setPassword(json.getPassword());
         userDao.update(u);
         return "success";
     }

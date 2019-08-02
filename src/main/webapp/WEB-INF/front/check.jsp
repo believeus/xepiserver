@@ -30,6 +30,11 @@
         <div style="background-color:#ffffff;padding-bottom: 70px;">
 
             <div style="width: 100%;height: 10px;"></div>
+            <!--begin:2019/8/2 wuqiwei 添加20美元邮费-->
+            <div style="border: 1px dashed grey;width:100%;height: 40px;font-weight: bold; ">
+                Tip: An additional 20 USD courier fee is required
+            </div>
+            <!--begin:2019/8/2 wuqiwei 添加20美元邮费-->
             <div name="cartbox" style="width:100%;height:auto;">
                 <script>
                     $(function () {
@@ -64,7 +69,7 @@
                                         _oThis.parents("div[name=cart]").remove();
                                         $.post("user/cart/unpaidAmount.jhtml", function (data) {
                                             console.info(data);
-                                            $("[name=unpaidAmount]").text(data);
+                                            $("[name=unpaidAmount]").text(window.parseFloat(data)+20);
                                         });
                                     });
                                 }
@@ -430,7 +435,7 @@
                         <script>
                             $(function () {
                                 $.post("/user/cart/unpaidAmount.jhtml", function (data) {
-                                    $("[name=unpaidAmount]").text(data);
+                                    $("[name=unpaidAmount]").text(window.parseFloat(data)+20);
                                 });
                             });
                         </script>
